@@ -318,7 +318,7 @@
         "tags": [
           "worldstate"
         ],
-        "summary": "Get the current Void Trader inforamtion",
+        "summary": "Get the current Void Trader Information",
         "description": "Information on the current Void Trader offerings, or when he will arrive.",
         "produces": [
           "application/json"
