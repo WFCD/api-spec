@@ -1,0 +1,22 @@
+get:
+  tags:
+    - worldstate
+  summary: Get the timestamp that the current worldstate was generated at.
+  description: The time that the worldstate was last generated
+  parameters:
+    - name: platform
+      in: path
+      description: Platform to provide data for
+      required: true
+      schema:
+        $ref: '#/components/schemas/platform'
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/timestamp'
+    '400':
+      description: Invalid request
+      content: {}

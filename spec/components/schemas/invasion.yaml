@@ -1,0 +1,54 @@
+required:
+  - activation
+  - attackingFaction
+  - completed
+  - completion
+  - count
+  - defendingFaction
+  - desc
+  - eta
+  - id
+  - node
+  - requiredRuns
+  - vsInfestation
+type: object
+properties:
+  defenderReward:
+    $ref: '#/components/schemas/reward'
+  attackingFaction:
+    minLength: 1
+    type: string
+  completion:
+    type: number
+  attackerReward:
+    $ref: '#/components/schemas/reward'
+  count:
+    type: number
+  completed:
+    type: boolean
+  requiredRuns:
+    type: number
+  vsInfestation:
+    type: boolean
+  node:
+    minLength: 1
+    type: string
+  eta:
+    minLength: 1
+    type: string
+  defendingFaction:
+    minLength: 1
+    type: string
+  id:
+    minLength: 1
+    type: string
+  activation:
+    minLength: 1
+    type: string
+  rewardTypes:
+    type: array
+    items:
+      $ref: '#/components/schemas/rewardType'
+  desc:
+    minLength: 1
+    type: string

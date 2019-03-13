@@ -1,0 +1,33 @@
+type: object
+required:
+  - archwingRequired
+  - faction
+  - maxEnemyLevel
+  - maxWaveNum
+  - minEnemyLevel
+  - nightmare
+  - node
+  - reward
+  - type
+properties:
+  reward:
+    $ref: '#/components/schemas/reward'
+  node:
+    minLength: 1
+    type: string
+  faction:
+    minLength: 1
+    type: string
+  maxEnemyLevel:
+    type: number
+  minEnemyLevel:
+    type: number
+  maxWaveNum:
+    type: number
+  type:
+    minLength: 1
+    type: string
+  nightmare:
+    type: boolean
+  archwingRequired:
+    type: boolean

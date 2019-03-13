@@ -1,0 +1,17 @@
+get:
+  tags:
+    - data
+  summary: Get operation types data.
+  description: >-
+    Operation Types information to aid translating identifiers for global
+    upgrades
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/operationTypes'
+    '400':
+      description: Invalid request
+      content: {}

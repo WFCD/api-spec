@@ -1,0 +1,15 @@
+get:
+  tags:
+    - data
+  summary: Get conclave challenge data
+  description: Data about conclave challenges
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/conclave'
+    '400':
+      description: Invalid request
+      content: {}

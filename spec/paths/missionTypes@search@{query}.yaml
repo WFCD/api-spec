@@ -1,0 +1,23 @@
+get:
+  tags:
+    - queryable
+  summary: Get MissionType Translation Keys based on the query
+  description: Mission Type information to aid translating identifiers
+  parameters:
+    - name: query
+      in: path
+      description: Keyword to search for
+      required: true
+      schema:
+        type: string
+        format: utf8
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/missionTypes'
+    '400':
+      description: Invalid request
+      content: {}

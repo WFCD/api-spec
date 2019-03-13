@@ -1,0 +1,15 @@
+get:
+  tags:
+    - data
+  summary: Get Faction translation information.
+  description: Strings for translating faction identifiers.
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/factions'
+    '400':
+      description: Invalid request
+      content: {}

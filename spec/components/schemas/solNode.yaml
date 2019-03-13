@@ -1,0 +1,19 @@
+type: object
+properties:
+  SolKey:
+    required:
+      - enemy
+      - type
+      - value
+    type: object
+    properties:
+      enemy:
+        minLength: 1
+        type: string
+      type:
+        minLength: 1
+        type: string
+      value:
+        minLength: 1
+        type: string
+description: ''

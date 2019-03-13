@@ -1,0 +1,52 @@
+required:
+  - VoidT1
+  - VoidT2
+  - VoidT3
+  - VoidT4
+type: object
+properties:
+  VoidT1:
+    required:
+      - num
+      - value
+    type: object
+    properties:
+      num:
+        type: number
+      value:
+        minLength: 1
+        type: string
+  VoidT2:
+    required:
+      - num
+      - value
+    type: object
+    properties:
+      num:
+        type: number
+      value:
+        minLength: 1
+        type: string
+  VoidT3:
+    required:
+      - num
+      - value
+    type: object
+    properties:
+      num:
+        type: number
+      value:
+        minLength: 1
+        type: string
+  VoidT4:
+    required:
+      - num
+      - value
+    type: object
+    properties:
+      num:
+        type: number
+      value:
+        minLength: 1
+        type: string
+description: ''

@@ -1,0 +1,17 @@
+required:
+  - expiry
+  - id
+  - isDay
+  - timeLeft
+type: object
+properties:
+  id:
+    type: number
+  expiry:
+    minLength: 1
+    type: string
+  isDay:
+    type: boolean
+  timeLeft:
+    minLength: 1
+    type: string

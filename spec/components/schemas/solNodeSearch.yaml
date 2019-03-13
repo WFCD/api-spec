@@ -1,0 +1,33 @@
+minItems: 1
+type: array
+description: ''
+items:
+  required:
+    - keys
+    - nodes
+  type: object
+  properties:
+    nodes:
+      minItems: 1
+      uniqueItems: true
+      type: array
+      items:
+        required:
+          - enemy
+          - type
+          - value
+        type: object
+        properties:
+          enemy:
+            minLength: 1
+            type: string
+          type:
+            minLength: 1
+            type: string
+          value:
+            minLength: 1
+            type: string
+    keys:
+      type: array
+      items:
+        type: string

@@ -1,0 +1,18 @@
+required:
+  - expiry
+  - id
+  - isWarm
+  - timeLeft
+type: object
+properties:
+  id:
+    minLength: 1
+    type: string
+  expiry:
+    minLength: 1
+    type: string
+  timeLeft:
+    minLength: 1
+    type: string
+  isWarm:
+    type: boolean

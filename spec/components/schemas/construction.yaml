@@ -1,0 +1,19 @@
+required:
+  - fomorianProgress
+  - id
+  - razorbackProgress
+  - unknownProgress
+type: object
+properties:
+  id:
+    minLength: 1
+    type: string
+  fomorianProgress:
+    minLength: 1
+    type: string
+  razorbackProgress:
+    minLength: 1
+    type: string
+  unknownProgress:
+    minLength: 1
+    type: string

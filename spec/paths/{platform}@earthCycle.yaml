@@ -1,0 +1,22 @@
+get:
+  tags:
+    - worldstate
+  summary: Get the current Earth rotation information
+  description: The current Earth day/night cycle progress.
+  parameters:
+    - name: platform
+      in: path
+      description: Platform to provide data for
+      required: true
+      schema:
+        $ref: '#/components/schemas/platform'
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/earthCycle'
+    '400':
+      description: Invalid request
+      content: {}

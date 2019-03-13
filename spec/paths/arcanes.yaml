@@ -1,0 +1,15 @@
+get:
+  tags:
+    - data
+  summary: Get Arcane Enhancement Data
+  description: Available Arcane Enhancements
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/arcane'
+    '400':
+      description: Invalid request
+      content: {}

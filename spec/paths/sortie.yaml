@@ -1,0 +1,15 @@
+get:
+  tags:
+    - data
+  summary: Get Sortie translation information.
+  description: Sortie translation information for assisting translation of identifiers.
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/sortieData'
+    '400':
+      description: Invalid request
+      content: {}

@@ -1,0 +1,63 @@
+required:
+  - alerts
+  - cetusCycle
+  - conclaveChallenges
+  - constructionProgress
+  - dailyDeals
+  - darkSectors
+  - earthCycle
+  - events
+  - fissures
+  - flashSales
+  - globalUpgrades
+  - invasions
+  - news
+  - persistentEnemies
+  - simaris
+  - sortie
+  - syndicateMissions
+  - timestamp
+  - voidTrader
+type: object
+properties:
+  timestamp:
+    $ref: '#/components/schemas/timestamp'
+  news:
+    $ref: '#/components/schemas/news'
+  events:
+    $ref: '#/components/schemas/events'
+  alerts:
+    $ref: '#/components/schemas/alert'
+  sortie:
+    $ref: '#/components/schemas/sortie'
+  syndicateMissions:
+    $ref: '#/components/schemas/syndicateMissions'
+  fissures:
+    $ref: '#/components/schemas/fissures'
+  globalUpgrades:
+    $ref: '#/components/schemas/globalUpgrades'
+  flashSales:
+    $ref: '#/components/schemas/flashSales'
+  invasions:
+    $ref: '#/components/schemas/invasions'
+  darkSectors:
+    $ref: '#/components/schemas/darkSectors'
+  voidTrader:
+    $ref: '#/components/schemas/voidTrader'
+  dailyDeals:
+    $ref: '#/components/schemas/dailyDeals'
+  simaris:
+    $ref: '#/components/schemas/simaris'
+  conclaveChallenges:
+    $ref: '#/components/schemas/conclaveChallenges'
+  persistentEnemies:
+    $ref: '#/components/schemas/persistentEnemies'
+  earthCycle:
+    $ref: '#/components/schemas/earthCycle'
+  cetusCycle:
+    $ref: '#/components/schemas/cetusCycle'
+  constructionProgress:
+    $ref: '#/components/schemas/construction'
+  nightwave:
+    $ref: '#/components/schemas/nightwave'
+description: ''

@@ -1,0 +1,23 @@
+get:
+  tags:
+    - queryable
+  summary: Get Sol Node information and translation data based on the query.
+  description: Sol Node translation information for aiding the translation of identifiers.
+  parameters:
+    - name: query
+      in: path
+      description: Keyword to search for
+      required: true
+      schema:
+        type: string
+        format: utf8
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/solNodeSearch'
+    '400':
+      description: Invalid request
+      content: {}

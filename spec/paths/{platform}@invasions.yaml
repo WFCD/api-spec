@@ -1,0 +1,22 @@
+get:
+  tags:
+    - worldstate
+  summary: Invasion Data
+  description: 'Data on invasion missions, such as estimated completion time, rewards, etc.'
+  parameters:
+    - name: platform
+      in: path
+      description: Platform to provide data for
+      required: true
+      schema:
+        $ref: '#/components/schemas/platform'
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/invasions'
+    '400':
+      description: Invalid request
+      content: {}

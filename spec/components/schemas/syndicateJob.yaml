@@ -1,0 +1,27 @@
+type: object
+description: A Job for a syndicate. Often called a bounty.
+properties:
+  activation:
+    type: string
+    description: Timestamp for when the job becomes active
+  expiry:
+    type: string
+    description: Timestamp for when the job becomes inactive
+  rewardPool:
+    type: array
+    items:
+      type: string
+    description: Reward Pool for the job
+  type:
+    type: string
+    description: What type of Job (Bounty) it is
+  enemyLevels:
+    type: array
+    description: Array of enemy levels
+    items:
+      type: number
+  standingStages:
+    type: array
+    items:
+      type: number
+    description: Stages of standing rewards.

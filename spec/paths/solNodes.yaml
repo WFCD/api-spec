@@ -1,0 +1,15 @@
+get:
+  tags:
+    - data
+  summary: Get Sol Node information and translation data.
+  description: Sol Node translation information for aiding the translation of identifiers.
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/solNode'
+    '400':
+      description: Invalid request
+      content: {}

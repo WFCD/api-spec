@@ -1,0 +1,23 @@
+get:
+  tags:
+    - queryable
+  summary: Get Tutorials Data based on the query
+  description: Tutorials data from DE
+  parameters:
+    - name: query
+      in: path
+      description: Keyword to search for
+      required: true
+      schema:
+        type: string
+        format: utf8
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/tutorials'
+    '400':
+      description: Invalid request
+      content: {}

@@ -1,0 +1,40 @@
+required:
+  - GAMEPLAY_KILL_XP_AMOUNT
+  - GAMEPLAY_MONEY_PICKUP_AMOUNT
+  - GAMEPLAY_MONEY_REWARD_AMOUNT
+  - GAMEPLAY_PICKUP_AMOUNT
+type: object
+properties:
+  GAMEPLAY_KILL_XP_AMOUNT:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  GAMEPLAY_PICKUP_AMOUNT:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  GAMEPLAY_MONEY_REWARD_AMOUNT:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  GAMEPLAY_MONEY_PICKUP_AMOUNT:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+description: ''

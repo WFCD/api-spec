@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    minLength: 1
+    type: string
+  activation:
+    minLength: 1
+    type: string
+  expiry:
+    minLength: 1
+    type: string
+  isDaily:
+    type: boolean
+  isElite:
+    type: boolean
+  title:
+    type: string
+  desc:
+    type: string
+  reputation:
+    type: number

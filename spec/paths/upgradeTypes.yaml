@@ -1,0 +1,17 @@
+get:
+  tags:
+    - data
+  summary: Get upgrade types data for global upgrades.
+  description: >-
+    Upgrade types for what can be changed by global modifiers, such as double
+    credit weekends.
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/upgradeTypes'
+    '400':
+      description: Invalid request
+      content: {}

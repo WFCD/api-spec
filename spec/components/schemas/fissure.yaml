@@ -1,0 +1,41 @@
+type: object
+required:
+  - activation
+  - enemy
+  - eta
+  - expired
+  - expiry
+  - id
+  - missionType
+  - node
+  - tier
+  - tierNum
+properties:
+  node:
+    minLength: 1
+    type: string
+  expired:
+    type: boolean
+  eta:
+    minLength: 1
+    type: string
+  missionType:
+    minLength: 1
+    type: string
+  tier:
+    minLength: 1
+    type: string
+  tierNum:
+    type: number
+  enemy:
+    minLength: 1
+    type: string
+  id:
+    minLength: 1
+    type: string
+  expiry:
+    minLength: 1
+    type: string
+  activation:
+    minLength: 1
+    type: string

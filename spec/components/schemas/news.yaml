@@ -1,0 +1,54 @@
+minItems: 1
+type: array
+items:
+  required:
+    - asString
+    - date
+    - eta
+    - id
+    - imageLink
+    - link
+    - message
+    - primeAccess
+    - priority
+    - stream
+    - update
+  type: object
+  properties:
+    date:
+      minLength: 1
+      type: string
+    imageLink:
+      minLength: 1
+      type: string
+    eta:
+      minLength: 1
+      type: string
+    primeAccess:
+      type: boolean
+    stream:
+      type: boolean
+    translations:
+      required:
+        - es
+      type: object
+      properties:
+        es:
+          minLength: 1
+          type: string
+    link:
+      minLength: 1
+      type: string
+    update:
+      type: boolean
+    id:
+      minLength: 1
+      type: string
+    asString:
+      minLength: 1
+      type: string
+    message:
+      minLength: 1
+      type: string
+    priority:
+      type: boolean

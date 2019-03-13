@@ -1,0 +1,50 @@
+minItems: 1
+type: array
+items:
+  required:
+    - amount
+    - asString
+    - category
+    - daily
+    - description
+    - endString
+    - eta
+    - expired
+    - expiry
+    - id
+    - mode
+    - rootChallenge
+  type: object
+  properties:
+    mode:
+      minLength: 1
+      type: string
+    amount:
+      type: number
+    eta:
+      minLength: 1
+      type: string
+    expired:
+      type: boolean
+    endString:
+      minLength: 1
+      type: string
+    daily:
+      type: boolean
+    description:
+      minLength: 1
+      type: string
+    id:
+      minLength: 1
+      type: string
+    expiry:
+      minLength: 1
+      type: string
+    asString:
+      minLength: 1
+      type: string
+    category:
+      minLength: 1
+      type: string
+    rootChallenge:
+      type: boolean

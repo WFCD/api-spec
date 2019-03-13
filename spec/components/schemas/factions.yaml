@@ -1,0 +1,49 @@
+required:
+  - FC_CORPUS
+  - FC_CORRUPTED
+  - FC_GRINEER
+  - FC_INFESTATION
+  - FC_OROKIN
+type: object
+properties:
+  FC_GRINEER:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  FC_CORPUS:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  FC_INFESTATION:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  FC_CORRUPTED:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  FC_OROKIN:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+description: ''

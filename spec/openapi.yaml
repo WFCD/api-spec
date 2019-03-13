@@ -1,0 +1,30 @@
+openapi: 3.0.1
+info:
+  title: WarframeStat.us API
+  description: Simple API for data from the game Warframe.
+  termsOfService: ''
+  contact:
+    email: wf-com-dev@warframestat.us
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: living
+  x-logo:
+    url: 'https://warframestat.us/wfcd_logo_color.png'
+externalDocs:
+  description: Find out more about Warframe
+  url: 'https://warframe.com'
+servers:
+  - url: 'https://api.warframestat.us/'
+  - url: 'http://api.warframestat.us/'
+tags:
+  - name: warframe
+    description: Everything about Warframe
+    externalDocs:
+      description: Find out more
+      url: 'https://warframe.com'
+  - name: worldstate
+    description: Warframe Worldstate Data
+    externalDocs:
+      description: Find out more
+      url: 'https://discord.gg/jGZxH9f'

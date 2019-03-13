@@ -1,0 +1,28 @@
+type: array
+items:
+  type: object
+  properties:
+    start:
+      type: string
+    end:
+      type: string
+    upgrade:
+      type: string
+    operation:
+      description: Operation descriptor
+      type: string
+    operationSymbol:
+      description: Symbol corresponding to operation
+      type: string
+    upgradeOperationValue:
+      description: Value corresponding to performing the operation
+      type: number
+    expired:
+      description: Whether or not the upgrade has expired
+      type: boolean
+    eta:
+      description: Formatted short string designating when the upgrade will expire.
+      type: string
+    desc:
+      description: Plain text description of the global upgrade.
+      type: string

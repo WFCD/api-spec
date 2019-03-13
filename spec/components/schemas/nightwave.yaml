@@ -1,0 +1,32 @@
+type: object
+properties:
+  id:
+    minLength: 1
+    type: string
+  activation:
+    minLength: 1
+    type: string
+  expiry:
+    minLength: 1
+    type: string
+  params:
+    type: object
+    properties: {}
+  rewardTypes:
+    type: array
+    items:
+      type: string
+  season:
+    type: number
+  tag:
+    type: string
+  phase:
+    type: number
+  possibleChallenges:
+    type: array
+    items:
+      $ref: '#/components/schemas/nightwaveChallenge'
+  activeChallenges:
+    type: array
+    items:
+      $ref: '#/components/schemas/nightwaveChallenge'

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>warframestat.us API Specification</title>
+    <title>API Reference | WarframeStatus API</title>
     <!-- needed for adaptive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="https://warframestat.us/wfcd_logo_color.png">
 
     <!--
     ReDoc uses font options from the parent element
@@ -13,12 +14,19 @@
       body {
         margin: 0;
         padding: 0;
+        background-color: #23272A;
+      }
+      h2.fAUnug  {
+        color: white;
+      }
+      .cqfmPW > ul > li.react-tabs__tab--selected {
+        background-color: rgba(44, 47, 51, 0.8)!important;
+        border:none;
       }
     </style>
+    {{redocHead}}
   </head>
   <body>
-    <redoc spec-url="./swagger.json">
-    </redoc>
-    <script src="//rebilly.github.io/ReDoc/releases/v1.x.x/redoc.min.js"> </script>
+    {{redocBody}}
   </body>
 </html>

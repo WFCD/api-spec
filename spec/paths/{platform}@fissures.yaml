@@ -1,0 +1,22 @@
+get:
+  tags:
+    - worldstate
+  summary: Data on current fissures
+  description: Information about current Void Fissure missions
+  parameters:
+    - name: platform
+      in: path
+      description: Platform to provide data for
+      required: true
+      schema:
+        $ref: '#/components/schemas/platform'
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/fissures'
+    '400':
+      description: Invalid request
+      content: {}

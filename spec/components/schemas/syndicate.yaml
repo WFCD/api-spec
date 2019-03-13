@@ -1,0 +1,13 @@
+type: string
+enum:
+  - Arbiters of Hexis
+  - Cephalon Suda
+  - Assassins
+  - Nightwave
+  - Ostrons
+  - Vox Solaris
+  - Solaris United
+  - Perrin Sequence
+  - Steel Meridian
+  - Red Veil
+  - New Loka

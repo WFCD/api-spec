@@ -1,0 +1,14 @@
+required:
+  - asString
+  - isTargetActive
+  - target
+type: object
+properties:
+  target:
+    minLength: 1
+    type: string
+  isTargetActive:
+    type: boolean
+  asString:
+    minLength: 1
+    type: string

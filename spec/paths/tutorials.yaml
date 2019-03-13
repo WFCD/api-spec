@@ -1,0 +1,15 @@
+get:
+  tags:
+    - data
+  summary: Get Tutorials Data
+  description: Tutorials data from DE
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/tutorials'
+    '400':
+      description: Invalid request
+      content: {}

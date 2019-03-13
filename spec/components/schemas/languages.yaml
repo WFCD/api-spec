@@ -1,0 +1,11 @@
+type: object
+properties:
+  languageKey:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+description: ''

@@ -1,0 +1,94 @@
+required:
+  - ArbitersSyndicate
+  - AssassinsSyndicate
+  - CephalonSudaSyndicate
+  - CetusSyndicate
+  - EventSyndicate
+  - NewLokaSyndicate
+  - PerrinSyndicate
+  - QuillsSyndicate
+  - RedVeilSyndicate
+  - SteelMeridianSyndicate
+type: object
+properties:
+  ArbitersSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+  CephalonSudaSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+  NewLokaSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+  PerrinSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+  SteelMeridianSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+  RedVeilSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+  CetusSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+  QuillsSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+  AssassinsSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+  EventSyndicate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        minLength: 1
+        type: string
+description: ''

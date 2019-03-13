@@ -1,0 +1,39 @@
+type: array
+items:
+  type: object
+  properties:
+    locationTag:
+      type: string
+      description: Location tag for Acolyte
+    agentType:
+      type: string
+      description: Which acolyte it is
+    rank:
+      type: number
+      description: Enemy level
+    healthPercent:
+      type: number
+      description: Enemy's remaining health
+    fleeDamage:
+      type: number
+      description: The percent damage that the enemy takes when it's defeated
+    region:
+      type: string
+      description: The region in which the enemy is located
+    lastDiscoveredTime:
+      type: string
+      description: The time at which the enemy was last discovered
+    lastDiscoveredAt:
+      type: string
+      description: Node at which the enemy was last discovered
+    isDiscovered:
+      type: boolean
+      description: Whether or not the enemy is currently discovered
+    isUsingTicketing:
+      type: boolean
+      description: Whether or not the enemy is using 'ticketing'. Unknown usage.
+    pid:
+      type: string
+      description: >-
+        faux-id incorporating the actual description and whether or not the
+        enemy is discovered.

@@ -1,0 +1,21 @@
+required:
+  - expiry
+  - id
+  - isCetus
+  - isDay
+  - timeLeft
+type: object
+properties:
+  id:
+    minLength: 1
+    type: string
+  expiry:
+    minLength: 1
+    type: string
+  isDay:
+    type: boolean
+  timeLeft:
+    minLength: 1
+    type: string
+  isCetus:
+    type: boolean

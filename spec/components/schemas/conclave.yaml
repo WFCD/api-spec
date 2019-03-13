@@ -1,0 +1,112 @@
+required:
+  - categories
+  - modes
+type: object
+properties:
+  modes:
+    required:
+      - PVPMODE_ALL
+      - PVPMODE_CAPTURETHEFLAG
+      - PVPMODE_DEATHMATCH
+      - PVPMODE_NONE
+      - PVPMODE_SPEEDBALL
+      - PVPMODE_TEAMDEATHMATCH
+    type: object
+    properties:
+      PVPMODE_ALL:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+      PVPMODE_TEAMDEATHMATCH:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+      PVPMODE_NONE:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+      PVPMODE_CAPTURETHEFLAG:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+      PVPMODE_SPEEDBALL:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+      PVPMODE_DEATHMATCH:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+  categories:
+    required:
+      - PVPChallengeTypeCategory_DAILY
+      - PVPChallengeTypeCategory_DAILY_ROOT
+      - PVPChallengeTypeCategory_MODEAFFECTOR
+      - PVPChallengeTypeCategory_WEEKLY
+      - PVPChallengeTypeCategory_WEEKLY_ROOT
+    type: object
+    properties:
+      PVPChallengeTypeCategory_DAILY_ROOT:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+      PVPChallengeTypeCategory_DAILY:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+      PVPChallengeTypeCategory_WEEKLY:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+      PVPChallengeTypeCategory_WEEKLY_ROOT:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string
+      PVPChallengeTypeCategory_MODEAFFECTOR:
+        required:
+          - value
+        type: object
+        properties:
+          value:
+            minLength: 1
+            type: string

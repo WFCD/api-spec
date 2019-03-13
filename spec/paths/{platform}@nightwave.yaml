@@ -1,0 +1,24 @@
+get:
+  tags:
+    - worldstate
+  summary: Get the current Nightwave state.
+  description: >-
+    The Current cycle and challenges of Nightwave, a battle-pass-esque rotation
+    and challenge system
+  parameters:
+    - name: platform
+      in: path
+      description: Platform to provide data for
+      required: true
+      schema:
+        $ref: '#/components/schemas/platform'
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/nightwave'
+    '400':
+      description: Invalid request
+      content: {}

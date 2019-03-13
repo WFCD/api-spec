@@ -1,0 +1,22 @@
+minItems: 1
+type: array
+description: ''
+items:
+  required:
+    - chance
+    - item
+    - place
+    - rarity
+  type: object
+  properties:
+    item:
+      minLength: 1
+      type: string
+    chance:
+      type: number
+    place:
+      minLength: 1
+      type: string
+    rarity:
+      minLength: 1
+      type: string

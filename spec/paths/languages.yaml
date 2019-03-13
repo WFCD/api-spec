@@ -1,0 +1,17 @@
+get:
+  tags:
+    - data
+  summary: Get Language strings for Warframe.
+  description: >-
+    Get language strings to assist translation. (Prefer the
+    /languages/search/:query route)
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/languages'
+    '400':
+      description: Invalid request
+      content: {}

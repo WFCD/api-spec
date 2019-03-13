@@ -1,0 +1,53 @@
+required:
+  - activation
+  - active
+  - character
+  - endString
+  - expiry
+  - id
+  - inventory
+  - location
+  - psId
+  - startString
+type: object
+properties:
+  id:
+    minLength: 1
+    type: string
+  activation:
+    minLength: 1
+    type: string
+  expiry:
+    minLength: 1
+    type: string
+  character:
+    minLength: 1
+    type: string
+  location:
+    minLength: 1
+    type: string
+  inventory:
+    type: array
+    items:
+      type: object
+      properties:
+        item:
+          type: string
+          description: Item that is being sold
+        ducats:
+          type: number
+          description: Amount of ducats required to purchase item
+        credits:
+          type: number
+          description: Amount of credits required to purchase item
+  psId:
+    minLength: 1
+    type: string
+  active:
+    type: boolean
+  startString:
+    minLength: 1
+    type: string
+  endString:
+    minLength: 1
+    type: string

@@ -1,0 +1,24 @@
+get:
+  tags:
+    - worldstate
+  summary: Current Sortie Data
+  description: Data about the missions for the current sortie
+  parameters:
+    - name: platform
+      in: path
+      description: Platform to provide data for
+      required: true
+      schema:
+        $ref: '#/components/schemas/platform'
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/sortie'
+    '400':
+      description: Invalid request
+      content: {}

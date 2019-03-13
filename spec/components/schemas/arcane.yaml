@@ -1,0 +1,31 @@
+required:
+  - effect
+  - info
+  - location
+  - name
+  - rarity
+  - regex
+  - thumbnail
+type: object
+properties:
+  regex:
+    minLength: 1
+    type: string
+  name:
+    minLength: 1
+    type: string
+  effect:
+    minLength: 1
+    type: string
+  rarity:
+    minLength: 1
+    type: string
+  location:
+    minLength: 1
+    type: string
+  thumbnail:
+    minLength: 1
+    type: string
+  info:
+    minLength: 1
+    type: string

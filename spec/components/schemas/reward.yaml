@@ -1,0 +1,43 @@
+type: object
+required:
+  - asString
+  - color
+  - countedItems
+  - credits
+  - itemString
+  - items
+  - thumbnail
+properties:
+  countedItems:
+    minItems: 1
+    uniqueItems: true
+    type: array
+    items:
+      required:
+        - count
+        - type
+      type: object
+      properties:
+        count:
+          type: number
+        type:
+          minLength: 1
+          type: string
+  thumbnail:
+    minLength: 1
+    type: string
+  color:
+    type: number
+  credits:
+    type: number
+  asString:
+    minLength: 1
+    type: string
+  items:
+    type: array
+    items:
+      type: object
+      properties: {}
+  itemString:
+    minLength: 1
+    type: string

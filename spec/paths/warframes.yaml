@@ -1,0 +1,15 @@
+get:
+  tags:
+    - data
+  summary: 'Get Warframe specs and data, such as polarities defenses, and profile.'
+  description: Warframe stats and general information.
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/warframes'
+    '400':
+      description: Invalid request
+      content: {}

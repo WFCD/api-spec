@@ -1,0 +1,14 @@
+type: object
+properties:
+  name:
+    type: string
+  date:
+    type: string
+  url:
+    type: string
+  additions:
+    type: string
+  changes:
+    type: string
+  fixes:
+    type: string

@@ -1,0 +1,9 @@
+type: string
+enum:
+  - Vazarin
+  - Madurai
+  - Naramon
+  - Zenurik
+  - Unairu
+  - Penjaga
+  - Unbra

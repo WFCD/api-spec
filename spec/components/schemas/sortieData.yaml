@@ -1,0 +1,503 @@
+required:
+  - bosses
+  - endStates
+  - modifierDescriptions
+  - modifierTypes
+  - modifiers
+type: object
+properties:
+  modifierTypes:
+    required:
+      - SORTIE_MODIFIER_ARMOR
+      - SORTIE_MODIFIER_BOW_ONLY
+      - SORTIE_MODIFIER_CORROSIVE
+      - SORTIE_MODIFIER_ELECTRICITY
+      - SORTIE_MODIFIER_EXIMUS
+      - SORTIE_MODIFIER_EXPLOSION
+      - SORTIE_MODIFIER_FIRE
+      - SORTIE_MODIFIER_FREEZE
+      - SORTIE_MODIFIER_GAS
+      - SORTIE_MODIFIER_HAZARD_COLD
+      - SORTIE_MODIFIER_HAZARD_FIRE
+      - SORTIE_MODIFIER_HAZARD_FOG
+      - SORTIE_MODIFIER_HAZARD_ICE
+      - SORTIE_MODIFIER_HAZARD_MAGNETIC
+      - SORTIE_MODIFIER_HAZARD_RADIATION
+      - SORTIE_MODIFIER_IMPACT
+      - SORTIE_MODIFIER_LOW_ENERGY
+      - SORTIE_MODIFIER_MAGNETIC
+      - SORTIE_MODIFIER_MELEE_ONLY
+      - SORTIE_MODIFIER_POISON
+      - SORTIE_MODIFIER_PUNCTURE
+      - SORTIE_MODIFIER_RADIATION
+      - SORTIE_MODIFIER_RIFLE_ONLY
+      - SORTIE_MODIFIER_SECONDARY_ONLY
+      - SORTIE_MODIFIER_SHIELDS
+      - SORTIE_MODIFIER_SHOTGUN_ONLY
+      - SORTIE_MODIFIER_SLASH
+      - SORTIE_MODIFIER_SNIPER_ONLY
+      - SORTIE_MODIFIER_TOXIN
+      - SORTIE_MODIFIER_VIRAL
+    type: object
+    properties:
+      SORTIE_MODIFIER_IMPACT:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_COLD:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SECONDARY_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_TOXIN:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_ELECTRICITY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_FOG:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_MAGNETIC:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_ARMOR:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_CORROSIVE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_VIRAL:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_RADIATION:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SLASH:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_POISON:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_GAS:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_MAGNETIC:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_FIRE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SNIPER_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_PUNCTURE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_EXPLOSION:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_BOW_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_RADIATION:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SHIELDS:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_FREEZE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_FIRE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_EXIMUS:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SHOTGUN_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_MELEE_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_RIFLE_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_ICE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_LOW_ENERGY:
+        minLength: 1
+        type: string
+  modifierDescriptions:
+    required:
+      - SORTIE_MODIFIER_ARMOR
+      - SORTIE_MODIFIER_BOW_ONLY
+      - SORTIE_MODIFIER_CORROSIVE
+      - SORTIE_MODIFIER_ELECTRICITY
+      - SORTIE_MODIFIER_EXIMUS
+      - SORTIE_MODIFIER_EXPLOSION
+      - SORTIE_MODIFIER_FIRE
+      - SORTIE_MODIFIER_FREEZE
+      - SORTIE_MODIFIER_GAS
+      - SORTIE_MODIFIER_HAZARD_COLD
+      - SORTIE_MODIFIER_HAZARD_FIRE
+      - SORTIE_MODIFIER_HAZARD_FOG
+      - SORTIE_MODIFIER_HAZARD_ICE
+      - SORTIE_MODIFIER_HAZARD_MAGNETIC
+      - SORTIE_MODIFIER_HAZARD_RADIATION
+      - SORTIE_MODIFIER_IMPACT
+      - SORTIE_MODIFIER_LOW_ENERGY
+      - SORTIE_MODIFIER_MAGNETIC
+      - SORTIE_MODIFIER_MELEE_ONLY
+      - SORTIE_MODIFIER_POISON
+      - SORTIE_MODIFIER_PUNCTURE
+      - SORTIE_MODIFIER_RADIATION
+      - SORTIE_MODIFIER_RIFLE_ONLY
+      - SORTIE_MODIFIER_SECONDARY_ONLY
+      - SORTIE_MODIFIER_SHIELDS
+      - SORTIE_MODIFIER_SHOTGUN_ONLY
+      - SORTIE_MODIFIER_SLASH
+      - SORTIE_MODIFIER_SNIPER_ONLY
+      - SORTIE_MODIFIER_TOXIN
+      - SORTIE_MODIFIER_VIRAL
+    type: object
+    properties:
+      SORTIE_MODIFIER_IMPACT:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_COLD:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SECONDARY_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_TOXIN:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_ELECTRICITY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_FOG:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_MAGNETIC:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_ARMOR:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_CORROSIVE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_VIRAL:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_RADIATION:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SLASH:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_POISON:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_GAS:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_MAGNETIC:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_FIRE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SNIPER_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_PUNCTURE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_EXPLOSION:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_BOW_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_RADIATION:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SHIELDS:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_FREEZE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_FIRE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_EXIMUS:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_SHOTGUN_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_MELEE_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_RIFLE_ONLY:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_HAZARD_ICE:
+        minLength: 1
+        type: string
+      SORTIE_MODIFIER_LOW_ENERGY:
+        minLength: 1
+        type: string
+  bosses:
+    required:
+      - SORTIE_BOSS_ALAD
+      - SORTIE_BOSS_AMBULAS
+      - SORTIE_BOSS_CORRUPTED_VOR
+      - SORTIE_BOSS_HEK
+      - SORTIE_BOSS_HYENA
+      - SORTIE_BOSS_INFALAD
+      - SORTIE_BOSS_JACKAL
+      - SORTIE_BOSS_KELA
+      - SORTIE_BOSS_KRIL
+      - SORTIE_BOSS_LEPHANTIS
+      - SORTIE_BOSS_NEF
+      - SORTIE_BOSS_PHORID
+      - SORTIE_BOSS_RAPTOR
+      - SORTIE_BOSS_RUK
+      - SORTIE_BOSS_TYL
+      - SORTIE_BOSS_VOR
+    type: object
+    properties:
+      SORTIE_BOSS_KELA:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_AMBULAS:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_TYL:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_ALAD:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_RUK:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_HYENA:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_KRIL:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_CORRUPTED_VOR:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_INFALAD:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_PHORID:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_JACKAL:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_RAPTOR:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_VOR:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_HEK:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_NEF:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+      SORTIE_BOSS_LEPHANTIS:
+        required:
+          - faction
+          - name
+        type: object
+        properties:
+          faction:
+            minLength: 1
+            type: string
+          name:
+            minLength: 1
+            type: string
+  endStates:
+    minItems: 1
+    uniqueItems: true
+    type: array
+    items:
+      required:
+        - bossName
+      type: object
+      properties:
+        regions:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - name
+            type: object
+            properties:
+              missions:
+                type: array
+                items:
+                  type: object
+                  properties: {}
+              name:
+                minLength: 1
+                type: string
+        bossName:
+          minLength: 1
+          type: string
+  modifiers:
+    type: array
+    items:
+      type: object
+      properties: {}
+description: ''

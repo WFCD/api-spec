@@ -1,0 +1,6 @@
+type: string
+enum:
+  - pc
+  - ps4
+  - xb1
+  - swi

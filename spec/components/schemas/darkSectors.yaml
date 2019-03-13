@@ -1,0 +1,36 @@
+minItems: 1
+type: array
+items:
+  required:
+    - defenderDeployemntActivation
+    - defenderMOTD
+    - defenderName
+    - deployerClan
+    - deployerName
+    - id
+    - isAlliance
+  type: object
+  properties:
+    defenderMOTD:
+      minLength: 1
+      type: string
+    deployerName:
+      minLength: 1
+      type: string
+    defenderDeployemntActivation:
+      type: number
+    defenderName:
+      minLength: 1
+      type: string
+    deployerClan:
+      minLength: 1
+      type: string
+    isAlliance:
+      type: boolean
+    id:
+      minLength: 1
+      type: string
+    history:
+      type: array
+      items:
+        $ref: '#/components/schemas/darkSectorHistory'

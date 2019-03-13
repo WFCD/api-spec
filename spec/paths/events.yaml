@@ -1,0 +1,15 @@
+get:
+  tags:
+    - data
+  summary: Get Event-specific Data
+  description: Data about events
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+    '400':
+      description: Invalid request
+      content: {}

@@ -1,0 +1,23 @@
+get:
+  tags:
+    - queryable
+  summary: Get conclave challenge data based on the query
+  description: Data about conclave challenges
+  parameters:
+    - name: query
+      in: path
+      description: Keyword to search for
+      required: true
+      schema:
+        type: string
+        format: utf8
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/conclave'
+    '400':
+      description: Invalid request
+      content: {}

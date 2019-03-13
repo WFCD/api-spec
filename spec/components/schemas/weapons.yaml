@@ -1,0 +1,8 @@
+minItems: 1
+type: array
+description: ''
+items:
+  oneOf:
+    - $ref: '#/components/schemas/primaryWeapon'
+    - $ref: '#/components/schemas/secondaryWeapon'
+    - $ref: '#/components/schemas/meleeWeapon'

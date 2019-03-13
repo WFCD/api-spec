@@ -1,0 +1,166 @@
+required:
+  - MT_ARENA
+  - MT_ASSASSINATION
+  - MT_ASSAULT
+  - MT_CAPTURE
+  - MT_DEFENSE
+  - MT_EVACUATION
+  - MT_EXCAVATE
+  - MT_EXTERMINATION
+  - MT_HIVE
+  - MT_INTEL
+  - MT_MOBILE_DEFENSE
+  - MT_PVP
+  - MT_RESCUE
+  - MT_RETRIEVAL
+  - MT_SABOTAGE
+  - MT_SECTOR
+  - MT_SURVIVAL
+  - MT_TERRITORY
+type: object
+properties:
+  MT_EXCAVATE:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_SABOTAGE:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_MOBILE_DEFENSE:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_ASSASSINATION:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_EXTERMINATION:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_HIVE:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_DEFENSE:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_TERRITORY:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_ARENA:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_PVP:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_RESCUE:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_INTEL:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_SURVIVAL:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_CAPTURE:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_SECTOR:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_RETRIEVAL:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_ASSAULT:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_EVACUATION:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+description: ''

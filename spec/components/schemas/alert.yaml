@@ -1,0 +1,31 @@
+minItems: 1
+type: array
+items:
+  required:
+    - activation
+    - eta
+    - expired
+    - expiry
+    - id
+  type: object
+  properties:
+    mission:
+      $ref: '#/components/schemas/mission'
+    expired:
+      type: boolean
+    eta:
+      minLength: 1
+      type: string
+    id:
+      minLength: 1
+      type: string
+    expiry:
+      minLength: 1
+      type: string
+    activation:
+      minLength: 1
+      type: string
+    rewardTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/rewardType'

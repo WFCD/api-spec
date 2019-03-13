@@ -1,0 +1,9 @@
+type: string
+description: A Faction in Warframe
+enum:
+  - Orokin
+  - Corrupted
+  - Infested
+  - Corpus
+  - Grineer
+  - Tenno
