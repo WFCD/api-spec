@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>warframestat.us API Specification</title>
+    <title>API Reference | WarframeStatus API</title>
     <!-- needed for adaptive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="https://warframestat.us/wfcd_logo_color.png">
 
     <!--
     ReDoc uses font options from the parent element
@@ -13,12 +14,27 @@
       body {
         margin: 0;
         padding: 0;
+        background-color: #23272A;
+      }
+      h2.fAUnug  {
+        color: white;
+      }
+      .cqfmPW > ul > li.react-tabs__tab--selected {
+        background-color: rgba(44, 47, 51, 0.8)!important;
+        border:none;
       }
     </style>
+    
   </head>
   <body>
-    <redoc spec-url="./swagger.json">
-    </redoc>
-    <script src="//rebilly.github.io/ReDoc/releases/v1.x.x/redoc.min.js"> </script>
+    <div id="redoc_container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"></script>
+    <script>
+      Redoc.init(
+        './openapi.json',
+        {"theme":{"colors":{"primary":{"main":"#99AAB5"},"text":{"primary":"#fff","secondary":"#99AAB5"},"border":{"dark":"#ffffff","light":"#fff"}},"menu":{"backgroundColor":"#263238","textColor":"#99AAB5"},"typography":{"links":{"color":"#fff"},"headings":{"color":"#fff"}},"rightPanel":{"backgroundColor":"#23272A"},"codeSample":{"backgroundColor":"#2C2F33"}},"hideDownloadButton":true},
+        document.getElementById("redoc_container")
+      );
+    </script>
   </body>
 </html>
