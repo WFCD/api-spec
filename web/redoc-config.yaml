@@ -22,4 +22,4 @@ theme:
     backgroundColor: '#2C2F33'
 
 
-hideDownloadButton: true
+hideDownloadButton: false
