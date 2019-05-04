@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get Syndicate translation data based on the query.
   description: Information to assist translating syndicate identifiers.
   parameters:

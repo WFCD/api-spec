@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get upgrade types data for global upgrades.
   description: >-
     Upgrade types for what can be changed by global modifiers, such as double

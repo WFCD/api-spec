@@ -4,6 +4,7 @@ properties:
     type: string
   date:
     type: string
+    format: date-time
   url:
     type: string
   additions:

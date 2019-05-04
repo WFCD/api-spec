@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get MissionType Translation Keys based on the query
   description: Mission Type information to aid translating identifiers
   parameters:

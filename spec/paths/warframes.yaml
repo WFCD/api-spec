@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: 'Get Warframe specs and data, such as polarities defenses, and profile.'
   description: Warframe stats and general information.
   responses:

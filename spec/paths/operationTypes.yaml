@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get operation types data.
   description: >-
     Operation Types information to aid translating identifiers for global

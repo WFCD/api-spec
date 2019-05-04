@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Event-specific Data
   description: Data about events
   responses:

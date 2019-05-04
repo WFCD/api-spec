@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get operation types data based on the query.
   description: >-
     Operation Types information to aid translating identifiers for global

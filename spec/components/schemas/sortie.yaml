@@ -16,9 +16,11 @@ properties:
   activation:
     minLength: 1
     type: string
+    format: date-time
   expiry:
     minLength: 1
     type: string
+    format: date-time
   rewardPool:
     minLength: 1
     type: string

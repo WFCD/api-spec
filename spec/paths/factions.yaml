@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Faction translation information.
   description: Strings for translating faction identifiers.
   responses:

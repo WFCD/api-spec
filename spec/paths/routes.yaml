@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get the available routes
   description: Routes that are available
   responses:

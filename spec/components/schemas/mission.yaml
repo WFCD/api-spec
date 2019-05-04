@@ -31,3 +31,34 @@ properties:
     type: boolean
   archwingRequired:
     type: boolean
+    description: Whether or not an Archwing is required for participating in the mision.
+  isSharkwing:
+    description: Whether or not the mission takes place in a submerssible mission.
+    type: boolean
+  enemySpec:
+    type: string
+    description: Enemy specification for the mission
+  levelOverride:
+    type: string
+    description: Override for the map on this mission
+  advancedSpawners:
+    type: array
+    items:
+      type: string
+    description: Array of strings denoting extra spawners for a mission
+  requiredItems:
+    type: array
+    description: Items required to enter the mission
+    items:
+      type: string
+  consumeRequiredItems:
+    type: boolean
+    description: Whether or not the required items are consumed
+  leadersAlwaysAllowed:
+    type: boolean
+    description: Whether or not leaders are always allowed
+  levelAuras:
+    type: array
+    description: Affectors for this mission
+    items:
+      type: string

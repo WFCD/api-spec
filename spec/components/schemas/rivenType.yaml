@@ -1,0 +1,17 @@
+type: object
+description: The type of riven that the child rivens belong to
+additionalProperties:
+  $ref: '#/components/schemas/riven'
+example:
+  Archgun Riven Mod:
+    Corvas:
+      rerolled:
+        itemType: Archgun Riven Mod
+        compatibility: Corvas
+        rerolled: true
+        avg: 291.94
+        stddev: 346.96
+        min: 25
+        max: 1500
+        pop: 0.0536
+        median: 150

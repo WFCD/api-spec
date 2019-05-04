@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Persistent Enemy translation data.
   description: >-
     Persistent Enemy translation information for aiding translation of

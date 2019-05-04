@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Language strings for Warframe.
   description: >-
     Get language strings to assist translation. (Prefer the

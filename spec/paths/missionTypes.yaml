@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get MissionType Translation Keys
   description: Mission Type information to aid translating identifiers
   responses:

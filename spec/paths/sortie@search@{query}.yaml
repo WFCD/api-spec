@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get Sortie translation information based on the query.
   description: Sortie translation information for assisting translation of identifiers.
   parameters:

@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Weapon data and statistics.
   description: Weapon statistics.
   responses:

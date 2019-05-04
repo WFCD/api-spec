@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get Warframe Drops data
   description: Percentages for Warframe drops in different areas of the game
   parameters:

@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get Event-specific Data based on the query
   description: Data about events
   parameters:

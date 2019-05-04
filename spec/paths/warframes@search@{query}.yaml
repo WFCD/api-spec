@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: >-
     Get Warframe specs and data, such as polarities defenses, and profile based
     on the query.

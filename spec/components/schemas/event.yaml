@@ -3,9 +3,11 @@ properties:
   activation:
     type: string
     description: Timestamp of when the event started
+    format: date-time
   expiry:
     type: string
     description: Timestamp of when the event ends
+    format: date-time
   maximumScore:
     type: number
     description: Maximum score to complete the event
@@ -111,6 +113,16 @@ properties:
   isCommunity:
     type: boolean
     description: Whether or not the event is communal
+  regionDrops:
+    type: array
+    description: Drops in the area around the event node
+    items:
+      type: string
+  archwingDrops:
+    type: array
+    description: Archwing Drops in effect while this event is active
+    items:
+      type: string
   asString:
     type: string
     description: Attempt to summarize event in a short string. (Do not use).

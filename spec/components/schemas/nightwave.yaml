@@ -6,9 +6,11 @@ properties:
   activation:
     minLength: 1
     type: string
+    format: date-time
   expiry:
     minLength: 1
     type: string
+    format: date-time
   params:
     type: object
     properties: {}

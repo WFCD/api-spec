@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Syndicate translation data.
   description: Information to assist translating syndicate identifiers.
   responses:

@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Tutorials Data
   description: Tutorials data from DE
   responses:

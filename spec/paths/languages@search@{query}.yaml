@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get Language strings for Warframe based on the query.
   description: Get language strings to assist translation.
   parameters:

@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Sol Node information and translation data.
   description: Sol Node translation information for aiding the translation of identifiers.
   responses:

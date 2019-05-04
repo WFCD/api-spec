@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get Fissure Modifier translation data based on the query.
   description: Fissure translation identifiers
   parameters:

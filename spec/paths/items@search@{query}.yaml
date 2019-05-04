@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get Warframe Items data
   description: 'Item information, such as name, unique name, type, and image name.'
   parameters:

@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get Arcane Enhancement Data based on the query
   description: Available Arcane Enhancements
   parameters:

@@ -3,9 +3,9 @@
 
 ## Links
 
-- [Reference Documentation (ReDoc)](https://wfcd.github.io/api-spec/)
-- [SwaggerUI](https://wfcd.github.io/api-spec/swagger-ui/)
-- OpenAPI Raw Files: [JSON](https://wfcd.github.io/api-spec/openapi.json) [YAML](https://wfcd.github.io/api-spec/openapi.yaml)
+- [Reference Documentation (ReDoc)](https://docs.warframestat.us)
+- [SwaggerUI](https://docs.warframestat.us/swagger-ui/)
+- OpenAPI Raw Files: [JSON](https://docs.warframestat.us/openapi.json) [YAML](https://docs.warframestat.us/openapi.yaml)
 
 **Warning:** All above links are updated only after Travis CI finishes deployment
 
@@ -18,7 +18,7 @@
 ### Usage
 
 #### `npm start`
-Starts the development server.
+Starts the development server on port [`8080`](http://localhost:8080).
 
 #### `npm run build`
 Bundles the spec and prepares web_deploy folder with static assets.

@@ -45,6 +45,7 @@ properties:
   activation:
     minLength: 1
     type: string
+    format: date-time
   rewardTypes:
     type: array
     items:

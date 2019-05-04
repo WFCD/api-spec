@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get conclave challenge data based on the query
   description: Data about conclave challenges
   parameters:

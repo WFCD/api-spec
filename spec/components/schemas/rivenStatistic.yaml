@@ -1,0 +1,38 @@
+description: A colleciton of rivens about a specific weapon's riven sales
+type: object
+properties:
+  itemType:
+    type: string
+  compatability:
+    type: string
+  rerolled:
+    type: boolean
+  avg:
+    type: number
+    format: float
+  stddev:
+    type: number
+    format: float
+  min:
+    type: number
+    format: float
+  max:
+    type: number
+    format: float
+  pop:
+    type: number
+    format: float
+  median:
+    type: number
+    format: float
+example:
+  rerolled:
+    itemType: Archgun Riven Mod
+    compatibility: Corvas
+    rerolled: true
+    avg: 291.94
+    stddev: 346.96
+    min: 25
+    max: 1500
+    pop: 0.0536
+    median: 150

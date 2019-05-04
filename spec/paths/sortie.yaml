@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Sortie translation information.
   description: Sortie translation information for assisting translation of identifiers.
   responses:

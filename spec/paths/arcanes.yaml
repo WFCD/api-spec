@@ -1,6 +1,6 @@
 get:
   tags:
-    - data
+    - Static Processing Data
   summary: Get Arcane Enhancement Data
   description: Available Arcane Enhancements
   responses:

@@ -1,6 +1,6 @@
 get:
   tags:
-    - queryable
+    - Searchable
   summary: Get Faction translation information based on the query.
   description: Strings for translating faction identifiers.
   parameters:
