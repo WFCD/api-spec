@@ -588,6 +588,90 @@
         }
       }
     },
+    "/{platform}/rivens": {
+      "get": {
+        "tags": [
+          "worldstate",
+          "rivens"
+        ],
+        "summary": "Get Riven statistic data",
+        "description": "Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "description": "Platform to provide data for",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/platform"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rivenType"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/{platform}/rivens/search/{query}": {
+      "get": {
+        "tags": [
+          "worldstate",
+          "rivens"
+        ],
+        "summary": "Get Riven statistic data",
+        "description": "Data about averages, deviations, medians, miniums, and maxes for rivens whose name match the query for the provided platform",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "description": "Platform to provide data for",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/platform"
+            }
+          },
+          {
+            "name": "query",
+            "in": "path",
+            "description": "Riven name to search for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "utf8"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rivenType"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {}
+          }
+        }
+      }
+    },
     "/{platform}/simaris": {
       "get": {
         "tags": [
@@ -810,7 +894,7 @@
     "/arcanes": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Arcane Enhancement Data",
         "description": "Available Arcane Enhancements",
@@ -835,7 +919,7 @@
     "/arcanes/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Arcane Enhancement Data based on the query",
         "description": "Available Arcane Enhancements",
@@ -872,7 +956,7 @@
     "/conclave": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get conclave challenge data",
         "description": "Data about conclave challenges",
@@ -897,7 +981,7 @@
     "/conclave/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get conclave challenge data based on the query",
         "description": "Data about conclave challenges",
@@ -934,7 +1018,7 @@
     "/drops/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Warframe Drops data",
         "description": "Percentages for Warframe drops in different areas of the game",
@@ -971,7 +1055,7 @@
     "/events": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Event-specific Data",
         "description": "Data about events",
@@ -996,7 +1080,7 @@
     "/events/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Event-specific Data based on the query",
         "description": "Data about events",
@@ -1033,7 +1117,7 @@
     "/factions": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Faction translation information.",
         "description": "Strings for translating faction identifiers.",
@@ -1058,7 +1142,7 @@
     "/factions/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Faction translation information based on the query.",
         "description": "Strings for translating faction identifiers.",
@@ -1095,7 +1179,7 @@
     "/fissureModifiers": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Fissure Modifier translation data.",
         "description": "Fissure translation identifiers",
@@ -1120,7 +1204,7 @@
     "/fissureModifiers/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Fissure Modifier translation data based on the query.",
         "description": "Fissure translation identifiers",
@@ -1157,7 +1241,7 @@
     "/items/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Warframe Items data",
         "description": "Item information, such as name, unique name, type, and image name.",
@@ -1194,7 +1278,7 @@
     "/languages": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Language strings for Warframe.",
         "description": "Get language strings to assist translation. (Prefer the /languages/search/:query route)",
@@ -1219,7 +1303,7 @@
     "/languages/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Language strings for Warframe based on the query.",
         "description": "Get language strings to assist translation.",
@@ -1256,7 +1340,7 @@
     "/missionTypes": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get MissionType Translation Keys",
         "description": "Mission Type information to aid translating identifiers",
@@ -1281,7 +1365,7 @@
     "/missionTypes/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get MissionType Translation Keys based on the query",
         "description": "Mission Type information to aid translating identifiers",
@@ -1318,7 +1402,7 @@
     "/operationTypes": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get operation types data.",
         "description": "Operation Types information to aid translating identifiers for global upgrades",
@@ -1343,7 +1427,7 @@
     "/operationTypes/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get operation types data based on the query.",
         "description": "Operation Types information to aid translating identifiers for global upgrades",
@@ -1405,7 +1489,7 @@
     "/persistentEnemy": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Persistent Enemy translation data.",
         "description": "Persistent Enemy translation information for aiding translation of identifiers.",
@@ -1430,7 +1514,7 @@
     "/persistentEnemy/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Persistent Enemy translation data based on the query.",
         "description": "Persistent Enemy translation information for aiding translation of identifiers.",
@@ -1492,7 +1576,7 @@
     "/routes": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get the available routes",
         "description": "Routes that are available",
@@ -1517,7 +1601,7 @@
     "/solNodes": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Sol Node information and translation data.",
         "description": "Sol Node translation information for aiding the translation of identifiers.",
@@ -1542,7 +1626,7 @@
     "/solNodes/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Sol Node information and translation data based on the query.",
         "description": "Sol Node translation information for aiding the translation of identifiers.",
@@ -1579,7 +1663,7 @@
     "/sortie": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Sortie translation information.",
         "description": "Sortie translation information for assisting translation of identifiers.",
@@ -1604,7 +1688,7 @@
     "/sortie/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Sortie translation information based on the query.",
         "description": "Sortie translation information for assisting translation of identifiers.",
@@ -1666,7 +1750,7 @@
     "/syndicates": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Syndicate translation data.",
         "description": "Information to assist translating syndicate identifiers.",
@@ -1691,7 +1775,7 @@
     "/syndicates/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Syndicate translation data based on the query.",
         "description": "Information to assist translating syndicate identifiers.",
@@ -1728,7 +1812,7 @@
     "/tutorials": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Tutorials Data",
         "description": "Tutorials data from DE",
@@ -1753,7 +1837,7 @@
     "/tutorials/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Tutorials Data based on the query",
         "description": "Tutorials data from DE",
@@ -1790,7 +1874,7 @@
     "/upgradeTypes": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get upgrade types data for global upgrades.",
         "description": "Upgrade types for what can be changed by global modifiers, such as double credit weekends.",
@@ -1815,7 +1899,7 @@
     "/upgradeTypes/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get upgrade types data for global upgrades based on the query.",
         "description": "Upgrade types for what can be changed by global modifiers, such as double credit weekends.",
@@ -1852,7 +1936,7 @@
     "/warframes": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Warframe specs and data, such as polarities defenses, and profile.",
         "description": "Warframe stats and general information.",
@@ -1877,7 +1961,7 @@
     "/warframes/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Warframe specs and data, such as polarities defenses, and profile based on the query.",
         "description": "Warframe stats and general information.",
@@ -1914,7 +1998,7 @@
     "/weapons": {
       "get": {
         "tags": [
-          "data"
+          "Static Processing Data"
         ],
         "summary": "Get Weapon data and statistics.",
         "description": "Weapon statistics.",
@@ -1939,7 +2023,7 @@
     "/weapons/search/{query}": {
       "get": {
         "tags": [
-          "queryable"
+          "Searchable"
         ],
         "summary": "Get Weapon data and statistics based on the query.",
         "description": "Weapon statistics.",
@@ -2030,11 +2114,13 @@
             },
             "expiry": {
               "minLength": 1,
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             },
             "activation": {
               "minLength": 1,
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             },
             "rewardTypes": {
               "type": "array",
@@ -2481,7 +2567,7 @@
               "minLength": 1,
               "type": "string"
             },
-            "defenderDeployemntActivation": {
+            "defenderDeploymentActivation": {
               "type": "number"
             },
             "defenderName": {
@@ -2569,11 +2655,13 @@
         "properties": {
           "activation": {
             "type": "string",
-            "description": "Timestamp of when the event started"
+            "description": "Timestamp of when the event started",
+            "format": "date-time"
           },
           "expiry": {
             "type": "string",
-            "description": "Timestamp of when the event ends"
+            "description": "Timestamp of when the event ends",
+            "format": "date-time"
           },
           "maximumScore": {
             "type": "number",
@@ -2721,6 +2809,20 @@
             "type": "boolean",
             "description": "Whether or not the event is communal"
           },
+          "regionDrops": {
+            "type": "array",
+            "description": "Drops in the area around the event node",
+            "items": {
+              "type": "string"
+            }
+          },
+          "archwingDrops": {
+            "type": "array",
+            "description": "Archwing Drops in effect while this event is active",
+            "items": {
+              "type": "string"
+            }
+          },
           "asString": {
             "type": "string",
             "description": "Attempt to summarize event in a short string. (Do not use)."
@@ -2865,11 +2967,13 @@
           },
           "expiry": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "activation": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -3107,7 +3211,8 @@
           },
           "activation": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "rewardTypes": {
             "type": "array",
@@ -3397,7 +3502,49 @@
             "type": "boolean"
           },
           "archwingRequired": {
+            "type": "boolean",
+            "description": "Whether or not an Archwing is required for participating in the mision."
+          },
+          "isSharkwing": {
+            "description": "Whether or not the mission takes place in a submerssible mission.",
             "type": "boolean"
+          },
+          "enemySpec": {
+            "type": "string",
+            "description": "Enemy specification for the mission"
+          },
+          "levelOverride": {
+            "type": "string",
+            "description": "Override for the map on this mission"
+          },
+          "advancedSpawners": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of strings denoting extra spawners for a mission"
+          },
+          "requiredItems": {
+            "type": "array",
+            "description": "Items required to enter the mission",
+            "items": {
+              "type": "string"
+            }
+          },
+          "consumeRequiredItems": {
+            "type": "boolean",
+            "description": "Whether or not the required items are consumed"
+          },
+          "leadersAlwaysAllowed": {
+            "type": "boolean",
+            "description": "Whether or not leaders are always allowed"
+          },
+          "levelAuras": {
+            "type": "array",
+            "description": "Affectors for this mission",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -3726,11 +3873,13 @@
           },
           "activation": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "expiry": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "params": {
             "type": "object",
@@ -3774,11 +3923,13 @@
           },
           "activation": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "expiry": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "isDaily": {
             "type": "boolean"
@@ -3825,7 +3976,8 @@
             "type": "string"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "url": {
             "type": "string"
@@ -4213,6 +4365,117 @@
           "credits"
         ]
       },
+      "riven": {
+        "type": "object",
+        "properties": {
+          "rivenCompatability": {
+            "type": "object",
+            "description": "The name of the weapon that this riven is compatible with",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "rolled": {
+                  "$ref": "#/components/schemas/rivenStatistic"
+                },
+                "unrolled": {
+                  "$ref": "#/components/schemas/rivenStatistic"
+                }
+              }
+            },
+            "example": {
+              "Corvas": {
+                "rerolled": {
+                  "itemType": "Archgun Riven Mod",
+                  "compatibility": "Corvas",
+                  "rerolled": true,
+                  "avg": 291.94,
+                  "stddev": 346.96,
+                  "min": 25,
+                  "max": 1500,
+                  "pop": 0.0536,
+                  "median": 150
+                }
+              }
+            }
+          }
+        }
+      },
+      "rivenStatistic": {
+        "description": "A colleciton of rivens about a specific weapon's riven sales",
+        "type": "object",
+        "properties": {
+          "itemType": {
+            "type": "string"
+          },
+          "compatability": {
+            "type": "string"
+          },
+          "rerolled": {
+            "type": "boolean"
+          },
+          "avg": {
+            "type": "number",
+            "format": "float"
+          },
+          "stddev": {
+            "type": "number",
+            "format": "float"
+          },
+          "min": {
+            "type": "number",
+            "format": "float"
+          },
+          "max": {
+            "type": "number",
+            "format": "float"
+          },
+          "pop": {
+            "type": "number",
+            "format": "float"
+          },
+          "median": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "example": {
+          "rerolled": {
+            "itemType": "Archgun Riven Mod",
+            "compatibility": "Corvas",
+            "rerolled": true,
+            "avg": 291.94,
+            "stddev": 346.96,
+            "min": 25,
+            "max": 1500,
+            "pop": 0.0536,
+            "median": 150
+          }
+        }
+      },
+      "rivenType": {
+        "type": "object",
+        "description": "The type of riven that the child rivens belong to",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/riven"
+        },
+        "example": {
+          "Archgun Riven Mod": {
+            "Corvas": {
+              "rerolled": {
+                "itemType": "Archgun Riven Mod",
+                "compatibility": "Corvas",
+                "rerolled": true,
+                "avg": 291.94,
+                "stddev": 346.96,
+                "min": 25,
+                "max": 1500,
+                "pop": 0.0536,
+                "median": 150
+              }
+            }
+          }
+        }
+      },
       "secondaryWeapon": {
         "type": "object",
         "properties": {
@@ -4519,11 +4782,13 @@
           },
           "activation": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "expiry": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "rewardPool": {
             "minLength": 1,
@@ -5280,11 +5545,13 @@
         "properties": {
           "activation": {
             "type": "string",
-            "description": "Timestamp for when the job becomes active"
+            "description": "Timestamp for when the job becomes active",
+            "format": "date-time"
           },
           "expiry": {
             "type": "string",
-            "description": "Timestamp for when the job becomes inactive"
+            "description": "Timestamp for when the job becomes inactive",
+            "format": "date-time"
           },
           "rewardPool": {
             "type": "array",
@@ -5348,9 +5615,11 @@
           },
           "expiry": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "activation": {
+            "format": "date-time",
             "minLength": 1,
             "type": "string"
           }
@@ -5639,11 +5908,13 @@
           },
           "activation": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "expiry": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "character": {
             "minLength": 1,
