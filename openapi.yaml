@@ -35,10 +35,14 @@ paths:
       summary: Get Warframe Worldstate Data for the provided platform
       description: The full translated Warframe Worldstate
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -54,10 +58,14 @@ paths:
       summary: Alerts data
       description: Description and rewards for Alerts
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -74,10 +82,14 @@ paths:
       summary: '[Unstable] Arbitration data'
       description: Description of the currently active arbitration
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -93,10 +105,14 @@ paths:
       summary: Get Current Cetus Status
       description: Data on the Day/night cycle for Cetus on earth
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -112,10 +128,14 @@ paths:
       summary: Get Conclave Challenge Data
       description: Data on each day and week's conclave challenges
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -131,10 +151,14 @@ paths:
       summary: Get Construction Progress for Fomorians and Razorbacks
       description: Construction percentages for showing how far constructed the enemy fleets are.
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -150,10 +174,14 @@ paths:
       summary: Daily Deal information from Darvo
       description: Darvo's Daily Deal details
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -169,10 +197,14 @@ paths:
       summary: Dark Sector occupation and history
       description: Dark Sector (Rail Wars) data and history. Digital Extremes has emptied several of these.
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -189,10 +221,14 @@ paths:
       summary: Get the current Earth rotation information
       description: The current Earth day/night cycle progress.
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -208,10 +244,14 @@ paths:
       summary: Listing of ongoing events
       description: 'Events, such as Fomorian Attacks are included here'
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -227,10 +267,14 @@ paths:
       summary: Data on current fissures
       description: Information about current Void Fissure missions
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -246,10 +290,14 @@ paths:
       summary: Current Flash Sales from Darvo
       description: 'Popular Deals, discounts, featured deals.'
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -265,10 +313,14 @@ paths:
       summary: Current Global Upgrades
       description: 'Any current modifiers applied to all users, such as double drops.'
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -284,10 +336,14 @@ paths:
       summary: Invasion Data
       description: 'Data on invasion missions, such as estimated completion time, rewards, etc.'
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -304,10 +360,14 @@ paths:
       summary: '[Unstable] Current Kuva Mission listing'
       description: Current Kuva Mission listing (provided by semlar).
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -325,6 +385,9 @@ paths:
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -340,10 +403,14 @@ paths:
       summary: Get the current Nightwave state.
       description: 'The Current cycle and challenges of Nightwave, a battle-pass-esque rotation and challenge system'
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -359,6 +426,7 @@ paths:
       summary: Get Persistent Enemy Data
       description: Data about current acolytes attacking the Sol System
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -379,6 +447,7 @@ paths:
       summary: Get Riven statistic data
       description: 'Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform'
       parameters:
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -410,6 +479,9 @@ paths:
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -426,9 +498,13 @@ paths:
       description: Status data for Simaris' Sanctuary
       parameters:
         - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/language'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -445,9 +521,13 @@ paths:
       description: Data about the missions for the current sortie
       parameters:
         - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/language'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -466,9 +546,13 @@ paths:
       description: 'Cycling through different nodes each day, these are a general listing of the nodes that each syndicate will use for the day.'
       parameters:
         - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/language'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -485,9 +569,13 @@ paths:
       description: The time that the worldstate was last generated
       parameters:
         - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/language'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -504,9 +592,13 @@ paths:
       description: The current cycle of the Orb Vallis warm/cold cycle
       parameters:
         - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/language'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -523,9 +615,13 @@ paths:
       description: 'Information on the current Void Trader offerings, or when he will arrive.'
       parameters:
         - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/language'
       responses:
         '200':
           description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -842,6 +938,21 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
+  /locales:
+    get:
+      tags:
+        - Static Processing Data
+      summary: Full list of supported locales
+      description: Locales supported by the API
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/language'
   /missionTypes:
     get:
       tags:
@@ -2186,6 +2297,20 @@ components:
         sharkwing:
           type: boolean
           description: Whether or not this mission requires sharkwing
+    language:
+      type: string
+      default: en
+      enum:
+        - de
+        - es
+        - fr
+        - it
+        - ko
+        - pl
+        - pt
+        - ru
+        - zh
+        - en
     languages:
       type: object
       properties:
@@ -4333,12 +4458,21 @@ components:
                 type: integer
                 description: HTTP status code associated with error
   parameters:
+    language:
+      name: Accept-Language
+      in: header
+      description: Language to retrieve
+      schema:
+        $ref: '#/components/schemas/language'
     platform:
       name: platform
       in: path
       description: Platform to provide data for
       required: true
       schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/platform'
+        $ref: '#/components/schemas/platform'
+  headers:
+    Content-Language:
+      description: Language of the content
+      schema:
+        $ref: '#/components/schemas/language'
