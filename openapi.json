@@ -3,7 +3,6 @@
   "info": {
     "title": "WarframeStat.us API",
     "description": "Simple API for data from the game Warframe.",
-    "termsOfService": "https://warframestat.us/terms",
     "contact": {
       "email": "wf-com-dev@warframestat.us"
     },
@@ -47,6 +46,38 @@
     }
   ],
   "paths": {
+    "/{platform}": {
+      "get": {
+        "tags": [
+          "worldstate"
+        ],
+        "summary": "Get Warframe Worldstate Data for the provided platform",
+        "description": "The full translated Warframe Worldstate",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/platform"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ws"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/{platform}/alerts": {
       "get": {
         "tags": [
@@ -56,13 +87,7 @@
         "description": "Description and rewards for Alerts",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -77,8 +102,43 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/{platform}/arbitration": {
+      "get": {
+        "tags": [
+          "worldstate",
+          "unstable"
+        ],
+        "summary": "[Unstable] Arbitration data",
+        "description": "Description of the currently active arbitration",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/platform"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/arbitration"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -92,13 +152,7 @@
         "description": "Data on the Day/night cycle for Cetus on earth",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -113,8 +167,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -128,13 +184,7 @@
         "description": "Data on each day and week's conclave challenges",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -149,8 +199,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -164,13 +216,7 @@
         "description": "Construction percentages for showing how far constructed the enemy fleets are.",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -185,8 +231,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -200,13 +248,7 @@
         "description": "Darvo's Daily Deal details",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -221,8 +263,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -236,13 +280,7 @@
         "description": "Dark Sector (Rail Wars) data and history. Digital Extremes has emptied several of these.",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -257,8 +295,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         },
         "deprecated": true
@@ -273,13 +313,7 @@
         "description": "The current Earth day/night cycle progress.",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -294,8 +328,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -309,13 +345,7 @@
         "description": "Events, such as Fomorian Attacks are included here",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -330,8 +360,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -345,13 +377,7 @@
         "description": "Information about current Void Fissure missions",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -366,8 +392,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -381,13 +409,7 @@
         "description": "Popular Deals, discounts, featured deals.",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -402,8 +424,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -417,13 +441,7 @@
         "description": "Any current modifiers applied to all users, such as double drops.",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -438,8 +456,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -453,13 +473,7 @@
         "description": "Data on invasion missions, such as estimated completion time, rewards, etc.",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -474,8 +488,40 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/{platform}/kuva": {
+      "get": {
+        "tags": [
+          "worldstate",
+          "unstable"
+        ],
+        "summary": "[Unstable] Current Kuva Mission listing",
+        "description": "Current Kuva Mission listing (provided by semlar).",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/platform"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/kuva"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -489,13 +535,7 @@
         "description": "Translated News items from the worldstate",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -510,8 +550,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -525,13 +567,7 @@
         "description": "The Current cycle and challenges of Nightwave, a battle-pass-esque rotation and challenge system",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -546,8 +582,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -561,13 +599,7 @@
         "description": "Data about current acolytes attacking the Sol System",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -582,8 +614,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -598,13 +632,7 @@
         "description": "Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -619,8 +647,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -635,13 +665,7 @@
         "description": "Data about averages, deviations, medians, miniums, and maxes for rivens whose name match the query for the provided platform",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           },
           {
             "name": "query",
@@ -666,8 +690,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -681,13 +707,7 @@
         "description": "Status data for Simaris' Sanctuary",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -702,8 +722,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -717,13 +739,7 @@
         "description": "Data about the missions for the current sortie",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -741,8 +757,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -756,13 +774,7 @@
         "description": "Cycling through different nodes each day, these are a general listing of the nodes that each syndicate will use for the day.",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -777,8 +789,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -792,13 +806,7 @@
         "description": "The time that the worldstate was last generated",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -813,8 +821,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -828,13 +838,7 @@
         "description": "The current cycle of the Orb Vallis warm/cold cycle",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -849,8 +853,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -864,13 +870,7 @@
         "description": "Information on the current Void Trader offerings, or when he will arrive.",
         "parameters": [
           {
-            "name": "platform",
-            "in": "path",
-            "description": "Platform to provide data for",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/platform"
-            }
+            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -885,8 +885,20 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/*": {
+      "get": {
+        "summary": "Catch all",
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -910,8 +922,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -947,8 +961,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -972,8 +988,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1009,8 +1027,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1046,8 +1066,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1071,8 +1093,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1108,8 +1132,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1133,8 +1159,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1170,8 +1198,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1195,8 +1225,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1232,8 +1264,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1269,8 +1303,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1294,8 +1330,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1331,8 +1369,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1356,8 +1396,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1393,8 +1435,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1418,8 +1462,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1455,33 +1501,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
-          }
-        }
-      }
-    },
-    "/pc": {
-      "get": {
-        "tags": [
-          "worldstate"
-        ],
-        "summary": "Get Warframe Worldstate Data for PC",
-        "description": "The full translated Warframe Worldstate",
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ws"
-                }
-              }
-            }
+            "$ref": "#/components/responses/error"
           },
-          "400": {
-            "description": "Invalid status value",
-            "content": {}
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1505,8 +1528,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1542,58 +1567,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
-          }
-        }
-      }
-    },
-    "/ps4": {
-      "get": {
-        "tags": [
-          "worldstate"
-        ],
-        "summary": "Get Warframe Worldstate Data for PS4",
-        "description": "The full translated Warframe Worldstate",
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ws"
-                }
-              }
-            }
+            "$ref": "#/components/responses/error"
           },
-          "400": {
-            "description": "Invalid status value",
-            "content": {}
-          }
-        }
-      }
-    },
-    "/routes": {
-      "get": {
-        "tags": [
-          "Static Processing Data"
-        ],
-        "summary": "Get the available routes",
-        "description": "Routes that are available",
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/timestamp"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request",
-            "content": {}
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1617,8 +1594,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1654,8 +1633,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1679,8 +1660,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1716,33 +1699,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
-          }
-        }
-      }
-    },
-    "/swi": {
-      "get": {
-        "tags": [
-          "worldstate"
-        ],
-        "summary": "Get Warframe Worldstate Data for Nintendo Switch",
-        "description": "The full translated Warframe Worldstate",
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ws"
-                }
-              }
-            }
+            "$ref": "#/components/responses/error"
           },
-          "400": {
-            "description": "Invalid status value",
-            "content": {}
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1766,8 +1726,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1803,8 +1765,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1828,8 +1792,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1865,8 +1831,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1890,8 +1858,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1927,8 +1897,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1952,8 +1924,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1989,8 +1963,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -2014,8 +1990,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -2051,33 +2029,10 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {}
-          }
-        }
-      }
-    },
-    "/xb1": {
-      "get": {
-        "tags": [
-          "worldstate"
-        ],
-        "summary": "Get Warframe Worldstate Data for XB1",
-        "description": "The full translated Warframe Worldstate",
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ws"
-                }
-              }
-            }
+            "$ref": "#/components/responses/error"
           },
-          "400": {
-            "description": "Invalid status value",
-            "content": {}
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -2086,48 +2041,98 @@
   "components": {
     "schemas": {
       "alert": {
-        "minItems": 1,
-        "type": "array",
-        "items": {
-          "required": [
-            "activation",
-            "eta",
-            "expired",
-            "expiry",
-            "id"
-          ],
-          "type": "object",
-          "properties": {
-            "mission": {
-              "$ref": "#/components/schemas/mission"
-            },
-            "expired": {
-              "type": "boolean"
-            },
-            "eta": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "id": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "expiry": {
-              "minLength": 1,
-              "type": "string",
-              "format": "date-time"
-            },
-            "activation": {
-              "minLength": 1,
-              "type": "string",
-              "format": "date-time"
-            },
-            "rewardTypes": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/rewardType"
-              }
+        "type": "object",
+        "properties": {
+          "mission": {
+            "$ref": "#/components/schemas/mission"
+          },
+          "expired": {
+            "type": "boolean"
+          },
+          "eta": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "expiry": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "activation": {
+            "minLength": 1,
+            "type": "string",
+            "format": "date-time"
+          },
+          "rewardTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/rewardType"
             }
+          }
+        },
+        "required": [
+          "activation",
+          "eta",
+          "expired",
+          "expiry",
+          "id"
+        ]
+      },
+      "arbitration": {
+        "type": "object",
+        "properties": {
+          "activation": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the Arbitration becomes active"
+          },
+          "expiry": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the Arbitration becomes inactive"
+          },
+          "solnode": {
+            "type": "string",
+            "description": "Internal node string for identifying the node"
+          },
+          "node": {
+            "type": "string",
+            "description": "Plain name for the node"
+          },
+          "name": {
+            "type": "string",
+            "description": "Semlar-formatted node name"
+          },
+          "tile": {
+            "type": "string",
+            "description": "Node name without planet"
+          },
+          "planet": {
+            "type": "string",
+            "description": "Planet"
+          },
+          "enemy": {
+            "$ref": "#/components/schemas/faction"
+          },
+          "type": {
+            "type": "string",
+            "description": "Mission type"
+          },
+          "node_type": {
+            "type": "string",
+            "description": "Internal node-type string for denoting what kind of node it is"
+          },
+          "archwing": {
+            "type": "boolean",
+            "description": "Whether or not this mission requires archwing"
+          },
+          "sharkwing": {
+            "type": "boolean",
+            "description": "Whether or not this mission requires sharkwing"
           }
         }
       },
@@ -3250,6 +3255,60 @@
         "description": "An item from Warframe",
         "items": {
           "$ref": "#/components/schemas/item"
+        }
+      },
+      "kuva": {
+        "type": "object",
+        "properties": {
+          "activation": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the Kuva group becomes active"
+          },
+          "expiry": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the Kuva group becomes inactive"
+          },
+          "solnode": {
+            "type": "string",
+            "description": "Internal node string for identifying the node"
+          },
+          "node": {
+            "type": "string",
+            "description": "Plain name for the node"
+          },
+          "name": {
+            "type": "string",
+            "description": "Semlar-formatted node name"
+          },
+          "tile": {
+            "type": "string",
+            "description": "Node name without planet"
+          },
+          "planet": {
+            "type": "string",
+            "description": "Planet"
+          },
+          "enemy": {
+            "$ref": "#/components/schemas/faction"
+          },
+          "type": {
+            "type": "string",
+            "description": "Mission type"
+          },
+          "node_type": {
+            "type": "string",
+            "description": "Internal node-type string for denoting what kind of node it is"
+          },
+          "archwing": {
+            "type": "boolean",
+            "description": "Whether or not this mission requires archwing"
+          },
+          "sharkwing": {
+            "type": "boolean",
+            "description": "Whether or not this mission requires sharkwing"
+          }
         }
       },
       "languages": {
@@ -6204,6 +6263,42 @@
           }
         },
         "description": ""
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "An error occurred",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "description": "Descroption of error"
+                },
+                "code": {
+                  "type": "integer",
+                  "description": "HTTP status code associated with error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "platform": {
+        "name": "platform",
+        "in": "path",
+        "description": "Platform to provide data for",
+        "required": true,
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/platform"
+          }
+        }
       }
     }
   }

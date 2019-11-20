@@ -2,7 +2,6 @@ openapi: 3.0.1
 info:
   title: WarframeStat.us API
   description: Simple API for data from the game Warframe.
-  termsOfService: 'https://warframestat.us/terms'
   contact:
     email: wf-com-dev@warframestat.us
   license:
@@ -29,6 +28,25 @@ tags:
       description: Find out more
       url: 'https://discord.gg/jGZxH9f'
 paths:
+  '/{platform}':
+    get:
+      tags:
+        - worldstate
+      summary: Get Warframe Worldstate Data for the provided platform
+      description: The full translated Warframe Worldstate
+      parameters:
+        - $ref: '#/components/parameters/platform'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ws'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/alerts':
     get:
       tags:
@@ -36,12 +54,7 @@ paths:
       summary: Alerts data
       description: Description and rewards for Alerts
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -50,8 +63,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/alert'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/{platform}/arbitration':
+    get:
+      tags:
+        - worldstate
+        - unstable
+      summary: '[Unstable] Arbitration data'
+      description: Description of the currently active arbitration
+      parameters:
+        - $ref: '#/components/parameters/platform'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/arbitration'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/cetusCycle':
     get:
       tags:
@@ -59,12 +93,7 @@ paths:
       summary: Get Current Cetus Status
       description: Data on the Day/night cycle for Cetus on earth
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -73,8 +102,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/cetusCycle'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/conclaveChallenges':
     get:
       tags:
@@ -82,12 +112,7 @@ paths:
       summary: Get Conclave Challenge Data
       description: Data on each day and week's conclave challenges
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -96,8 +121,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/conclaveChallenges'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/constructionProgress':
     get:
       tags:
@@ -105,12 +131,7 @@ paths:
       summary: Get Construction Progress for Fomorians and Razorbacks
       description: Construction percentages for showing how far constructed the enemy fleets are.
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -119,8 +140,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/construction'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/dailyDeals':
     get:
       tags:
@@ -128,12 +150,7 @@ paths:
       summary: Daily Deal information from Darvo
       description: Darvo's Daily Deal details
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -142,8 +159,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/dailyDeals'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/darkSectors':
     get:
       tags:
@@ -151,12 +169,7 @@ paths:
       summary: Dark Sector occupation and history
       description: Dark Sector (Rail Wars) data and history. Digital Extremes has emptied several of these.
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -165,8 +178,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/darkSectors'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
       deprecated: true
   '/{platform}/earthCycle':
     get:
@@ -175,12 +189,7 @@ paths:
       summary: Get the current Earth rotation information
       description: The current Earth day/night cycle progress.
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -189,8 +198,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/earthCycle'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/events':
     get:
       tags:
@@ -198,12 +208,7 @@ paths:
       summary: Listing of ongoing events
       description: 'Events, such as Fomorian Attacks are included here'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -212,8 +217,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/events'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/fissures':
     get:
       tags:
@@ -221,12 +227,7 @@ paths:
       summary: Data on current fissures
       description: Information about current Void Fissure missions
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -235,8 +236,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/fissures'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/flashSales':
     get:
       tags:
@@ -244,12 +246,7 @@ paths:
       summary: Current Flash Sales from Darvo
       description: 'Popular Deals, discounts, featured deals.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -258,8 +255,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/flashSales'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/globalUpgrades':
     get:
       tags:
@@ -267,12 +265,7 @@ paths:
       summary: Current Global Upgrades
       description: 'Any current modifiers applied to all users, such as double drops.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -281,8 +274,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/globalUpgrades'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/invasions':
     get:
       tags:
@@ -290,12 +284,7 @@ paths:
       summary: Invasion Data
       description: 'Data on invasion missions, such as estimated completion time, rewards, etc.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -304,8 +293,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/invasions'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/{platform}/kuva':
+    get:
+      tags:
+        - worldstate
+        - unstable
+      summary: '[Unstable] Current Kuva Mission listing'
+      description: Current Kuva Mission listing (provided by semlar).
+      parameters:
+        - $ref: '#/components/parameters/platform'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/kuva'
   '/{platform}/news':
     get:
       tags:
@@ -313,12 +321,7 @@ paths:
       summary: Current Listing of News items
       description: Translated News items from the worldstate
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -327,8 +330,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/news'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/nightwave':
     get:
       tags:
@@ -336,12 +340,7 @@ paths:
       summary: Get the current Nightwave state.
       description: 'The Current cycle and challenges of Nightwave, a battle-pass-esque rotation and challenge system'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -350,8 +349,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/nightwave'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/persistentEnemies':
     get:
       tags:
@@ -359,12 +359,7 @@ paths:
       summary: Get Persistent Enemy Data
       description: Data about current acolytes attacking the Sol System
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -373,8 +368,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/persistentEnemies'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/rivens':
     get:
       tags:
@@ -383,12 +379,7 @@ paths:
       summary: Get Riven statistic data
       description: 'Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -397,8 +388,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/rivenType'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/rivens/search/{query}':
     get:
       tags:
@@ -407,12 +399,7 @@ paths:
       summary: Get Riven statistic data
       description: 'Data about averages, deviations, medians, miniums, and maxes for rivens whose name match the query for the provided platform'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
         - name: query
           in: path
           description: Riven name to search for
@@ -428,8 +415,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/rivenType'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/simaris':
     get:
       tags:
@@ -437,12 +425,7 @@ paths:
       summary: Get the current Sanctuary Status
       description: Status data for Simaris' Sanctuary
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -451,8 +434,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/simaris'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/sortie':
     get:
       tags:
@@ -460,12 +444,7 @@ paths:
       summary: Current Sortie Data
       description: Data about the missions for the current sortie
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -476,8 +455,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/sortie'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/syndicateMissions':
     get:
       tags:
@@ -485,12 +465,7 @@ paths:
       summary: Listing of Syndicate mission nodes
       description: 'Cycling through different nodes each day, these are a general listing of the nodes that each syndicate will use for the day.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -499,8 +474,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/syndicateMissions'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/timestamp':
     get:
       tags:
@@ -508,12 +484,7 @@ paths:
       summary: Get the timestamp that the current worldstate was generated at.
       description: The time that the worldstate was last generated
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -522,8 +493,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/timestamp'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/vallisCycle':
     get:
       tags:
@@ -531,12 +503,7 @@ paths:
       summary: Get the current state of the Orb Vallis
       description: The current cycle of the Orb Vallis warm/cold cycle
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -545,8 +512,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/vallisCycle'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/voidTrader':
     get:
       tags:
@@ -554,12 +522,7 @@ paths:
       summary: Get the current Void Trader Information
       description: 'Information on the current Void Trader offerings, or when he will arrive.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -568,8 +531,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/voidTrader'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  /*:
+    get:
+      summary: Catch all
+      responses:
+        '404':
+          $ref: '#/components/responses/error'
   /arcanes:
     get:
       tags:
@@ -584,8 +554,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/arcane'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/arcanes/search/{query}':
     get:
       tags:
@@ -608,8 +579,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/arcane'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /conclave:
     get:
       tags:
@@ -624,8 +596,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/conclave'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/conclave/search/{query}':
     get:
       tags:
@@ -648,8 +621,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/conclave'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/drops/search/{query}':
     get:
       tags:
@@ -672,8 +646,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/drops'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /events:
     get:
       tags:
@@ -688,8 +663,9 @@ paths:
               schema:
                 type: object
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/events/search/{query}':
     get:
       tags:
@@ -712,8 +688,9 @@ paths:
               schema:
                 type: object
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /factions:
     get:
       tags:
@@ -728,8 +705,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/factions'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/factions/search/{query}':
     get:
       tags:
@@ -752,8 +730,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/factions'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /fissureModifiers:
     get:
       tags:
@@ -768,8 +747,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/fissureModifiers'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/fissureModifiers/search/{query}':
     get:
       tags:
@@ -792,8 +772,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/fissureModifiers'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/items/search/{query}':
     get:
       tags:
@@ -816,8 +797,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/items'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /languages:
     get:
       tags:
@@ -832,8 +814,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/languages'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/languages/search/{query}':
     get:
       tags:
@@ -856,8 +839,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/languages'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /missionTypes:
     get:
       tags:
@@ -872,8 +856,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/missionTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/missionTypes/search/{query}':
     get:
       tags:
@@ -896,8 +881,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/missionTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /operationTypes:
     get:
       tags:
@@ -912,8 +898,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/operationTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/operationTypes/search/{query}':
     get:
       tags:
@@ -936,24 +923,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/operationTypes'
         '400':
-          description: Invalid request
-          content: {}
-  /pc:
-    get:
-      tags:
-        - worldstate
-      summary: Get Warframe Worldstate Data for PC
-      description: The full translated Warframe Worldstate
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ws'
-        '400':
-          description: Invalid status value
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /persistentEnemy:
     get:
       tags:
@@ -968,8 +940,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/persistentEnemies'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/persistentEnemy/search/{query}':
     get:
       tags:
@@ -992,40 +965,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/persistentEnemies'
         '400':
-          description: Invalid request
-          content: {}
-  /ps4:
-    get:
-      tags:
-        - worldstate
-      summary: Get Warframe Worldstate Data for PS4
-      description: The full translated Warframe Worldstate
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ws'
-        '400':
-          description: Invalid status value
-          content: {}
-  /routes:
-    get:
-      tags:
-        - Static Processing Data
-      summary: Get the available routes
-      description: Routes that are available
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/timestamp'
-        '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /solNodes:
     get:
       tags:
@@ -1040,8 +982,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/solNode'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/solNodes/search/{query}':
     get:
       tags:
@@ -1064,8 +1007,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/solNodeSearch'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /sortie:
     get:
       tags:
@@ -1080,8 +1024,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/sortieData'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/sortie/search/{query}':
     get:
       tags:
@@ -1104,24 +1049,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/sortieData'
         '400':
-          description: Invalid request
-          content: {}
-  /swi:
-    get:
-      tags:
-        - worldstate
-      summary: Get Warframe Worldstate Data for Nintendo Switch
-      description: The full translated Warframe Worldstate
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ws'
-        '400':
-          description: Invalid status value
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /syndicates:
     get:
       tags:
@@ -1136,8 +1066,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/syndicates'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/syndicates/search/{query}':
     get:
       tags:
@@ -1160,8 +1091,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/syndicates'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /tutorials:
     get:
       tags:
@@ -1176,8 +1108,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/tutorials'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/tutorials/search/{query}':
     get:
       tags:
@@ -1200,8 +1133,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/tutorials'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /upgradeTypes:
     get:
       tags:
@@ -1216,8 +1150,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/upgradeTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/upgradeTypes/search/{query}':
     get:
       tags:
@@ -1240,8 +1175,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/upgradeTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /warframes:
     get:
       tags:
@@ -1256,8 +1192,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/warframes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/warframes/search/{query}':
     get:
       tags:
@@ -1280,8 +1217,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/warframes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /weapons:
     get:
       tags:
@@ -1296,8 +1234,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/weapons'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/weapons/search/{query}':
     get:
       tags:
@@ -1320,60 +1259,82 @@ paths:
               schema:
                 $ref: '#/components/schemas/weapons'
         '400':
-          description: Invalid request
-          content: {}
-  /xb1:
-    get:
-      tags:
-        - worldstate
-      summary: Get Warframe Worldstate Data for XB1
-      description: The full translated Warframe Worldstate
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ws'
-        '400':
-          description: Invalid status value
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
 components:
   schemas:
     alert:
-      minItems: 1
-      type: array
-      items:
-        required:
-          - activation
-          - eta
-          - expired
-          - expiry
-          - id
-        type: object
-        properties:
-          mission:
-            $ref: '#/components/schemas/mission'
-          expired:
-            type: boolean
-          eta:
-            minLength: 1
-            type: string
-          id:
-            minLength: 1
-            type: string
-          expiry:
-            minLength: 1
-            type: string
-            format: date-time
-          activation:
-            minLength: 1
-            type: string
-            format: date-time
-          rewardTypes:
-            type: array
-            items:
-              $ref: '#/components/schemas/rewardType'
+      type: object
+      properties:
+        mission:
+          $ref: '#/components/schemas/mission'
+        expired:
+          type: boolean
+        eta:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        expiry:
+          minLength: 1
+          type: string
+          format: date-time
+        activation:
+          minLength: 1
+          type: string
+          format: date-time
+        rewardTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/rewardType'
+      required:
+        - activation
+        - eta
+        - expired
+        - expiry
+        - id
+    arbitration:
+      type: object
+      properties:
+        activation:
+          type: string
+          format: date-time
+          description: When the Arbitration becomes active
+        expiry:
+          type: string
+          format: date-time
+          description: When the Arbitration becomes inactive
+        solnode:
+          type: string
+          description: Internal node string for identifying the node
+        node:
+          type: string
+          description: Plain name for the node
+        name:
+          type: string
+          description: Semlar-formatted node name
+        tile:
+          type: string
+          description: Node name without planet
+        planet:
+          type: string
+          description: Planet
+        enemy:
+          $ref: '#/components/schemas/faction'
+        type:
+          type: string
+          description: Mission type
+        node_type:
+          type: string
+          description: Internal node-type string for denoting what kind of node it is
+        archwing:
+          type: boolean
+          description: Whether or not this mission requires archwing
+        sharkwing:
+          type: boolean
+          description: Whether or not this mission requires sharkwing
     arcane:
       required:
         - effect
@@ -2185,6 +2146,46 @@ components:
       description: An item from Warframe
       items:
         $ref: '#/components/schemas/item'
+    kuva:
+      type: object
+      properties:
+        activation:
+          type: string
+          format: date-time
+          description: When the Kuva group becomes active
+        expiry:
+          type: string
+          format: date-time
+          description: When the Kuva group becomes inactive
+        solnode:
+          type: string
+          description: Internal node string for identifying the node
+        node:
+          type: string
+          description: Plain name for the node
+        name:
+          type: string
+          description: Semlar-formatted node name
+        tile:
+          type: string
+          description: Node name without planet
+        planet:
+          type: string
+          description: Planet
+        enemy:
+          $ref: '#/components/schemas/faction'
+        type:
+          type: string
+          description: Mission type
+        node_type:
+          type: string
+          description: Internal node-type string for denoting what kind of node it is
+        archwing:
+          type: boolean
+          description: Whether or not this mission requires archwing
+        sharkwing:
+          type: boolean
+          description: Whether or not this mission requires sharkwing
     languages:
       type: object
       properties:
@@ -4317,3 +4318,27 @@ components:
         nightwave:
           $ref: '#/components/schemas/nightwave'
       description: ''
+  responses:
+    error:
+      description: An error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Descroption of error
+              code:
+                type: integer
+                description: HTTP status code associated with error
+  parameters:
+    platform:
+      name: platform
+      in: path
+      description: Platform to provide data for
+      required: true
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/platform'
