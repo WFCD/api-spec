@@ -20,7 +20,7 @@ get:
       description: successful operation
       headers:
         Content-Language:
-          $ref: '#/components/parameters/language'
+          $ref: '#/components/headers/Content-Language'
       content:
         application/json:
           schema:

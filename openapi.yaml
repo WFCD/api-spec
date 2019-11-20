@@ -42,7 +42,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -65,7 +65,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -89,7 +89,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -112,7 +112,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -135,7 +135,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -158,7 +158,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -181,7 +181,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -204,7 +204,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -228,7 +228,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -251,7 +251,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -274,7 +274,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -297,7 +297,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -320,7 +320,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -343,7 +343,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -367,7 +367,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -387,7 +387,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -410,7 +410,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -481,7 +481,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -504,7 +504,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -527,7 +527,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -552,7 +552,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -575,7 +575,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -598,7 +598,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -621,7 +621,7 @@ paths:
           description: successful operation
           headers:
             Content-Language:
-              $ref: '#/components/parameters/language'
+              $ref: '#/components/headers/Content-Language'
           content:
             application/json:
               schema:
@@ -4471,3 +4471,8 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/platform'
+  headers:
+    Content-Language:
+      description: Language of the content
+      schema:
+        $ref: '#/components/schemas/language'
