@@ -6,10 +6,14 @@ get:
     Dark Sector (Rail Wars) data and history. Digital Extremes has emptied
     several of these.
   parameters:
+    - $ref: '#/components/parameters/language'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':
       description: successful operation
+      headers:
+        Content-Language:
+          $ref: '#/components/parameters/language'
       content:
         application/json:
           schema:

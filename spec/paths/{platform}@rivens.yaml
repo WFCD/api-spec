@@ -7,6 +7,7 @@ get:
     Data about averages, deviations, medians, miniums, and maxes for all rivens
     for the provided platform
   parameters:
+    - $ref: '#/components/parameters/language'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':

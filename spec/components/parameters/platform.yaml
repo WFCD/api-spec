@@ -3,6 +3,4 @@ in: path
 description: Platform to provide data for
 required: true
 schema:
-  type: array
-  items:
-    $ref: '#/components/schemas/platform'
+  $ref: '#/components/schemas/platform'

@@ -7,9 +7,13 @@ get:
     nodes that each syndicate will use for the day.
   parameters:
     - $ref: '#/components/parameters/platform'
+    - $ref: '#/components/parameters/language'
   responses:
     '200':
       description: successful operation
+      headers:
+        Content-Language:
+          $ref: '#/components/parameters/language'
       content:
         application/json:
           schema:

@@ -1,0 +1,5 @@
+name: Accept-Language
+in: header
+description: Language to retrieve
+schema:
+  $ref: '#/components/schemas/language'

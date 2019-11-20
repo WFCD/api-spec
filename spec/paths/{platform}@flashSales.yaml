@@ -4,10 +4,14 @@ get:
   summary: Current Flash Sales from Darvo
   description: 'Popular Deals, discounts, featured deals.'
   parameters:
+    - $ref: '#/components/parameters/language'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':
       description: successful operation
+      headers:
+        Content-Language:
+          $ref: '#/components/parameters/language'
       content:
         application/json:
           schema:

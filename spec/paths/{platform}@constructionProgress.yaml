@@ -6,10 +6,14 @@ get:
     Construction percentages for showing how far constructed the enemy fleets
     are.
   parameters:
+    - $ref: '#/components/parameters/language'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':
       description: successful operation
+      headers:
+        Content-Language:
+          $ref: '#/components/parameters/language'
       content:
         application/json:
           schema:

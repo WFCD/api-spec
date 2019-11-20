@@ -5,10 +5,14 @@ get:
   summary: '[Unstable] Arbitration data'
   description: Description of the currently active arbitration
   parameters:
+    - $ref: '#/components/parameters/language'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':
       description: successful operation
+      headers:
+        Content-Language:
+          $ref: '#/components/parameters/language'
       content:
         application/json:
           schema:

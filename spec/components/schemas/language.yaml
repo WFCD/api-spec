@@ -1,0 +1,13 @@
+type: string
+default: en
+enum:
+  - de
+  - es
+  - fr
+  - it
+  - ko
+  - pl
+  - pt
+  - ru
+  - zh
+  - en

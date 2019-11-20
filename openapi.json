@@ -55,12 +55,20 @@
         "description": "The full translated Warframe Worldstate",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -87,12 +95,20 @@
         "description": "Description and rewards for Alerts",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -120,12 +136,20 @@
         "description": "Description of the currently active arbitration",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -152,12 +176,20 @@
         "description": "Data on the Day/night cycle for Cetus on earth",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -184,12 +216,20 @@
         "description": "Data on each day and week's conclave challenges",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -216,12 +256,20 @@
         "description": "Construction percentages for showing how far constructed the enemy fleets are.",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -248,12 +296,20 @@
         "description": "Darvo's Daily Deal details",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -280,12 +336,20 @@
         "description": "Dark Sector (Rail Wars) data and history. Digital Extremes has emptied several of these.",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -313,12 +377,20 @@
         "description": "The current Earth day/night cycle progress.",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -345,12 +417,20 @@
         "description": "Events, such as Fomorian Attacks are included here",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -377,12 +457,20 @@
         "description": "Information about current Void Fissure missions",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -409,12 +497,20 @@
         "description": "Popular Deals, discounts, featured deals.",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -441,12 +537,20 @@
         "description": "Any current modifiers applied to all users, such as double drops.",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -473,12 +577,20 @@
         "description": "Data on invasion missions, such as estimated completion time, rewards, etc.",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -506,12 +618,20 @@
         "description": "Current Kuva Mission listing (provided by semlar).",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -541,6 +661,11 @@
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -567,12 +692,20 @@
         "description": "The Current cycle and challenges of Nightwave, a battle-pass-esque rotation and challenge system",
         "parameters": [
           {
+            "$ref": "#/components/parameters/language"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -598,6 +731,9 @@
         "summary": "Get Persistent Enemy Data",
         "description": "Data about current acolytes attacking the Sol System",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/language"
+          },
           {
             "$ref": "#/components/parameters/platform"
           }
@@ -631,6 +767,9 @@
         "summary": "Get Riven statistic data",
         "description": "Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/language"
+          },
           {
             "$ref": "#/components/parameters/platform"
           }
@@ -681,6 +820,11 @@
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -708,11 +852,19 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/platform"
+          },
+          {
+            "$ref": "#/components/parameters/language"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -740,11 +892,19 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/platform"
+          },
+          {
+            "$ref": "#/components/parameters/language"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -775,11 +935,19 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/platform"
+          },
+          {
+            "$ref": "#/components/parameters/language"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -807,11 +975,19 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/platform"
+          },
+          {
+            "$ref": "#/components/parameters/language"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -839,11 +1015,19 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/platform"
+          },
+          {
+            "$ref": "#/components/parameters/language"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -871,11 +1055,19 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/platform"
+          },
+          {
+            "$ref": "#/components/parameters/language"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/parameters/language"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -1373,6 +1565,30 @@
           },
           "500": {
             "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/locales": {
+      "get": {
+        "tags": [
+          "Static Processing Data"
+        ],
+        "summary": "Full list of supported locales",
+        "description": "Locales supported by the API",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/language"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -3310,6 +3526,22 @@
             "description": "Whether or not this mission requires sharkwing"
           }
         }
+      },
+      "language": {
+        "type": "string",
+        "default": "en",
+        "enum": [
+          "de",
+          "es",
+          "fr",
+          "it",
+          "ko",
+          "pl",
+          "pt",
+          "ru",
+          "zh",
+          "en"
+        ]
       },
       "languages": {
         "type": "object",
@@ -6288,16 +6520,21 @@
       }
     },
     "parameters": {
+      "language": {
+        "name": "Accept-Language",
+        "in": "header",
+        "description": "Language to retrieve",
+        "schema": {
+          "$ref": "#/components/schemas/language"
+        }
+      },
       "platform": {
         "name": "platform",
         "in": "path",
         "description": "Platform to provide data for",
         "required": true,
         "schema": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/platform"
-          }
+          "$ref": "#/components/schemas/platform"
         }
       }
     }

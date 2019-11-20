@@ -5,10 +5,14 @@ get:
   summary: '[Unstable] Current Kuva Mission listing'
   description: Current Kuva Mission listing (provided by semlar).
   parameters:
+    - $ref: '#/components/parameters/language'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':
       description: successful operation
+      headers:
+        Content-Language:
+          $ref: '#/components/parameters/language'
       content:
         application/json:
           schema:
