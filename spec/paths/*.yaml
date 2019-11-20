@@ -1,0 +1,5 @@
+get:
+  summary: Catch all
+  responses:
+    '404':
+      $ref: '#/components/responses/error'

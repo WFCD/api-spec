@@ -21,5 +21,6 @@ get:
           schema:
             $ref: '#/components/schemas/warframes'
     '400':
-      description: Invalid request
-      content: {}
+      $ref: '#/components/responses/error'
+    '500':
+      $ref: '#/components/responses/error'

@@ -6,12 +6,7 @@ get:
     Cycling through different nodes each day, these are a general listing of the
     nodes that each syndicate will use for the day.
   parameters:
-    - name: platform
-      in: path
-      description: Platform to provide data for
-      required: true
-      schema:
-        $ref: '#/components/schemas/platform'
+    - $ref: '#/components/parameters/platform'
   responses:
     '200':
       description: successful operation
@@ -20,5 +15,6 @@ get:
           schema:
             $ref: '#/components/schemas/syndicateMissions'
     '400':
-      description: Invalid request
-      content: {}
+      $ref: '#/components/responses/error'
+    '500':
+      $ref: '#/components/responses/error'

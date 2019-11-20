@@ -1,0 +1,39 @@
+type: object
+properties:
+  activation:
+    type: string
+    format: date-time
+    description: When the Arbitration becomes active
+  expiry:
+    type: string
+    format: date-time
+    description: When the Arbitration becomes inactive
+  solnode:
+    type: string
+    description: Internal node string for identifying the node
+  node:
+    type: string
+    description: Plain name for the node
+  name:
+    type: string
+    description: Semlar-formatted node name
+  tile:
+    type: string
+    description: Node name without planet
+  planet:
+    type: string
+    description: Planet
+  enemy:
+    $ref: '#/components/schemas/faction'
+  type:
+    type: string
+    description: Mission type
+  node_type:
+    type: string
+    description: Internal node-type string for denoting what kind of node it is
+  archwing:
+    type: boolean
+    description: Whether or not this mission requires archwing
+  sharkwing:
+    type: boolean
+    description: Whether or not this mission requires sharkwing

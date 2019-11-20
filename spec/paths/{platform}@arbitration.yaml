@@ -1,8 +1,9 @@
 get:
   tags:
     - worldstate
-  summary: Invasion Data
-  description: 'Data on invasion missions, such as estimated completion time, rewards, etc.'
+    - unstable
+  summary: '[Unstable] Arbitration data'
+  description: Description of the currently active arbitration
   parameters:
     - $ref: '#/components/parameters/platform'
   responses:
@@ -11,7 +12,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/invasions'
+            $ref: '#/components/schemas/arbitration'
     '400':
       $ref: '#/components/responses/error'
     '500':

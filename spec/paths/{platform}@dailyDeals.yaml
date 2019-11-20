@@ -4,12 +4,7 @@ get:
   summary: Daily Deal information from Darvo
   description: Darvo's Daily Deal details
   parameters:
-    - name: platform
-      in: path
-      description: Platform to provide data for
-      required: true
-      schema:
-        $ref: '#/components/schemas/platform'
+    - $ref: '#/components/parameters/platform'
   responses:
     '200':
       description: successful operation
@@ -18,5 +13,6 @@ get:
           schema:
             $ref: '#/components/schemas/dailyDeals'
     '400':
-      description: Invalid request
-      content: {}
+      $ref: '#/components/responses/error'
+    '500':
+      $ref: '#/components/responses/error'

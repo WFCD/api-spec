@@ -1,8 +1,9 @@
 get:
   tags:
     - worldstate
-  summary: Current Sortie Data
-  description: Data about the missions for the current sortie
+    - unstable
+  summary: '[Unstable] Current Kuva Mission listing'
+  description: Current Kuva Mission listing (provided by semlar).
   parameters:
     - $ref: '#/components/parameters/platform'
   responses:
@@ -13,8 +14,4 @@ get:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/sortie'
-    '400':
-      $ref: '#/components/responses/error'
-    '500':
-      $ref: '#/components/responses/error'
+              $ref: '#/components/schemas/kuva'

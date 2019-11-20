@@ -1,8 +1,10 @@
 get:
   tags:
     - worldstate
-  summary: Get Warframe Worldstate Data for XB1
+  summary: Get Warframe Worldstate Data for the provided platform
   description: The full translated Warframe Worldstate
+  parameters:
+    - $ref: '#/components/parameters/platform'
   responses:
     '200':
       description: successful operation
@@ -11,5 +13,6 @@ get:
           schema:
             $ref: '#/components/schemas/ws'
     '400':
-      description: Invalid status value
-      content: {}
+      $ref: '#/components/responses/error'
+    '500':
+      $ref: '#/components/responses/error'

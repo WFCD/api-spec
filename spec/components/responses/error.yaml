@@ -1,0 +1,12 @@
+description: An error occurred
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Descroption of error
+        code:
+          type: integer
+          description: HTTP status code associated with error

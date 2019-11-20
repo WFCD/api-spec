@@ -2,13 +2,14 @@ openapi: 3.0.1
 info:
   title: WarframeStat.us API
   description: Simple API for data from the game Warframe.
-  termsOfService: ''
   contact:
     email: wf-com-dev@warframestat.us
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-  version: 1.0.0
+  version: living
+  x-logo:
+    url: 'https://warframestat.us/wfcd_logo_color.png'
 externalDocs:
   description: Find out more about Warframe
   url: 'https://warframe.com'
@@ -27,6 +28,25 @@ tags:
       description: Find out more
       url: 'https://discord.gg/jGZxH9f'
 paths:
+  '/{platform}':
+    get:
+      tags:
+        - worldstate
+      summary: Get Warframe Worldstate Data for the provided platform
+      description: The full translated Warframe Worldstate
+      parameters:
+        - $ref: '#/components/parameters/platform'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ws'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/alerts':
     get:
       tags:
@@ -34,12 +54,7 @@ paths:
       summary: Alerts data
       description: Description and rewards for Alerts
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -48,8 +63,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/alert'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/{platform}/arbitration':
+    get:
+      tags:
+        - worldstate
+        - unstable
+      summary: '[Unstable] Arbitration data'
+      description: Description of the currently active arbitration
+      parameters:
+        - $ref: '#/components/parameters/platform'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/arbitration'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/cetusCycle':
     get:
       tags:
@@ -57,12 +93,7 @@ paths:
       summary: Get Current Cetus Status
       description: Data on the Day/night cycle for Cetus on earth
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -71,8 +102,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/cetusCycle'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/conclaveChallenges':
     get:
       tags:
@@ -80,12 +112,7 @@ paths:
       summary: Get Conclave Challenge Data
       description: Data on each day and week's conclave challenges
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -94,8 +121,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/conclaveChallenges'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/constructionProgress':
     get:
       tags:
@@ -103,12 +131,7 @@ paths:
       summary: Get Construction Progress for Fomorians and Razorbacks
       description: Construction percentages for showing how far constructed the enemy fleets are.
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -117,8 +140,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/construction'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/dailyDeals':
     get:
       tags:
@@ -126,12 +150,7 @@ paths:
       summary: Daily Deal information from Darvo
       description: Darvo's Daily Deal details
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -140,8 +159,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/dailyDeals'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/darkSectors':
     get:
       tags:
@@ -149,24 +169,18 @@ paths:
       summary: Dark Sector occupation and history
       description: Dark Sector (Rail Wars) data and history. Digital Extremes has emptied several of these.
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/darkSectors'
+                $ref: '#/components/schemas/darkSectors'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
       deprecated: true
   '/{platform}/earthCycle':
     get:
@@ -175,12 +189,7 @@ paths:
       summary: Get the current Earth rotation information
       description: The current Earth day/night cycle progress.
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -189,8 +198,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/earthCycle'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/events':
     get:
       tags:
@@ -198,24 +208,18 @@ paths:
       summary: Listing of ongoing events
       description: 'Events, such as Fomorian Attacks are included here'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/events'
+                $ref: '#/components/schemas/events'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/fissures':
     get:
       tags:
@@ -223,24 +227,18 @@ paths:
       summary: Data on current fissures
       description: Information about current Void Fissure missions
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/fissures'
+                $ref: '#/components/schemas/fissures'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/flashSales':
     get:
       tags:
@@ -248,12 +246,7 @@ paths:
       summary: Current Flash Sales from Darvo
       description: 'Popular Deals, discounts, featured deals.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -262,8 +255,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/flashSales'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/globalUpgrades':
     get:
       tags:
@@ -271,24 +265,18 @@ paths:
       summary: Current Global Upgrades
       description: 'Any current modifiers applied to all users, such as double drops.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/globalUpgrades'
+                $ref: '#/components/schemas/globalUpgrades'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/invasions':
     get:
       tags:
@@ -296,12 +284,27 @@ paths:
       summary: Invasion Data
       description: 'Data on invasion missions, such as estimated completion time, rewards, etc.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invasions'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/{platform}/kuva':
+    get:
+      tags:
+        - worldstate
+        - unstable
+      summary: '[Unstable] Current Kuva Mission listing'
+      description: Current Kuva Mission listing (provided by semlar).
+      parameters:
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -310,10 +313,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/invasions'
-        '400':
-          description: Invalid request
-          content: {}
+                  $ref: '#/components/schemas/kuva'
   '/{platform}/news':
     get:
       tags:
@@ -321,12 +321,7 @@ paths:
       summary: Current Listing of News items
       description: Translated News items from the worldstate
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -335,8 +330,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/news'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/nightwave':
     get:
       tags:
@@ -344,12 +340,7 @@ paths:
       summary: Get the current Nightwave state.
       description: 'The Current cycle and challenges of Nightwave, a battle-pass-esque rotation and challenge system'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -358,8 +349,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/nightwave'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/persistentEnemies':
     get:
       tags:
@@ -367,12 +359,7 @@ paths:
       summary: Get Persistent Enemy Data
       description: Data about current acolytes attacking the Sol System
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -381,8 +368,56 @@ paths:
               schema:
                 $ref: '#/components/schemas/persistentEnemies'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/{platform}/rivens':
+    get:
+      tags:
+        - worldstate
+        - rivens
+      summary: Get Riven statistic data
+      description: 'Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform'
+      parameters:
+        - $ref: '#/components/parameters/platform'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rivenType'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/{platform}/rivens/search/{query}':
+    get:
+      tags:
+        - worldstate
+        - rivens
+      summary: Get Riven statistic data
+      description: 'Data about averages, deviations, medians, miniums, and maxes for rivens whose name match the query for the provided platform'
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - name: query
+          in: path
+          description: Riven name to search for
+          required: true
+          schema:
+            type: string
+            format: utf8
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rivenType'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/simaris':
     get:
       tags:
@@ -390,12 +425,7 @@ paths:
       summary: Get the current Sanctuary Status
       description: Status data for Simaris' Sanctuary
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -404,8 +434,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/simaris'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/sortie':
     get:
       tags:
@@ -413,12 +444,7 @@ paths:
       summary: Current Sortie Data
       description: Data about the missions for the current sortie
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -429,8 +455,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/sortie'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/syndicateMissions':
     get:
       tags:
@@ -438,24 +465,18 @@ paths:
       summary: Listing of Syndicate mission nodes
       description: 'Cycling through different nodes each day, these are a general listing of the nodes that each syndicate will use for the day.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/syndicateMissions'
+                $ref: '#/components/schemas/syndicateMissions'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/timestamp':
     get:
       tags:
@@ -463,12 +484,7 @@ paths:
       summary: Get the timestamp that the current worldstate was generated at.
       description: The time that the worldstate was last generated
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -477,8 +493,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/timestamp'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/vallisCycle':
     get:
       tags:
@@ -486,12 +503,7 @@ paths:
       summary: Get the current state of the Orb Vallis
       description: The current cycle of the Orb Vallis warm/cold cycle
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -500,8 +512,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/vallisCycle'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/voidTrader':
     get:
       tags:
@@ -509,12 +522,7 @@ paths:
       summary: Get the current Void Trader Information
       description: 'Information on the current Void Trader offerings, or when he will arrive.'
       parameters:
-        - name: platform
-          in: path
-          description: Platform to provide data for
-          required: true
-          schema:
-            $ref: '#/components/schemas/platform'
+        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -523,12 +531,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/voidTrader'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  /*:
+    get:
+      summary: Catch all
+      responses:
+        '404':
+          $ref: '#/components/responses/error'
   /arcanes:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Arcane Enhancement Data
       description: Available Arcane Enhancements
       responses:
@@ -539,12 +554,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/arcane'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/arcanes/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Arcane Enhancement Data based on the query
       description: Available Arcane Enhancements
       parameters:
@@ -563,12 +579,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/arcane'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /conclave:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get conclave challenge data
       description: Data about conclave challenges
       responses:
@@ -579,12 +596,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/conclave'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/conclave/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get conclave challenge data based on the query
       description: Data about conclave challenges
       parameters:
@@ -603,12 +621,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/conclave'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/drops/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Warframe Drops data
       description: Percentages for Warframe drops in different areas of the game
       parameters:
@@ -627,12 +646,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/drops'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /events:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Event-specific Data
       description: Data about events
       responses:
@@ -641,14 +661,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/events'
+                type: object
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/events/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Event-specific Data based on the query
       description: Data about events
       parameters:
@@ -665,14 +686,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/events'
+                type: object
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /factions:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Faction translation information.
       description: Strings for translating faction identifiers.
       responses:
@@ -683,12 +705,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/factions'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/factions/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Faction translation information based on the query.
       description: Strings for translating faction identifiers.
       parameters:
@@ -707,12 +730,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/factions'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /fissureModifiers:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Fissure Modifier translation data.
       description: Fissure translation identifiers
       responses:
@@ -723,12 +747,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/fissureModifiers'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/fissureModifiers/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Fissure Modifier translation data based on the query.
       description: Fissure translation identifiers
       parameters:
@@ -747,12 +772,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/fissureModifiers'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/items/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Warframe Items data
       description: 'Item information, such as name, unique name, type, and image name.'
       parameters:
@@ -771,12 +797,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/items'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /languages:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Language strings for Warframe.
       description: 'Get language strings to assist translation. (Prefer the /languages/search/:query route)'
       responses:
@@ -787,12 +814,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/languages'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/languages/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Language strings for Warframe based on the query.
       description: Get language strings to assist translation.
       parameters:
@@ -811,12 +839,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/languages'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /missionTypes:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get MissionType Translation Keys
       description: Mission Type information to aid translating identifiers
       responses:
@@ -827,12 +856,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/missionTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/missionTypes/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get MissionType Translation Keys based on the query
       description: Mission Type information to aid translating identifiers
       parameters:
@@ -851,12 +881,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/missionTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /operationTypes:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get operation types data.
       description: Operation Types information to aid translating identifiers for global upgrades
       responses:
@@ -867,12 +898,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/operationTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/operationTypes/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get operation types data based on the query.
       description: Operation Types information to aid translating identifiers for global upgrades
       parameters:
@@ -891,28 +923,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/operationTypes'
         '400':
-          description: Invalid request
-          content: {}
-  /pc:
-    get:
-      tags:
-        - worldstate
-      summary: Get Warframe Worldstate Data for PC
-      description: The full translated Warframe Worldstate
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ws'
-        '400':
-          description: Invalid status value
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /persistentEnemy:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Persistent Enemy translation data.
       description: Persistent Enemy translation information for aiding translation of identifiers.
       responses:
@@ -923,12 +940,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/persistentEnemies'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/persistentEnemy/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Persistent Enemy translation data based on the query.
       description: Persistent Enemy translation information for aiding translation of identifiers.
       parameters:
@@ -947,44 +965,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/persistentEnemies'
         '400':
-          description: Invalid request
-          content: {}
-  /ps4:
-    get:
-      tags:
-        - worldstate
-      summary: Get Warframe Worldstate Data for PS4
-      description: The full translated Warframe Worldstate
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ws'
-        '400':
-          description: Invalid status value
-          content: {}
-  /routes:
-    get:
-      tags:
-        - data
-      summary: Get the available routes
-      description: Routes that are available
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/timestamp'
-        '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /solNodes:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Sol Node information and translation data.
       description: Sol Node translation information for aiding the translation of identifiers.
       responses:
@@ -995,12 +982,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/solNode'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/solNodes/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Sol Node information and translation data based on the query.
       description: Sol Node translation information for aiding the translation of identifiers.
       parameters:
@@ -1019,12 +1007,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/solNodeSearch'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /sortie:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Sortie translation information.
       description: Sortie translation information for assisting translation of identifiers.
       responses:
@@ -1035,12 +1024,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/sortieData'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/sortie/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Sortie translation information based on the query.
       description: Sortie translation information for assisting translation of identifiers.
       parameters:
@@ -1059,28 +1049,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/sortieData'
         '400':
-          description: Invalid request
-          content: {}
-  /swi:
-    get:
-      tags:
-        - worldstate
-      summary: Get Warframe Worldstate Data for Nintendo Switch
-      description: The full translated Warframe Worldstate
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ws'
-        '400':
-          description: Invalid status value
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /syndicates:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Syndicate translation data.
       description: Information to assist translating syndicate identifiers.
       responses:
@@ -1091,12 +1066,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/syndicates'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/syndicates/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Syndicate translation data based on the query.
       description: Information to assist translating syndicate identifiers.
       parameters:
@@ -1115,12 +1091,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/syndicates'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /tutorials:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Tutorials Data
       description: Tutorials data from DE
       responses:
@@ -1131,12 +1108,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/tutorials'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/tutorials/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Tutorials Data based on the query
       description: Tutorials data from DE
       parameters:
@@ -1155,12 +1133,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/tutorials'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /upgradeTypes:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get upgrade types data for global upgrades.
       description: 'Upgrade types for what can be changed by global modifiers, such as double credit weekends.'
       responses:
@@ -1171,12 +1150,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/upgradeTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/upgradeTypes/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get upgrade types data for global upgrades based on the query.
       description: 'Upgrade types for what can be changed by global modifiers, such as double credit weekends.'
       parameters:
@@ -1195,12 +1175,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/upgradeTypes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /warframes:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: 'Get Warframe specs and data, such as polarities defenses, and profile.'
       description: Warframe stats and general information.
       responses:
@@ -1211,12 +1192,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/warframes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/warframes/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: 'Get Warframe specs and data, such as polarities defenses, and profile based on the query.'
       description: Warframe stats and general information.
       parameters:
@@ -1235,12 +1217,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/warframes'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /weapons:
     get:
       tags:
-        - data
+        - Static Processing Data
       summary: Get Weapon data and statistics.
       description: Weapon statistics.
       responses:
@@ -1251,12 +1234,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/weapons'
         '400':
-          description: Invalid request
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/weapons/search/{query}':
     get:
       tags:
-        - queryable
+        - Searchable
       summary: Get Weapon data and statistics based on the query.
       description: Weapon statistics.
       parameters:
@@ -1275,133 +1259,82 @@ paths:
               schema:
                 $ref: '#/components/schemas/weapons'
         '400':
-          description: Invalid request
-          content: {}
-  /xb1:
-    get:
-      tags:
-        - worldstate
-      summary: Get Warframe Worldstate Data for XB1
-      description: The full translated Warframe Worldstate
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ws'
-        '400':
-          description: Invalid status value
-          content: {}
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
 components:
   schemas:
     alert:
-      minItems: 1
-      type: array
-      items:
-        required:
-          - activation
-          - eta
-          - expired
-          - expiry
-          - id
-        type: object
-        properties:
-          mission:
-            required:
-              - archwingRequired
-              - faction
-              - maxEnemyLevel
-              - maxWaveNum
-              - minEnemyLevel
-              - nightmare
-              - node
-              - reward
-              - type
-            type: object
-            properties:
-              reward:
-                required:
-                  - asString
-                  - color
-                  - countedItems
-                  - credits
-                  - itemString
-                  - items
-                  - thumbnail
-                type: object
-                properties:
-                  countedItems:
-                    minItems: 1
-                    uniqueItems: true
-                    type: array
-                    items:
-                      required:
-                        - count
-                        - type
-                      type: object
-                      properties:
-                        count:
-                          type: number
-                        type:
-                          minLength: 1
-                          type: string
-                  thumbnail:
-                    minLength: 1
-                    type: string
-                  color:
-                    type: number
-                  credits:
-                    type: number
-                  asString:
-                    minLength: 1
-                    type: string
-                  items:
-                    type: array
-                    items:
-                      type: object
-                      properties: {}
-                  itemString:
-                    minLength: 1
-                    type: string
-              node:
-                minLength: 1
-                type: string
-              faction:
-                minLength: 1
-                type: string
-              maxEnemyLevel:
-                type: number
-              minEnemyLevel:
-                type: number
-              maxWaveNum:
-                type: number
-              type:
-                minLength: 1
-                type: string
-              nightmare:
-                type: boolean
-              archwingRequired:
-                type: boolean
-          expired:
-            type: boolean
-          eta:
-            minLength: 1
-            type: string
-          id:
-            minLength: 1
-            type: string
-          expiry:
-            minLength: 1
-            type: string
-          activation:
-            minLength: 1
-            type: string
-          rewardTypes:
-            type: array
-            items:
-              type: object
-              properties: {}
+      type: object
+      properties:
+        mission:
+          $ref: '#/components/schemas/mission'
+        expired:
+          type: boolean
+        eta:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        expiry:
+          minLength: 1
+          type: string
+          format: date-time
+        activation:
+          minLength: 1
+          type: string
+          format: date-time
+        rewardTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/rewardType'
+      required:
+        - activation
+        - eta
+        - expired
+        - expiry
+        - id
+    arbitration:
+      type: object
+      properties:
+        activation:
+          type: string
+          format: date-time
+          description: When the Arbitration becomes active
+        expiry:
+          type: string
+          format: date-time
+          description: When the Arbitration becomes inactive
+        solnode:
+          type: string
+          description: Internal node string for identifying the node
+        node:
+          type: string
+          description: Plain name for the node
+        name:
+          type: string
+          description: Semlar-formatted node name
+        tile:
+          type: string
+          description: Node name without planet
+        planet:
+          type: string
+          description: Planet
+        enemy:
+          $ref: '#/components/schemas/faction'
+        type:
+          type: string
+          description: Mission type
+        node_type:
+          type: string
+          description: Internal node-type string for denoting what kind of node it is
+        archwing:
+          type: boolean
+          description: Whether or not this mission requires archwing
+        sharkwing:
+          type: boolean
+          description: Whether or not this mission requires sharkwing
     arcane:
       required:
         - effect
@@ -1678,6 +1611,28 @@ components:
           id:
             minLength: 1
             type: string
+    darkSectorHistory:
+      type: object
+      description: Describes a Dark Sector Historical Battle.
+      properties:
+        defender:
+          type: string
+          description: Clan or alliance that was defending.
+        defenderIsAlliance:
+          type: boolean
+          description: Whether or not the defender was an alliance.
+        attacker:
+          type: string
+          description: Clan or alliance that was attacking.
+        winner:
+          type: string
+          description: 'One of attacker or defender, whichever one won.'
+        start:
+          type: string
+          description: When the battle started.
+        end:
+          type: string
+          description: When the battle ended.
     darkSectors:
       minItems: 1
       type: array
@@ -1698,7 +1653,7 @@ components:
           deployerName:
             minLength: 1
             type: string
-          defenderDeployemntActivation:
+          defenderDeploymentActivation:
             type: number
           defenderName:
             minLength: 1
@@ -1714,8 +1669,7 @@ components:
           history:
             type: array
             items:
-              type: object
-              properties: {}
+              $ref: '#/components/schemas/darkSectorHistory'
     drops:
       minItems: 1
       type: array
@@ -1757,11 +1711,149 @@ components:
         timeLeft:
           minLength: 1
           type: string
+    event:
+      type: object
+      properties:
+        activation:
+          type: string
+          description: Timestamp of when the event started
+          format: date-time
+        expiry:
+          type: string
+          description: Timestamp of when the event ends
+          format: date-time
+        maximumScore:
+          type: number
+          description: Maximum score to complete the event
+        currentScore:
+          type: number
+          description: The current score for the event
+        smallInterval:
+          type: number
+          description: Interval for the first goal
+        largeInterval:
+          type: number
+          description: Interval for the second intermediate score
+        faction:
+          $ref: '#/components/schemas/faction'
+        description:
+          type: string
+          description: The description or "subtitle" for the event.
+        tooltip:
+          type: string
+          description: Tooltip for the event
+        node:
+          type: string
+          description: Node that the event is taking place on
+        concurrentNodes:
+          type: array
+          description: Nodes that the event is happening concurrently on
+          items:
+            type: string
+        victimNode:
+          type: string
+          description: Node that is being attacked & defended in the event.
+        scoreLocTag:
+          type: string
+          description: Localized tag for the event score
+        rewards:
+          type: array
+          items:
+            $ref: '#/components/schemas/reward'
+        expired:
+          type: boolean
+          description: Whether or not the event is expired
+        health:
+          type: number
+          description: Amount of health remaining for the target
+        affiliatedWith:
+          $ref: '#/components/schemas/syndicate'
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/syndicateJob'
+        interimSteps:
+          type: array
+          description: 'Interim steps, marking progress towards the final goal.'
+          items:
+            type: object
+            properties:
+              goal:
+                type: number
+                description: Score to each to achieve this step
+              reward:
+                $ref: '#/components/schemas/reward'
+              message:
+                type: object
+                properties:
+                  sender:
+                    type: string
+                    description: Who commissioned this reward
+                  subject:
+                    type: string
+                    description: Title of the in-game mail received for completing the step.
+                  message:
+                    type: string
+                    description: Body of the in-game mail received for completing the step.
+                  senderIcon:
+                    type: string
+                    description: Path to sender icon string.
+                  attachments:
+                    type: array
+                    description: Attachments to the message. Unknown usage.
+                    items:
+                      type: string
+              winnerCount:
+                type: number
+                description: Suspected to be the number of persons who have completed this step.
+        progressSteps:
+          type: object
+          properties:
+            type:
+              type: string
+              description: Steps in the progress to completion
+            progressAmt:
+              type: number
+              description: Percent progress to completion
+        progressTotal:
+          type: number
+          description: Total of progressSteps values.
+        showTotalAtEndOfMission:
+          type: boolean
+          description: Whether or not to show the total score at the end of the mission
+        isPersonal:
+          type: boolean
+          description: Whether or not the event is personal
+        isCommunity:
+          type: boolean
+          description: Whether or not the event is communal
+        regionDrops:
+          type: array
+          description: Drops in the area around the event node
+          items:
+            type: string
+        archwingDrops:
+          type: array
+          description: Archwing Drops in effect while this event is active
+          items:
+            type: string
+        asString:
+          type: string
+          description: Attempt to summarize event in a short string. (Do not use).
     events:
       type: array
       items:
-        type: object
-        properties: {}
+        $ref: '#/components/schemas/event'
+    faction:
+      type: string
+      description: A Faction in Warframe
+      enum:
+        - Orokin
+        - Corrupted
+        - Infested
+        - Corpus
+        - Grineer
+        - Tenno
     factions:
       required:
         - FC_CORPUS
@@ -1812,6 +1904,50 @@ components:
               minLength: 1
               type: string
       description: ''
+    fissure:
+      type: object
+      required:
+        - activation
+        - enemy
+        - eta
+        - expired
+        - expiry
+        - id
+        - missionType
+        - node
+        - tier
+        - tierNum
+      properties:
+        node:
+          minLength: 1
+          type: string
+        expired:
+          type: boolean
+        eta:
+          minLength: 1
+          type: string
+        missionType:
+          minLength: 1
+          type: string
+        tier:
+          minLength: 1
+          type: string
+        tierNum:
+          type: number
+        enemy:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        expiry:
+          minLength: 1
+          type: string
+          format: date-time
+        activation:
+          minLength: 1
+          type: string
+          format: date-time
     fissureModifiers:
       required:
         - VoidT1
@@ -1867,49 +2003,8 @@ components:
       description: ''
     fissures:
       minItems: 1
-      type: array
       items:
-        required:
-          - activation
-          - enemy
-          - eta
-          - expired
-          - expiry
-          - id
-          - missionType
-          - node
-          - tier
-          - tierNum
-        type: object
-        properties:
-          node:
-            minLength: 1
-            type: string
-          expired:
-            type: boolean
-          eta:
-            minLength: 1
-            type: string
-          missionType:
-            minLength: 1
-            type: string
-          tier:
-            minLength: 1
-            type: string
-          tierNum:
-            type: number
-          enemy:
-            minLength: 1
-            type: string
-          id:
-            minLength: 1
-            type: string
-          expiry:
-            minLength: 1
-            type: string
-          activation:
-            minLength: 1
-            type: string
+        $ref: '#/components/schemas/fissure'
     flashSales:
       minItems: 1
       type: array
@@ -1952,150 +2047,92 @@ components:
       type: array
       items:
         type: object
-        properties: {}
+        properties:
+          start:
+            type: string
+          end:
+            type: string
+          upgrade:
+            type: string
+          operation:
+            description: Operation descriptor
+            type: string
+          operationSymbol:
+            description: Symbol corresponding to operation
+            type: string
+          upgradeOperationValue:
+            description: Value corresponding to performing the operation
+            type: number
+          expired:
+            description: Whether or not the upgrade has expired
+            type: boolean
+          eta:
+            description: Formatted short string designating when the upgrade will expire.
+            type: string
+          desc:
+            description: Plain text description of the global upgrade.
+            type: string
+    invasion:
+      required:
+        - activation
+        - attackingFaction
+        - completed
+        - completion
+        - count
+        - defendingFaction
+        - desc
+        - eta
+        - id
+        - node
+        - requiredRuns
+        - vsInfestation
+      type: object
+      properties:
+        defenderReward:
+          $ref: '#/components/schemas/reward'
+        attackingFaction:
+          minLength: 1
+          type: string
+        completion:
+          type: number
+        attackerReward:
+          $ref: '#/components/schemas/reward'
+        count:
+          type: number
+        completed:
+          type: boolean
+        requiredRuns:
+          type: number
+        vsInfestation:
+          type: boolean
+        node:
+          minLength: 1
+          type: string
+        eta:
+          minLength: 1
+          type: string
+        defendingFaction:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        activation:
+          minLength: 1
+          type: string
+          format: date-time
+        rewardTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/rewardType'
+        desc:
+          minLength: 1
+          type: string
     invasions:
       minItems: 1
       type: array
       items:
-        required:
-          - activation
-          - attackingFaction
-          - completed
-          - completion
-          - count
-          - defendingFaction
-          - desc
-          - eta
-          - id
-          - node
-          - requiredRuns
-          - vsInfestation
-        type: object
-        properties:
-          defenderReward:
-            required:
-              - asString
-              - color
-              - countedItems
-              - credits
-              - itemString
-              - items
-              - thumbnail
-            type: object
-            properties:
-              countedItems:
-                minItems: 1
-                uniqueItems: true
-                type: array
-                items:
-                  required:
-                    - count
-                    - type
-                  type: object
-                  properties:
-                    count:
-                      type: number
-                    type:
-                      minLength: 1
-                      type: string
-              thumbnail:
-                minLength: 1
-                type: string
-              color:
-                type: number
-              credits:
-                type: number
-              asString:
-                minLength: 1
-                type: string
-              items:
-                type: array
-                items:
-                  type: object
-                  properties: {}
-              itemString:
-                minLength: 1
-                type: string
-          attackingFaction:
-            minLength: 1
-            type: string
-          completion:
-            type: number
-          attackerReward:
-            required:
-              - asString
-              - color
-              - countedItems
-              - credits
-              - itemString
-              - items
-              - thumbnail
-            type: object
-            properties:
-              countedItems:
-                minItems: 1
-                uniqueItems: true
-                type: array
-                items:
-                  required:
-                    - count
-                    - type
-                  type: object
-                  properties:
-                    count:
-                      type: number
-                    type:
-                      minLength: 1
-                      type: string
-              thumbnail:
-                minLength: 1
-                type: string
-              color:
-                type: number
-              credits:
-                type: number
-              asString:
-                minLength: 1
-                type: string
-              items:
-                type: array
-                items:
-                  type: object
-                  properties: {}
-              itemString:
-                minLength: 1
-                type: string
-          count:
-            type: number
-          completed:
-            type: boolean
-          requiredRuns:
-            type: number
-          vsInfestation:
-            type: boolean
-          node:
-            minLength: 1
-            type: string
-          eta:
-            minLength: 1
-            type: string
-          defendingFaction:
-            minLength: 1
-            type: string
-          id:
-            minLength: 1
-            type: string
-          activation:
-            minLength: 1
-            type: string
-          rewardTypes:
-            type: array
-            items:
-              type: object
-              properties: {}
-          desc:
-            minLength: 1
-            type: string
+        $ref: '#/components/schemas/invasion'
     item:
       type: object
       properties:
@@ -2109,6 +2146,46 @@ components:
       description: An item from Warframe
       items:
         $ref: '#/components/schemas/item'
+    kuva:
+      type: object
+      properties:
+        activation:
+          type: string
+          format: date-time
+          description: When the Kuva group becomes active
+        expiry:
+          type: string
+          format: date-time
+          description: When the Kuva group becomes inactive
+        solnode:
+          type: string
+          description: Internal node string for identifying the node
+        node:
+          type: string
+          description: Plain name for the node
+        name:
+          type: string
+          description: Semlar-formatted node name
+        tile:
+          type: string
+          description: Node name without planet
+        planet:
+          type: string
+          description: Planet
+        enemy:
+          $ref: '#/components/schemas/faction'
+        type:
+          type: string
+          description: Mission type
+        node_type:
+          type: string
+          description: Internal node-type string for denoting what kind of node it is
+        archwing:
+          type: boolean
+          description: Whether or not this mission requires archwing
+        sharkwing:
+          type: boolean
+          description: Whether or not this mission requires sharkwing
     languages:
       type: object
       properties:
@@ -2247,6 +2324,71 @@ components:
           type: string
         vaultDate:
           type: string
+    mission:
+      type: object
+      required:
+        - archwingRequired
+        - faction
+        - maxEnemyLevel
+        - maxWaveNum
+        - minEnemyLevel
+        - nightmare
+        - node
+        - reward
+        - type
+      properties:
+        reward:
+          $ref: '#/components/schemas/reward'
+        node:
+          minLength: 1
+          type: string
+        faction:
+          minLength: 1
+          type: string
+        maxEnemyLevel:
+          type: number
+        minEnemyLevel:
+          type: number
+        maxWaveNum:
+          type: number
+        type:
+          minLength: 1
+          type: string
+        nightmare:
+          type: boolean
+        archwingRequired:
+          type: boolean
+          description: Whether or not an Archwing is required for participating in the mision.
+        isSharkwing:
+          description: Whether or not the mission takes place in a submerssible mission.
+          type: boolean
+        enemySpec:
+          type: string
+          description: Enemy specification for the mission
+        levelOverride:
+          type: string
+          description: Override for the map on this mission
+        advancedSpawners:
+          type: array
+          items:
+            type: string
+          description: Array of strings denoting extra spawners for a mission
+        requiredItems:
+          type: array
+          description: Items required to enter the mission
+          items:
+            type: string
+        consumeRequiredItems:
+          type: boolean
+          description: Whether or not the required items are consumed
+        leadersAlwaysAllowed:
+          type: boolean
+          description: Whether or not leaders are always allowed
+        levelAuras:
+          type: array
+          description: Affectors for this mission
+          items:
+            type: string
     missionTypes:
       required:
         - MT_ARENA
@@ -2478,9 +2620,11 @@ components:
         activation:
           minLength: 1
           type: string
+          format: date-time
         expiry:
           minLength: 1
           type: string
+          format: date-time
         params:
           type: object
           properties: {}
@@ -2511,9 +2655,11 @@ components:
         activation:
           minLength: 1
           type: string
+          format: date-time
         expiry:
           minLength: 1
           type: string
+          format: date-time
         isDaily:
           type: boolean
         isElite:
@@ -2545,6 +2691,7 @@ components:
           type: string
         date:
           type: string
+          format: date-time
         url:
           type: string
         additions:
@@ -2557,7 +2704,40 @@ components:
       type: array
       items:
         type: object
-        properties: {}
+        properties:
+          locationTag:
+            type: string
+            description: Location tag for Acolyte
+          agentType:
+            type: string
+            description: Which acolyte it is
+          rank:
+            type: number
+            description: Enemy level
+          healthPercent:
+            type: number
+            description: Enemy's remaining health
+          fleeDamage:
+            type: number
+            description: The percent damage that the enemy takes when it's defeated
+          region:
+            type: string
+            description: The region in which the enemy is located
+          lastDiscoveredTime:
+            type: string
+            description: The time at which the enemy was last discovered
+          lastDiscoveredAt:
+            type: string
+            description: Node at which the enemy was last discovered
+          isDiscovered:
+            type: boolean
+            description: Whether or not the enemy is currently discovered
+          isUsingTicketing:
+            type: boolean
+            description: Whether or not the enemy is using 'ticketing'. Unknown usage.
+          pid:
+            type: string
+            description: faux-id incorporating the actual description and whether or not the enemy is discovered.
     platform:
       type: string
       enum:
@@ -2701,6 +2881,179 @@ components:
           type: string
         vaultDate:
           type: string
+    reward:
+      type: object
+      required:
+        - asString
+        - color
+        - countedItems
+        - credits
+        - itemString
+        - items
+        - thumbnail
+      properties:
+        countedItems:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - count
+              - type
+            type: object
+            properties:
+              count:
+                type: number
+              type:
+                minLength: 1
+                type: string
+        thumbnail:
+          minLength: 1
+          type: string
+        color:
+          type: number
+        credits:
+          type: number
+        asString:
+          minLength: 1
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties: {}
+        itemString:
+          minLength: 1
+          type: string
+    rewardType:
+      type: string
+      description: One of the reward types
+      enum:
+        - vauban
+        - vandal
+        - wraith
+        - skin
+        - helmet
+        - nitain
+        - mutalist
+        - weapon
+        - fieldron
+        - detonite
+        - mutagen
+        - aura
+        - neuralSensors
+        - orokinCell
+        - alloyPlate
+        - circuits
+        - controlModule
+        - ferrite
+        - gallium
+        - morphics
+        - nanoSpores
+        - oxium
+        - rubedo
+        - salvage
+        - plastids
+        - polymerBundle
+        - argonCrystal
+        - cryotic
+        - tellurium
+        - neurodes
+        - nightmare
+        - endo
+        - reactor
+        - catalyst
+        - forma
+        - synthula
+        - exilus
+        - riven
+        - kavatGene
+        - kubrowEgg
+        - traces
+        - other
+        - credits
+    riven:
+      type: object
+      properties:
+        rivenCompatability:
+          type: object
+          description: The name of the weapon that this riven is compatible with
+          additionalProperties:
+            type: object
+            properties:
+              rolled:
+                $ref: '#/components/schemas/rivenStatistic'
+              unrolled:
+                $ref: '#/components/schemas/rivenStatistic'
+          example:
+            Corvas:
+              rerolled:
+                itemType: Archgun Riven Mod
+                compatibility: Corvas
+                rerolled: true
+                avg: 291.94
+                stddev: 346.96
+                min: 25
+                max: 1500
+                pop: 0.0536
+                median: 150
+    rivenStatistic:
+      description: A colleciton of rivens about a specific weapon's riven sales
+      type: object
+      properties:
+        itemType:
+          type: string
+        compatability:
+          type: string
+        rerolled:
+          type: boolean
+        avg:
+          type: number
+          format: float
+        stddev:
+          type: number
+          format: float
+        min:
+          type: number
+          format: float
+        max:
+          type: number
+          format: float
+        pop:
+          type: number
+          format: float
+        median:
+          type: number
+          format: float
+      example:
+        rerolled:
+          itemType: Archgun Riven Mod
+          compatibility: Corvas
+          rerolled: true
+          avg: 291.94
+          stddev: 346.96
+          min: 25
+          max: 1500
+          pop: 0.0536
+          median: 150
+    rivenType:
+      type: object
+      description: The type of riven that the child rivens belong to
+      additionalProperties:
+        $ref: '#/components/schemas/riven'
+      example:
+        Archgun Riven Mod:
+          Corvas:
+            rerolled:
+              itemType: Archgun Riven Mod
+              compatibility: Corvas
+              rerolled: true
+              avg: 291.94
+              stddev: 346.96
+              min: 25
+              max: 1500
+              pop: 0.0536
+              median: 150
     secondaryWeapon:
       type: object
       properties:
@@ -2915,9 +3268,11 @@ components:
         activation:
           minLength: 1
           type: string
+          format: date-time
         expiry:
           minLength: 1
           type: string
+          format: date-time
         rewardPool:
           minLength: 1
           type: string
@@ -3468,43 +3823,88 @@ components:
             type: object
             properties: {}
       description: ''
+    syndicate:
+      type: string
+      enum:
+        - Arbiters of Hexis
+        - Cephalon Suda
+        - Assassins
+        - Nightwave
+        - Ostrons
+        - Vox Solaris
+        - Solaris United
+        - Perrin Sequence
+        - Steel Meridian
+        - Red Veil
+        - New Loka
+    syndicateJob:
+      type: object
+      description: A Job for a syndicate. Often called a bounty.
+      properties:
+        activation:
+          type: string
+          description: Timestamp for when the job becomes active
+          format: date-time
+        expiry:
+          type: string
+          description: Timestamp for when the job becomes inactive
+          format: date-time
+        rewardPool:
+          type: array
+          items:
+            type: string
+          description: Reward Pool for the job
+        type:
+          type: string
+          description: What type of Job (Bounty) it is
+        enemyLevels:
+          type: array
+          description: Array of enemy levels
+          items:
+            type: number
+        standingStages:
+          type: array
+          items:
+            type: number
+          description: Stages of standing rewards.
+    syndicateMission:
+      required:
+        - activation
+        - eta
+        - expiry
+        - id
+        - syndicate
+      type: object
+      properties:
+        nodes:
+          type: array
+          items:
+            type: string
+        eta:
+          minLength: 1
+          type: string
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/syndicateJob'
+        syndicate:
+          $ref: '#/components/schemas/syndicate'
+        id:
+          minLength: 1
+          type: string
+        expiry:
+          minLength: 1
+          type: string
+          format: date-time
+        activation:
+          format: date-time
+          minLength: 1
+          type: string
     syndicateMissions:
       minItems: 1
       type: array
       items:
-        required:
-          - activation
-          - eta
-          - expiry
-          - id
-          - syndicate
-        type: object
-        properties:
-          nodes:
-            type: array
-            items:
-              type: object
-              properties: {}
-          eta:
-            minLength: 1
-            type: string
-          jobs:
-            type: array
-            items:
-              type: object
-              properties: {}
-          syndicate:
-            minLength: 1
-            type: string
-          id:
-            minLength: 1
-            type: string
-          expiry:
-            minLength: 1
-            type: string
-          activation:
-            minLength: 1
-            type: string
+        $ref: '#/components/schemas/syndicateMission'
     syndicates:
       required:
         - ArbitersSyndicate
@@ -3703,9 +4103,11 @@ components:
         activation:
           minLength: 1
           type: string
+          format: date-time
         expiry:
           minLength: 1
           type: string
+          format: date-time
         character:
           minLength: 1
           type: string
@@ -3716,7 +4118,16 @@ components:
           type: array
           items:
             type: object
-            properties: {}
+            properties:
+              item:
+                type: string
+                description: Item that is being sold
+              ducats:
+                type: number
+                description: Amount of ducats required to purchase item
+              credits:
+                type: number
+                description: Amount of credits required to purchase item
         psId:
           minLength: 1
           type: string
@@ -3907,3 +4318,27 @@ components:
         nightwave:
           $ref: '#/components/schemas/nightwave'
       description: ''
+  responses:
+    error:
+      description: An error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Descroption of error
+              code:
+                type: integer
+                description: HTTP status code associated with error
+  parameters:
+    platform:
+      name: platform
+      in: path
+      description: Platform to provide data for
+      required: true
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/platform'

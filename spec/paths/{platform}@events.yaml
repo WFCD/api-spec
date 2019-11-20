@@ -4,12 +4,7 @@ get:
   summary: Listing of ongoing events
   description: 'Events, such as Fomorian Attacks are included here'
   parameters:
-    - name: platform
-      in: path
-      description: Platform to provide data for
-      required: true
-      schema:
-        $ref: '#/components/schemas/platform'
+    - $ref: '#/components/parameters/platform'
   responses:
     '200':
       description: successful operation
@@ -18,5 +13,6 @@ get:
           schema:
             $ref: '#/components/schemas/events'
     '400':
-      description: Invalid request
-      content: {}
+      $ref: '#/components/responses/error'
+    '500':
+      $ref: '#/components/responses/error'

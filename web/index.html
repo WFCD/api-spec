@@ -9,6 +9,8 @@
     <!--
     ReDoc uses font options from the parent element
     So override default browser styles
+    
+    colors: main bg: rgba(44, 47, 51, 0.8)
     -->
     <style>
       body {
@@ -16,20 +18,21 @@
         padding: 0;
         background-color: #23272A;
       }
-      h2.fAUnug  {
+      /* Main body */
+      h2.fAUnug, .cjtbAK h2.ioYTqA, div h3.espozG, div h5.LiUBH {
         color: white;
       }
       h5.gLzrjW, h3.jKmdQj {
         color: #99AAB5;
       }
       .cqfmPW > ul > li.react-tabs__tab--selected {
-        background-color: rgba(44, 47, 51, 0.8)!important;
+        background-color: rgba(44, 47, 51, 0.8);
         border:none;
       }
-      .gWOwls, .kjYYZz, .ilTsyu  {
-        background-color: rgba(44, 47, 51, 0.8)!important;
-        background: rgba(44, 47, 51, 0.8)!important;
-        border-color: transparent!important;
+      div .gWOwls, div .kjYYZz, div .ilTsyu, div div.iWMBFG, div div.gdoPOr, div > div.lmCFHk  {
+        background-color: rgba(44, 47, 51, 0.8);
+        background: rgba(44, 47, 51, 0.8);
+        border-color: transparent;
       }
       
       .LLip {
@@ -40,6 +43,27 @@
         border-bottom: 1px solid #99AAB5!important;
       }
       
+      .kGvRyb::before, .kGvRyB {
+        color: white;
+        filter: invert(100%);
+      }
+      
+      div .QDppq > ul > li.tab-success {
+        color: white;
+        background: transparent;
+        border: 1px solid rgb(0, 170, 19);
+      }
+      
+      /* Endpoint bottom border */
+      div .hiuczA:not(:last-of-type)::after {
+        border-bottom: 1px solid grey;
+      }
+      
+      input.ittkuE, h5.LiUBH {
+        border-bottom: 1px solid grey;
+      }
+      
+      /* Sidebar? */
       @media screen and (max-width: 50rem) {
         .cIMuiq  {
           background-color: #23272A!important;

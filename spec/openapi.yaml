@@ -2,7 +2,6 @@ openapi: 3.0.1
 info:
   title: WarframeStat.us API
   description: Simple API for data from the game Warframe.
-  termsOfService: 'https://warframestat.us/terms'
   contact:
     email: wf-com-dev@warframestat.us
   license:
