@@ -29,7 +29,7 @@
   ],
   "tags": [
     {
-      "name": "warframe",
+      "name": "Warframe",
       "description": "Everything about Warframe",
       "externalDocs": {
         "description": "Find out more",
@@ -37,7 +37,7 @@
       }
     },
     {
-      "name": "worldstate",
+      "name": "Worldstate",
       "description": "Warframe Worldstate Data",
       "externalDocs": {
         "description": "Find out more",
@@ -49,7 +49,7 @@
     "/{platform}": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get Warframe Worldstate Data for the provided platform",
         "description": "The full translated Warframe Worldstate",
@@ -86,10 +86,28 @@
         }
       }
     },
+    "/{platform}/*": {
+      "get": {
+        "tags": [
+          "Catch All"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/platform"
+          }
+        ],
+        "summary": "Catch all",
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/{platform}/alerts": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Alerts data",
         "description": "Description and rewards for Alerts",
@@ -129,8 +147,8 @@
     "/{platform}/arbitration": {
       "get": {
         "tags": [
-          "worldstate",
-          "unstable"
+          "Worldstate",
+          "Unstable"
         ],
         "summary": "[Unstable] Arbitration data",
         "description": "Description of the currently active arbitration",
@@ -170,7 +188,7 @@
     "/{platform}/cetusCycle": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get Current Cetus Status",
         "description": "Data on the Day/night cycle for Cetus on earth",
@@ -210,7 +228,7 @@
     "/{platform}/conclaveChallenges": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get Conclave Challenge Data",
         "description": "Data on each day and week's conclave challenges",
@@ -250,7 +268,7 @@
     "/{platform}/constructionProgress": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get Construction Progress for Fomorians and Razorbacks",
         "description": "Construction percentages for showing how far constructed the enemy fleets are.",
@@ -290,7 +308,7 @@
     "/{platform}/dailyDeals": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Daily Deal information from Darvo",
         "description": "Darvo's Daily Deal details",
@@ -330,7 +348,7 @@
     "/{platform}/darkSectors": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Dark Sector occupation and history",
         "description": "Dark Sector (Rail Wars) data and history. Digital Extremes has emptied several of these.",
@@ -371,7 +389,7 @@
     "/{platform}/earthCycle": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get the current Earth rotation information",
         "description": "The current Earth day/night cycle progress.",
@@ -411,7 +429,7 @@
     "/{platform}/events": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Listing of ongoing events",
         "description": "Events, such as Fomorian Attacks are included here",
@@ -451,7 +469,7 @@
     "/{platform}/fissures": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Data on current fissures",
         "description": "Information about current Void Fissure missions",
@@ -491,7 +509,7 @@
     "/{platform}/flashSales": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Current Flash Sales from Darvo",
         "description": "Popular Deals, discounts, featured deals.",
@@ -531,7 +549,7 @@
     "/{platform}/globalUpgrades": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Current Global Upgrades",
         "description": "Any current modifiers applied to all users, such as double drops.",
@@ -571,7 +589,7 @@
     "/{platform}/invasions": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Invasion Data",
         "description": "Data on invasion missions, such as estimated completion time, rewards, etc.",
@@ -611,8 +629,8 @@
     "/{platform}/kuva": {
       "get": {
         "tags": [
-          "worldstate",
-          "unstable"
+          "Worldstate",
+          "Unstable"
         ],
         "summary": "[Unstable] Current Kuva Mission listing",
         "description": "Current Kuva Mission listing (provided by semlar).",
@@ -649,7 +667,7 @@
     "/{platform}/news": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Current Listing of News items",
         "description": "Translated News items from the worldstate",
@@ -686,7 +704,7 @@
     "/{platform}/nightwave": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get the current Nightwave state.",
         "description": "The Current cycle and challenges of Nightwave, a battle-pass-esque rotation and challenge system",
@@ -726,7 +744,7 @@
     "/{platform}/persistentEnemies": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get Persistent Enemy Data",
         "description": "Data about current acolytes attacking the Sol System",
@@ -761,8 +779,8 @@
     "/{platform}/rivens": {
       "get": {
         "tags": [
-          "worldstate",
-          "rivens"
+          "Worldstate",
+          "Rivens"
         ],
         "summary": "Get Riven statistic data",
         "description": "Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform",
@@ -797,8 +815,8 @@
     "/{platform}/rivens/search/{query}": {
       "get": {
         "tags": [
-          "worldstate",
-          "rivens"
+          "Worldstate",
+          "Rivens"
         ],
         "summary": "Get Riven statistic data",
         "description": "Data about averages, deviations, medians, miniums, and maxes for rivens whose name match the query for the provided platform",
@@ -845,7 +863,7 @@
     "/{platform}/simaris": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get the current Sanctuary Status",
         "description": "Status data for Simaris' Sanctuary",
@@ -885,7 +903,7 @@
     "/{platform}/sortie": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Current Sortie Data",
         "description": "Data about the missions for the current sortie",
@@ -928,7 +946,7 @@
     "/{platform}/syndicateMissions": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Listing of Syndicate mission nodes",
         "description": "Cycling through different nodes each day, these are a general listing of the nodes that each syndicate will use for the day.",
@@ -968,7 +986,7 @@
     "/{platform}/timestamp": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get the timestamp that the current worldstate was generated at.",
         "description": "The time that the worldstate was last generated",
@@ -1008,7 +1026,7 @@
     "/{platform}/vallisCycle": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get the current state of the Orb Vallis",
         "description": "The current cycle of the Orb Vallis warm/cold cycle",
@@ -1048,7 +1066,7 @@
     "/{platform}/voidTrader": {
       "get": {
         "tags": [
-          "worldstate"
+          "Worldstate"
         ],
         "summary": "Get the current Void Trader Information",
         "description": "Information on the current Void Trader offerings, or when he will arrive.",
@@ -1087,10 +1105,13 @@
     },
     "/*": {
       "get": {
+        "tags": [
+          "Catch All"
+        ],
         "summary": "Catch all",
         "responses": {
           "404": {
-            "$ref": "#/components/responses/error"
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -6487,14 +6508,23 @@
           "cetusCycle": {
             "$ref": "#/components/schemas/cetusCycle"
           },
+          "vallisCycle": {
+            "$ref": "#/components/schemas/vallisCycle"
+          },
           "constructionProgress": {
             "$ref": "#/components/schemas/construction"
           },
           "nightwave": {
             "$ref": "#/components/schemas/nightwave"
+          },
+          "arbitration": {
+            "$ref": "#/components/schemas/arbitration"
+          },
+          "kuva": {
+            "$ref": "#/components/schemas/kuva"
           }
         },
-        "description": ""
+        "description": "Full Worldstate Object"
       }
     },
     "responses": {
@@ -6507,11 +6537,33 @@
               "properties": {
                 "error": {
                   "type": "string",
-                  "description": "Descroption of error"
+                  "description": "Description of error"
                 },
                 "code": {
                   "type": "integer",
                   "description": "HTTP status code associated with error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Path or sub-path not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "description": "Description of error",
+                  "example": "Route not found"
+                },
+                "code": {
+                  "type": "integer",
+                  "description": "HTTP status code associated with error",
+                  "example": 404
                 }
               }
             }
