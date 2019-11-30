@@ -1,4 +1,4 @@
-description: An error occurred
+description: Path or sub-path not found
 content:
   application/json:
     schema:
@@ -7,6 +7,8 @@ content:
         error:
           type: string
           description: Description of error
+          example: Route not found
         code:
           type: integer
           description: HTTP status code associated with error
+          example: 404

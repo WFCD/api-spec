@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Current Sortie Data
   description: Data about the missions for the current sortie
   parameters:

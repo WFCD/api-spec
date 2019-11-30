@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Data on current fissures
   description: Information about current Void Fissure missions
   parameters:

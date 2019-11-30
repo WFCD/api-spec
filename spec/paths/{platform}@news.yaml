@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Current Listing of News items
   description: Translated News items from the worldstate
   parameters:

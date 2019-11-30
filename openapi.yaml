@@ -17,12 +17,12 @@ servers:
   - url: 'https://api.warframestat.us/'
   - url: 'http://api.warframestat.us/'
 tags:
-  - name: warframe
+  - name: Warframe
     description: Everything about Warframe
     externalDocs:
       description: Find out more
       url: 'https://warframe.com'
-  - name: worldstate
+  - name: Worldstate
     description: Warframe Worldstate Data
     externalDocs:
       description: Find out more
@@ -31,7 +31,7 @@ paths:
   '/{platform}':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get Warframe Worldstate Data for the provided platform
       description: The full translated Warframe Worldstate
       parameters:
@@ -54,7 +54,7 @@ paths:
   '/{platform}/alerts':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Alerts data
       description: Description and rewards for Alerts
       parameters:
@@ -77,8 +77,8 @@ paths:
   '/{platform}/arbitration':
     get:
       tags:
-        - worldstate
-        - unstable
+        - Worldstate
+        - Unstable
       summary: '[Unstable] Arbitration data'
       description: Description of the currently active arbitration
       parameters:
@@ -101,7 +101,7 @@ paths:
   '/{platform}/cetusCycle':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get Current Cetus Status
       description: Data on the Day/night cycle for Cetus on earth
       parameters:
@@ -124,7 +124,7 @@ paths:
   '/{platform}/conclaveChallenges':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get Conclave Challenge Data
       description: Data on each day and week's conclave challenges
       parameters:
@@ -147,7 +147,7 @@ paths:
   '/{platform}/constructionProgress':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get Construction Progress for Fomorians and Razorbacks
       description: Construction percentages for showing how far constructed the enemy fleets are.
       parameters:
@@ -170,7 +170,7 @@ paths:
   '/{platform}/dailyDeals':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Daily Deal information from Darvo
       description: Darvo's Daily Deal details
       parameters:
@@ -193,7 +193,7 @@ paths:
   '/{platform}/darkSectors':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Dark Sector occupation and history
       description: Dark Sector (Rail Wars) data and history. Digital Extremes has emptied several of these.
       parameters:
@@ -217,7 +217,7 @@ paths:
   '/{platform}/earthCycle':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get the current Earth rotation information
       description: The current Earth day/night cycle progress.
       parameters:
@@ -240,7 +240,7 @@ paths:
   '/{platform}/events':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Listing of ongoing events
       description: 'Events, such as Fomorian Attacks are included here'
       parameters:
@@ -263,7 +263,7 @@ paths:
   '/{platform}/fissures':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Data on current fissures
       description: Information about current Void Fissure missions
       parameters:
@@ -286,7 +286,7 @@ paths:
   '/{platform}/flashSales':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Current Flash Sales from Darvo
       description: 'Popular Deals, discounts, featured deals.'
       parameters:
@@ -309,7 +309,7 @@ paths:
   '/{platform}/globalUpgrades':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Current Global Upgrades
       description: 'Any current modifiers applied to all users, such as double drops.'
       parameters:
@@ -332,7 +332,7 @@ paths:
   '/{platform}/invasions':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Invasion Data
       description: 'Data on invasion missions, such as estimated completion time, rewards, etc.'
       parameters:
@@ -355,8 +355,8 @@ paths:
   '/{platform}/kuva':
     get:
       tags:
-        - worldstate
-        - unstable
+        - Worldstate
+        - Unstable
       summary: '[Unstable] Current Kuva Mission listing'
       description: Current Kuva Mission listing (provided by semlar).
       parameters:
@@ -377,7 +377,7 @@ paths:
   '/{platform}/news':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Current Listing of News items
       description: Translated News items from the worldstate
       parameters:
@@ -399,7 +399,7 @@ paths:
   '/{platform}/nightwave':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get the current Nightwave state.
       description: 'The Current cycle and challenges of Nightwave, a battle-pass-esque rotation and challenge system'
       parameters:
@@ -422,7 +422,7 @@ paths:
   '/{platform}/persistentEnemies':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get Persistent Enemy Data
       description: Data about current acolytes attacking the Sol System
       parameters:
@@ -442,8 +442,8 @@ paths:
   '/{platform}/rivens':
     get:
       tags:
-        - worldstate
-        - rivens
+        - Worldstate
+        - Rivens
       summary: Get Riven statistic data
       description: 'Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform'
       parameters:
@@ -463,8 +463,8 @@ paths:
   '/{platform}/rivens/search/{query}':
     get:
       tags:
-        - worldstate
-        - rivens
+        - Worldstate
+        - Rivens
       summary: Get Riven statistic data
       description: 'Data about averages, deviations, medians, miniums, and maxes for rivens whose name match the query for the provided platform'
       parameters:
@@ -493,7 +493,7 @@ paths:
   '/{platform}/simaris':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get the current Sanctuary Status
       description: Status data for Simaris' Sanctuary
       parameters:
@@ -516,7 +516,7 @@ paths:
   '/{platform}/sortie':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Current Sortie Data
       description: Data about the missions for the current sortie
       parameters:
@@ -541,7 +541,7 @@ paths:
   '/{platform}/syndicateMissions':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Listing of Syndicate mission nodes
       description: 'Cycling through different nodes each day, these are a general listing of the nodes that each syndicate will use for the day.'
       parameters:
@@ -564,7 +564,7 @@ paths:
   '/{platform}/timestamp':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get the timestamp that the current worldstate was generated at.
       description: The time that the worldstate was last generated
       parameters:
@@ -587,7 +587,7 @@ paths:
   '/{platform}/vallisCycle':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get the current state of the Orb Vallis
       description: The current cycle of the Orb Vallis warm/cold cycle
       parameters:
@@ -610,7 +610,7 @@ paths:
   '/{platform}/voidTrader':
     get:
       tags:
-        - worldstate
+        - Worldstate
       summary: Get the current Void Trader Information
       description: 'Information on the current Void Trader offerings, or when he will arrive.'
       parameters:
@@ -630,12 +630,39 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /*:
+  /{platform}/{star}:
     get:
+      tags:
+        - Catch All
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - in: path
+          name: star
+          schema:
+            type: string
+            enum: ['*']
+          required: true
+          description: Describes a catch-all scenario
       summary: Catch all
       responses:
         '404':
-          $ref: '#/components/responses/error'
+          $ref: '#/components/responses/NotFound'
+  /{star}:
+    get:
+      tags:
+        - Catch All
+      parameters:
+        - in: path
+          name: star
+          schema:
+            type: string
+            enum: ['*']
+          required: true
+          description: Describes a catch-all scenario
+      summary: Catch all
+      responses:
+        '404':
+          $ref: '#/components/responses/NotFound'
   /arcanes:
     get:
       tags:
@@ -938,14 +965,14 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  '/locales':
+  /locales:
     get:
       tags:
         - Static Processing Data
       summary: Full list of supported locales
       description: Locales supported by the API
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -4438,12 +4465,33 @@ components:
           $ref: '#/components/schemas/earthCycle'
         cetusCycle:
           $ref: '#/components/schemas/cetusCycle'
+        vallisCycle:
+          $ref: '#/components/schemas/vallisCycle'
         constructionProgress:
           $ref: '#/components/schemas/construction'
         nightwave:
           $ref: '#/components/schemas/nightwave'
-      description: ''
+        arbitration:
+          $ref: '#/components/schemas/arbitration'
+        kuva:
+          $ref: '#/components/schemas/kuva'
+      description: 'Full Worldstate Object'
   responses:
+    NotFound:
+      description: Path or sub-path not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Description of error
+                example: Route not found
+              code:
+                type: integer
+                description: HTTP status code associated with error
+                example: 404
     error:
       description: An error occurred
       content:
@@ -4453,7 +4501,7 @@ components:
             properties:
               error:
                 type: string
-                description: Descroption of error
+                description: Description of error
               code:
                 type: integer
                 description: HTTP status code associated with error

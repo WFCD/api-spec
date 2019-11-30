@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Listing of Syndicate mission nodes
   description: >-
     Cycling through different nodes each day, these are a general listing of the

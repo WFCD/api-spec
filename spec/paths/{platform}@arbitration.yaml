@@ -1,7 +1,7 @@
 get:
   tags:
-    - worldstate
-    - unstable
+    - Worldstate
+    - Unstable
   summary: '[Unstable] Arbitration data'
   description: Description of the currently active arbitration
   parameters:

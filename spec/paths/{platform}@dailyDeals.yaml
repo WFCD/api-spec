@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Daily Deal information from Darvo
   description: Darvo's Daily Deal details
   parameters:

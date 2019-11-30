@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get the current Sanctuary Status
   description: Status data for Simaris' Sanctuary
   parameters:

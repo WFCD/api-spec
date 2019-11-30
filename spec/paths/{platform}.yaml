@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get Warframe Worldstate Data for the provided platform
   description: The full translated Warframe Worldstate
   parameters:

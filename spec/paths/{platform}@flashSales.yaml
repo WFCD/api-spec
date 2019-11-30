@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Current Flash Sales from Darvo
   description: 'Popular Deals, discounts, featured deals.'
   parameters:

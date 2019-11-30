@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get the current Nightwave state.
   description: >-
     The Current cycle and challenges of Nightwave, a battle-pass-esque rotation

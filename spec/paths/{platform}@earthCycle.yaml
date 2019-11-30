@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get the current Earth rotation information
   description: The current Earth day/night cycle progress.
   parameters:

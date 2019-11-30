@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get the current state of the Orb Vallis
   description: The current cycle of the Orb Vallis warm/cold cycle
   parameters:

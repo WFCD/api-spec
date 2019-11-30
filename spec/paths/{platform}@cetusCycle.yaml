@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get Current Cetus Status
   description: Data on the Day/night cycle for Cetus on earth
   parameters:

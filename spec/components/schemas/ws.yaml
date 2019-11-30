@@ -56,8 +56,14 @@ properties:
     $ref: '#/components/schemas/earthCycle'
   cetusCycle:
     $ref: '#/components/schemas/cetusCycle'
+  vallisCycle:
+    $ref: '#/components/schemas/vallisCycle'
   constructionProgress:
     $ref: '#/components/schemas/construction'
   nightwave:
     $ref: '#/components/schemas/nightwave'
-description: ''
+  arbitration:
+    $ref: '#/components/schemas/arbitration'
+  kuva:
+    $ref: '#/components/schemas/kuva'
+description: Full Worldstate Object

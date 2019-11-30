@@ -1,7 +1,7 @@
 get:
   tags:
-    - worldstate
-    - unstable
+    - Worldstate
+    - Unstable
   summary: '[Unstable] Current Kuva Mission listing'
   description: Current Kuva Mission listing (provided by semlar).
   parameters:

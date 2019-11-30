@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Alerts data
   description: Description and rewards for Alerts
   parameters:

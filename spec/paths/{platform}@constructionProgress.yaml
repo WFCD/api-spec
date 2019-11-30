@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get Construction Progress for Fomorians and Razorbacks
   description: >-
     Construction percentages for showing how far constructed the enemy fleets

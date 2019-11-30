@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Listing of ongoing events
   description: 'Events, such as Fomorian Attacks are included here'
   parameters:

@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Invasion Data
   description: 'Data on invasion missions, such as estimated completion time, rewards, etc.'
   parameters:

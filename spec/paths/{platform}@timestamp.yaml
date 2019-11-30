@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get the timestamp that the current worldstate was generated at.
   description: The time that the worldstate was last generated
   parameters:

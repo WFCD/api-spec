@@ -1,7 +1,7 @@
 get:
   tags:
-    - worldstate
-    - rivens
+    - Worldstate
+    - Rivens
   summary: Get Riven statistic data
   description: >-
     Data about averages, deviations, medians, miniums, and maxes for all rivens

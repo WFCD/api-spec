@@ -17,12 +17,12 @@ servers:
   - url: 'https://api.warframestat.us/'
   - url: 'http://api.warframestat.us/'
 tags:
-  - name: warframe
+  - name: Warframe
     description: Everything about Warframe
     externalDocs:
       description: Find out more
       url: 'https://warframe.com'
-  - name: worldstate
+  - name: Worldstate
     description: Warframe Worldstate Data
     externalDocs:
       description: Find out more

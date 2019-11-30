@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get Persistent Enemy Data
   description: Data about current acolytes attacking the Sol System
   parameters:

@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Get Conclave Challenge Data
   description: Data on each day and week's conclave challenges
   parameters:

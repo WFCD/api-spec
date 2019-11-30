@@ -1,6 +1,6 @@
 get:
   tags:
-    - worldstate
+    - Worldstate
   summary: Current Global Upgrades
   description: 'Any current modifiers applied to all users, such as double drops.'
   parameters:
