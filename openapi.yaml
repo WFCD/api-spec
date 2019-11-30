@@ -51,6 +51,16 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
+  '/{platform}/*':
+    get:
+      tags:
+        - Catch All
+      parameters:
+        - $ref: '#/components/parameters/platform'
+      summary: Catch all
+      responses:
+        '404':
+          $ref: '#/components/responses/NotFound'
   '/{platform}/alerts':
     get:
       tags:
@@ -630,35 +640,10 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/{star}:
+  '/*':
     get:
       tags:
         - Catch All
-      parameters:
-        - $ref: '#/components/parameters/platform'
-        - in: path
-          name: star
-          schema:
-            type: string
-            enum: ['*']
-          required: true
-          description: Describes a catch-all scenario
-      summary: Catch all
-      responses:
-        '404':
-          $ref: '#/components/responses/NotFound'
-  /{star}:
-    get:
-      tags:
-        - Catch All
-      parameters:
-        - in: path
-          name: star
-          schema:
-            type: string
-            enum: ['*']
-          required: true
-          description: Describes a catch-all scenario
       summary: Catch all
       responses:
         '404':
@@ -4475,8 +4460,21 @@ components:
           $ref: '#/components/schemas/arbitration'
         kuva:
           $ref: '#/components/schemas/kuva'
-      description: 'Full Worldstate Object'
+      description: Full Worldstate Object
   responses:
+    error:
+      description: An error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Description of error
+              code:
+                type: integer
+                description: HTTP status code associated with error
     NotFound:
       description: Path or sub-path not found
       content:
@@ -4492,19 +4490,6 @@ components:
                 type: integer
                 description: HTTP status code associated with error
                 example: 404
-    error:
-      description: An error occurred
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-                description: Description of error
-              code:
-                type: integer
-                description: HTTP status code associated with error
   parameters:
     language:
       name: Accept-Language

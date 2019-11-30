@@ -3,14 +3,6 @@ get:
     - Catch All
   parameters:
     - $ref: '#/components/parameters/platform'
-    - in: path
-      name: star
-      schema:
-        type: string
-        enum:
-          - '*'
-      required: true
-      description: Describes a catch-all scenario
   summary: Catch all
   responses:
     '404':
