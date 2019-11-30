@@ -18,5 +18,7 @@ get:
             $ref: '#/components/schemas/ws'
     '400':
       $ref: '#/components/responses/error'
+    '404':
+      $ref: '#/components/responses/NotFound'
     '500':
       $ref: '#/components/responses/error'

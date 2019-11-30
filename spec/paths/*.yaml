@@ -1,7 +1,0 @@
-get:
-  tags:
-    - Catch All
-  summary: Catch all
-  responses:
-    '404':
-      $ref: '#/components/responses/NotFound'

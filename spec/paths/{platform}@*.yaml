@@ -1,9 +1,0 @@
-get:
-  tags:
-    - Catch All
-  parameters:
-    - $ref: '#/components/parameters/platform'
-  summary: Catch all
-  responses:
-    '404':
-      $ref: '#/components/responses/NotFound'
