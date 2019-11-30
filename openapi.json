@@ -80,26 +80,11 @@
           "400": {
             "$ref": "#/components/responses/error"
           },
-          "500": {
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/{platform}/*": {
-      "get": {
-        "tags": [
-          "Catch All"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          }
-        ],
-        "summary": "Catch all",
-        "responses": {
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
           }
         }
       }
@@ -1099,19 +1084,6 @@
           },
           "500": {
             "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/*": {
-      "get": {
-        "tags": [
-          "Catch All"
-        ],
-        "summary": "Catch all",
-        "responses": {
-          "404": {
-            "$ref": "#/components/responses/NotFound"
           }
         }
       }
