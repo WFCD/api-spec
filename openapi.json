@@ -845,6 +845,51 @@
         }
       }
     },
+    "/{platform}/sentientOutposts": {
+      "get": {
+        "tags": [
+          "Worldstate"
+        ],
+        "summary": "Get the current Sentient Outpost, if any",
+        "description": "Status data for current Sentient Outpost, if any",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/platform"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/headers/Content-Language"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "mission": {
+                      "$ref": "#/components/schemas/mission"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/{platform}/simaris": {
       "get": {
         "tags": [
