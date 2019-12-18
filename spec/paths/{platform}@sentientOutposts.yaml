@@ -19,6 +19,9 @@ get:
             properties:
               mission:
                 $ref: '#/components/schemas/mission'
+              active:
+                type: boolean
+                description: Whether or not the
     '400':
       $ref: '#/components/responses/error'
     '500':

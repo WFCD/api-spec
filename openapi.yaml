@@ -1,3 +1,6 @@
+# Note: This spec is defined in multiple files.
+# All comments and formating were lost during the bundle process.
+# Existing files formatting may be not preserved on save.
 openapi: 3.0.1
 info:
   title: WarframeStat.us API
@@ -496,8 +499,8 @@ paths:
     get:
       tags:
         - Worldstate
-      summary: Get the current Sentient Outpost, if any
-      description: Status data for current Sentient Outpost, if any
+      summary: 'Get the current Sentient Outpost, if any'
+      description: 'Status data for current Sentient Outpost, if any'
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
@@ -514,6 +517,9 @@ paths:
                 properties:
                   mission:
                     $ref: '#/components/schemas/mission'
+                  active:
+                    type: boolean
+                    description: Whether or not the 
         '400':
           $ref: '#/components/responses/error'
         '500':

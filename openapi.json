@@ -875,6 +875,10 @@
                   "properties": {
                     "mission": {
                       "$ref": "#/components/schemas/mission"
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "description": "Whether or not the"
                     }
                   }
                 }
