@@ -49,10 +49,10 @@ paths:
                 $ref: '#/components/schemas/ws'
         '400':
           $ref: '#/components/responses/error'
+        '404':
+          $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/error'
-        404:
-          $ref: '#/components/responses/NotFound'
   '/{platform}/alerts':
     get:
       tags:
@@ -488,6 +488,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/rivenType'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/{platform}/sentientOutposts':
+    get:
+      tags:
+        - Worldstate
+      summary: Get the current Sentient Outpost, if any
+      description: Status data for current Sentient Outpost, if any
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/language'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mission:
+                    $ref: '#/components/schemas/mission'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -1489,13 +1515,21 @@ components:
         expiry:
           minLength: 1
           type: string
+        activation:
+          type: string
         isDay:
           type: boolean
+        state:
+          type: string
+          description: Describes the current time. e.g. "day" or "night"
         timeLeft:
           minLength: 1
           type: string
         isCetus:
           type: boolean
+        shortString:
+          type: string
+          description: A short description of the remaining time until the next day/night change.
     conclave:
       required:
         - categories
