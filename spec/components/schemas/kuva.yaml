@@ -8,21 +8,9 @@ properties:
     type: string
     format: date-time
     description: When the Kuva group becomes inactive
-  solnode:
-    type: string
-    description: Internal node string for identifying the node
   node:
     type: string
     description: Plain name for the node
-  name:
-    type: string
-    description: Semlar-formatted node name
-  tile:
-    type: string
-    description: Node name without planet
-  planet:
-    type: string
-    description: Planet
   enemy:
     $ref: '#/components/schemas/faction'
   type:

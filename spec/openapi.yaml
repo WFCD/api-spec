@@ -15,7 +15,13 @@ externalDocs:
   url: 'https://warframe.com'
 servers:
   - url: 'https://api.warframestat.us/'
+    description: Preferred production server. Others may be disallowed in the future.
   - url: 'http://api.warframestat.us/'
+    description: Non-https production server
+  - url: 'https://ws.warframestat.us/'
+    description: Deprecated (old) production subdomain
+  - url: 'http://ws.warframestat.us/'
+    description: 'Deprecated (old) production subdomain, no https'
 tags:
   - name: Warframe
     description: Everything about Warframe
