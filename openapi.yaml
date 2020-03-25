@@ -1998,6 +1998,36 @@ components:
         asString:
           type: string
           description: Attempt to summarize event in a short string. (Do not use).
+        metadata:
+          type: object
+          description: Miscellaneous metadata in a string provided by Digital Extremes
+        completionBonuses:
+          type: array
+          items:
+            type: number
+          description: Completion bonus amounts per-stage
+        scoreVar:
+          type: string
+          description: Internal string used for unknown purpose
+        altExpiry:
+          type: string
+          format: date-time
+          description: Alternate Expiry. Use unknown.
+        altActivation:
+          type: string
+          format: date-time
+          description: Alternate Activation. Use unknown.
+        nextAlt:
+          type: object
+          properties:
+            expiry:
+              type: string
+              format: date-time
+              description: Next alternate expiry. Use unknown.
+            activation:
+              type: string
+              format: date-time
+              description: Next alternate activation. Use unknown.
     events:
       type: array
       items:
@@ -4027,6 +4057,9 @@ components:
           items:
             type: number
           description: Stages of standing rewards.
+        minMR:
+          type: number
+          description: Minimum Mastery Rank required to perform a job.
     syndicateMission:
       required:
         - activation
