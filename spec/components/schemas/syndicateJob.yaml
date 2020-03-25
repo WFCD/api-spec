@@ -27,3 +27,6 @@ properties:
     items:
       type: number
     description: Stages of standing rewards.
+  minMR:
+    type: number
+    description: Minimum Mastery Rank required to perform a job.
