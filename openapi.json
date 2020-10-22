@@ -1,10 +1,10 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.3",
   "info": {
     "title": "WarframeStat.us API",
     "description": "Simple API for data from the game Warframe.",
     "contact": {
-      "email": "wf-com-dev@warframestat.us"
+      "email": "tobiah@protonmail.com"
     },
     "license": {
       "name": "Apache 2.0",
@@ -22,19 +22,7 @@
   "servers": [
     {
       "url": "https://api.warframestat.us/",
-      "description": "Preferred production server. Others may be disallowed in the future."
-    },
-    {
-      "url": "http://api.warframestat.us/",
-      "description": "Non-https production server"
-    },
-    {
-      "url": "https://ws.warframestat.us/",
-      "description": "Deprecated (old) production subdomain"
-    },
-    {
-      "url": "http://ws.warframestat.us/",
-      "description": "Deprecated (old) production subdomain, no https"
+      "description": "Production Server"
     }
   ],
   "tags": [
@@ -53,6 +41,30 @@
         "description": "Find out more",
         "url": "https://discord.gg/jGZxH9f"
       }
+    },
+    {
+      "name": "GitHub",
+      "description": "Review Source Code",
+      "externalDocs": {
+        "description": "Check our source code",
+        "url": "https://github.com/wfcd/warframe-status"
+      }
+    },
+    {
+      "name": "Unstable",
+      "description": "Potentially still in active development"
+    },
+    {
+      "name": "Searchable",
+      "description": "Follows a consistent pattern for searching data"
+    },
+    {
+      "name": "Rivens",
+      "description": "Proxy data for Digital Extreme's semi-regular Riven Data dumps"
+    },
+    {
+      "name": "Static Processing Data",
+      "description": "Direct access via API to the data we use to parse the worldstate"
     }
   ],
   "paths": {
@@ -66,6 +78,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           },
           {
             "$ref": "#/components/parameters/platform"
@@ -111,6 +126,9 @@
             "$ref": "#/components/parameters/language"
           },
           {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
@@ -152,6 +170,9 @@
             "$ref": "#/components/parameters/language"
           },
           {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
@@ -180,16 +201,62 @@
         }
       }
     },
+    "/{platform}/cambionCycle": {
+      "get": {
+        "tags": [
+          "Worldstate"
+        ],
+        "summary": "Get Current Cambion Drift Status",
+        "description": "Data on the Vome/Fass cycle for the Cambion Drift on Deimos",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
+            "$ref": "#/components/parameters/platform"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/headers/Content-Language"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/cambionCycle"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/{platform}/cetusCycle": {
       "get": {
         "tags": [
           "Worldstate"
         ],
         "summary": "Get Current Cetus Status",
-        "description": "Data on the Day/night cycle for Cetus on earth",
+        "description": "Data on the day/night cycle for Cetus on Earth",
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           },
           {
             "$ref": "#/components/parameters/platform"
@@ -232,6 +299,9 @@
             "$ref": "#/components/parameters/language"
           },
           {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
@@ -270,6 +340,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           },
           {
             "$ref": "#/components/parameters/platform"
@@ -312,6 +385,9 @@
             "$ref": "#/components/parameters/language"
           },
           {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
@@ -350,6 +426,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           },
           {
             "$ref": "#/components/parameters/platform"
@@ -393,6 +472,9 @@
             "$ref": "#/components/parameters/language"
           },
           {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
@@ -431,6 +513,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           },
           {
             "$ref": "#/components/parameters/platform"
@@ -473,6 +558,9 @@
             "$ref": "#/components/parameters/language"
           },
           {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
@@ -511,6 +599,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           },
           {
             "$ref": "#/components/parameters/platform"
@@ -553,6 +644,9 @@
             "$ref": "#/components/parameters/language"
           },
           {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
@@ -591,6 +685,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           },
           {
             "$ref": "#/components/parameters/platform"
@@ -632,6 +729,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           },
           {
             "$ref": "#/components/parameters/platform"
@@ -708,6 +808,9 @@
             "$ref": "#/components/parameters/language"
           },
           {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
@@ -748,6 +851,9 @@
             "$ref": "#/components/parameters/language"
           },
           {
+            "$ref": "#/components/parameters/language-query"
+          },
+          {
             "$ref": "#/components/parameters/platform"
           }
         ],
@@ -782,6 +888,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           },
           {
             "$ref": "#/components/parameters/platform"
@@ -868,6 +977,9 @@
           },
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -947,6 +1059,9 @@
           },
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -987,6 +1102,9 @@
           },
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -1030,6 +1148,9 @@
           },
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -1070,6 +1191,9 @@
           },
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -1110,6 +1234,9 @@
           },
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -1150,6 +1277,9 @@
           },
           {
             "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -2453,6 +2583,34 @@
           "info": {
             "minLength": 1,
             "type": "string"
+          }
+        }
+      },
+      "cambionCycle": {
+        "required": [
+          "expiry",
+          "activation",
+          "id",
+          "actove"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "expiry": {
+            "$ref": "#/components/schemas/timestamp"
+          },
+          "activation": {
+            "$ref": "#/components/schemas/timestamp"
+          },
+          "active": {
+            "type": "string",
+            "enum": [
+              "vome",
+              "fass"
+            ]
           }
         }
       },
@@ -6652,6 +6810,14 @@
       }
     },
     "parameters": {
+      "language-query": {
+        "name": "language",
+        "in": "query",
+        "description": "Language to retrieve",
+        "schema": {
+          "$ref": "#/components/schemas/language"
+        }
+      },
       "language": {
         "name": "Accept-Language",
         "in": "header",
