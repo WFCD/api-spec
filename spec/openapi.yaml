@@ -1,9 +1,9 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: WarframeStat.us API
   description: Simple API for data from the game Warframe.
   contact:
-    email: wf-com-dev@warframestat.us
+    email: tobiah@protonmail.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -15,13 +15,7 @@ externalDocs:
   url: 'https://warframe.com'
 servers:
   - url: 'https://api.warframestat.us/'
-    description: Preferred production server. Others may be disallowed in the future.
-  - url: 'http://api.warframestat.us/'
-    description: Non-https production server
-  - url: 'https://ws.warframestat.us/'
-    description: Deprecated (old) production subdomain
-  - url: 'http://ws.warframestat.us/'
-    description: 'Deprecated (old) production subdomain, no https'
+    description: Production Server
 tags:
   - name: Warframe
     description: Everything about Warframe
@@ -33,3 +27,16 @@ tags:
     externalDocs:
       description: Find out more
       url: 'https://discord.gg/jGZxH9f'
+  - name: GitHub
+    description: Review Source Code
+    externalDocs:
+      description: Check our source code
+      url: 'https://github.com/wfcd/warframe-status'
+  - name: Unstable
+    description: Potentially still in active development
+  - name: Searchable
+    description: Follows a consistent pattern for searching data
+  - name: Rivens
+    description: Proxy data for Digital Extreme's semi-regular Riven Data dumps
+  - name: Static Processing Data
+    description: Direct access via API to the data we use to parse the worldstate

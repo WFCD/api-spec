@@ -5,6 +5,7 @@ get:
   description: Darvo's Daily Deal details
   parameters:
     - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':

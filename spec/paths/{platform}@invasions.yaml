@@ -5,6 +5,7 @@ get:
   description: 'Data on invasion missions, such as estimated completion time, rewards, etc.'
   parameters:
     - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':

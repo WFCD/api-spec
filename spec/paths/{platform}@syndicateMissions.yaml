@@ -8,6 +8,7 @@ get:
   parameters:
     - $ref: '#/components/parameters/platform'
     - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
   responses:
     '200':
       description: successful operation

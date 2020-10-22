@@ -1,8 +1,8 @@
 get:
   tags:
     - Worldstate
-  summary: Listing of ongoing events
-  description: 'Events, such as Fomorian Attacks are included here'
+  summary: Get Current Cambion Drift Status
+  description: Data on the Vome/Fass cycle for the Cambion Drift on Deimos
   parameters:
     - $ref: '#/components/parameters/language'
     - $ref: '#/components/parameters/language-query'
@@ -16,7 +16,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/events'
+            $ref: '#/components/schemas/cambionCycle'
     '400':
       $ref: '#/components/responses/error'
     '500':

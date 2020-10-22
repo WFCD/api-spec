@@ -1,0 +1,5 @@
+name: language
+in: query
+description: Language to retrieve
+schema:
+  $ref: '#/components/schemas/language'

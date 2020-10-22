@@ -7,6 +7,7 @@ get:
     and challenge system
   parameters:
     - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':

@@ -1,12 +1,9 @@
-# Note: This API definition is split into multiple files.
-# All comments and formatting were lost during the bundle process.
-# File formatting may be lost on save.
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: WarframeStat.us API
   description: Simple API for data from the game Warframe.
   contact:
-    email: wf-com-dev@warframestat.us
+    email: tobiah@protonmail.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -18,13 +15,8 @@ externalDocs:
   url: 'https://warframe.com'
 servers:
   - url: 'https://api.warframestat.us/'
-    description: Preferred production server. Others may be disallowed in the future.
-  - url: 'http://api.warframestat.us/'
-    description: Non-https production server
-  - url: 'https://ws.warframestat.us/'
-    description: Deprecated (old) production subdomain
-  - url: 'http://ws.warframestat.us/'
-    description: 'Deprecated (old) production subdomain, no https'
+    description: Production Server
+
 tags:
   - name: Warframe
     description: Everything about Warframe
@@ -36,6 +28,19 @@ tags:
     externalDocs:
       description: Find out more
       url: 'https://discord.gg/jGZxH9f'
+  - name: GitHub
+    description: Review Source Code
+    externalDocs:
+      description: 'Check our source code'
+      url: https://github.com/wfcd/warframe-status
+  - name: Unstable
+    description: Potentially still in active development
+  - name: Searchable
+    description: Follows a consistent pattern for searching data
+  - name: Rivens
+    description: Proxy data for Digital Extreme's semi-regular Riven Data dumps
+  - name: Static Processing Data
+    description: Direct access via API to the data we use to parse the worldstate
 paths:
   '/{platform}':
     get:
@@ -45,6 +50,7 @@ paths:
       description: The full translated Warframe Worldstate
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -70,6 +76,7 @@ paths:
       description: Description and rewards for Alerts
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -94,6 +101,7 @@ paths:
       description: Description of the currently active arbitration
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -114,9 +122,10 @@ paths:
       tags:
         - Worldstate
       summary: Get Current Cetus Status
-      description: Data on the Day/night cycle for Cetus on earth
+      description: Data on the day/night cycle for Cetus on Earth
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -132,6 +141,30 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
+  '/{platform}/cambionCycle':
+    get:
+      tags:
+        - Worldstate
+      summary: Get Current Cambion Drift Status
+      description: Data on the Vome/Fass cycle for the Cambion Drift on Deimos
+      parameters:
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
+        - $ref: '#/components/parameters/platform'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cambionCycle'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/conclaveChallenges':
     get:
       tags:
@@ -140,6 +173,7 @@ paths:
       description: Data on each day and week's conclave challenges
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -163,6 +197,7 @@ paths:
       description: Construction percentages for showing how far constructed the enemy fleets are.
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -186,6 +221,7 @@ paths:
       description: Darvo's Daily Deal details
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -209,6 +245,7 @@ paths:
       description: Dark Sector (Rail Wars) data and history. Digital Extremes has emptied several of these.
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -233,6 +270,7 @@ paths:
       description: The current Earth day/night cycle progress.
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -256,6 +294,7 @@ paths:
       description: 'Events, such as Fomorian Attacks are included here'
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -279,6 +318,7 @@ paths:
       description: Information about current Void Fissure missions
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -302,6 +342,7 @@ paths:
       description: 'Popular Deals, discounts, featured deals.'
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -325,6 +366,7 @@ paths:
       description: 'Any current modifiers applied to all users, such as double drops.'
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -348,6 +390,7 @@ paths:
       description: 'Data on invasion missions, such as estimated completion time, rewards, etc.'
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -372,6 +415,7 @@ paths:
       description: 'Current Kuva Mission listing (provided by [semlar](https://10o.io/kuvalog)).'
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -415,6 +459,7 @@ paths:
       description: 'The Current cycle and challenges of Nightwave, a battle-pass-esque rotation and challenge system'
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -438,6 +483,7 @@ paths:
       description: Data about current acolytes attacking the Sol System
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -459,6 +505,7 @@ paths:
       description: 'Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform'
       parameters:
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
         - $ref: '#/components/parameters/platform'
       responses:
         '200':
@@ -510,6 +557,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
       responses:
         '200':
           description: successful operation
@@ -562,6 +610,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
       responses:
         '200':
           description: successful operation
@@ -585,6 +634,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
       responses:
         '200':
           description: successful operation
@@ -610,6 +660,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
       responses:
         '200':
           description: successful operation
@@ -633,6 +684,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
       responses:
         '200':
           description: successful operation
@@ -656,6 +708,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
       responses:
         '200':
           description: successful operation
@@ -679,6 +732,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
       responses:
         '200':
           description: successful operation
@@ -1550,6 +1604,26 @@ components:
         shortString:
           type: string
           description: A short description of the remaining time until the next day/night change.
+    cambionCycle:
+      required:
+        - expiry
+        - activation
+        - id
+        - actove
+      type: object
+      properties:
+        id:
+          minLength: 1
+          type: string
+        expiry:
+          $ref: '#/components/schemas/timestamp'
+        activation:
+          $ref: '#/components/schemas/timestamp'
+        active:
+          type: string
+          enum: 
+            - 'vome'
+            - 'fass'
     conclave:
       required:
         - categories
@@ -4563,6 +4637,13 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/platform'
+    language-query:
+      name: language
+      in: query
+      description: Language to retrieve
+      schema:
+        $ref: '#/components/schemas/language'
+    
   headers:
     Content-Language:
       description: Language of the content

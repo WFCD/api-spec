@@ -1,0 +1,19 @@
+required:
+  - expiry
+  - activation
+  - id
+  - actove
+type: object
+properties:
+  id:
+    minLength: 1
+    type: string
+  expiry:
+    $ref: '#/components/schemas/timestamp'
+  activation:
+    $ref: '#/components/schemas/timestamp'
+  active:
+    type: string
+    enum:
+      - vome
+      - fass

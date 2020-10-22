@@ -5,6 +5,7 @@ get:
   description: Data on each day and week's conclave challenges
   parameters:
     - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':

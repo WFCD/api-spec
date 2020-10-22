@@ -5,6 +5,7 @@ get:
   description: The full translated Warframe Worldstate
   parameters:
     - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':

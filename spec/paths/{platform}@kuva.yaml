@@ -6,6 +6,7 @@ get:
   description: 'Current Kuva Mission listing (provided by [semlar](https://10o.io/kuvalog)).'
   parameters:
     - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':

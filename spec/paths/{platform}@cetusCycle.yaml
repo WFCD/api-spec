@@ -2,9 +2,10 @@ get:
   tags:
     - Worldstate
   summary: Get Current Cetus Status
-  description: Data on the Day/night cycle for Cetus on earth
+  description: Data on the day/night cycle for Cetus on Earth
   parameters:
     - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
     - $ref: '#/components/parameters/platform'
   responses:
     '200':
