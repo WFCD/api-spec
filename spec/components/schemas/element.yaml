@@ -1,0 +1,17 @@
+type: string
+enum:
+  - impact
+  - puncture
+  - slash
+  - heat
+  - cold
+  - electric
+  - toxin
+  - gas
+  - viral
+  - corrosive
+  - blast
+  - magnetic
+  - radiation
+  - 'true'
+  - void

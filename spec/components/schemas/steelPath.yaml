@@ -1,0 +1,27 @@
+allOf:
+  - $ref: '#/components/schemas/worldstateObject'
+  - type: object
+    properties:
+      activation:
+        minLength: 1
+        type: string
+        format: date-time
+      expiry:
+        minLength: 1
+        type: string
+        format: date-time
+      currentReward:
+        $ref: '#/components/schemas/simpleReward'
+      remaining:
+        minLength: 1
+        type: string
+      rotation:
+        type: array
+        items:
+          $ref: '#/components/schemas/simpleReward'
+      evergreen:
+        type: array
+        items:
+          $ref: '#/components/schemas/simpleReward'
+      incursions:
+        $ref: '#/components/schemas/worldstateObject'

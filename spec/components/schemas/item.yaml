@@ -4,3 +4,28 @@ properties:
     type: string
   uniqueName:
     type: string
+  patchlogs:
+    type: array
+    items:
+      $ref: '#/components/schemas/patchlog'
+  components:
+    $ref: '#/components/schemas/item'
+  description:
+    type: string
+  type:
+    type: string
+  tradable:
+    type: boolean
+  introduced:
+    $ref: '#/components/schemas/introduced'
+  category:
+    type: string
+  productCategory:
+    type: string
+  imageName:
+    type: string
+    description: |
+      Image name, accessible at https://cdn.warframestat.us/img/{imageName}
+  estimatedVaultDate:
+    type: string
+    format: date

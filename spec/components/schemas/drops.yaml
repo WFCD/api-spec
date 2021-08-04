@@ -14,6 +14,7 @@ items:
       type: string
     chance:
       type: number
+      format: float
     place:
       minLength: 1
       type: string

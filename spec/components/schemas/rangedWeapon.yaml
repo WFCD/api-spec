@@ -1,0 +1,21 @@
+allOf:
+  - $ref: '#/components/schemas/item'
+  - $ref: '#/components/schemas/weapon'
+  - type: object
+    properties:
+      accuracy:
+        type: number
+      ammo:
+        type: number
+      fireRate:
+        type: number
+        format: float
+      magazineSize:
+        type: integer
+      multishot:
+        type: number
+        format: float
+      noise:
+        type: string
+      trigger:
+        type: string

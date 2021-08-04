@@ -1,125 +1,41 @@
-type: object
-properties:
-  name:
-    type: string
-  uniqueName:
-    type: string
-  secondsPerShot:
-    type: number
-  totalDamage:
-    type: number
-  damagePerSecond:
-    type: number
-  trigger:
-    type: string
-  description:
-    type: string
-  accuracy:
-    type: number
-  criticalChance:
-    type: number
-  criticalMultiplier:
-    type: number
-  procChance:
-    type: number
-  fireRate:
-    type: number
-  chargeAttack:
-    type: number
-  spinAttack:
-    type: number
-  leapAttack:
-    type: number
-  wallAttack:
-    type: number
-  slot:
-    type: number
-  noise:
-    type: string
-  sentinel:
-    type: boolean
-  masteryReq:
-    type: number
-  omegaAttenuation:
-    type: number
-  type:
-    type: string
-  buildPrice:
-    type: number
-  buildTime:
-    type: number
-  skipBuildTimePrice:
-    type: number
-  buildQuantity:
-    type: number
-  consumeOnBuild:
-    type: boolean
-  components:
-    $ref: '#/components/schemas/item'
-  imageName:
-    type: string
-  category:
-    type: string
-  tradable:
-    type: boolean
-  patchlogs:
-    $ref: '#/components/schemas/patchlog'
-  ammo:
-    type: number
-  damage:
-    type: number
-  damageTypes:
-    type: object
+allOf:
+  - $ref: '#/components/schemas/item'
+  - $ref: '#/components/schemas/weapon'
+  - type: object
     properties:
-      impact:
+      blockingAngle:
+        type: integer
+      comboDuration:
+        type: integer
+      damagePerShot:
+        type: array
+        items:
+          type: number
+          format: float
+      followThrough:
         type: number
-      puncture:
+        format: float
+      heavyAttackDamage:
+        type: integer
+      heavySlamAttack:
+        type: integer
+      heavySlamRadialDamage:
+        type: integer
+      heavySlamRadius:
+        type: integer
+      range:
         type: number
-      slash:
+        format: float
+      slamAttack:
+        type: integer
+      slamRadialDamage:
+        type: integer
+      slamRadius:
+        type: integer
+      slideAttack:
+        type: integer
+      stancePolarity:
+        $ref: '#/components/schemas/polarity'
+      windUp:
         type: number
-      heat:
-        type: number
-      cold:
-        type: number
-      electric:
-        type: number
-      toxin:
-        type: number
-      gas:
-        type: number
-      viral:
-        type: number
-      corrosive:
-        type: number
-      blast:
-        type: number
-      magnetic:
-        type: number
-      radiation:
-        type: number
-      'true':
-        type: number
-      void:
-        type: number
-  flight:
-    type: number
-  polarities:
-    $ref: '#/components/schemas/polarity'
-  projectile:
-    type: string
-  tags:
-    type: array
-    items:
-      type: string
-  vaulted:
-    type: boolean
-  wikiaThumbnail:
-    type: string
-  wikiaUrl:
-    type: string
-  disposition:
-    type: number
-  releaseDate:
-    type: string
-  vaultDate:
-    type: string
+        format: float

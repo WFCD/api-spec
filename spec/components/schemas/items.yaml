@@ -2,4 +2,9 @@ minItems: 0
 type: array
 description: An item from Warframe
 items:
-  $ref: '#/components/schemas/item'
+  oneOf:
+    - $ref: '#/components/schemas/item'
+    - $ref: '#/components/schemas/rangedWeapon'
+    - $ref: '#/components/schemas/meleeWeapon'
+    - $ref: '#/components/schemas/weapon'
+    - $ref: '#/components/schemas/mod'

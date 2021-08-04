@@ -1,0 +1,23 @@
+allOf:
+  - $ref: '#/components/schemas/item'
+  - type: object
+    properties:
+      baseDrain:
+        type: integer
+      compatName:
+        type: string
+      fusionLimit:
+        type: integer
+      levelStats:
+        type: array
+        items:
+          type: object
+          properties:
+            stats:
+              type: array
+              items:
+                type: string
+      polarity:
+        $ref: '#/components/schemas/polarity'
+      transmutable:
+        type: boolean

@@ -1,0 +1,15 @@
+type: object
+properties:
+  name:
+    type: string
+  url:
+    type: string
+  aliases:
+    type: array
+    items:
+      type: string
+  parent:
+    type: string
+  date:
+    type: string
+    format: date

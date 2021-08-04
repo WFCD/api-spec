@@ -1,0 +1,32 @@
+type: object
+properties:
+  impact:
+    type: number
+  puncture:
+    type: number
+  slash:
+    type: number
+  heat:
+    type: number
+  cold:
+    type: number
+  electric:
+    type: number
+  toxin:
+    type: number
+  gas:
+    type: number
+  viral:
+    type: number
+  corrosive:
+    type: number
+  blast:
+    type: number
+  magnetic:
+    type: number
+  radiation:
+    type: number
+  'true':
+    type: number
+  void:
+    type: number

@@ -41,3 +41,6 @@ properties:
     minLength: 1
     type: string
     format: date-time
+  isStorm:
+    type: boolean
+    description: Whether or not this fissure is a void storm

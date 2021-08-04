@@ -1,10 +1,11 @@
 required:
   - alerts
+  - arbitration
+  - cambionCycle
   - cetusCycle
   - conclaveChallenges
   - constructionProgress
   - dailyDeals
-  - darkSectors
   - earthCycle
   - events
   - fissures
@@ -13,57 +14,61 @@ required:
   - invasions
   - news
   - persistentEnemies
-  - simaris
+  - sentientOutposts
   - sortie
+  - steelPath
   - syndicateMissions
   - timestamp
+  - vallisCycle
   - voidTrader
 type: object
 properties:
   timestamp:
     $ref: '#/components/schemas/timestamp'
-  news:
-    $ref: '#/components/schemas/news'
-  events:
-    $ref: '#/components/schemas/events'
   alerts:
     $ref: '#/components/schemas/alert'
-  sortie:
-    $ref: '#/components/schemas/sortie'
-  syndicateMissions:
-    $ref: '#/components/schemas/syndicateMissions'
-  fissures:
-    $ref: '#/components/schemas/fissures'
-  globalUpgrades:
-    $ref: '#/components/schemas/globalUpgrades'
-  flashSales:
-    $ref: '#/components/schemas/flashSales'
-  invasions:
-    $ref: '#/components/schemas/invasions'
-  darkSectors:
-    $ref: '#/components/schemas/darkSectors'
-  voidTrader:
-    $ref: '#/components/schemas/voidTrader'
-  dailyDeals:
-    $ref: '#/components/schemas/dailyDeals'
-  simaris:
-    $ref: '#/components/schemas/simaris'
-  conclaveChallenges:
-    $ref: '#/components/schemas/conclaveChallenges'
-  persistentEnemies:
-    $ref: '#/components/schemas/persistentEnemies'
-  earthCycle:
-    $ref: '#/components/schemas/earthCycle'
-  cetusCycle:
-    $ref: '#/components/schemas/cetusCycle'
-  vallisCycle:
-    $ref: '#/components/schemas/vallisCycle'
-  constructionProgress:
-    $ref: '#/components/schemas/construction'
-  nightwave:
-    $ref: '#/components/schemas/nightwave'
   arbitration:
     $ref: '#/components/schemas/arbitration'
+  cetusCycle:
+    $ref: '#/components/schemas/cetusCycle'
+  constructionProgress:
+    $ref: '#/components/schemas/construction'
+  conclaveChallenges:
+    $ref: '#/components/schemas/conclaveChallenges'
+  dailyDeals:
+    $ref: '#/components/schemas/dailyDeals'
+  darkSectors:
+    $ref: '#/components/schemas/darkSectors'
+  earthCycle:
+    $ref: '#/components/schemas/earthCycle'
+  events:
+    $ref: '#/components/schemas/events'
+  fissures:
+    $ref: '#/components/schemas/fissures'
+  flashSales:
+    $ref: '#/components/schemas/flashSales'
+  globalUpgrades:
+    $ref: '#/components/schemas/globalUpgrades'
+  invasions:
+    $ref: '#/components/schemas/invasions'
   kuva:
     $ref: '#/components/schemas/kuva'
+  news:
+    $ref: '#/components/schemas/news'
+  nightwave:
+    $ref: '#/components/schemas/nightwave'
+  persistentEnemies:
+    $ref: '#/components/schemas/persistentEnemies'
+  simaris:
+    $ref: '#/components/schemas/simaris'
+  sortie:
+    $ref: '#/components/schemas/sortie'
+  steelPath:
+    $ref: '#/components/schemas/steelPath'
+  syndicateMissions:
+    $ref: '#/components/schemas/syndicateMissions'
+  vallisCycle:
+    $ref: '#/components/schemas/vallisCycle'
+  voidTrader:
+    $ref: '#/components/schemas/voidTrader'
 description: Full Worldstate Object

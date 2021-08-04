@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    type: string
+    minLength: 1
+  activation:
+    type: string
+    minLength: 1
+    format: date-time
+  expiry:
+    type: string
+    minLength: 1
+    format: date-time
