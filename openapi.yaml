@@ -650,6 +650,32 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
+  '/{platform}/steelPath':
+    get:
+      tags:
+        - Worldstate
+      summary: Current Steel Path Data
+      description: Data about the missions for the current sortie
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/steelPath'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/{platform}/syndicateMissions':
     get:
       tags:
@@ -1573,6 +1599,70 @@ components:
         info:
           minLength: 1
           type: string
+    attack:
+      type: object
+      properties:
+        name:
+          type: string
+        duration:
+          type: number
+          format: float
+        radius:
+          type: number
+          format: float
+        speed:
+          type: number
+          format: float
+        pellet:
+          type: object
+          properties:
+            name:
+              type: string
+            count:
+              type: number
+        crit_chance:
+          type: number
+          format: float
+        crit_mult:
+          type: number
+          format: float
+        status_chance:
+          type: number
+          format: float
+        charge_time:
+          type: number
+          format: float
+        shot_type:
+          type: number
+          format: float
+        flight:
+          type: number
+          format: float
+        falloff:
+          type: object
+          properties:
+            start:
+              type: number
+              format: float
+            end:
+              type: number
+              format: float
+            reduction:
+              type: number
+              format: float
+        damage:
+          $ref: '#/components/schemas/damage'
+        slide:
+          type: string
+        jump:
+          type: string
+        wall:
+          type: string
+        channeling:
+          type: number
+          format: float
+        slam:
+          $ref: '#/components/schemas/slamAttack'
     cambionCycle:
       required:
         - expiry
@@ -1845,6 +1935,39 @@ components:
           id:
             minLength: 1
             type: string
+    damage:
+      type: object
+      properties:
+        impact:
+          type: number
+        puncture:
+          type: number
+        slash:
+          type: number
+        heat:
+          type: number
+        cold:
+          type: number
+        electric:
+          type: number
+        toxin:
+          type: number
+        gas:
+          type: number
+        viral:
+          type: number
+        corrosive:
+          type: number
+        blast:
+          type: number
+        magnetic:
+          type: number
+        radiation:
+          type: number
+        'true':
+          type: number
+        void:
+          type: number
     darkSectorHistory:
       type: object
       description: Describes a Dark Sector Historical Battle.
@@ -1921,6 +2044,7 @@ components:
             type: string
           chance:
             type: number
+            format: float
           place:
             minLength: 1
             type: string
@@ -1945,6 +2069,24 @@ components:
         timeLeft:
           minLength: 1
           type: string
+    element:
+      type: string
+      enum:
+        - impact
+        - puncture
+        - slash
+        - heat
+        - cold
+        - electric
+        - toxin
+        - gas
+        - viral
+        - corrosive
+        - blast
+        - magnetic
+        - radiation
+        - 'true'
+        - void
     event:
       type: object
       properties:
@@ -2212,6 +2354,9 @@ components:
           minLength: 1
           type: string
           format: date-time
+        isStorm:
+          type: boolean
+          description: Whether or not this fissure is a void storm
     fissureModifiers:
       required:
         - VoidT1
@@ -2336,62 +2481,73 @@ components:
           desc:
             description: Plain text description of the global upgrade.
             type: string
-    invasion:
-      required:
-        - activation
-        - attackingFaction
-        - completed
-        - completion
-        - count
-        - defendingFaction
-        - desc
-        - eta
-        - id
-        - node
-        - requiredRuns
-        - vsInfestation
+    introduced:
       type: object
       properties:
-        defenderReward:
-          $ref: '#/components/schemas/reward'
-        attackingFaction:
-          minLength: 1
+        name:
           type: string
-        completion:
-          type: number
-        attackerReward:
-          $ref: '#/components/schemas/reward'
-        count:
-          type: number
-        completed:
-          type: boolean
-        requiredRuns:
-          type: number
-        vsInfestation:
-          type: boolean
-        node:
-          minLength: 1
+        url:
           type: string
-        eta:
-          minLength: 1
-          type: string
-        defendingFaction:
-          minLength: 1
-          type: string
-        id:
-          minLength: 1
-          type: string
-        activation:
-          minLength: 1
-          type: string
-          format: date-time
-        rewardTypes:
+        aliases:
           type: array
           items:
-            $ref: '#/components/schemas/rewardType'
-        desc:
-          minLength: 1
+            type: string
+        parent:
           type: string
+        date:
+          type: string
+          format: date
+    invasion:
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - required:
+            - activation
+            - attackingFaction
+            - completed
+            - completion
+            - count
+            - defendingFaction
+            - desc
+            - eta
+            - id
+            - node
+            - requiredRuns
+            - vsInfestation
+          type: object
+          properties:
+            defenderReward:
+              $ref: '#/components/schemas/reward'
+            attackingFaction:
+              minLength: 1
+              type: string
+            completion:
+              type: number
+            attackerReward:
+              $ref: '#/components/schemas/reward'
+            count:
+              type: number
+            completed:
+              type: boolean
+            requiredRuns:
+              type: number
+            vsInfestation:
+              type: boolean
+            node:
+              minLength: 1
+              type: string
+            eta:
+              minLength: 1
+              type: string
+            defendingFaction:
+              minLength: 1
+              type: string
+            rewardTypes:
+              type: array
+              items:
+                $ref: '#/components/schemas/rewardType'
+            desc:
+              minLength: 1
+              type: string
     invasions:
       minItems: 1
       type: array
@@ -2404,12 +2560,42 @@ components:
           type: string
         uniqueName:
           type: string
+        patchlogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/patchlog'
+        components:
+          $ref: '#/components/schemas/item'
+        description:
+          type: string
+        type:
+          type: string
+        tradable:
+          type: boolean
+        introduced:
+          $ref: '#/components/schemas/introduced'
+        category:
+          type: string
+        productCategory:
+          type: string
+        imageName:
+          type: string
+          description: |
+            Image name, accessible at https://cdn.warframestat.us/img/{imageName}
+        estimatedVaultDate:
+          type: string
+          format: date
     items:
       minItems: 0
       type: array
       description: An item from Warframe
       items:
-        $ref: '#/components/schemas/item'
+        oneOf:
+          - $ref: '#/components/schemas/item'
+          - $ref: '#/components/schemas/rangedWeapon'
+          - $ref: '#/components/schemas/meleeWeapon'
+          - $ref: '#/components/schemas/weapon'
+          - $ref: '#/components/schemas/mod'
     kuva:
       type: object
       properties:
@@ -2465,131 +2651,47 @@ components:
               type: string
       description: ''
     meleeWeapon:
-      type: object
-      properties:
-        name:
-          type: string
-        uniqueName:
-          type: string
-        secondsPerShot:
-          type: number
-        totalDamage:
-          type: number
-        damagePerSecond:
-          type: number
-        trigger:
-          type: string
-        description:
-          type: string
-        accuracy:
-          type: number
-        criticalChance:
-          type: number
-        criticalMultiplier:
-          type: number
-        procChance:
-          type: number
-        fireRate:
-          type: number
-        chargeAttack:
-          type: number
-        spinAttack:
-          type: number
-        leapAttack:
-          type: number
-        wallAttack:
-          type: number
-        slot:
-          type: number
-        noise:
-          type: string
-        sentinel:
-          type: boolean
-        masteryReq:
-          type: number
-        omegaAttenuation:
-          type: number
-        type:
-          type: string
-        buildPrice:
-          type: number
-        buildTime:
-          type: number
-        skipBuildTimePrice:
-          type: number
-        buildQuantity:
-          type: number
-        consumeOnBuild:
-          type: boolean
-        components:
-          $ref: '#/components/schemas/item'
-        imageName:
-          type: string
-        category:
-          type: string
-        tradable:
-          type: boolean
-        patchlogs:
-          $ref: '#/components/schemas/patchlog'
-        ammo:
-          type: number
-        damage:
-          type: number
-        damageTypes:
-          type: object
+      allOf:
+        - $ref: '#/components/schemas/item'
+        - $ref: '#/components/schemas/weapon'
+        - type: object
           properties:
-            impact:
+            blockingAngle:
+              type: integer
+            comboDuration:
+              type: integer
+            damagePerShot:
+              type: array
+              items:
+                type: number
+                format: float
+            followThrough:
               type: number
-            puncture:
+              format: float
+            heavyAttackDamage:
+              type: integer
+            heavySlamAttack:
+              type: integer
+            heavySlamRadialDamage:
+              type: integer
+            heavySlamRadius:
+              type: integer
+            range:
               type: number
-            slash:
+              format: float
+            slamAttack:
+              type: integer
+            slamRadialDamage:
+              type: integer
+            slamRadius:
+              type: integer
+            slideAttack:
+              type: integer
+            stancePolarity:
+              $ref: '#/components/schemas/polarity'
+            windUp:
               type: number
-            heat:
-              type: number
-            cold:
-              type: number
-            electric:
-              type: number
-            toxin:
-              type: number
-            gas:
-              type: number
-            viral:
-              type: number
-            corrosive:
-              type: number
-            blast:
-              type: number
-            magnetic:
-              type: number
-            radiation:
-              type: number
-            'true':
-              type: number
-            void:
-              type: number
-        flight:
-          type: number
-        polarities:
-          $ref: '#/components/schemas/polarity'
-        projectile:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        vaulted:
-          type: boolean
-        wikiaThumbnail:
-          type: string
-        wikiaUrl:
-          type: string
-        disposition:
-          type: number
-        releaseDate:
-          type: string
-        vaultDate:
-          type: string
+              format: float
     mission:
       type: object
       required:
@@ -2822,6 +2924,30 @@ components:
               minLength: 1
               type: string
       description: ''
+    mod:
+      allOf:
+        - $ref: '#/components/schemas/item'
+        - type: object
+          properties:
+            baseDrain:
+              type: integer
+            compatName:
+              type: string
+            fusionLimit:
+              type: integer
+            levelStats:
+              type: array
+              items:
+                type: object
+                properties:
+                  stats:
+                    type: array
+                    items:
+                      type: string
+            polarity:
+              $ref: '#/components/schemas/polarity'
+            transmutable:
+              type: boolean
     news:
       minItems: 1
       type: array
@@ -3021,132 +3147,28 @@ components:
         - Unairu
         - Penjaga
         - Unbra
-    primaryWeapon:
-      type: object
-      properties:
-        name:
-          type: string
-        uniqueName:
-          type: string
-        secondsPerShot:
-          type: number
-        dmagePerShot:
-          type: array
-          items:
-            type: number
-        magazineSize:
-          type: number
-        reloadTime:
-          type: number
-        totalDamage:
-          type: number
-        damagePerSecond:
-          type: number
-        trigger:
-          type: string
-        description:
-          type: string
-        accuracy:
-          type: number
-        criticalChance:
-          type: number
-        criticalMultiplier:
-          type: number
-        procChance:
-          type: number
-        fireRate:
-          type: number
-        slot:
-          type: number
-        noise:
-          type: string
-        sentinel:
-          type: boolean
-        masteryReq:
-          type: number
-        omegaAttenuation:
-          type: number
-        type:
-          type: string
-        buildPrice:
-          type: number
-        buildTime:
-          type: number
-        skipBuildTimePrice:
-          type: number
-        buildQuantity:
-          type: number
-        consumeOnBuild:
-          type: boolean
-        components:
-          $ref: '#/components/schemas/item'
-        imageName:
-          type: string
-        category:
-          type: string
-        tradable:
-          type: boolean
-        patchlogs:
-          $ref: '#/components/schemas/patchlog'
-        ammo:
-          type: number
-        damage:
-          type: number
-        damageTypes:
-          type: object
+    rangedWeapon:
+      allOf:
+        - $ref: '#/components/schemas/item'
+        - $ref: '#/components/schemas/weapon'
+        - type: object
           properties:
-            impact:
+            accuracy:
               type: number
-            puncture:
+            ammo:
               type: number
-            slash:
+            fireRate:
               type: number
-            heat:
+              format: float
+            magazineSize:
+              type: integer
+            multishot:
               type: number
-            cold:
-              type: number
-            electric:
-              type: number
-            toxin:
-              type: number
-            gas:
-              type: number
-            viral:
-              type: number
-            corrosive:
-              type: number
-            blast:
-              type: number
-            magnetic:
-              type: number
-            radiation:
-              type: number
-            'true':
-              type: number
-            void:
-              type: number
-        flight:
-          type: number
-        polarities:
-          $ref: '#/components/schemas/polarity'
-        projectile:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        vaulted:
-          type: boolean
-        wikiaThumbnail:
-          type: string
-        wikiaUrl:
-          type: string
-        disposition:
-          type: number
-        releaseDate:
-          type: string
-        vaultDate:
-          type: string
+              format: float
+            noise:
+              type: string
+            trigger:
+              type: string
     reward:
       type: object
       required:
@@ -3320,132 +3342,6 @@ components:
               max: 1500
               pop: 0.0536
               median: 150
-    secondaryWeapon:
-      type: object
-      properties:
-        name:
-          type: string
-        uniqueName:
-          type: string
-        secondsPerShot:
-          type: number
-        dmagePerShot:
-          type: array
-          items:
-            type: number
-        magazineSize:
-          type: number
-        reloadTime:
-          type: number
-        totalDamage:
-          type: number
-        damagePerSecond:
-          type: number
-        trigger:
-          type: string
-        description:
-          type: string
-        accuracy:
-          type: number
-        criticalChance:
-          type: number
-        criticalMultiplier:
-          type: number
-        procChance:
-          type: number
-        fireRate:
-          type: number
-        slot:
-          type: number
-        noise:
-          type: string
-        sentinel:
-          type: boolean
-        masteryReq:
-          type: number
-        omegaAttenuation:
-          type: number
-        type:
-          type: string
-        buildPrice:
-          type: number
-        buildTime:
-          type: number
-        skipBuildTimePrice:
-          type: number
-        buildQuantity:
-          type: number
-        consumeOnBuild:
-          type: boolean
-        components:
-          $ref: '#/components/schemas/item'
-        imageName:
-          type: string
-        category:
-          type: string
-        tradable:
-          type: boolean
-        patchlogs:
-          $ref: '#/components/schemas/patchlog'
-        ammo:
-          type: number
-        damage:
-          type: number
-        damageTypes:
-          type: object
-          properties:
-            impact:
-              type: number
-            puncture:
-              type: number
-            slash:
-              type: number
-            heat:
-              type: number
-            cold:
-              type: number
-            electric:
-              type: number
-            toxin:
-              type: number
-            gas:
-              type: number
-            viral:
-              type: number
-            corrosive:
-              type: number
-            blast:
-              type: number
-            magnetic:
-              type: number
-            radiation:
-              type: number
-            'true':
-              type: number
-            void:
-              type: number
-        flight:
-          type: number
-        polarities:
-          $ref: '#/components/schemas/polarity'
-        projectile:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        vaulted:
-          type: boolean
-        wikiaThumbnail:
-          type: string
-        wikiaUrl:
-          type: string
-        disposition:
-          type: number
-        releaseDate:
-          type: string
-        vaultDate:
-          type: string
     simaris:
       required:
         - asString
@@ -3461,6 +3357,35 @@ components:
         asString:
           minLength: 1
           type: string
+    simpleReward:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of current reward
+        cost:
+          type: number
+          description: Resource cost of item
+    slamAttack:
+      type: object
+      properties:
+        damage:
+          type: number
+          format: float
+        radial:
+          type: object
+          properties:
+            damage:
+              type: number
+              format: float
+            element:
+              $ref: '#/components/schemas/element'
+            proc:
+              type: number
+              format: float
+            radius:
+              type: number
+              format: float
     solNode:
       type: object
       properties:
@@ -3516,75 +3441,66 @@ components:
             items:
               type: string
     sortie:
-      required:
-        - activation
-        - boss
-        - eta
-        - expired
-        - expiry
-        - faction
-        - id
-        - rewardPool
-        - variants
-      type: object
-      properties:
-        id:
-          minLength: 1
-          type: string
-        activation:
-          minLength: 1
-          type: string
-          format: date-time
-        expiry:
-          minLength: 1
-          type: string
-          format: date-time
-        rewardPool:
-          minLength: 1
-          type: string
-        variants:
-          minItems: 1
-          uniqueItems: true
-          type: array
-          items:
-            required:
-              - boss
-              - missionType
-              - modifier
-              - modifierDescription
-              - node
-              - planet
-            type: object
-            properties:
-              node:
-                minLength: 1
-                type: string
-              boss:
-                minLength: 1
-                type: string
-              missionType:
-                minLength: 1
-                type: string
-              planet:
-                minLength: 1
-                type: string
-              modifier:
-                minLength: 1
-                type: string
-              modifierDescription:
-                minLength: 1
-                type: string
-        boss:
-          minLength: 1
-          type: string
-        faction:
-          minLength: 1
-          type: string
-        expired:
-          type: boolean
-        eta:
-          minLength: 1
-          type: string
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - required:
+            - activation
+            - boss
+            - eta
+            - expired
+            - expiry
+            - faction
+            - id
+            - rewardPool
+            - variants
+          type: object
+          properties:
+            rewardPool:
+              minLength: 1
+              type: string
+            variants:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                  - boss
+                  - missionType
+                  - modifier
+                  - modifierDescription
+                  - node
+                  - planet
+                type: object
+                properties:
+                  node:
+                    minLength: 1
+                    type: string
+                  boss:
+                    minLength: 1
+                    type: string
+                  missionType:
+                    minLength: 1
+                    type: string
+                  planet:
+                    minLength: 1
+                    type: string
+                  modifier:
+                    minLength: 1
+                    type: string
+                  modifierDescription:
+                    minLength: 1
+                    type: string
+            boss:
+              minLength: 1
+              type: string
+            faction:
+              minLength: 1
+              type: string
+            expired:
+              type: boolean
+            eta:
+              minLength: 1
+              type: string
     sortieData:
       required:
         - bosses
@@ -4089,6 +4005,34 @@ components:
             type: object
             properties: {}
       description: ''
+    steelPath:
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - type: object
+          properties:
+            activation:
+              minLength: 1
+              type: string
+              format: date-time
+            expiry:
+              minLength: 1
+              type: string
+              format: date-time
+            currentReward:
+              $ref: '#/components/schemas/simpleReward'
+            remaining:
+              minLength: 1
+              type: string
+            rotation:
+              type: array
+              items:
+                $ref: '#/components/schemas/simpleReward'
+            evergreen:
+              type: array
+              items:
+                $ref: '#/components/schemas/simpleReward'
+            incursions:
+              $ref: '#/components/schemas/worldstateObject'
     syndicate:
       type: string
       enum:
@@ -4353,184 +4297,271 @@ components:
         isWarm:
           type: boolean
     voidTrader:
-      required:
-        - activation
-        - active
-        - character
-        - endString
-        - expiry
-        - id
-        - inventory
-        - location
-        - psId
-        - startString
-      type: object
-      properties:
-        id:
-          minLength: 1
-          type: string
-        activation:
-          minLength: 1
-          type: string
-          format: date-time
-        expiry:
-          minLength: 1
-          type: string
-          format: date-time
-        character:
-          minLength: 1
-          type: string
-        location:
-          minLength: 1
-          type: string
-        inventory:
-          type: array
-          items:
-            type: object
-            properties:
-              item:
-                type: string
-                description: Item that is being sold
-              ducats:
-                type: number
-                description: Amount of ducats required to purchase item
-              credits:
-                type: number
-                description: Amount of credits required to purchase item
-        psId:
-          minLength: 1
-          type: string
-        active:
-          type: boolean
-        startString:
-          minLength: 1
-          type: string
-        endString:
-          minLength: 1
-          type: string
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - required:
+            - active
+            - character
+            - endString
+            - inventory
+            - location
+            - psId
+            - startString
+          type: object
+          properties:
+            character:
+              minLength: 1
+              type: string
+            location:
+              minLength: 1
+              type: string
+            inventory:
+              type: array
+              items:
+                type: object
+                properties:
+                  item:
+                    type: string
+                    description: Item that is being sold
+                  ducats:
+                    type: number
+                    description: Amount of ducats required to purchase item
+                  credits:
+                    type: number
+                    description: Amount of credits required to purchase item
+            psId:
+              minLength: 1
+              type: string
+            active:
+              type: boolean
+            startString:
+              minLength: 1
+              type: string
+            endString:
+              minLength: 1
+              type: string
+    warframe:
+      allOf:
+        - $ref: '#/components/schemas/item'
+        - required:
+            - armor
+            - aura
+            - color
+            - conclave
+            - description
+            - health
+            - info
+            - location
+            - mr
+            - name
+            - polarities
+            - power
+            - regex
+            - shield
+            - speed
+            - thumbnail
+            - url
+          type: object
+          properties:
+            shield:
+              minLength: 1
+              type: string
+            polarities:
+              type: array
+              items:
+                type: object
+                properties: {}
+            prime_power:
+              minLength: 1
+              type: string
+            prime_mr:
+              minLength: 1
+              type: string
+            color:
+              type: number
+            prime_polarities:
+              type: array
+              items:
+                type: object
+                properties: {}
+            conclave:
+              minLength: 1
+              type: string
+            description:
+              minLength: 1
+              type: string
+            prime_armor:
+              minLength: 1
+              type: string
+            speed:
+              minLength: 1
+              type: string
+            aura:
+              minLength: 1
+              type: string
+            prime_url:
+              minLength: 1
+              type: string
+            prime_health:
+              type: string
+            power:
+              minLength: 1
+              type: string
+            prime_aura:
+              minLength: 1
+              type: string
+            info:
+              minLength: 1
+              type: string
+            thumbnail:
+              minLength: 1
+              type: string
+            mr:
+              minLength: 1
+              type: string
+            prime_shield:
+              type: string
+            health:
+              minLength: 1
+              type: string
+            prime_speed:
+              minLength: 1
+              type: string
+            url:
+              minLength: 1
+              type: string
+            regex:
+              minLength: 1
+              type: string
+            armor:
+              minLength: 1
+              type: string
+            name:
+              minLength: 1
+              type: string
+            location:
+              minLength: 1
+              type: string
+            prime_conclave:
+              type: string
     warframes:
       minItems: 1
       type: array
       description: ''
       items:
-        required:
-          - armor
-          - aura
-          - color
-          - conclave
-          - description
-          - health
-          - info
-          - location
-          - mr
-          - name
-          - polarities
-          - power
-          - regex
-          - shield
-          - speed
-          - thumbnail
-          - url
-        type: object
-        properties:
-          shield:
-            minLength: 1
-            type: string
-          polarities:
-            type: array
-            items:
-              type: object
-              properties: {}
-          prime_power:
-            minLength: 1
-            type: string
-          prime_mr:
-            minLength: 1
-            type: string
-          color:
-            type: number
-          prime_polarities:
-            type: array
-            items:
-              type: object
-              properties: {}
-          conclave:
-            minLength: 1
-            type: string
-          description:
-            minLength: 1
-            type: string
-          prime_armor:
-            minLength: 1
-            type: string
-          speed:
-            minLength: 1
-            type: string
-          aura:
-            minLength: 1
-            type: string
-          prime_url:
-            minLength: 1
-            type: string
-          prime_health:
-            type: string
-          power:
-            minLength: 1
-            type: string
-          prime_aura:
-            minLength: 1
-            type: string
-          info:
-            minLength: 1
-            type: string
-          thumbnail:
-            minLength: 1
-            type: string
-          mr:
-            minLength: 1
-            type: string
-          prime_shield:
-            type: string
-          health:
-            minLength: 1
-            type: string
-          prime_speed:
-            minLength: 1
-            type: string
-          url:
-            minLength: 1
-            type: string
-          regex:
-            minLength: 1
-            type: string
-          armor:
-            minLength: 1
-            type: string
-          name:
-            minLength: 1
-            type: string
-          location:
-            minLength: 1
-            type: string
-          prime_conclave:
-            type: string
+        $ref: '#/components/schemas/warframe'
+    weapon:
+      allOf:
+        - $ref: '#/components/schemas/item'
+        - type: object
+          properties:
+            url:
+              type: string
+              format: url
+            mr:
+              type: number
+            riven_disposition:
+              type: number
+            polarities:
+              type: array
+              items:
+                $ref: '#/components/schemas/polarity'
+            thumbnail:
+              type: string
+              format: url
+            tags:
+              type: array
+              items:
+                type: string
+            vaulted:
+              type: boolean
+            introduced:
+              $ref: '#/components/schemas/introduced'
+            marketCost:
+              type: string
+            bpCost:
+              type: string
+            attacks:
+              type: array
+              items:
+                $ref: '#/components/schemas/attack'
+            masteryReq:
+              type: integer
+            buildPrice:
+              type: integer
+            buildTime:
+              type: integer
+            skipBuildTimePrice:
+              type: integer
+            buildQuantity:
+              type: integer
+            consumeOnBuild:
+              type: boolean
+            wikiaThumbnail:
+              type: string
+              format: url
+            wikiaUrl:
+              type: string
+              format: url
+            criticalChance:
+              type: number
+              format: float
+            criticalMultiplier:
+              type: number
+              format: float
+            disposition:
+              type: integer
+            fireRate:
+              type: number
+              format: float
+            omegaAttenuation:
+              type: number
+              format: float
+            procChance:
+              type: number
+              format: float
+            releaseDate:
+              type: number
+              format: float
+            slot:
+              type: integer
+              description: Specifies the slot of an item.
+            totalDamage:
+              type: integer
+            vaultDate:
+              type: string
+              format: date
     weapons:
       minItems: 1
       type: array
       description: ''
       items:
         oneOf:
-          - $ref: '#/components/schemas/primaryWeapon'
-          - $ref: '#/components/schemas/secondaryWeapon'
+          - $ref: '#/components/schemas/rangedWeapon'
           - $ref: '#/components/schemas/meleeWeapon'
+    worldstateObject:
+      type: object
+      properties:
+        id:
+          type: string
+          minLength: 1
+        activation:
+          type: string
+          minLength: 1
+          format: date-time
+        expiry:
+          type: string
+          minLength: 1
+          format: date-time
     ws:
       required:
         - alerts
+        - arbitration
+        - cambionCycle
         - cetusCycle
         - conclaveChallenges
         - constructionProgress
         - dailyDeals
-        - darkSectors
         - earthCycle
         - events
         - fissures
@@ -4539,59 +4570,63 @@ components:
         - invasions
         - news
         - persistentEnemies
-        - simaris
+        - sentientOutposts
         - sortie
+        - steelPath
         - syndicateMissions
         - timestamp
+        - vallisCycle
         - voidTrader
       type: object
       properties:
         timestamp:
           $ref: '#/components/schemas/timestamp'
-        news:
-          $ref: '#/components/schemas/news'
-        events:
-          $ref: '#/components/schemas/events'
         alerts:
           $ref: '#/components/schemas/alert'
-        sortie:
-          $ref: '#/components/schemas/sortie'
-        syndicateMissions:
-          $ref: '#/components/schemas/syndicateMissions'
-        fissures:
-          $ref: '#/components/schemas/fissures'
-        globalUpgrades:
-          $ref: '#/components/schemas/globalUpgrades'
-        flashSales:
-          $ref: '#/components/schemas/flashSales'
-        invasions:
-          $ref: '#/components/schemas/invasions'
-        darkSectors:
-          $ref: '#/components/schemas/darkSectors'
-        voidTrader:
-          $ref: '#/components/schemas/voidTrader'
-        dailyDeals:
-          $ref: '#/components/schemas/dailyDeals'
-        simaris:
-          $ref: '#/components/schemas/simaris'
-        conclaveChallenges:
-          $ref: '#/components/schemas/conclaveChallenges'
-        persistentEnemies:
-          $ref: '#/components/schemas/persistentEnemies'
-        earthCycle:
-          $ref: '#/components/schemas/earthCycle'
-        cetusCycle:
-          $ref: '#/components/schemas/cetusCycle'
-        vallisCycle:
-          $ref: '#/components/schemas/vallisCycle'
-        constructionProgress:
-          $ref: '#/components/schemas/construction'
-        nightwave:
-          $ref: '#/components/schemas/nightwave'
         arbitration:
           $ref: '#/components/schemas/arbitration'
+        cetusCycle:
+          $ref: '#/components/schemas/cetusCycle'
+        constructionProgress:
+          $ref: '#/components/schemas/construction'
+        conclaveChallenges:
+          $ref: '#/components/schemas/conclaveChallenges'
+        dailyDeals:
+          $ref: '#/components/schemas/dailyDeals'
+        darkSectors:
+          $ref: '#/components/schemas/darkSectors'
+        earthCycle:
+          $ref: '#/components/schemas/earthCycle'
+        events:
+          $ref: '#/components/schemas/events'
+        fissures:
+          $ref: '#/components/schemas/fissures'
+        flashSales:
+          $ref: '#/components/schemas/flashSales'
+        globalUpgrades:
+          $ref: '#/components/schemas/globalUpgrades'
+        invasions:
+          $ref: '#/components/schemas/invasions'
         kuva:
           $ref: '#/components/schemas/kuva'
+        news:
+          $ref: '#/components/schemas/news'
+        nightwave:
+          $ref: '#/components/schemas/nightwave'
+        persistentEnemies:
+          $ref: '#/components/schemas/persistentEnemies'
+        simaris:
+          $ref: '#/components/schemas/simaris'
+        sortie:
+          $ref: '#/components/schemas/sortie'
+        steelPath:
+          $ref: '#/components/schemas/steelPath'
+        syndicateMissions:
+          $ref: '#/components/schemas/syndicateMissions'
+        vallisCycle:
+          $ref: '#/components/schemas/vallisCycle'
+        voidTrader:
+          $ref: '#/components/schemas/voidTrader'
       description: Full Worldstate Object
   responses:
     error:
