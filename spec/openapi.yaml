@@ -1,18 +1,18 @@
 openapi: 3.0.3
 info:
   title: WarframeStat.us API
-  description: Simple API for data from the game Warframe.
+  description: |
+    Simple API for data from the game Warframe.
+    [Parser Docs](https://wfcd.github.io/warframe-worldstate-parser/)
+    [Items Types](https://github.com/WFCD/warframe-items/blob/master/index.d.ts)
   contact:
     email: tobiah@protonmail.com
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
   version: living
   x-logo:
     url: 'https://warframestat.us/wfcd_logo_color.png'
-externalDocs:
-  description: Find out more about Warframe
-  url: 'https://warframe.com'
 servers:
   - url: 'https://api.warframestat.us/'
     description: Production Server
