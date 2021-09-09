@@ -1,5 +1,4 @@
 allOf:
-  - $ref: '#/components/schemas/worldstateObject'
   - type: object
     properties:
       activation:
@@ -19,7 +18,7 @@ allOf:
         type: array
         items:
           $ref: '#/components/schemas/simpleReward'
-      evergreen:
+      evergreens:
         type: array
         items:
           $ref: '#/components/schemas/simpleReward'
