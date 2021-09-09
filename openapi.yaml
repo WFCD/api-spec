@@ -4007,7 +4007,6 @@ components:
       description: ''
     steelPath:
       allOf:
-        - $ref: '#/components/schemas/worldstateObject'
         - type: object
           properties:
             activation:
@@ -4027,7 +4026,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/simpleReward'
-            evergreen:
+            evergreens:
               type: array
               items:
                 $ref: '#/components/schemas/simpleReward'
