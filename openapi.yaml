@@ -2515,39 +2515,86 @@ components:
             - vsInfestation
           type: object
           properties:
-            defenderReward:
-              $ref: '#/components/schemas/reward'
+            attacker:
+              allOf:
+                - type: object
+                  description: Invading faction information
+                - $ref: '#/components/schemas/invasionFaction'
+            attackerReward:
+              allOf:
+                - type: object
+                  deprecated: true
+                - $ref: '#/components/schemas/reward'
             attackingFaction:
+              deprecated: true
               minLength: 1
               type: string
-            completion:
-              type: number
-            attackerReward:
-              $ref: '#/components/schemas/reward'
-            count:
-              type: number
             completed:
               type: boolean
-            requiredRuns:
+              description: Whether or not this invasion is "over"
+            completion:
               type: number
-            vsInfestation:
-              type: boolean
-            node:
+              description: percentage complete as a float value
+              minimum: 0
+              maximum: 100
+              example:
+                - 100
+                - 50
+                - 36.36
+            count:
+              type: number
+              format: float
+              description: How many fights have happened.
+            defender:
+              allOf:
+                - type: object
+                  description: Defending faction information
+                - $ref: '#/components/schemas/invasionFaction'
+            defenderReward:
+              allOf:
+                - type: object
+                  deprecated: true
+                - $ref: '#/components/schemas/reward'
+            defendingFaction:
+              deprecated: true
               minLength: 1
               type: string
+            desc:
+              minLength: 1
+              type: string
+              description: description of invasion
             eta:
               minLength: 1
               type: string
-            defendingFaction:
+              description: time string showing approximate time to the end of the invasion
+            node:
               minLength: 1
               type: string
+              description: localized Node name
+            nodeKey:
+              minLength: 1
+              type: string
+              description: i18n key for matching node (always english translation)
+            requiredRuns:
+              type: number
+              description: How many runs of this mission are needed to qualify for the reward
             rewardTypes:
               type: array
               items:
                 $ref: '#/components/schemas/rewardType'
-            desc:
-              minLength: 1
+            startString:
               type: string
+            vsInfestation:
+              type: boolean
+    invasionFaction:
+      type: object
+      properties:
+        reward:
+          $ref: '#/components/schemas/reward'
+        faction:
+          $ref: '#/components/schemas/faction'
+        factionKey:
+          $ref: '#/components/schemas/faction'
     invasions:
       minItems: 1
       type: array
@@ -3184,6 +3231,7 @@ components:
           minItems: 1
           uniqueItems: true
           type: array
+          description: Items that have a quantity attached
           items:
             required:
               - count
@@ -3198,21 +3246,30 @@ components:
         thumbnail:
           minLength: 1
           type: string
+          description: thumbnail URL
         color:
           type: number
+          description: RGB value as an int assigned to this reward
         credits:
           type: number
+          format: int
+          description: Amount of credits awarded
         asString:
           minLength: 1
           type: string
+          description: string representation of the reward
         items:
           type: array
+          description: Items' names possible to be won
           items:
-            type: object
-            properties: {}
+            type: string
+            description: Item name that is offered
+            example: Orokin Catalyst
         itemString:
           minLength: 1
           type: string
+          description: formatted string describing all included items
+          example: 5 Detonite Injectors
     rewardType:
       type: string
       description: One of the reward types
@@ -4544,14 +4601,17 @@ components:
         id:
           type: string
           minLength: 1
+          description: unique identifier for this object/event/thing
         activation:
           type: string
           minLength: 1
           format: date-time
+          description: ISO-8601 formatted timestamp for when the event began
         expiry:
           type: string
           minLength: 1
           format: date-time
+          description: ISO-8601 formatted timestamp for when the event is expected to end
     ws:
       required:
         - alerts

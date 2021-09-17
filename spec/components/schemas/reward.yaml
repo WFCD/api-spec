@@ -12,6 +12,7 @@ properties:
     minItems: 1
     uniqueItems: true
     type: array
+    description: Items that have a quantity attached
     items:
       required:
         - count
@@ -26,18 +27,27 @@ properties:
   thumbnail:
     minLength: 1
     type: string
+    description: thumbnail URL
   color:
     type: number
+    description: RGB value as an int assigned to this reward
   credits:
     type: number
+    format: int
+    description: Amount of credits awarded
   asString:
     minLength: 1
     type: string
+    description: string representation of the reward
   items:
     type: array
+    description: Items' names possible to be won
     items:
-      type: object
-      properties: {}
+      type: string
+      description: Item name that is offered
+      example: Orokin Catalyst
   itemString:
     minLength: 1
     type: string
+    description: formatted string describing all included items
+    example: 5 Detonite Injectors
