@@ -1,5 +1,5 @@
 # WarframeStat.us OpenAPI Specification
-[![Build Status](https://travis-ci.com/WFCD/api-spec.svg?branch=master)](https://travis-ci.com/WFCD/api-spec)
+[![GitHub pages](https://github.com/WFCD/api-spec/actions/workflows/docs.yaml/badge.svg)](https://github.com/WFCD/api-spec/actions/workflows/docs.yaml)
 
 ## Links
 
@@ -7,7 +7,7 @@
 - [SwaggerUI](https://docs.warframestat.us/swagger-ui/)
 - OpenAPI Raw Files: [JSON](https://docs.warframestat.us/openapi.json) [YAML](https://docs.warframestat.us/openapi.yaml)
 
-**Warning:** All above links are updated only after Travis CI finishes deployment
+**Warning:** All above links are updated only after Actions finishes deployment
 
 ## Working on specification
 ### Install
