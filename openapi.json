@@ -2724,7 +2724,7 @@
                "expiry",
                "activation",
                "id",
-               "actove"
+               "active"
             ],
             "type": "object",
             "properties": {
@@ -2744,6 +2744,10 @@
                      "vome",
                      "fass"
                   ]
+               },
+               "timeLeft": {
+                  "minLength": 1,
+                  "type": "string"
                }
             }
          },

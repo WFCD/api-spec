@@ -2,7 +2,7 @@ required:
   - expiry
   - activation
   - id
-  - actove
+  - active
 type: object
 properties:
   id:
@@ -17,3 +17,6 @@ properties:
     enum:
       - vome
       - fass
+  timeLeft:
+    minLength: 1
+    type: string
