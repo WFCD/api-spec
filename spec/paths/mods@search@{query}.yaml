@@ -1,9 +1,9 @@
 get:
   tags:
-    - Searchable
     - Static Processing Data
-  summary: Get Weapon data and statistics based on the query.
-  description: Weapon statistics.
+    - Searchable
+  summary: Get Warframe Items data
+  description: 'Item information, such as name, unique name, type, and image name.'
   parameters:
     - name: only
       in: query
@@ -32,7 +32,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/weapons'
+            type: array
+            items:
+              $ref: '#/components/schemas/mod'
     '400':
       $ref: '#/components/responses/error'
     '500':

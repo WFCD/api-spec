@@ -1,9 +1,11 @@
 get:
   tags:
-    - Searchable
     - Static Processing Data
-  summary: Get Weapon data and statistics based on the query.
-  description: Weapon statistics.
+    - Searchable
+  summary: >-
+    Get Weapon specs and data, such as polarity based on the query. Single
+    result
+  description: Mod information.
   parameters:
     - name: only
       in: query
@@ -32,7 +34,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/weapons'
+            $ref: '#/components/schemas/weapon'
     '400':
       $ref: '#/components/responses/error'
     '500':

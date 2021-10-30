@@ -3,6 +3,21 @@ get:
     - Static Processing Data
   summary: Get Weapon data and statistics.
   description: Weapon statistics.
+  parameters:
+    - name: only
+      in: query
+      description: Keys to keep on the object. Comma separated for multiple
+      required: false
+      schema:
+        type: string
+        format: utf8
+    - name: remove
+      in: query
+      description: Keys to remove on the object. Comma separated for multiple
+      required: false
+      schema:
+        type: string
+        format: utf8
   responses:
     '200':
       description: successful operation

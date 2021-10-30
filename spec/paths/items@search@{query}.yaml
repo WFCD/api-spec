@@ -4,6 +4,20 @@ get:
   summary: Get Warframe Items data
   description: 'Item information, such as name, unique name, type, and image name.'
   parameters:
+    - name: only
+      in: query
+      description: Keys to keep on the object. Comma separated for multiple
+      required: false
+      schema:
+        type: string
+        format: utf8
+    - name: remove
+      in: query
+      description: Keys to remove on the object. Comma separated for multiple
+      required: false
+      schema:
+        type: string
+        format: utf8
     - name: query
       in: path
       description: Keyword to search for

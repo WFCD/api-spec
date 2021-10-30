@@ -1,9 +1,8 @@
 get:
   tags:
-    - Searchable
     - Static Processing Data
-  summary: Get Weapon data and statistics based on the query.
-  description: Weapon statistics.
+  summary: Get item data.
+  description: Item information.
   parameters:
     - name: only
       in: query
@@ -32,7 +31,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/weapons'
+            $ref: '#/components/schemas/item'
     '400':
       $ref: '#/components/responses/error'
     '500':

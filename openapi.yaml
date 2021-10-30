@@ -1007,6 +1007,77 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
+  /items:
+    get:
+      tags:
+        - Static Processing Data
+      summary: Get item data.
+      description: Item information.
+      parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/items'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/items/{query}':
+    get:
+      tags:
+        - Static Processing Data
+      summary: Get item data.
+      description: Item information.
+      parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: query
+          in: path
+          description: Keyword to search for
+          required: true
+          schema:
+            type: string
+            format: utf8
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/item'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/items/search/{query}':
     get:
       tags:
@@ -1014,6 +1085,20 @@ paths:
       summary: Get Warframe Items data
       description: 'Item information, such as name, unique name, type, and image name.'
       parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
         - name: query
           in: path
           description: Keyword to search for
@@ -1127,6 +1212,122 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/missionTypes'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  /mods:
+    get:
+      tags:
+        - Static Processing Data
+      summary: Get Mod data.
+      description: Item information.
+      parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/mod'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/mods/{query}':
+    get:
+      tags:
+        - Static Processing Data
+        - Searchable
+      summary: Get item data.
+      description: Mod information.
+      parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: query
+          in: path
+          description: Keyword to search for
+          required: true
+          schema:
+            type: string
+            format: utf8
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mod'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  '/mods/search/{query}':
+    get:
+      tags:
+        - Static Processing Data
+        - Searchable
+      summary: Get Warframe Items data
+      description: 'Item information, such as name, unique name, type, and image name.'
+      parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: query
+          in: path
+          description: Keyword to search for
+          required: true
+          schema:
+            type: string
+            format: utf8
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/mod'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -1431,6 +1632,21 @@ paths:
         - Static Processing Data
       summary: 'Get Warframe specs and data, such as polarities defenses, and profile.'
       description: Warframe stats and general information.
+      parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
       responses:
         '200':
           description: successful operation
@@ -1442,6 +1658,32 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
+  '/warframes/{query}':
+    get:
+      tags:
+        - Static Processing Data
+        - Searchable
+      summary: 'Get Warframe specs and data, such as polarity and defenses, and profile based on the query. Single result'
+      description: Mod information.
+      parameters:
+        - name: query
+          in: path
+          description: Keyword to search for
+          required: true
+          schema:
+            type: string
+            format: utf8
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/warframe'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/warframes/search/{query}':
     get:
       tags:
@@ -1449,6 +1691,20 @@ paths:
       summary: 'Get Warframe specs and data, such as polarities defenses, and profile based on the query.'
       description: Warframe stats and general information.
       parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
         - name: query
           in: path
           description: Keyword to search for
@@ -1473,6 +1729,21 @@ paths:
         - Static Processing Data
       summary: Get Weapon data and statistics.
       description: Weapon statistics.
+      parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
       responses:
         '200':
           description: successful operation
@@ -1484,13 +1755,68 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
+  '/weapons/{query}':
+    get:
+      tags:
+        - Static Processing Data
+        - Searchable
+      summary: 'Get Weapon specs and data, such as polarity based on the query. Single result'
+      description: Mod information.
+      parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: query
+          in: path
+          description: Keyword to search for
+          required: true
+          schema:
+            type: string
+            format: utf8
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/weapon'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   '/weapons/search/{query}':
     get:
       tags:
         - Searchable
+        - Static Processing Data
       summary: Get Weapon data and statistics based on the query.
       description: Weapon statistics.
       parameters:
+        - name: only
+          in: query
+          description: Keys to keep on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
+        - name: remove
+          in: query
+          description: Keys to remove on the object. Comma separated for multiple
+          required: false
+          schema:
+            type: string
+            format: utf8
         - name: query
           in: path
           description: Keyword to search for
