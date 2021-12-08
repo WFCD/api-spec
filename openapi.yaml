@@ -1067,6 +1067,12 @@ paths:
           schema:
             type: string
             format: utf8
+        - name: by
+          in: query
+          description: Key to search by on the object
+          schema:
+            type: string
+            format: utf8
       responses:
         '200':
           description: successful operation
@@ -1103,6 +1109,12 @@ paths:
           in: path
           description: Keyword to search for
           required: true
+          schema:
+            type: string
+            format: utf8
+        - name: by
+          in: query
+          description: Key to search by on the object
           schema:
             type: string
             format: utf8
@@ -1279,6 +1291,12 @@ paths:
           schema:
             type: string
             format: utf8
+        - name: by
+          in: query
+          description: Key to search by on the object
+          schema:
+            type: string
+            format: utf8
       responses:
         '200':
           description: successful operation
@@ -1316,6 +1334,12 @@ paths:
           in: path
           description: Keyword to search for
           required: true
+          schema:
+            type: string
+            format: utf8
+        - name: by
+          in: query
+          description: Key to search by on the object
           schema:
             type: string
             format: utf8
@@ -1673,6 +1697,12 @@ paths:
           schema:
             type: string
             format: utf8
+        - name: by
+          in: query
+          description: Key to search by on the object
+          schema:
+            type: string
+            format: utf8
       responses:
         '200':
           description: successful operation
@@ -1712,6 +1742,12 @@ paths:
           schema:
             type: string
             format: utf8
+        - name: by
+          in: query
+          description: Key to search by on the object
+          schema:
+            type: string
+            format: utf8
       responses:
         '200':
           description: successful operation
@@ -1741,6 +1777,12 @@ paths:
           in: query
           description: Keys to remove on the object. Comma separated for multiple
           required: false
+          schema:
+            type: string
+            format: utf8
+        - name: by
+          in: query
+          description: Key to search by on the object
           schema:
             type: string
             format: utf8
@@ -1784,6 +1826,12 @@ paths:
           schema:
             type: string
             format: utf8
+        - name: by
+          in: query
+          description: Key to search by on the object
+          schema:
+            type: string
+            format: utf8
       responses:
         '200':
           description: successful operation
@@ -1821,6 +1869,12 @@ paths:
           in: path
           description: Keyword to search for
           required: true
+          schema:
+            type: string
+            format: utf8
+        - name: by
+          in: query
+          description: Key to search by on the object
           schema:
             type: string
             format: utf8
