@@ -18,6 +18,12 @@ get:
       schema:
         type: string
         format: utf8
+    - name: by
+      in: query
+      description: Key to search by on the object
+      schema:
+        type: string
+        format: utf8
   responses:
     '200':
       description: successful operation
