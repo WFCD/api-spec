@@ -7281,7 +7281,8 @@
         "allowEmptyValue": false,
         "schema": {
           "type": "string",
-          "format": "utf8"
+          "format": "utf8",
+          "default": "name"
         }
       },
       "language-query": {
