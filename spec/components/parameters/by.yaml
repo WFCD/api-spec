@@ -6,3 +6,4 @@ allowEmptyValue: false
 schema:
   type: string
   format: utf8
+  default: name
