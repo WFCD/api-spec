@@ -2,6 +2,21 @@ type: object
 properties:
   name:
     type: string
+  crit_chance:
+    type: number
+    format: float
+  crit_mult:
+    type: number
+    format: float
+  status_chance:
+    type: number
+    format: float
+  shot_type:
+    type: number
+    format: float
+  shot_speed:
+    type: number
+    format: float
   duration:
     type: number
     format: float
@@ -18,19 +33,7 @@ properties:
         type: string
       count:
         type: number
-  crit_chance:
-    type: number
-    format: float
-  crit_mult:
-    type: number
-    format: float
-  status_chance:
-    type: number
-    format: float
   charge_time:
-    type: number
-    format: float
-  shot_type:
     type: number
     format: float
   flight:

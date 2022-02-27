@@ -1,23 +1,13 @@
 get:
   tags:
-    - Static Processing Data
-  summary: Get item data.
+    - warframe-items
+  summary: Get all item data.
   description: Item information.
   parameters:
-    - name: only
-      in: query
-      description: Keys to keep on the object. Comma separated for multiple
-      required: false
-      schema:
-        type: string
-        format: utf8
-    - name: remove
-      in: query
-      description: Keys to remove on the object. Comma separated for multiple
-      required: false
-      schema:
-        type: string
-        format: utf8
+    - $ref: '#/components/parameters/only'
+    - $ref: '#/components/parameters/remove'
+    - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
   responses:
     '200':
       description: successful operation

@@ -4,13 +4,7 @@ get:
   summary: Get Faction translation information based on the query.
   description: Strings for translating faction identifiers.
   parameters:
-    - name: query
-      in: path
-      description: Keyword to search for
-      required: true
-      schema:
-        type: string
-        format: utf8
+    - $ref: '#/components/parameters/query'
   responses:
     '200':
       description: successful operation

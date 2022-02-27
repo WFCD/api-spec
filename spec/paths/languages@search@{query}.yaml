@@ -4,13 +4,7 @@ get:
   summary: Get Language strings for Warframe based on the query.
   description: Get language strings to assist translation.
   parameters:
-    - name: query
-      in: path
-      description: Keyword to search for
-      required: true
-      schema:
-        type: string
-        format: utf8
+    - $ref: '#/components/parameters/query'
   responses:
     '200':
       description: successful operation

@@ -1,38 +1,16 @@
 get:
   tags:
     - Searchable
-  summary: >-
-    Get Warframe specs and data, such as polarities defenses, and profile based
-    on the query.
+    - warframe-items
+  summary: Get data for all matching Warframes
   description: Warframe stats and general information.
   parameters:
-    - name: only
-      in: query
-      description: Keys to keep on the object. Comma separated for multiple
-      required: false
-      schema:
-        type: string
-        format: utf8
-    - name: remove
-      in: query
-      description: Keys to remove on the object. Comma separated for multiple
-      required: false
-      schema:
-        type: string
-        format: utf8
-    - name: query
-      in: path
-      description: Keyword to search for
-      required: true
-      schema:
-        type: string
-        format: utf8
-    - name: by
-      in: query
-      description: Key to search by on the object
-      schema:
-        type: string
-        format: utf8
+    - $ref: '#/components/parameters/only'
+    - $ref: '#/components/parameters/remove'
+    - $ref: '#/components/parameters/query'
+    - $ref: '#/components/parameters/by'
+    - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
   responses:
     '200':
       description: successful operation

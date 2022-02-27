@@ -1,25 +1,16 @@
 get:
   tags:
-    - Static Processing Data
+    - warframe-items
     - Searchable
-  summary: >-
-    Get Warframe specs and data, such as polarity and defenses, and profile
-    based on the query. Single result
+  summary: Get data for the closest matching single item
   description: Mod information.
   parameters:
-    - name: query
-      in: path
-      description: Keyword to search for
-      required: true
-      schema:
-        type: string
-        format: utf8
-    - name: by
-      in: query
-      description: Key to search by on the object
-      schema:
-        type: string
-        format: utf8
+    - $ref: '#/components/parameters/only'
+    - $ref: '#/components/parameters/remove'
+    - $ref: '#/components/parameters/query'
+    - $ref: '#/components/parameters/by'
+    - $ref: '#/components/parameters/language'
+    - $ref: '#/components/parameters/language-query'
   responses:
     '200':
       description: successful operation

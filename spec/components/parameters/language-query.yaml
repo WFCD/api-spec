@@ -1,5 +1,8 @@
 name: language
 in: query
 description: Language to retrieve
+allowEmptyValue: false
+deprecated: true
+required: false
 schema:
   $ref: '#/components/schemas/language'

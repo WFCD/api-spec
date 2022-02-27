@@ -1,0 +1,8 @@
+name: by
+in: query
+description: Key to search by on the object
+required: false
+allowEmptyValue: false
+schema:
+  type: string
+  format: utf8

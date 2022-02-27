@@ -1,0 +1,8 @@
+name: query
+in: path
+description: Keyword to search for
+allowEmptyValue: false
+required: true
+schema:
+  type: string
+  format: utf8

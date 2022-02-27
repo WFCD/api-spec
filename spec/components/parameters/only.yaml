@@ -1,0 +1,8 @@
+name: only
+in: query
+description: Keys to keep on the object. Comma separated for multiple
+allowEmptyValue: false
+required: false
+schema:
+  type: string
+  format: utf8

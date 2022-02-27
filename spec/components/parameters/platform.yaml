@@ -1,6 +1,7 @@
 name: platform
 in: path
 description: Platform to provide data for
+allowEmptyValue: false
 required: true
 schema:
   $ref: '#/components/schemas/platform'

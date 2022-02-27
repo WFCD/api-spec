@@ -3,6 +3,7 @@ get:
     - Static Processing Data
   summary: Get Arcane Enhancement Data
   description: Available Arcane Enhancements
+  deprecated: true
   responses:
     '200':
       description: successful operation

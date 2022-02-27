@@ -1,0 +1,16 @@
+type: object
+properties:
+  name:
+    type: string
+  uniqueName:
+    type: string
+  description:
+    type: string
+  type:
+    type: string
+  tradable:
+    type: boolean
+  category:
+    type: string
+  productCategory:
+    type: string

@@ -1,0 +1,8 @@
+name: remove
+in: query
+description: Keys to remove on the object. Comma separated for multiple
+allowEmptyValue: false
+required: false
+schema:
+  type: string
+  format: utf8

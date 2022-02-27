@@ -4,13 +4,7 @@ get:
   summary: Get conclave challenge data based on the query
   description: Data about conclave challenges
   parameters:
-    - name: query
-      in: path
-      description: Keyword to search for
-      required: true
-      schema:
-        type: string
-        format: utf8
+    - $ref: '#/components/parameters/query'
   responses:
     '200':
       description: successful operation
