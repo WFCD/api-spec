@@ -1356,6 +1356,7 @@
         ],
         "summary": "Get Arcane Enhancement Data",
         "description": "Available Arcane Enhancements",
+        "deprecated": true,
         "responses": {
           "200": {
             "description": "successful operation",
@@ -1383,16 +1384,10 @@
         ],
         "summary": "Get Arcane Enhancement Data based on the query",
         "description": "Available Arcane Enhancements",
+        "deprecated": true,
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -1451,14 +1446,7 @@
         "description": "Data about conclave challenges",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -1490,14 +1478,7 @@
         "description": "Percentages for Warframe drops in different areas of the game",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -1556,14 +1537,7 @@
         "description": "Data about events",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -1622,14 +1596,7 @@
         "description": "Strings for translating faction identifiers.",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -1688,14 +1655,7 @@
         "description": "Fissure translation identifiers",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -1721,30 +1681,22 @@
     "/items": {
       "get": {
         "tags": [
-          "Static Processing Data"
+          "warframe-items"
         ],
-        "summary": "Get item data.",
+        "summary": "Get all item data.",
         "description": "Item information.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -1770,49 +1722,29 @@
     "/items/{query}": {
       "get": {
         "tags": [
-          "Static Processing Data"
+          "Searchable",
+          "warframe-items"
         ],
-        "summary": "Get item data.",
+        "summary": "Get data for the closest matching single item",
         "description": "Item information.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
           },
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           },
           {
-            "name": "by",
-            "in": "query",
-            "description": "Key to search by on the object",
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/by"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -1838,49 +1770,29 @@
     "/items/search/{query}": {
       "get": {
         "tags": [
-          "Searchable"
+          "Searchable",
+          "warframe-items"
         ],
-        "summary": "Get Warframe Items data",
+        "summary": "Get data for all matching items",
         "description": "Item information, such as name, unique name, type, and image name.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
           },
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           },
           {
-            "name": "by",
-            "in": "query",
-            "description": "Key to search by on the object",
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/by"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -1939,14 +1851,7 @@
         "description": "Get language strings to assist translation.",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -2029,14 +1934,7 @@
         "description": "Mission Type information to aid translating identifiers",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -2062,30 +1960,21 @@
     "/mods": {
       "get": {
         "tags": [
-          "Static Processing Data"
+          "warframe-items"
         ],
-        "summary": "Get Mod data.",
-        "description": "Item information.",
+        "summary": "Get all mod data.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -2114,50 +2003,29 @@
     "/mods/{query}": {
       "get": {
         "tags": [
-          "Static Processing Data",
-          "Searchable"
+          "Searchable",
+          "warframe-items"
         ],
-        "summary": "Get item data.",
+        "summary": "Get data for the closest matching single mod",
         "description": "Mod information.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
           },
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           },
           {
-            "name": "by",
-            "in": "query",
-            "description": "Key to search by on the object",
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/by"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -2183,50 +2051,29 @@
     "/mods/search/{query}": {
       "get": {
         "tags": [
-          "Static Processing Data",
-          "Searchable"
+          "Searchable",
+          "warframe-items"
         ],
-        "summary": "Get Warframe Items data",
-        "description": "Item information, such as name, unique name, type, and image name.",
+        "summary": "Get data for all matching mods",
+        "description": "Mod information, such as name, unique name, type, and image name.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
           },
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           },
           {
-            "name": "by",
-            "in": "query",
-            "description": "Key to search by on the object",
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/by"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -2288,14 +2135,7 @@
         "description": "Operation Types information to aid translating identifiers for global upgrades",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -2354,14 +2194,7 @@
         "description": "Persistent Enemy translation information for aiding translation of identifiers.",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -2420,14 +2253,7 @@
         "description": "Sol Node translation information for aiding the translation of identifiers.",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -2486,14 +2312,7 @@
         "description": "Sortie translation information for assisting translation of identifiers.",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -2552,14 +2371,7 @@
         "description": "Information to assist translating syndicate identifiers.",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -2618,14 +2430,7 @@
         "description": "Tutorials data from DE",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -2684,14 +2489,7 @@
         "description": "Upgrade types for what can be changed by global modifiers, such as double credit weekends.",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           }
         ],
         "responses": {
@@ -2717,30 +2515,22 @@
     "/warframes": {
       "get": {
         "tags": [
-          "Static Processing Data"
+          "warframe-items"
         ],
-        "summary": "Get Warframe specs and data, such as polarities defenses, and profile.",
+        "summary": "Get all Warframe data",
         "description": "Warframe stats and general information.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -2766,30 +2556,29 @@
     "/warframes/{query}": {
       "get": {
         "tags": [
-          "Static Processing Data",
+          "warframe-items",
           "Searchable"
         ],
-        "summary": "Get Warframe specs and data, such as polarity and defenses, and profile based on the query. Single result",
+        "summary": "Get data for the closest matching single item",
         "description": "Mod information.",
         "parameters": [
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "by",
-            "in": "query",
-            "description": "Key to search by on the object",
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
+          },
+          {
+            "$ref": "#/components/parameters/query"
+          },
+          {
+            "$ref": "#/components/parameters/by"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -2815,49 +2604,29 @@
     "/warframes/search/{query}": {
       "get": {
         "tags": [
-          "Searchable"
+          "Searchable",
+          "warframe-items"
         ],
-        "summary": "Get Warframe specs and data, such as polarities defenses, and profile based on the query.",
+        "summary": "Get data for all matching Warframes",
         "description": "Warframe stats and general information.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
           },
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           },
           {
-            "name": "by",
-            "in": "query",
-            "description": "Key to search by on the object",
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/by"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -2883,39 +2652,22 @@
     "/weapons": {
       "get": {
         "tags": [
-          "Static Processing Data"
+          "warframe-items"
         ],
         "summary": "Get Weapon data and statistics.",
         "description": "Weapon statistics.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
           },
           {
-            "name": "by",
-            "in": "query",
-            "description": "Key to search by on the object",
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -2941,50 +2693,29 @@
     "/weapons/{query}": {
       "get": {
         "tags": [
-          "Static Processing Data",
+          "warframe-items",
           "Searchable"
         ],
-        "summary": "Get Weapon specs and data, such as polarity based on the query. Single result",
+        "summary": "Get data for the closest matching single weapon",
         "description": "Mod information.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
           },
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           },
           {
-            "name": "by",
-            "in": "query",
-            "description": "Key to search by on the object",
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/by"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -3011,49 +2742,28 @@
       "get": {
         "tags": [
           "Searchable",
-          "Static Processing Data"
+          "warframe-items"
         ],
-        "summary": "Get Weapon data and statistics based on the query.",
+        "summary": "Get data for all matching weapons",
         "description": "Weapon statistics.",
         "parameters": [
           {
-            "name": "only",
-            "in": "query",
-            "description": "Keys to keep on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/only"
           },
           {
-            "name": "remove",
-            "in": "query",
-            "description": "Keys to remove on the object. Comma separated for multiple",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/remove"
           },
           {
-            "name": "query",
-            "in": "path",
-            "description": "Keyword to search for",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/query"
           },
           {
-            "name": "by",
-            "in": "query",
-            "description": "Key to search by on the object",
-            "schema": {
-              "type": "string",
-              "format": "utf8"
-            }
+            "$ref": "#/components/parameters/by"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
           }
         ],
         "responses": {
@@ -3203,6 +2913,26 @@
           "name": {
             "type": "string"
           },
+          "crit_chance": {
+            "type": "number",
+            "format": "float"
+          },
+          "crit_mult": {
+            "type": "number",
+            "format": "float"
+          },
+          "status_chance": {
+            "type": "number",
+            "format": "float"
+          },
+          "shot_type": {
+            "type": "number",
+            "format": "float"
+          },
+          "shot_speed": {
+            "type": "number",
+            "format": "float"
+          },
           "duration": {
             "type": "number",
             "format": "float"
@@ -3226,23 +2956,7 @@
               }
             }
           },
-          "crit_chance": {
-            "type": "number",
-            "format": "float"
-          },
-          "crit_mult": {
-            "type": "number",
-            "format": "float"
-          },
-          "status_chance": {
-            "type": "number",
-            "format": "float"
-          },
           "charge_time": {
-            "type": "number",
-            "format": "float"
-          },
-          "shot_type": {
             "type": "number",
             "format": "float"
           },
@@ -4606,50 +4320,35 @@
         }
       },
       "item": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/shallowItem"
           },
-          "uniqueName": {
-            "type": "string"
-          },
-          "patchlogs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/patchlog"
+          {
+            "type": "object",
+            "properties": {
+              "patchlogs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/patchlog"
+                }
+              },
+              "components": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/shallowItem"
+                }
+              },
+              "introduced": {
+                "$ref": "#/components/schemas/introduced"
+              },
+              "estimatedVaultDate": {
+                "type": "string",
+                "format": "date"
+              }
             }
-          },
-          "components": {
-            "$ref": "#/components/schemas/item"
-          },
-          "description": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "tradable": {
-            "type": "boolean"
-          },
-          "introduced": {
-            "$ref": "#/components/schemas/introduced"
-          },
-          "category": {
-            "type": "string"
-          },
-          "productCategory": {
-            "type": "string"
-          },
-          "imageName": {
-            "type": "string",
-            "description": "Image name, accessible at https://cdn.warframestat.us/img/{imageName}\n"
-          },
-          "estimatedVaultDate": {
-            "type": "string",
-            "format": "date"
           }
-        }
+        ]
       },
       "items": {
         "minItems": 0,
@@ -5726,6 +5425,32 @@
                 "median": 150
               }
             }
+          }
+        }
+      },
+      "shallowItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "uniqueName": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "tradable": {
+            "type": "boolean"
+          },
+          "category": {
+            "type": "string"
+          },
+          "productCategory": {
+            "type": "string"
           }
         }
       },
@@ -7548,10 +7273,24 @@
       }
     },
     "parameters": {
+      "by": {
+        "name": "by",
+        "in": "query",
+        "description": "Key to search by on the object",
+        "required": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "format": "utf8"
+        }
+      },
       "language-query": {
         "name": "language",
         "in": "query",
         "description": "Language to retrieve",
+        "allowEmptyValue": false,
+        "deprecated": true,
+        "required": false,
         "schema": {
           "$ref": "#/components/schemas/language"
         }
@@ -7560,17 +7299,53 @@
         "name": "Accept-Language",
         "in": "header",
         "description": "Language to retrieve",
+        "allowEmptyValue": false,
+        "required": false,
         "schema": {
           "$ref": "#/components/schemas/language"
+        }
+      },
+      "only": {
+        "name": "only",
+        "in": "query",
+        "description": "Keys to keep on the object. Comma separated for multiple",
+        "allowEmptyValue": false,
+        "required": false,
+        "schema": {
+          "type": "string",
+          "format": "utf8"
         }
       },
       "platform": {
         "name": "platform",
         "in": "path",
         "description": "Platform to provide data for",
+        "allowEmptyValue": false,
         "required": true,
         "schema": {
           "$ref": "#/components/schemas/platform"
+        }
+      },
+      "query": {
+        "name": "query",
+        "in": "path",
+        "description": "Keyword to search for",
+        "allowEmptyValue": false,
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "utf8"
+        }
+      },
+      "remove": {
+        "name": "remove",
+        "in": "query",
+        "description": "Keys to remove on the object. Comma separated for multiple",
+        "allowEmptyValue": false,
+        "required": false,
+        "schema": {
+          "type": "string",
+          "format": "utf8"
         }
       }
     },
