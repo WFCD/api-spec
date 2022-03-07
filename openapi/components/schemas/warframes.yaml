@@ -1,0 +1,5 @@
+minItems: 1
+type: array
+description: ''
+items:
+  $ref: ./warframe.yaml

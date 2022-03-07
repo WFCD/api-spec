@@ -1,0 +1,19 @@
+get:
+  operationId: searchEventsData
+  tags:
+    - Searchable
+  summary: Get Event-specific Data based on the query
+  description: Data about events
+  parameters:
+    - $ref: ../components/parameters/query.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

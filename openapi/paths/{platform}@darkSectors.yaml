@@ -1,0 +1,27 @@
+get:
+  operationId: getDarkSectorsByPlatform
+  tags:
+    - Worldstate
+  summary: Dark Sector occupation and history
+  description: >-
+    Dark Sector (Rail Wars) data and history. Digital Extremes has emptied
+    several of these.
+  parameters:
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+    - $ref: ../components/parameters/platform.yaml
+  responses:
+    '200':
+      description: successful operation
+      headers:
+        Content-Language:
+          $ref: ../components/headers/Content-Language.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/darkSectors.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml
+  deprecated: true

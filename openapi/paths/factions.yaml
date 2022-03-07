@@ -1,0 +1,17 @@
+get:
+  operationId: getFactionsData
+  tags:
+    - Static Processing Data
+  summary: Get Faction translation information.
+  description: Strings for translating faction identifiers.
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/factions.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

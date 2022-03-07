@@ -1,0 +1,32 @@
+required:
+  - activation
+  - eta
+  - expiry
+  - id
+  - syndicate
+type: object
+properties:
+  nodes:
+    type: array
+    items:
+      type: string
+  eta:
+    minLength: 1
+    type: string
+  jobs:
+    type: array
+    items:
+      $ref: ./syndicateJob.yaml
+  syndicate:
+    $ref: ./syndicate.yaml
+  id:
+    minLength: 1
+    type: string
+  expiry:
+    minLength: 1
+    type: string
+    format: date-time
+  activation:
+    format: date-time
+    minLength: 1
+    type: string

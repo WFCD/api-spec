@@ -1,0 +1,10 @@
+minItems: 0
+type: array
+description: An item from Warframe
+items:
+  oneOf:
+    - $ref: ./item.yaml
+    - $ref: ./rangedWeapon.yaml
+    - $ref: ./meleeWeapon.yaml
+    - $ref: ./weapon.yaml
+    - $ref: ./mod.yaml

@@ -1,0 +1,58 @@
+get:
+  operationId: getOutpostsByPlatform
+  tags:
+    - Worldstate
+  summary: Get the current Sentient Outpost, if any
+  description: >-
+    Status data for current Sentient Outpost, if any. Parsed source is combined
+    data from DE\'s worldstate and [semlar\'s
+    data](https://semlar.com/anomaly.json)
+  parameters:
+    - $ref: ../components/parameters/platform.yaml
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+  responses:
+    '200':
+      description: successful operation
+      headers:
+        Content-Language:
+          $ref: ../components/headers/Content-Language.yaml
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              mission:
+                $ref: ../components/schemas/mission.yaml
+              active:
+                type: boolean
+                description: Whether or not the outpost is active
+              id:
+                type: string
+                description: Identifier for the mission node with active indicator
+              activation:
+                type: string
+                format: date-time
+                description: When the mission became or becomes active
+              expiry:
+                type: string
+                format: date-time
+                description: When the mission became or becomes inactive
+              previous:
+                description: >-
+                  Estimation data for the last mission that was active. Could
+                  also be the current.
+                type: object
+                properties:
+                  activation:
+                    type: string
+                    format: date-time
+                    description: When the mission became or becomes active
+                  expiry:
+                    type: string
+                    format: date-time
+                    description: When the mission became or becomes inactive
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

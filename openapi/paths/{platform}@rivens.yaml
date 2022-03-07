@@ -1,0 +1,24 @@
+get:
+  operationId: getRivensByPlatform
+  tags:
+    - Worldstate
+    - Rivens
+  summary: Get Riven statistic data
+  description: >-
+    Data about averages, deviations, medians, miniums, and maxes for all rivens
+    for the provided platform
+  parameters:
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+    - $ref: ../components/parameters/platform.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/rivenType.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

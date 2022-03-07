@@ -1,0 +1,19 @@
+get:
+  operationId: searchSyndicatesData
+  tags:
+    - Searchable
+  summary: Get Syndicate translation data based on the query.
+  description: Information to assist translating syndicate identifiers.
+  parameters:
+    - $ref: ../components/parameters/query.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/syndicates.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

@@ -1,0 +1,17 @@
+get:
+  operationId: getConclaveData
+  tags:
+    - Static Processing Data
+  summary: Get conclave challenge data
+  description: Data about conclave challenges
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/conclave.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

@@ -1,0 +1,8 @@
+type: object
+properties:
+  reward:
+    $ref: ./reward.yaml
+  faction:
+    $ref: ./faction.yaml
+  factionKey:
+    $ref: ./faction.yaml

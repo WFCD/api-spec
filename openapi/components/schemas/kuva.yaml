@@ -1,0 +1,27 @@
+type: object
+properties:
+  activation:
+    type: string
+    format: date-time
+    description: When the Kuva group becomes active
+  expiry:
+    type: string
+    format: date-time
+    description: When the Kuva group becomes inactive
+  node:
+    type: string
+    description: Plain name for the node
+  enemy:
+    $ref: ./faction.yaml
+  type:
+    type: string
+    description: Mission type
+  node_type:
+    type: string
+    description: Internal node-type string for denoting what kind of node it is
+  archwing:
+    type: boolean
+    description: Whether or not this mission requires archwing
+  sharkwing:
+    type: boolean
+    description: Whether or not this mission requires sharkwing

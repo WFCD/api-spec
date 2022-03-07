@@ -1,0 +1,25 @@
+get:
+  operationId: searchWarframeData
+  tags:
+    - warframe-items
+    - Searchable
+  summary: Get data for the closest matching single item
+  description: Mod information.
+  parameters:
+    - $ref: ../components/parameters/only.yaml
+    - $ref: ../components/parameters/remove.yaml
+    - $ref: ../components/parameters/query.yaml
+    - $ref: ../components/parameters/by.yaml
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/warframe.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

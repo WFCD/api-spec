@@ -1,0 +1,185 @@
+openapi: 3.0.3
+info:
+  title: WarframeStat.us API
+  description: |
+    Simple API for data from the game Warframe.
+    [Parser Docs](https://wfcd.github.io/warframe-worldstate-parser/)
+    [Items Types](https://github.com/WFCD/warframe-items/blob/master/index.d.ts)
+  contact:
+    email: tobiah@protonmail.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.1.3
+  x-logo:
+    url: https://warframestat.us/wfcd_logo_color.png
+servers:
+  - url: https://api.warframestat.us
+    description: Production Server
+tags:
+  - name: Warframe
+    description: Everything about Warframe
+    externalDocs:
+      description: Find out more
+      url: https://warframe.com
+  - name: Worldstate
+    description: Warframe Worldstate Data
+    externalDocs:
+      description: Find out more
+      url: https://discord.gg/jGZxH9f
+  - name: GitHub
+    description: Review Source Code
+    externalDocs:
+      description: Check our source code
+      url: https://github.com/wfcd/warframe-status
+  - name: Unstable
+    description: Potentially still in active development
+  - name: Searchable
+    description: Follows a consistent pattern for searching data
+  - name: Rivens
+    description: Proxy data for Digital Extreme's semi-regular Riven Data dumps
+  - name: Static Processing Data
+    description: Direct access via API to the data we use to parse the worldstate
+paths:
+  /{platform}:
+    $ref: paths/{platform}.yaml
+  /{platform}/alerts:
+    $ref: paths/{platform}@alerts.yaml
+  /{platform}/arbitration:
+    $ref: paths/{platform}@arbitration.yaml
+  /{platform}/cambionCycle:
+    $ref: paths/{platform}@cambionCycle.yaml
+  /{platform}/cetusCycle:
+    $ref: paths/{platform}@cetusCycle.yaml
+  /{platform}/conclaveChallenges:
+    $ref: paths/{platform}@conclaveChallenges.yaml
+  /{platform}/constructionProgress:
+    $ref: paths/{platform}@constructionProgress.yaml
+  /{platform}/dailyDeals:
+    $ref: paths/{platform}@dailyDeals.yaml
+  /{platform}/darkSectors:
+    $ref: paths/{platform}@darkSectors.yaml
+  /{platform}/earthCycle:
+    $ref: paths/{platform}@earthCycle.yaml
+  /{platform}/events:
+    $ref: paths/{platform}@events.yaml
+  /{platform}/fissures:
+    $ref: paths/{platform}@fissures.yaml
+  /{platform}/flashSales:
+    $ref: paths/{platform}@flashSales.yaml
+  /{platform}/globalUpgrades:
+    $ref: paths/{platform}@globalUpgrades.yaml
+  /{platform}/invasions:
+    $ref: paths/{platform}@invasions.yaml
+  /{platform}/kuva:
+    $ref: paths/{platform}@kuva.yaml
+  /{platform}/news:
+    $ref: paths/{platform}@news.yaml
+  /{platform}/nightwave:
+    $ref: paths/{platform}@nightwave.yaml
+  /{platform}/persistentEnemies:
+    $ref: paths/{platform}@persistentEnemies.yaml
+  /{platform}/rivens:
+    $ref: paths/{platform}@rivens.yaml
+  /{platform}/rivens/search/{query}:
+    $ref: paths/{platform}@rivens@search@{query}.yaml
+  /{platform}/sentientOutposts:
+    $ref: paths/{platform}@sentientOutposts.yaml
+  /{platform}/simaris:
+    $ref: paths/{platform}@simaris.yaml
+  /{platform}/sortie:
+    $ref: paths/{platform}@sortie.yaml
+  /{platform}/steelPath:
+    $ref: paths/{platform}@steelPath.yaml
+  /{platform}/syndicateMissions:
+    $ref: paths/{platform}@syndicateMissions.yaml
+  /{platform}/timestamp:
+    $ref: paths/{platform}@timestamp.yaml
+  /{platform}/vallisCycle:
+    $ref: paths/{platform}@vallisCycle.yaml
+  /{platform}/voidTrader:
+    $ref: paths/{platform}@voidTrader.yaml
+  /arcanes:
+    $ref: paths/arcanes.yaml
+  /arcanes/search/{query}:
+    $ref: paths/arcanes@search@{query}.yaml
+  /conclave:
+    $ref: paths/conclave.yaml
+  /conclave/search/{query}:
+    $ref: paths/conclave@search@{query}.yaml
+  /drops/search/{query}:
+    $ref: paths/drops@search@{query}.yaml
+  /events:
+    $ref: paths/events.yaml
+  /events/search/{query}:
+    $ref: paths/events@search@{query}.yaml
+  /factions:
+    $ref: paths/factions.yaml
+  /factions/search/{query}:
+    $ref: paths/factions@search@{query}.yaml
+  /fissureModifiers:
+    $ref: paths/fissureModifiers.yaml
+  /fissureModifiers/search/{query}:
+    $ref: paths/fissureModifiers@search@{query}.yaml
+  /items:
+    $ref: paths/items.yaml
+  /items/{query}:
+    $ref: paths/items@{query}.yaml
+  /items/search/{query}:
+    $ref: paths/items@search@{query}.yaml
+  /languages:
+    $ref: paths/languages.yaml
+  /languages/search/{query}:
+    $ref: paths/languages@search@{query}.yaml
+  /locales:
+    $ref: paths/locales.yaml
+  /missionTypes:
+    $ref: paths/missionTypes.yaml
+  /missionTypes/search/{query}:
+    $ref: paths/missionTypes@search@{query}.yaml
+  /mods:
+    $ref: paths/mods.yaml
+  /mods/{query}:
+    $ref: paths/mods@{query}.yaml
+  /mods/search/{query}:
+    $ref: paths/mods@search@{query}.yaml
+  /operationTypes:
+    $ref: paths/operationTypes.yaml
+  /operationTypes/search/{query}:
+    $ref: paths/operationTypes@search@{query}.yaml
+  /persistentEnemy:
+    $ref: paths/persistentEnemy.yaml
+  /persistentEnemy/search/{query}:
+    $ref: paths/persistentEnemy@search@{query}.yaml
+  /solNodes:
+    $ref: paths/solNodes.yaml
+  /solNodes/search/{query}:
+    $ref: paths/solNodes@search@{query}.yaml
+  /sortie:
+    $ref: paths/sortie.yaml
+  /sortie/search/{query}:
+    $ref: paths/sortie@search@{query}.yaml
+  /syndicates:
+    $ref: paths/syndicates.yaml
+  /syndicates/search/{query}:
+    $ref: paths/syndicates@search@{query}.yaml
+  /tutorials:
+    $ref: paths/tutorials.yaml
+  /tutorials/search/{query}:
+    $ref: paths/tutorials@search@{query}.yaml
+  /upgradeTypes:
+    $ref: paths/upgradeTypes.yaml
+  /upgradeTypes/search/{query}:
+    $ref: paths/upgradeTypes@search@{query}.yaml
+  /warframes:
+    $ref: paths/warframes.yaml
+  /warframes/{query}:
+    $ref: paths/warframes@{query}.yaml
+  /warframes/search/{query}:
+    $ref: paths/warframes@search@{query}.yaml
+  /weapons:
+    $ref: paths/weapons.yaml
+  /weapons/{query}:
+    $ref: paths/weapons@{query}.yaml
+  /weapons/search/{query}:
+    $ref: paths/weapons@search@{query}.yaml

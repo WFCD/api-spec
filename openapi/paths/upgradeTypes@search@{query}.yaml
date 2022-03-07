@@ -1,0 +1,21 @@
+get:
+  operationId: searchUpgradeTypesData
+  tags:
+    - Searchable
+  summary: Get upgrade types data for global upgrades based on the query.
+  description: >-
+    Upgrade types for what can be changed by global modifiers, such as double
+    credit weekends.
+  parameters:
+    - $ref: ../components/parameters/query.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/upgradeTypes.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

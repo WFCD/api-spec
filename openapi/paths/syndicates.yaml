@@ -1,0 +1,17 @@
+get:
+  operationId: getSyndicateData
+  tags:
+    - Static Processing Data
+  summary: Get Syndicate translation data.
+  description: Information to assist translating syndicate identifiers.
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/syndicates.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

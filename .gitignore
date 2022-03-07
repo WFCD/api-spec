@@ -2,3 +2,6 @@
 web_deploy
 node_modules
 .idea/
+gen/
+web/openapi.yaml
+web/openapi.json

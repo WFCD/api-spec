@@ -1,0 +1,19 @@
+type: object
+properties:
+  damage:
+    type: number
+    format: float
+  radial:
+    type: object
+    properties:
+      damage:
+        type: number
+        format: float
+      element:
+        $ref: ./element.yaml
+      proc:
+        type: number
+        format: float
+      radius:
+        type: number
+        format: float

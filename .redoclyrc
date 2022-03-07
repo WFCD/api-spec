@@ -1,7 +1,0 @@
-specFileName: ../openapi.json
-apiTitle: WarframeStat.us
-splitSpec: true
-codeSamples: true
-swaggerUI: true
-repo: WFCD/api-spec
-oasVersion: 3.0.1

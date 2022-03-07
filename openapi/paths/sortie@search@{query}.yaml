@@ -1,0 +1,19 @@
+get:
+  operationId: searchSortiesData
+  tags:
+    - Searchable
+  summary: Get Sortie translation information based on the query.
+  description: Sortie translation information for assisting translation of identifiers.
+  parameters:
+    - $ref: ../components/parameters/query.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/sortieData.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

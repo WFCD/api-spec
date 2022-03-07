@@ -1,0 +1,25 @@
+get:
+  operationId: searchWeaponsData
+  tags:
+    - Searchable
+    - warframe-items
+  summary: Get data for all matching weapons
+  description: Weapon statistics.
+  parameters:
+    - $ref: ../components/parameters/only.yaml
+    - $ref: ../components/parameters/remove.yaml
+    - $ref: ../components/parameters/query.yaml
+    - $ref: ../components/parameters/by.yaml
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/weapons.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

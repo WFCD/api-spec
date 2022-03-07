@@ -1,0 +1,17 @@
+get:
+  operationId: getFissuresData
+  tags:
+    - Static Processing Data
+  summary: Get Fissure Modifier translation data.
+  description: Fissure translation identifiers
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/fissureModifiers.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

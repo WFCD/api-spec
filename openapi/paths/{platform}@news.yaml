@@ -1,0 +1,22 @@
+get:
+  operationId: getNewsByPlatform
+  tags:
+    - Worldstate
+  summary: Current Listing of News items
+  description: Translated News items from the worldstate
+  parameters:
+    - $ref: ../components/parameters/platform.yaml
+  responses:
+    '200':
+      description: successful operation
+      headers:
+        Content-Language:
+          $ref: ../components/headers/Content-Language.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/news.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

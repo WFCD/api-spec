@@ -1,7 +1,0 @@
-minItems: 1
-type: array
-description: ''
-items:
-  oneOf:
-    - $ref: '#/components/schemas/rangedWeapon'
-    - $ref: '#/components/schemas/meleeWeapon'

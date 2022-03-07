@@ -1,0 +1,7 @@
+minItems: 1
+type: array
+description: ''
+items:
+  oneOf:
+    - $ref: ./rangedWeapon.yaml
+    - $ref: ./meleeWeapon.yaml
