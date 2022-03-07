@@ -32,8 +32,8 @@ properties:
     type: number
     description: RGB value as an int assigned to this reward
   credits:
-    type: number
-    format: int
+    type: integer
+    format: int32
     description: Amount of credits awarded
   asString:
     minLength: 1
