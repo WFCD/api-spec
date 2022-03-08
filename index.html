@@ -1,127 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>API Reference | WarframeStatus API</title>
-    <!-- needed for adaptive design -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="https://warframestat.us/wfcd_logo_color.png">
+<head>
+  <title>API Reference | WarframeStatus API</title>
+  <!-- needed for adaptive design -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+          href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700"
+          rel="stylesheet"
+  />
+  <link rel="icon" type="image/png" href="https://warframestat.us/wfcd_logo_color.png">
 
-    <!--
-    ReDoc uses font options from the parent element
-    So override default browser styles
-
-    colors: main bg: rgba(44, 47, 51, 0.8)
-    -->
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #23272A;
-      }
-      /* Main body */
-      h2.fAUnug, .cjtbAK h2.ioYTqA, div h3.espozG, div h5.LiUBH, div h5.kfkaqq, div h2.loDKCl, h5 span.kyvWZW {
-        color: white;
-      }
-      h5.gLzrjW, h3.jKmdQj, div h2.dSJzNl, div caption.gdlsIH, span.hctKJM, h5.iupIzr, caption.jrexVL {
-        color: #99AAB5;
-      }
-      .cqfmPW > ul > li.react-tabs__tab--selected {
-        background-color: rgba(44, 47, 51, 0.8);
-        border:none;
-      }
-      div .gWOwls, div .kjYYZz, div .ilTsyu, div div.iWMBFG, div div.gdoPOr, div > div.lmCFHk,
-      div .eCjbJc .sc-kpOJdX, div .eCjbJc .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX, div .eCjbJc .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX,
-      div .eCjbJc .sc-kpOJdX .sc-kpOJdX, div .eCjbJc .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX,
-      div .eCjbJc .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX .sc-kpOJdX,
-      div .hSfQgO .sc-fzpjYC, div .hSfQgO .sc-fzpjYC .sc-fzpjYC .sc-fzpjYC, div .hSfQgO .sc-fzpjYC .sc-fzpjYC .sc-fzpjYC .sc-fzpjYC .sc-fzpjYC,
-      div .imJoRW, div .hSfQgO .sc-fzpjYC .sc-fzpjYC, table td div.sc-dIvrsQ.kPKTxr
-      {
-        background-color: rgba(44, 47, 51, 0.8);
-        background: rgba(44, 47, 51, 0.8);
-        border-color: transparent;
-      }
-
-      div.sc-fXgAZx.iAGdoe, div.fNAMJM {
-        border-color: rgba(44, 47, 51, 0.8);
-        background: rgba(44, 47, 51, 0.8);
-        color: white;
-      }
-
-      .LLip, .jypNmM {
-        border-color: transparent!important;
-      }
-
-      .wbaPa {
-        border-bottom: 1px solid #99AAB5!important;
-      }
-
-      .kGvRyb::before, .kGvRyB, .DykGo::before {
-        color: white;
-        filter: invert(100%);
-      }
-
-      /* Success badge */
-      div .QDppq > ul > li.tab-success {
-        color: rgb(0, 170, 19);
-        background: transparent;
-        border: 1px solid rgba(0, 170, 19, 0.1);
-      }
-
-      div .QDppq > ul > li.tab-error {
-        color: rgb(229, 57, 53);
-        background: transparent;
-        border: 1px solid rgb(229, 57, 53, 0.1);
-      }
-
-      div .QDppq > ul > li.tab-error.react-tabs__tab--selected {
-        border: 1px solid rgb(229, 57, 53, 1);
-      }
-
-      div .QDppq > ul > li.tab-success.react-tabs__tab--selected {
-        border: 1px solid rgb(0, 170, 19, 1);
-      }
-
-      h5 span.hoUoen {
-        color: white;
-      }
-
-      /* Endpoint bottom border */
-      div .hiuczA:not(:last-of-type)::after {
-        border-bottom: 1px solid grey;
-      }
-
-      input.ittkuE, h5.LiUBH {
-        border-bottom: 1px solid grey;
-      }
-
-      /* Sidebar? */
-      @media screen and (max-width: 50rem) {
-        .cIMuiq  {
-          background-color: #23272A!important;
-        }
-
-        .euquqW {
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .hKdSkY {
-          background-color: rgba(44, 47, 51, 0.8)!important;
-        }
-      }
-
-    </style>
-    
-  </head>
-  <body>
-    <div id="redoc_container"></div>
-    <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"></script>
-    <script>
-      Redoc.init(
-        './openapi.json',
-        {"theme":{"colors":{"primary":{"main":"#99AAB5"},"text":{"primary":"#fff","secondary":"#99AAB5"},"border":{"dark":"#ffffff","light":"#fff"}},"menu":{"backgroundColor":"#263238","textColor":"#99AAB5"},"typography":{"links":{"color":"#fff"},"headings":{"color":"#fff"}},"rightPanel":{"backgroundColor":"#23272A"},"codeSample":{"backgroundColor":"#2C2F33"}},"hideDownloadButton":true},
-        document.getElementById("redoc_container")
-      );
-    </script>
-  </body>
+  <link href="./styles.css" rel="stylesheet" />
+</head>
+<body>
+<!--
+Redoc element with link to your OpenAPI definition
+-->
+<redoc spec-url="./openapi.json"></redoc>
+<!--
+Link to Redoc JavaScript on CDN for rendering standalone element
+-->
+<script src="https://cdn.jsdelivr.net/npm/redoc@latest/bundles/redoc.standalone.js"></script>
+</body>
 </html>
