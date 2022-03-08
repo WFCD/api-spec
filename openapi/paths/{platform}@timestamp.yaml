@@ -1,0 +1,24 @@
+get:
+  operationId: getTimestampByPlatform
+  tags:
+    - Worldstate
+  summary: Get the timestamp that the current worldstate was generated at.
+  description: The time that the worldstate was last generated
+  parameters:
+    - $ref: ../components/parameters/platform.yaml
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+  responses:
+    '200':
+      description: successful operation
+      headers:
+        Content-Language:
+          $ref: ../components/headers/Content-Language.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/timestamp.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

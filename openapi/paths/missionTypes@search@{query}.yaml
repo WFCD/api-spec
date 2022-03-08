@@ -1,0 +1,19 @@
+get:
+  operationId: searchMissionTypesData
+  tags:
+    - Searchable
+  summary: Get MissionType Translation Keys based on the query
+  description: Mission Type information to aid translating identifiers
+  parameters:
+    - $ref: ../components/parameters/query.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/missionTypes.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

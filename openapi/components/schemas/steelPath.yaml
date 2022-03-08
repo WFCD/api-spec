@@ -1,0 +1,26 @@
+allOf:
+  - type: object
+    properties:
+      activation:
+        minLength: 1
+        type: string
+        format: date-time
+      expiry:
+        minLength: 1
+        type: string
+        format: date-time
+      currentReward:
+        $ref: ./simpleReward.yaml
+      remaining:
+        minLength: 1
+        type: string
+      rotation:
+        type: array
+        items:
+          $ref: ./simpleReward.yaml
+      evergreens:
+        type: array
+        items:
+          $ref: ./simpleReward.yaml
+      incursions:
+        $ref: ./worldstateObject.yaml

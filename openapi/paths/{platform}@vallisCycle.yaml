@@ -1,0 +1,24 @@
+get:
+  operationId: getVallisByPlatform
+  tags:
+    - Worldstate
+  summary: Get the current state of the Orb Vallis
+  description: The current cycle of the Orb Vallis warm/cold cycle
+  parameters:
+    - $ref: ../components/parameters/platform.yaml
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+  responses:
+    '200':
+      description: successful operation
+      headers:
+        Content-Language:
+          $ref: ../components/headers/Content-Language.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/vallisCycle.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

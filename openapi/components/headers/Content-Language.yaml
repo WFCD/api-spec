@@ -1,0 +1,3 @@
+description: Language of the content
+schema:
+  $ref: ../schemas/language.yaml

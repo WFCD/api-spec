@@ -1,0 +1,26 @@
+get:
+  operationId: getNightwaveByPlatform
+  tags:
+    - Worldstate
+  summary: Get the current Nightwave state.
+  description: >-
+    The Current cycle and challenges of Nightwave, a battle-pass-esque rotation
+    and challenge system
+  parameters:
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+    - $ref: ../components/parameters/platform.yaml
+  responses:
+    '200':
+      description: successful operation
+      headers:
+        Content-Language:
+          $ref: ../components/headers/Content-Language.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/nightwave.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

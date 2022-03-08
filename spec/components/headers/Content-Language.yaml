@@ -1,3 +1,0 @@
-description: Language of the content
-schema:
-  $ref: '#/components/schemas/language'

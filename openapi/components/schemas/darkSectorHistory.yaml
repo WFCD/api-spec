@@ -1,0 +1,21 @@
+type: object
+description: Describes a Dark Sector Historical Battle.
+properties:
+  defender:
+    type: string
+    description: Clan or alliance that was defending.
+  defenderIsAlliance:
+    type: boolean
+    description: Whether or not the defender was an alliance.
+  attacker:
+    type: string
+    description: Clan or alliance that was attacking.
+  winner:
+    type: string
+    description: One of attacker or defender, whichever one won.
+  start:
+    type: string
+    description: When the battle started.
+  end:
+    type: string
+    description: When the battle ended.

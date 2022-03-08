@@ -1,7 +1,0 @@
-name: Accept-Language
-in: header
-description: Language to retrieve
-allowEmptyValue: false
-required: false
-schema:
-  $ref: '#/components/schemas/language'

@@ -1,0 +1,17 @@
+allOf:
+  - $ref: ./shallowItem.yaml
+  - type: object
+    properties:
+      patchlogs:
+        type: array
+        items:
+          $ref: ./patchlog.yaml
+      components:
+        type: array
+        items:
+          $ref: ./shallowItem.yaml
+      introduced:
+        $ref: ./introduced.yaml
+      estimatedVaultDate:
+        type: string
+        format: date

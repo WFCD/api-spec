@@ -1,5 +1,0 @@
-minItems: 1
-type: array
-description: ''
-items:
-  $ref: '#/components/schemas/warframe'

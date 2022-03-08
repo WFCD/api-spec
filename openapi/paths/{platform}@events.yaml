@@ -1,0 +1,24 @@
+get:
+  operationId: getEventsByPlatform
+  tags:
+    - Worldstate
+  summary: Listing of ongoing events
+  description: Events, such as Fomorian Attacks are included here
+  parameters:
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+    - $ref: ../components/parameters/platform.yaml
+  responses:
+    '200':
+      description: successful operation
+      headers:
+        Content-Language:
+          $ref: ../components/headers/Content-Language.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/events.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

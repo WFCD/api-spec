@@ -1,0 +1,18 @@
+get:
+  operationId: getArcanesData
+  tags:
+    - Static Processing Data
+  summary: Get Arcane Enhancement Data
+  description: Available Arcane Enhancements
+  deprecated: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/arcane.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

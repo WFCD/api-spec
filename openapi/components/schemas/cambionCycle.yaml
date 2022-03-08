@@ -1,0 +1,22 @@
+required:
+  - expiry
+  - activation
+  - id
+  - active
+type: object
+properties:
+  id:
+    minLength: 1
+    type: string
+  expiry:
+    $ref: ./timestamp.yaml
+  activation:
+    $ref: ./timestamp.yaml
+  active:
+    type: string
+    enum:
+      - vome
+      - fass
+  timeLeft:
+    minLength: 1
+    type: string

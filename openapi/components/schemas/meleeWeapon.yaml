@@ -1,0 +1,41 @@
+allOf:
+  - $ref: ./item.yaml
+  - $ref: ./weapon.yaml
+  - type: object
+    properties:
+      blockingAngle:
+        type: integer
+      comboDuration:
+        type: integer
+      damagePerShot:
+        type: array
+        items:
+          type: number
+          format: float
+      followThrough:
+        type: number
+        format: float
+      heavyAttackDamage:
+        type: integer
+      heavySlamAttack:
+        type: integer
+      heavySlamRadialDamage:
+        type: integer
+      heavySlamRadius:
+        type: integer
+      range:
+        type: number
+        format: float
+      slamAttack:
+        type: integer
+      slamRadialDamage:
+        type: integer
+      slamRadius:
+        type: integer
+      slideAttack:
+        type: integer
+      stancePolarity:
+        $ref: ./polarity.yaml
+      windUp:
+        type: number
+        format: float

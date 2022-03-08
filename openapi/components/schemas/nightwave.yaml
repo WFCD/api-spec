@@ -1,0 +1,34 @@
+type: object
+properties:
+  id:
+    minLength: 1
+    type: string
+  activation:
+    minLength: 1
+    type: string
+    format: date-time
+  expiry:
+    minLength: 1
+    type: string
+    format: date-time
+  params:
+    type: object
+    properties: {}
+  rewardTypes:
+    type: array
+    items:
+      type: string
+  season:
+    type: number
+  tag:
+    type: string
+  phase:
+    type: number
+  possibleChallenges:
+    type: array
+    items:
+      $ref: ./nightwaveChallenge.yaml
+  activeChallenges:
+    type: array
+    items:
+      $ref: ./nightwaveChallenge.yaml

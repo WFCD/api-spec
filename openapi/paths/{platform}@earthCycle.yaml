@@ -1,0 +1,24 @@
+get:
+  operationId: getEarthByPlatform
+  tags:
+    - Worldstate
+  summary: Get the current Earth rotation information
+  description: The current Earth day/night cycle progress.
+  parameters:
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+    - $ref: ../components/parameters/platform.yaml
+  responses:
+    '200':
+      description: successful operation
+      headers:
+        Content-Language:
+          $ref: ../components/headers/Content-Language.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/earthCycle.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

@@ -1,0 +1,19 @@
+get:
+  operationId: searchTutorialsData
+  tags:
+    - Searchable
+  summary: Get Tutorials Data based on the query
+  description: Tutorials data from DE
+  parameters:
+    - $ref: ../components/parameters/query.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/tutorials.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

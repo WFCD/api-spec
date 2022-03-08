@@ -1,0 +1,30 @@
+type: object
+properties:
+  mission:
+    $ref: ./mission.yaml
+  expired:
+    type: boolean
+  eta:
+    minLength: 1
+    type: string
+  id:
+    minLength: 1
+    type: string
+  expiry:
+    minLength: 1
+    type: string
+    format: date-time
+  activation:
+    minLength: 1
+    type: string
+    format: date-time
+  rewardTypes:
+    type: array
+    items:
+      $ref: ./rewardType.yaml
+required:
+  - activation
+  - eta
+  - expired
+  - expiry
+  - id

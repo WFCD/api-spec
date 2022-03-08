@@ -1,8 +1,0 @@
-type: object
-properties:
-  reward:
-    $ref: '#/components/schemas/reward'
-  faction:
-    $ref: '#/components/schemas/faction'
-  factionKey:
-    $ref: '#/components/schemas/faction'

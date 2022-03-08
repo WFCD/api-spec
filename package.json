@@ -1,14 +1,18 @@
 {
-  "name": "warframestat.us",
+  "name": "docs.warframestat.us",
   "version": "1.0.0",
-  "dependencies": {
-    "swagger-repo": "^2.0.0-rc.15"
-  },
   "private": true,
+  "dependencies": {
+    "@redocly/openapi-cli": "^1.0.0-beta.85",
+    "serve": "^13.0.2"
+  },
   "scripts": {
-    "start": "swagger-repo serve",
-    "build": "swagger-repo build -o web_deploy",
-    "test": "swagger-repo validate",
-    "gh-pages": "swagger-repo gh-pages"
+    "bundle:yaml": "openapi bundle -o web/openapi --ext yaml",
+    "bundle:json": "openapi bundle -o web/openapi --ext json",
+    "bundle": "npm run bundle:yaml && npm run bundle:json",
+    "start": "openapi preview-docs main",
+    "test": "openapi lint",
+    "split": "openapi split openapi.yaml --outDir openapi",
+    "serve": "npm run bundle && serve -s web/."
   }
 }

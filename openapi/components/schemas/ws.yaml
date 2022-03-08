@@ -1,0 +1,74 @@
+required:
+  - alerts
+  - arbitration
+  - cambionCycle
+  - cetusCycle
+  - conclaveChallenges
+  - constructionProgress
+  - dailyDeals
+  - earthCycle
+  - events
+  - fissures
+  - flashSales
+  - globalUpgrades
+  - invasions
+  - news
+  - persistentEnemies
+  - sentientOutposts
+  - sortie
+  - steelPath
+  - syndicateMissions
+  - timestamp
+  - vallisCycle
+  - voidTrader
+type: object
+properties:
+  timestamp:
+    $ref: ./timestamp.yaml
+  alerts:
+    $ref: ./alert.yaml
+  arbitration:
+    $ref: ./arbitration.yaml
+  cetusCycle:
+    $ref: ./cetusCycle.yaml
+  constructionProgress:
+    $ref: ./construction.yaml
+  conclaveChallenges:
+    $ref: ./conclaveChallenges.yaml
+  dailyDeals:
+    $ref: ./dailyDeals.yaml
+  darkSectors:
+    $ref: ./darkSectors.yaml
+  earthCycle:
+    $ref: ./earthCycle.yaml
+  events:
+    $ref: ./events.yaml
+  fissures:
+    $ref: ./fissures.yaml
+  flashSales:
+    $ref: ./flashSales.yaml
+  globalUpgrades:
+    $ref: ./globalUpgrades.yaml
+  invasions:
+    $ref: ./invasions.yaml
+  kuva:
+    $ref: ./kuva.yaml
+  news:
+    $ref: ./news.yaml
+  nightwave:
+    $ref: ./nightwave.yaml
+  persistentEnemies:
+    $ref: ./persistentEnemies.yaml
+  simaris:
+    $ref: ./simaris.yaml
+  sortie:
+    $ref: ./sortie.yaml
+  steelPath:
+    $ref: ./steelPath.yaml
+  syndicateMissions:
+    $ref: ./syndicateMissions.yaml
+  vallisCycle:
+    $ref: ./vallisCycle.yaml
+  voidTrader:
+    $ref: ./voidTrader.yaml
+description: Full Worldstate Object

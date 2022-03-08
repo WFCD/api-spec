@@ -1,0 +1,21 @@
+get:
+  operationId: getAcolytesByPlatform
+  tags:
+    - Worldstate
+  summary: Get Persistent Enemy Data
+  description: Data about current acolytes attacking the Sol System
+  parameters:
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/language-query.yaml
+    - $ref: ../components/parameters/platform.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/persistentEnemies.yaml
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml

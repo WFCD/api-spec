@@ -1,0 +1,17 @@
+get:
+  operationId: getEventsData
+  tags:
+    - Static Processing Data
+  summary: Get Event-specific Data
+  description: Data about events
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+    '400':
+      $ref: ../components/responses/error.yaml
+    '500':
+      $ref: ../components/responses/error.yaml
