@@ -88,7 +88,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/alert'
+                $ref: '#/components/schemas/alerts'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -690,9 +690,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/sortie'
+                $ref: '#/components/schemas/sortie'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -717,9 +715,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/steelPath'
+                $ref: '#/components/schemas/steelPath'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -842,7 +838,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/arcane'
+                type: array
+                items:
+                  $ref: '#/components/schemas/arcane'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -863,7 +861,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/arcane'
+                type: array
+                items:
+                  $ref: '#/components/schemas/arcane'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -1948,6 +1948,10 @@ components:
         - expired
         - expiry
         - id
+    alerts:
+      type: array
+      items:
+        $ref: '#/components/schemas/alert'
     faction:
       type: string
       description: A Faction in Warframe
@@ -1983,6 +1987,29 @@ components:
         sharkwing:
           type: boolean
           description: Whether or not this mission requires sharkwing
+    cambionCycle:
+      required:
+        - expiry
+        - activation
+        - id
+        - active
+      type: object
+      properties:
+        id:
+          minLength: 1
+          type: string
+        expiry:
+          $ref: '#/components/schemas/timestamp'
+        activation:
+          $ref: '#/components/schemas/timestamp'
+        active:
+          type: string
+          enum:
+            - vome
+            - fass
+        timeLeft:
+          minLength: 1
+          type: string
     cetusCycle:
       required:
         - expiry
@@ -2015,26 +2042,6 @@ components:
           description: >-
             A short description of the remaining time until the next day/night
             change.
-    construction:
-      required:
-        - fomorianProgress
-        - id
-        - razorbackProgress
-        - unknownProgress
-      type: object
-      properties:
-        id:
-          minLength: 1
-          type: string
-        fomorianProgress:
-          minLength: 1
-          type: string
-        razorbackProgress:
-          minLength: 1
-          type: string
-        unknownProgress:
-          minLength: 1
-          type: string
     conclaveChallenges:
       minItems: 1
       type: array
@@ -2086,6 +2093,26 @@ components:
             type: string
           rootChallenge:
             type: boolean
+    construction:
+      required:
+        - fomorianProgress
+        - id
+        - razorbackProgress
+        - unknownProgress
+      type: object
+      properties:
+        id:
+          minLength: 1
+          type: string
+        fomorianProgress:
+          minLength: 1
+          type: string
+        razorbackProgress:
+          minLength: 1
+          type: string
+        unknownProgress:
+          minLength: 1
+          type: string
     dailyDeals:
       minItems: 1
       type: array
@@ -2192,7 +2219,8 @@ components:
       type: object
       properties:
         id:
-          type: number
+          minLength: 1
+          type: string
         expiry:
           minLength: 1
           type: string
@@ -2348,14 +2376,16 @@ components:
                   Suspected to be the number of persons who have completed this
                   step.
         progressSteps:
-          type: object
-          properties:
-            type:
-              type: string
-              description: Steps in the progress to completion
-            progressAmt:
-              type: number
-              description: Percent progress to completion
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: Steps in the progress to completion
+              progressAmt:
+                type: number
+                description: Percent progress to completion
         progressTotal:
           type: number
           description: Total of progressSteps values.
@@ -3079,15 +3109,17 @@ components:
         timestamp:
           $ref: '#/components/schemas/timestamp'
         alerts:
-          $ref: '#/components/schemas/alert'
+          $ref: '#/components/schemas/alerts'
         arbitration:
           $ref: '#/components/schemas/arbitration'
+        cambionCycle:
+          $ref: '#/components/schemas/cambionCycle'
         cetusCycle:
           $ref: '#/components/schemas/cetusCycle'
-        constructionProgress:
-          $ref: '#/components/schemas/construction'
         conclaveChallenges:
           $ref: '#/components/schemas/conclaveChallenges'
+        constructionProgress:
+          $ref: '#/components/schemas/construction'
         dailyDeals:
           $ref: '#/components/schemas/dailyDeals'
         darkSectors:
@@ -3105,7 +3137,9 @@ components:
         invasions:
           $ref: '#/components/schemas/invasions'
         kuva:
-          $ref: '#/components/schemas/kuva'
+          type: array
+          items:
+            $ref: '#/components/schemas/kuva'
         news:
           $ref: '#/components/schemas/news'
         nightwave:
@@ -3125,29 +3159,6 @@ components:
         voidTrader:
           $ref: '#/components/schemas/voidTrader'
       description: Full Worldstate Object
-    cambionCycle:
-      required:
-        - expiry
-        - activation
-        - id
-        - active
-      type: object
-      properties:
-        id:
-          minLength: 1
-          type: string
-        expiry:
-          $ref: '#/components/schemas/timestamp'
-        activation:
-          $ref: '#/components/schemas/timestamp'
-        active:
-          type: string
-          enum:
-            - vome
-            - fass
-        timeLeft:
-          minLength: 1
-          type: string
     rivenStatistic:
       description: A colleciton of rivens about a specific weapon's riven sales
       type: object
@@ -4634,8 +4645,7 @@ components:
                     missions:
                       type: array
                       items:
-                        type: object
-                        properties: {}
+                        type: string
                     name:
                       minLength: 1
                       type: string
@@ -4645,8 +4655,7 @@ components:
         modifiers:
           type: array
           items:
-            type: object
-            properties: {}
+            type: string
       description: ''
     syndicates:
       required:
@@ -4829,12 +4838,11 @@ components:
           properties:
             shield:
               minLength: 1
-              type: string
+              type: number
             polarities:
               type: array
               items:
-                type: object
-                properties: {}
+                type: string
             prime_power:
               minLength: 1
               type: string
@@ -4846,17 +4854,16 @@ components:
             prime_polarities:
               type: array
               items:
-                type: object
-                properties: {}
+                type: string
             conclave:
               minLength: 1
-              type: string
+              type: boolean
             description:
               minLength: 1
               type: string
             prime_armor:
               minLength: 1
-              type: string
+              type: number
             speed:
               minLength: 1
               type: string
@@ -4867,10 +4874,10 @@ components:
               minLength: 1
               type: string
             prime_health:
-              type: string
+              type: number
             power:
               minLength: 1
-              type: string
+              type: number
             prime_aura:
               minLength: 1
               type: string
@@ -4884,10 +4891,10 @@ components:
               minLength: 1
               type: string
             prime_shield:
-              type: string
+              type: number
             health:
               minLength: 1
-              type: string
+              type: number
             prime_speed:
               minLength: 1
               type: string
@@ -4899,7 +4906,7 @@ components:
               type: string
             armor:
               minLength: 1
-              type: string
+              type: number
             name:
               minLength: 1
               type: string

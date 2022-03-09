@@ -141,7 +141,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/alert"
+                  "$ref": "#/components/schemas/alerts"
                 }
               }
             }
@@ -1144,10 +1144,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/sortie"
-                  }
+                  "$ref": "#/components/schemas/sortie"
                 }
               }
             }
@@ -1191,10 +1188,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/steelPath"
-                  }
+                  "$ref": "#/components/schemas/steelPath"
                 }
               }
             }
@@ -1399,7 +1393,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/arcane"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/arcane"
+                  }
                 }
               }
             }
@@ -1433,7 +1430,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/arcane"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/arcane"
+                  }
                 }
               }
             }
@@ -3150,6 +3150,12 @@
           "id"
         ]
       },
+      "alerts": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/alert"
+        }
+      },
       "faction": {
         "type": "string",
         "description": "A Faction in Warframe",
@@ -3196,6 +3202,38 @@
           }
         }
       },
+      "cambionCycle": {
+        "required": [
+          "expiry",
+          "activation",
+          "id",
+          "active"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "expiry": {
+            "$ref": "#/components/schemas/timestamp"
+          },
+          "activation": {
+            "$ref": "#/components/schemas/timestamp"
+          },
+          "active": {
+            "type": "string",
+            "enum": [
+              "vome",
+              "fass"
+            ]
+          },
+          "timeLeft": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      },
       "cetusCycle": {
         "required": [
           "expiry",
@@ -3234,33 +3272,6 @@
           "shortString": {
             "type": "string",
             "description": "A short description of the remaining time until the next day/night change."
-          }
-        }
-      },
-      "construction": {
-        "required": [
-          "fomorianProgress",
-          "id",
-          "razorbackProgress",
-          "unknownProgress"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "fomorianProgress": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "razorbackProgress": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "unknownProgress": {
-            "minLength": 1,
-            "type": "string"
           }
         }
       },
@@ -3328,6 +3339,33 @@
             "rootChallenge": {
               "type": "boolean"
             }
+          }
+        }
+      },
+      "construction": {
+        "required": [
+          "fomorianProgress",
+          "id",
+          "razorbackProgress",
+          "unknownProgress"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "fomorianProgress": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "razorbackProgress": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "unknownProgress": {
+            "minLength": 1,
+            "type": "string"
           }
         }
       },
@@ -3472,7 +3510,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number"
+            "minLength": 1,
+            "type": "string"
           },
           "expiry": {
             "minLength": 1,
@@ -3679,15 +3718,18 @@
             }
           },
           "progressSteps": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "description": "Steps in the progress to completion"
-              },
-              "progressAmt": {
-                "type": "number",
-                "description": "Percent progress to completion"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "Steps in the progress to completion"
+                },
+                "progressAmt": {
+                  "type": "number",
+                  "description": "Percent progress to completion"
+                }
               }
             }
           },
@@ -4691,19 +4733,22 @@
             "$ref": "#/components/schemas/timestamp"
           },
           "alerts": {
-            "$ref": "#/components/schemas/alert"
+            "$ref": "#/components/schemas/alerts"
           },
           "arbitration": {
             "$ref": "#/components/schemas/arbitration"
           },
+          "cambionCycle": {
+            "$ref": "#/components/schemas/cambionCycle"
+          },
           "cetusCycle": {
             "$ref": "#/components/schemas/cetusCycle"
           },
-          "constructionProgress": {
-            "$ref": "#/components/schemas/construction"
-          },
           "conclaveChallenges": {
             "$ref": "#/components/schemas/conclaveChallenges"
+          },
+          "constructionProgress": {
+            "$ref": "#/components/schemas/construction"
           },
           "dailyDeals": {
             "$ref": "#/components/schemas/dailyDeals"
@@ -4730,7 +4775,10 @@
             "$ref": "#/components/schemas/invasions"
           },
           "kuva": {
-            "$ref": "#/components/schemas/kuva"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/kuva"
+            }
           },
           "news": {
             "$ref": "#/components/schemas/news"
@@ -4761,38 +4809,6 @@
           }
         },
         "description": "Full Worldstate Object"
-      },
-      "cambionCycle": {
-        "required": [
-          "expiry",
-          "activation",
-          "id",
-          "active"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "expiry": {
-            "$ref": "#/components/schemas/timestamp"
-          },
-          "activation": {
-            "$ref": "#/components/schemas/timestamp"
-          },
-          "active": {
-            "type": "string",
-            "enum": [
-              "vome",
-              "fass"
-            ]
-          },
-          "timeLeft": {
-            "minLength": 1,
-            "type": "string"
-          }
-        }
       },
       "rivenStatistic": {
         "description": "A colleciton of rivens about a specific weapon's riven sales",
@@ -6893,8 +6909,7 @@
                       "missions": {
                         "type": "array",
                         "items": {
-                          "type": "object",
-                          "properties": {}
+                          "type": "string"
                         }
                       },
                       "name": {
@@ -6914,8 +6929,7 @@
           "modifiers": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {}
+              "type": "string"
             }
           }
         },
@@ -7175,13 +7189,12 @@
             "properties": {
               "shield": {
                 "minLength": 1,
-                "type": "string"
+                "type": "number"
               },
               "polarities": {
                 "type": "array",
                 "items": {
-                  "type": "object",
-                  "properties": {}
+                  "type": "string"
                 }
               },
               "prime_power": {
@@ -7198,13 +7211,12 @@
               "prime_polarities": {
                 "type": "array",
                 "items": {
-                  "type": "object",
-                  "properties": {}
+                  "type": "string"
                 }
               },
               "conclave": {
                 "minLength": 1,
-                "type": "string"
+                "type": "boolean"
               },
               "description": {
                 "minLength": 1,
@@ -7212,7 +7224,7 @@
               },
               "prime_armor": {
                 "minLength": 1,
-                "type": "string"
+                "type": "number"
               },
               "speed": {
                 "minLength": 1,
@@ -7227,11 +7239,11 @@
                 "type": "string"
               },
               "prime_health": {
-                "type": "string"
+                "type": "number"
               },
               "power": {
                 "minLength": 1,
-                "type": "string"
+                "type": "number"
               },
               "prime_aura": {
                 "minLength": 1,
@@ -7250,11 +7262,11 @@
                 "type": "string"
               },
               "prime_shield": {
-                "type": "string"
+                "type": "number"
               },
               "health": {
                 "minLength": 1,
-                "type": "string"
+                "type": "number"
               },
               "prime_speed": {
                 "minLength": 1,
@@ -7270,7 +7282,7 @@
               },
               "armor": {
                 "minLength": 1,
-                "type": "string"
+                "type": "number"
               },
               "name": {
                 "minLength": 1,
