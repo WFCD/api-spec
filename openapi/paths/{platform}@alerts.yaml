@@ -17,7 +17,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/alert.yaml
+            $ref: ../components/schemas/alerts.yaml
     '400':
       $ref: ../components/responses/error.yaml
     '500':

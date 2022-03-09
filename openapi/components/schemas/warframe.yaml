@@ -22,12 +22,11 @@ allOf:
     properties:
       shield:
         minLength: 1
-        type: string
+        type: number
       polarities:
         type: array
         items:
-          type: object
-          properties: {}
+          type: string
       prime_power:
         minLength: 1
         type: string
@@ -39,17 +38,16 @@ allOf:
       prime_polarities:
         type: array
         items:
-          type: object
-          properties: {}
+          type: string
       conclave:
         minLength: 1
-        type: string
+        type: boolean
       description:
         minLength: 1
         type: string
       prime_armor:
         minLength: 1
-        type: string
+        type: number
       speed:
         minLength: 1
         type: string
@@ -60,10 +58,10 @@ allOf:
         minLength: 1
         type: string
       prime_health:
-        type: string
+        type: number
       power:
         minLength: 1
-        type: string
+        type: number
       prime_aura:
         minLength: 1
         type: string
@@ -77,10 +75,10 @@ allOf:
         minLength: 1
         type: string
       prime_shield:
-        type: string
+        type: number
       health:
         minLength: 1
-        type: string
+        type: number
       prime_speed:
         minLength: 1
         type: string
@@ -92,7 +90,7 @@ allOf:
         type: string
       armor:
         minLength: 1
-        type: string
+        type: number
       name:
         minLength: 1
         type: string
