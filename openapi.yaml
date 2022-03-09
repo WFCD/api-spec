@@ -1348,7 +1348,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/persistentEnemies'
+                $ref: '#/components/schemas/acolyteI18n'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -1370,7 +1370,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/persistentEnemies'
+                type: array
+                items:
+                  anyOf:
+                    - type: array
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -4101,6 +4104,15 @@ components:
               minLength: 1
               type: string
       description: ''
+    acolyteI18n:
+      type: object
+      properties:
+        region:
+          type: array
+          items:
+            type: string
+            minLength: 1
+            description: Region index to Region name mapping
     solNode:
       type: object
       properties:

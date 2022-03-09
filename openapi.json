@@ -2237,7 +2237,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/persistentEnemies"
+                  "$ref": "#/components/schemas/acolyteI18n"
                 }
               }
             }
@@ -2270,7 +2270,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/persistentEnemies"
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "array"
+                      }
+                    ]
+                  }
                 }
               }
             }
@@ -6191,6 +6198,19 @@
           }
         },
         "description": ""
+      },
+      "acolyteI18n": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Region index to Region name mapping"
+            }
+          }
+        }
       },
       "solNode": {
         "type": "object",
