@@ -17,9 +17,7 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: ../components/schemas/steelPath.yaml
+            $ref: ../components/schemas/steelPath.yaml
     '400':
       $ref: ../components/responses/error.yaml
     '500':

@@ -6,7 +6,8 @@ required:
 type: object
 properties:
   id:
-    type: number
+    minLength: 1
+    type: string
   expiry:
     minLength: 1
     type: string

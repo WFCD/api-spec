@@ -26,15 +26,17 @@ properties:
   timestamp:
     $ref: ./timestamp.yaml
   alerts:
-    $ref: ./alert.yaml
+    $ref: ./alerts.yaml
   arbitration:
     $ref: ./arbitration.yaml
+  cambionCycle:
+    $ref: ./cambionCycle.yaml
   cetusCycle:
     $ref: ./cetusCycle.yaml
-  constructionProgress:
-    $ref: ./construction.yaml
   conclaveChallenges:
     $ref: ./conclaveChallenges.yaml
+  constructionProgress:
+    $ref: ./construction.yaml
   dailyDeals:
     $ref: ./dailyDeals.yaml
   darkSectors:
@@ -52,7 +54,9 @@ properties:
   invasions:
     $ref: ./invasions.yaml
   kuva:
-    $ref: ./kuva.yaml
+    type: array
+    items:
+      $ref: ./kuva.yaml
   news:
     $ref: ./news.yaml
   nightwave:

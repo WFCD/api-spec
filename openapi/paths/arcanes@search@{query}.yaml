@@ -13,7 +13,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/arcane.yaml
+            type: array
+            items:
+              $ref: ../components/schemas/arcane.yaml
     '400':
       $ref: ../components/responses/error.yaml
     '500':

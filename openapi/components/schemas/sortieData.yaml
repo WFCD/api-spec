@@ -487,8 +487,7 @@ properties:
               missions:
                 type: array
                 items:
-                  type: object
-                  properties: {}
+                  type: string
               name:
                 minLength: 1
                 type: string
@@ -498,6 +497,5 @@ properties:
   modifiers:
     type: array
     items:
-      type: object
-      properties: {}
+      type: string
 description: ''

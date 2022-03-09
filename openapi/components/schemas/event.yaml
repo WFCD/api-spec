@@ -93,14 +93,16 @@ properties:
           type: number
           description: Suspected to be the number of persons who have completed this step.
   progressSteps:
-    type: object
-    properties:
-      type:
-        type: string
-        description: Steps in the progress to completion
-      progressAmt:
-        type: number
-        description: Percent progress to completion
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Steps in the progress to completion
+        progressAmt:
+          type: number
+          description: Percent progress to completion
   progressTotal:
     type: number
     description: Total of progressSteps values.
