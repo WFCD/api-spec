@@ -12,7 +12,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/persistentEnemies.yaml
+            $ref: ../components/schemas/acolyteI18n.yaml
     '400':
       $ref: ../components/responses/error.yaml
     '500':
