@@ -14,7 +14,10 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/persistentEnemies.yaml
+            type: array
+            items:
+              anyOf:
+                - type: array
     '400':
       $ref: ../components/responses/error.yaml
     '500':

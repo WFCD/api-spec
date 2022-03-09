@@ -1,0 +1,8 @@
+type: object
+properties:
+  region:
+    type: array
+    items:
+      type: string
+      minLength: 1
+      description: Region index to Region name mapping
