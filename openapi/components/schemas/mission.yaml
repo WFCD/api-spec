@@ -62,3 +62,6 @@ properties:
     description: Affectors for this mission
     items:
       type: string
+  description:
+    type: string
+    description: Description of the mission
