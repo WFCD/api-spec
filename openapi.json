@@ -2982,6 +2982,7 @@
         "type": "object",
         "required": [
           "archwingRequired",
+          "description",
           "faction",
           "maxEnemyLevel",
           "maxWaveNum",
@@ -3063,6 +3064,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the mission"
           }
         }
       },
