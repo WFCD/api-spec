@@ -1929,6 +1929,8 @@ components:
       properties:
         mission:
           $ref: '#/components/schemas/mission'
+        active:
+          type: boolean
         expired:
           type: boolean
         eta:
@@ -1951,6 +1953,7 @@ components:
             $ref: '#/components/schemas/rewardType'
       required:
         - activation
+        - active
         - eta
         - expired
         - expiry

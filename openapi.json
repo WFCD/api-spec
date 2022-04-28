@@ -3126,6 +3126,9 @@
           "mission": {
             "$ref": "#/components/schemas/mission"
           },
+          "active": {
+            "type": "boolean"
+          },
           "expired": {
             "type": "boolean"
           },
@@ -3156,6 +3159,7 @@
         },
         "required": [
           "activation",
+          "active",
           "eta",
           "expired",
           "expiry",
