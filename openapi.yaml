@@ -451,7 +451,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/kuva'
+                  $ref: '#/components/schemas/arbitration'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -1752,6 +1752,31 @@ components:
     timestamp:
       minLength: 1
       type: string
+    worldstateObject:
+      type: object
+      properties:
+        id:
+          type: string
+          minLength: 1
+          description: unique identifier for this object/event/thing
+        activation:
+          type: string
+          minLength: 1
+          format: date-time
+          description: ISO-8601 formatted timestamp for when the event began
+        expiry:
+          type: string
+          minLength: 1
+          format: date-time
+          description: ISO-8601 formatted timestamp for when the event is expected to end
+        startString:
+          type: string
+          description: >-
+            Short-time-formatted duration string representing the start of the
+            event
+        active:
+          type: boolean
+          description: Whether the event is currently active
     reward:
       type: object
       required:
@@ -1806,6 +1831,59 @@ components:
           type: string
           description: formatted string describing all included items
           example: 5 Detonite Injectors
+    faction:
+      type: string
+      description: A Faction in Warframe
+      enum:
+        - Orokin
+        - Corrupted
+        - Infested
+        - Corpus
+        - Grineer
+        - Tenno
+    missionType:
+      type: string
+      description: >-
+        A Warframe mision type, the kind of game mode that the mission/node
+        houses.
+      enum:
+        - Ancient Retribution
+        - Arena
+        - Assassination
+        - Assault
+        - Capture
+        - Conclave
+        - Dark Sector Defection
+        - Dark Sector Defense
+        - Dark Sector Disruption
+        - Dark Sector Excavation
+        - Dark Sector Sabotage
+        - Dark Sector Survival
+        - Defense
+        - Disruption
+        - Excavation
+        - Extermination (Archwing)
+        - Extermination
+        - Free Roam
+        - Hijack
+        - Hive
+        - Hive Sabotage
+        - Interception
+        - Interception (Archwing)
+        - Mobile Defense
+        - Mobile Defense (Archwing)
+        - Orokin Sabotage
+        - Orphix
+        - Pursuit (Archwing)
+        - Relay
+        - Rescue
+        - Rush (Archwing)
+        - Sabotage
+        - Sabotage (Archwing)
+        - Skirmish
+        - Spy
+        - Survival
+        - Volatile
     mission:
       type: object
       required:
@@ -1825,9 +1903,17 @@ components:
         node:
           minLength: 1
           type: string
-        faction:
-          minLength: 1
+        nodeKey:
           type: string
+          description: Unlocalized node
+        faction:
+          allOf:
+            - $ref: '#/components/schemas/faction'
+            - description: Mission opponent (localized)
+        factionKey:
+          allOf:
+            - $ref: '#/components/schemas/faction'
+            - description: Mission opponent (unlocalized)
         maxEnemyLevel:
           type: number
         minEnemyLevel:
@@ -1835,8 +1921,13 @@ components:
         maxWaveNum:
           type: number
         type:
-          minLength: 1
-          type: string
+          allOf:
+            - $ref: '#/components/schemas/missionType'
+            - description: Mission objective type (localized)
+        typeKey:
+          allOf:
+            - $ref: '#/components/schemas/missionType'
+            - description: Mission objective type (unlocalized)
         nightmare:
           type: boolean
         archwingRequired:
@@ -1877,6 +1968,12 @@ components:
         description:
           type: string
           description: Description of the mission
+    eta:
+      minLength: 1
+      type: string
+      description: >-
+        Short-formatted string estimating the time until the event/mission is
+        closed
     rewardType:
       type: string
       description: One of the reward types
@@ -1928,75 +2025,56 @@ components:
       type: object
       properties:
         mission:
-          $ref: '#/components/schemas/mission'
-        active:
-          type: boolean
+          allOf:
+            - $ref: '#/components/schemas/mission'
+            - description: Mission to be completed to earn the reward
         expired:
           type: boolean
         eta:
-          minLength: 1
-          type: string
-        id:
-          minLength: 1
-          type: string
-        expiry:
-          minLength: 1
-          type: string
-          format: date-time
-        activation:
-          minLength: 1
-          type: string
-          format: date-time
+          $ref: '#/components/schemas/eta'
         rewardTypes:
           type: array
           items:
             $ref: '#/components/schemas/rewardType'
       required:
-        - activation
-        - active
-        - eta
+        - mission
         - expired
-        - expiry
-        - id
+        - rewardTypes
     alerts:
       type: array
       items:
-        $ref: '#/components/schemas/alert'
-    faction:
-      type: string
-      description: A Faction in Warframe
-      enum:
-        - Orokin
-        - Corrupted
-        - Infested
-        - Corpus
-        - Grineer
-        - Tenno
+        allOf:
+          - $ref: '#/components/schemas/worldstateObject'
+          - $ref: '#/components/schemas/alert'
     arbitration:
-      type: object
-      properties:
-        activation:
-          type: string
-          format: date-time
-          description: When the Arbitration becomes active
-        expiry:
-          type: string
-          format: date-time
-          description: When the Arbitration becomes inactive
-        node:
-          type: string
-          description: Plain name for the node
-        enemy:
-          $ref: '#/components/schemas/faction'
-        type:
-          type: string
-          description: Mission type
-        archwing:
-          type: boolean
-          description: Whether or not this mission requires archwing
-        sharkwing:
-          type: boolean
-          description: Whether or not this mission requires sharkwing
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - type: object
+          properties:
+            node:
+              type: string
+              description: Plain name for the node
+            enemy:
+              allOf:
+                - $ref: '#/components/schemas/faction'
+                - description: Localized faction name
+            enemyKey:
+              allOf:
+                - $ref: '#/components/schemas/faction'
+                - description: Non-localized faction name
+            type:
+              type: string
+              description: Mission type localized
+            typeKey:
+              allOf:
+                - description: Non-localized mission type key
+                - $ref: '#/components/schemas/missionType'
+            archwing:
+              type: boolean
+              description: Whether or not this mission requires archwing
+            sharkwing:
+              type: boolean
+              description: Whether or not this mission requires sharkwing
     cambionCycle:
       required:
         - expiry
@@ -2021,37 +2099,30 @@ components:
           minLength: 1
           type: string
     cetusCycle:
-      required:
-        - expiry
-        - id
-        - isCetus
-        - isDay
-        - timeLeft
-      type: object
-      properties:
-        id:
-          minLength: 1
-          type: string
-        expiry:
-          minLength: 1
-          type: string
-        activation:
-          type: string
-        isDay:
-          type: boolean
-        state:
-          type: string
-          description: Describes the current time. e.g. "day" or "night"
-        timeLeft:
-          minLength: 1
-          type: string
-        isCetus:
-          type: boolean
-        shortString:
-          type: string
-          description: >-
-            A short description of the remaining time until the next day/night
-            change.
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - required:
+            - expiry
+            - isCetus
+            - isDay
+            - timeLeft
+          type: object
+          properties:
+            isDay:
+              type: boolean
+            state:
+              type: string
+              description: Describes the current time. e.g. "day" or "night"
+            timeLeft:
+              minLength: 1
+              type: string
+            isCetus:
+              type: boolean
+            shortString:
+              type: string
+              description: >-
+                A short description of the remaining time until the next
+                day/night change.
     conclaveChallenges:
       minItems: 1
       type: array
@@ -2221,24 +2292,20 @@ components:
             items:
               $ref: '#/components/schemas/darkSectorHistory'
     earthCycle:
-      required:
-        - expiry
-        - id
-        - isDay
-        - timeLeft
-      type: object
-      properties:
-        id:
-          minLength: 1
-          type: string
-        expiry:
-          minLength: 1
-          type: string
-        isDay:
-          type: boolean
-        timeLeft:
-          minLength: 1
-          type: string
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - required:
+            - expiry
+            - id
+            - isDay
+            - timeLeft
+          type: object
+          properties:
+            isDay:
+              type: boolean
+            timeLeft:
+              minLength: 1
+              type: string
     syndicate:
       type: string
       enum:
@@ -2287,174 +2354,175 @@ components:
           type: number
           description: Minimum Mastery Rank required to perform a job.
     event:
-      type: object
-      properties:
-        activation:
-          type: string
-          description: Timestamp of when the event started
-          format: date-time
-        expiry:
-          type: string
-          description: Timestamp of when the event ends
-          format: date-time
-        maximumScore:
-          type: number
-          description: Maximum score to complete the event
-        currentScore:
-          type: number
-          description: The current score for the event
-        smallInterval:
-          type: number
-          description: Interval for the first goal
-        largeInterval:
-          type: number
-          description: Interval for the second intermediate score
-        faction:
-          $ref: '#/components/schemas/faction'
-        description:
-          type: string
-          description: The description or "subtitle" for the event.
-        tooltip:
-          type: string
-          description: Tooltip for the event
-        node:
-          type: string
-          description: Node that the event is taking place on
-        concurrentNodes:
-          type: array
-          description: Nodes that the event is happening concurrently on
-          items:
-            type: string
-        victimNode:
-          type: string
-          description: Node that is being attacked & defended in the event.
-        scoreLocTag:
-          type: string
-          description: Localized tag for the event score
-        rewards:
-          type: array
-          items:
-            $ref: '#/components/schemas/reward'
-        expired:
-          type: boolean
-          description: Whether or not the event is expired
-        health:
-          type: number
-          description: Amount of health remaining for the target
-        affiliatedWith:
-          $ref: '#/components/schemas/syndicate'
-        jobs:
-          type: array
-          items:
-            $ref: '#/components/schemas/syndicateJob'
-        interimSteps:
-          type: array
-          description: Interim steps, marking progress towards the final goal.
-          items:
-            type: object
-            properties:
-              goal:
-                type: number
-                description: Score to each to achieve this step
-              reward:
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - type: object
+          properties:
+            maximumScore:
+              type: number
+              description: Maximum score to complete the event
+            currentScore:
+              type: number
+              description: The current score for the event
+            smallInterval:
+              type: number
+              description: Interval for the first goal
+            largeInterval:
+              type: number
+              description: Interval for the second intermediate score
+            faction:
+              $ref: '#/components/schemas/faction'
+            description:
+              type: string
+              description: The description or "subtitle" for the event.
+            tooltip:
+              type: string
+              description: Tooltip for the event
+            node:
+              type: string
+              description: Node that the event is taking place on
+            concurrentNodes:
+              type: array
+              description: Nodes that the event is happening concurrently on
+              items:
+                type: string
+            victimNode:
+              type: string
+              description: Node that is being attacked & defended in the event.
+            scoreLocTag:
+              type: string
+              description: Localized tag for the event score
+            rewards:
+              type: array
+              items:
                 $ref: '#/components/schemas/reward'
-              message:
+            health:
+              type: number
+              description: Amount of health remaining for the target
+            affiliatedWith:
+              $ref: '#/components/schemas/syndicate'
+            jobs:
+              type: array
+              items:
+                $ref: '#/components/schemas/syndicateJob'
+            interimSteps:
+              type: array
+              description: Interim steps, marking progress towards the final goal.
+              items:
                 type: object
                 properties:
-                  sender:
-                    type: string
-                    description: Who commissioned this reward
-                  subject:
-                    type: string
-                    description: >-
-                      Title of the in-game mail received for completing the
-                      step.
+                  goal:
+                    type: number
+                    description: Score to each to achieve this step
+                  reward:
+                    $ref: '#/components/schemas/reward'
                   message:
+                    type: object
+                    properties:
+                      sender:
+                        type: string
+                        description: Who commissioned this reward
+                      subject:
+                        type: string
+                        description: >-
+                          Title of the in-game mail received for completing the
+                          step.
+                      message:
+                        type: string
+                        description: >-
+                          Body of the in-game mail received for completing the
+                          step.
+                      senderIcon:
+                        type: string
+                        description: Path to sender icon string.
+                      attachments:
+                        type: array
+                        description: Attachments to the message. Unknown usage.
+                        items:
+                          type: string
+                  winnerCount:
+                    type: number
+                    description: >-
+                      Suspected to be the number of persons who have completed
+                      this step.
+            progressSteps:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
                     type: string
-                    description: Body of the in-game mail received for completing the step.
-                  senderIcon:
-                    type: string
-                    description: Path to sender icon string.
-                  attachments:
-                    type: array
-                    description: Attachments to the message. Unknown usage.
-                    items:
-                      type: string
-              winnerCount:
-                type: number
-                description: >-
-                  Suspected to be the number of persons who have completed this
-                  step.
-        progressSteps:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
+                    description: Steps in the progress to completion
+                  progressAmt:
+                    type: number
+                    description: Percent progress to completion
+            progressTotal:
+              type: number
+              description: Total of progressSteps values.
+            showTotalAtEndOfMission:
+              type: boolean
+              description: Whether or not to show the total score at the end of the mission
+            isPersonal:
+              type: boolean
+              description: Whether or not the event is personal
+            isCommunity:
+              type: boolean
+              description: Whether or not the event is communal
+            regionDrops:
+              type: array
+              description: Drops in the area around the event node
+              items:
                 type: string
-                description: Steps in the progress to completion
-              progressAmt:
+            archwingDrops:
+              type: array
+              description: Archwing Drops in effect while this event is active
+              items:
+                type: string
+            asString:
+              type: string
+              description: Attempt to summarize event in a short string. (Do not use).
+            metadata:
+              type: object
+              description: Miscellaneous metadata in a string provided by Digital Extremes
+            completionBonuses:
+              type: array
+              items:
                 type: number
-                description: Percent progress to completion
-        progressTotal:
-          type: number
-          description: Total of progressSteps values.
-        showTotalAtEndOfMission:
-          type: boolean
-          description: Whether or not to show the total score at the end of the mission
-        isPersonal:
-          type: boolean
-          description: Whether or not the event is personal
-        isCommunity:
-          type: boolean
-          description: Whether or not the event is communal
-        regionDrops:
-          type: array
-          description: Drops in the area around the event node
-          items:
-            type: string
-        archwingDrops:
-          type: array
-          description: Archwing Drops in effect while this event is active
-          items:
-            type: string
-        asString:
-          type: string
-          description: Attempt to summarize event in a short string. (Do not use).
-        metadata:
-          type: object
-          description: Miscellaneous metadata in a string provided by Digital Extremes
-        completionBonuses:
-          type: array
-          items:
-            type: number
-          description: Completion bonus amounts per-stage
-        scoreVar:
-          type: string
-          description: Internal string used for unknown purpose
-        altExpiry:
-          type: string
-          format: date-time
-          description: Alternate Expiry. Use unknown.
-        altActivation:
-          type: string
-          format: date-time
-          description: Alternate Activation. Use unknown.
-        nextAlt:
-          type: object
-          properties:
-            expiry:
+              description: Completion bonus amounts per-stage
+            scoreVar:
+              type: string
+              description: Internal string used for unknown purpose
+            altExpiry:
               type: string
               format: date-time
-              description: Next alternate expiry. Use unknown.
-            activation:
+              description: Alternate Expiry. Use unknown.
+            altActivation:
               type: string
               format: date-time
-              description: Next alternate activation. Use unknown.
+              description: Alternate Activation. Use unknown.
+            nextAlt:
+              type: object
+              properties:
+                expiry:
+                  type: string
+                  format: date-time
+                  description: Next alternate expiry. Use unknown.
+                activation:
+                  type: string
+                  format: date-time
+                  description: Next alternate activation. Use unknown.
     events:
       type: array
       items:
         $ref: '#/components/schemas/event'
+    fissureTier:
+      type: string
+      enum:
+        - Lith
+        - Neo
+        - Meso
+        - Axi
+        - Requiem
     fissure:
       type: object
       required:
@@ -2472,78 +2540,78 @@ components:
         node:
           minLength: 1
           type: string
+          description: Node name with planet
         expired:
           type: boolean
+          description: Whether the fissure is still present
         eta:
-          minLength: 1
-          type: string
+          $ref: '#/components/schemas/eta'
         missionType:
-          minLength: 1
-          type: string
+          allOf:
+            - $ref: '#/components/schemas/missionType'
+            - description: Localized mission type
+        missionKey:
+          allOf:
+            - $ref: '#/components/schemas/missionType'
+            - description: Unlocalized mission type
         tier:
-          minLength: 1
-          type: string
+          allOf:
+            - description: Tier or "era" of mission
+            - $ref: '#/components/schemas/fissureTier'
         tierNum:
           type: number
+          description: Numeric tier corresponding to the tier
+          minimum: 1
+          maximum: 5
         enemy:
-          minLength: 1
-          type: string
-        id:
-          minLength: 1
-          type: string
-        expiry:
-          minLength: 1
-          type: string
-          format: date-time
-        activation:
-          minLength: 1
-          type: string
-          format: date-time
+          allOf:
+            - $ref: '#/components/schemas/faction'
+            - description: Localized enemy faction name
+        enemyKey:
+          allOf:
+            - $ref: '#/components/schemas/faction'
+            - description: >-
+                Always-English enemy faction name, allows keying for standarized
+                displays
         isStorm:
           type: boolean
           description: Whether or not this fissure is a void storm
     fissures:
       minItems: 1
       items:
-        $ref: '#/components/schemas/fissure'
+        allOf:
+          - $ref: '#/components/schemas/worldstateObject'
+          - $ref: '#/components/schemas/fissure'
     flashSales:
-      minItems: 1
-      type: array
-      items:
-        required:
-          - discount
-          - eta
-          - expired
-          - expiry
-          - id
-          - isFeatured
-          - isPopular
-          - item
-          - premiumOverride
-        type: object
-        properties:
-          item:
-            minLength: 1
-            type: string
-          expired:
-            type: boolean
-          eta:
-            minLength: 1
-            type: string
-          discount:
-            type: number
-          premiumOverride:
-            type: number
-          isPopular:
-            type: boolean
-          expiry:
-            minLength: 1
-            type: string
-          id:
-            minLength: 1
-            type: string
-          isFeatured:
-            type: boolean
+      allOf:
+        - minItems: 1
+          type: array
+          items:
+            required:
+              - discount
+              - eta
+              - isFeatured
+              - isPopular
+              - item
+              - premiumOverride
+            type: object
+            properties:
+              item:
+                minLength: 1
+                type: string
+              expired:
+                type: boolean
+              eta:
+                minLength: 1
+                type: string
+              discount:
+                type: number
+              premiumOverride:
+                type: number
+              isPopular:
+                type: boolean
+              isFeatured:
+                type: boolean
     globalUpgrades:
       type: array
       items:
@@ -2573,32 +2641,19 @@ components:
           desc:
             description: Plain text description of the global upgrade.
             type: string
-    worldstateObject:
-      type: object
-      properties:
-        id:
-          type: string
-          minLength: 1
-          description: unique identifier for this object/event/thing
-        activation:
-          type: string
-          minLength: 1
-          format: date-time
-          description: ISO-8601 formatted timestamp for when the event began
-        expiry:
-          type: string
-          minLength: 1
-          format: date-time
-          description: ISO-8601 formatted timestamp for when the event is expected to end
     invasionFaction:
       type: object
       properties:
         reward:
           $ref: '#/components/schemas/reward'
         faction:
-          $ref: '#/components/schemas/faction'
+          allOf:
+            - $ref: '#/components/schemas/faction'
+            - description: Localized name of fation
         factionKey:
-          $ref: '#/components/schemas/faction'
+          allOf:
+            - $ref: '#/components/schemas/faction'
+            - description: Unlocalized name of faction
     invasion:
       allOf:
         - $ref: '#/components/schemas/worldstateObject'
@@ -2695,34 +2750,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/invasion'
-    kuva:
-      type: object
-      properties:
-        activation:
-          type: string
-          format: date-time
-          description: When the Kuva group becomes active
-        expiry:
-          type: string
-          format: date-time
-          description: When the Kuva group becomes inactive
-        node:
-          type: string
-          description: Plain name for the node
-        enemy:
-          $ref: '#/components/schemas/faction'
-        type:
-          type: string
-          description: Mission type
-        node_type:
-          type: string
-          description: Internal node-type string for denoting what kind of node it is
-        archwing:
-          type: boolean
-          description: Whether or not this mission requires archwing
-        sharkwing:
-          type: boolean
-          description: Whether or not this mission requires sharkwing
     news:
       minItems: 1
       type: array
@@ -2779,64 +2806,46 @@ components:
           priority:
             type: boolean
     nightwaveChallenge:
-      type: object
-      properties:
-        id:
-          minLength: 1
-          type: string
-        activation:
-          minLength: 1
-          type: string
-          format: date-time
-        expiry:
-          minLength: 1
-          type: string
-          format: date-time
-        isDaily:
-          type: boolean
-        isElite:
-          type: boolean
-        title:
-          type: string
-        desc:
-          type: string
-        reputation:
-          type: number
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - type: object
+          properties:
+            isDaily:
+              type: boolean
+            isElite:
+              type: boolean
+            title:
+              type: string
+            desc:
+              type: string
+            reputation:
+              type: number
     nightwave:
-      type: object
-      properties:
-        id:
-          minLength: 1
-          type: string
-        activation:
-          minLength: 1
-          type: string
-          format: date-time
-        expiry:
-          minLength: 1
-          type: string
-          format: date-time
-        params:
-          type: object
-          properties: {}
-        rewardTypes:
-          type: array
-          items:
-            type: string
-        season:
-          type: number
-        tag:
-          type: string
-        phase:
-          type: number
-        possibleChallenges:
-          type: array
-          items:
-            $ref: '#/components/schemas/nightwaveChallenge'
-        activeChallenges:
-          type: array
-          items:
-            $ref: '#/components/schemas/nightwaveChallenge'
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - type: object
+          properties:
+            params:
+              type: object
+              properties: {}
+            rewardTypes:
+              type: array
+              items:
+                type: string
+            season:
+              type: number
+            tag:
+              type: string
+            phase:
+              type: number
+            possibleChallenges:
+              type: array
+              items:
+                $ref: '#/components/schemas/nightwaveChallenge'
+            activeChallenges:
+              type: array
+              items:
+                $ref: '#/components/schemas/nightwaveChallenge'
     persistentEnemies:
       type: array
       items:
@@ -2931,8 +2940,7 @@ components:
                     minLength: 1
                     type: string
                   missionType:
-                    minLength: 1
-                    type: string
+                    $ref: '#/components/schemas/missionType'
                   planet:
                     minLength: 1
                     type: string
@@ -2946,8 +2954,13 @@ components:
               minLength: 1
               type: string
             faction:
-              minLength: 1
-              type: string
+              allOf:
+                - $ref: '#/components/schemas/faction'
+                - description: Faction of the boss controlling the sortie
+            factionKey:
+              allOf:
+                - $ref: '#/components/schemas/faction'
+                - description: Unlocalized Faction of the boss controlling the sortie
             expired:
               type: boolean
             eta:
@@ -3149,7 +3162,7 @@ components:
         kuva:
           type: array
           items:
-            $ref: '#/components/schemas/kuva'
+            $ref: '#/components/schemas/arbitration'
         news:
           $ref: '#/components/schemas/news'
         nightwave:
@@ -3168,7 +3181,7 @@ components:
           $ref: '#/components/schemas/vallisCycle'
         voidTrader:
           $ref: '#/components/schemas/voidTrader'
-      description: Full Worldstate Object
+      description: Full World State Object
     rivenStatistic:
       description: A colleciton of rivens about a specific weapon's riven sales
       type: object
@@ -4952,18 +4965,23 @@ components:
     language:
       name: Accept-Language
       in: header
-      description: Language to retrieve
+      description: >-
+        Language to retrieve. Doesn't always work with caching. See Language
+        query string parameter.
       allowEmptyValue: false
+      deprecated: true
       required: false
       schema:
         $ref: '#/components/schemas/language'
     language-query:
       name: language
       in: query
-      description: Language to retrieve
+      description: >-
+        Language to retrieve. With Caching, this has become required if you want
+        your reply to always match your request.
       allowEmptyValue: false
-      deprecated: true
-      required: false
+      deprecated: false
+      required: true
       schema:
         $ref: '#/components/schemas/language'
     platform:
