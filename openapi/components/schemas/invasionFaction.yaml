@@ -3,6 +3,10 @@ properties:
   reward:
     $ref: ./reward.yaml
   faction:
-    $ref: ./faction.yaml
+    allOf:
+      - $ref: ./faction.yaml
+      - description: Localized name of fation
   factionKey:
-    $ref: ./faction.yaml
+    allOf:
+      - $ref: ./faction.yaml
+      - description: Unlocalized name of faction

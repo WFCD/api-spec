@@ -1,24 +1,29 @@
-type: object
-properties:
-  activation:
-    type: string
-    format: date-time
-    description: When the Arbitration becomes active
-  expiry:
-    type: string
-    format: date-time
-    description: When the Arbitration becomes inactive
-  node:
-    type: string
-    description: Plain name for the node
-  enemy:
-    $ref: ./faction.yaml
-  type:
-    type: string
-    description: Mission type
-  archwing:
-    type: boolean
-    description: Whether or not this mission requires archwing
-  sharkwing:
-    type: boolean
-    description: Whether or not this mission requires sharkwing
+allOf:
+  - $ref: ./worldstateObject.yaml
+  - type: object
+    properties:
+      node:
+        type: string
+        description: Plain name for the node
+      enemy:
+        allOf:
+          - $ref: ./faction.yaml
+          - description: Localized faction name
+      enemyKey:
+        allOf:
+          - $ref: ./faction.yaml
+          - description: Non-localized faction name
+      type:
+        type: string
+        description: Mission type localized
+      typeKey:
+        allOf:
+          - description: Non-localized mission type key
+          - $ref: ./missionType.yaml
+      archwing:
+        type: boolean
+        description: Whether or not this mission requires archwing
+      sharkwing:
+        type: boolean
+        description: Whether or not this mission requires sharkwing
+

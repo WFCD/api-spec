@@ -1,0 +1,3 @@
+minLength: 1
+type: string
+description: Short-formatted string estimating the time until the event/mission is closed

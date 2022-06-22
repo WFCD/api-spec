@@ -1,23 +1,14 @@
-type: object
-properties:
-  id:
-    minLength: 1
-    type: string
-  activation:
-    minLength: 1
-    type: string
-    format: date-time
-  expiry:
-    minLength: 1
-    type: string
-    format: date-time
-  isDaily:
-    type: boolean
-  isElite:
-    type: boolean
-  title:
-    type: string
-  desc:
-    type: string
-  reputation:
-    type: number
+allOf:
+  - $ref: ./worldstateObject.yaml
+  - type: object
+    properties:
+      isDaily:
+        type: boolean
+      isElite:
+        type: boolean
+      title:
+        type: string
+      desc:
+        type: string
+      reputation:
+        type: number

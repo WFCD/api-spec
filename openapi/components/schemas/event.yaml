@@ -1,160 +1,151 @@
-type: object
-properties:
-  activation:
-    type: string
-    description: Timestamp of when the event started
-    format: date-time
-  expiry:
-    type: string
-    description: Timestamp of when the event ends
-    format: date-time
-  maximumScore:
-    type: number
-    description: Maximum score to complete the event
-  currentScore:
-    type: number
-    description: The current score for the event
-  smallInterval:
-    type: number
-    description: Interval for the first goal
-  largeInterval:
-    type: number
-    description: Interval for the second intermediate score
-  faction:
-    $ref: ./faction.yaml
-  description:
-    type: string
-    description: The description or "subtitle" for the event.
-  tooltip:
-    type: string
-    description: Tooltip for the event
-  node:
-    type: string
-    description: Node that the event is taking place on
-  concurrentNodes:
-    type: array
-    description: Nodes that the event is happening concurrently on
-    items:
-      type: string
-  victimNode:
-    type: string
-    description: Node that is being attacked & defended in the event.
-  scoreLocTag:
-    type: string
-    description: Localized tag for the event score
-  rewards:
-    type: array
-    items:
-      $ref: ./reward.yaml
-  expired:
-    type: boolean
-    description: Whether or not the event is expired
-  health:
-    type: number
-    description: Amount of health remaining for the target
-  affiliatedWith:
-    $ref: ./syndicate.yaml
-  jobs:
-    type: array
-    items:
-      $ref: ./syndicateJob.yaml
-  interimSteps:
-    type: array
-    description: Interim steps, marking progress towards the final goal.
-    items:
-      type: object
-      properties:
-        goal:
-          type: number
-          description: Score to each to achieve this step
-        reward:
+allOf:
+  - $ref: ./worldstateObject.yaml
+  - type: object
+    properties:
+      maximumScore:
+        type: number
+        description: Maximum score to complete the event
+      currentScore:
+        type: number
+        description: The current score for the event
+      smallInterval:
+        type: number
+        description: Interval for the first goal
+      largeInterval:
+        type: number
+        description: Interval for the second intermediate score
+      faction:
+        $ref: ./faction.yaml
+      description:
+        type: string
+        description: The description or "subtitle" for the event.
+      tooltip:
+        type: string
+        description: Tooltip for the event
+      node:
+        type: string
+        description: Node that the event is taking place on
+      concurrentNodes:
+        type: array
+        description: Nodes that the event is happening concurrently on
+        items:
+          type: string
+      victimNode:
+        type: string
+        description: Node that is being attacked & defended in the event.
+      scoreLocTag:
+        type: string
+        description: Localized tag for the event score
+      rewards:
+        type: array
+        items:
           $ref: ./reward.yaml
-        message:
+      health:
+        type: number
+        description: Amount of health remaining for the target
+      affiliatedWith:
+        $ref: ./syndicate.yaml
+      jobs:
+        type: array
+        items:
+          $ref: ./syndicateJob.yaml
+      interimSteps:
+        type: array
+        description: Interim steps, marking progress towards the final goal.
+        items:
           type: object
           properties:
-            sender:
-              type: string
-              description: Who commissioned this reward
-            subject:
-              type: string
-              description: Title of the in-game mail received for completing the step.
+            goal:
+              type: number
+              description: Score to each to achieve this step
+            reward:
+              $ref: ./reward.yaml
             message:
+              type: object
+              properties:
+                sender:
+                  type: string
+                  description: Who commissioned this reward
+                subject:
+                  type: string
+                  description: Title of the in-game mail received for completing the step.
+                message:
+                  type: string
+                  description: Body of the in-game mail received for completing the step.
+                senderIcon:
+                  type: string
+                  description: Path to sender icon string.
+                attachments:
+                  type: array
+                  description: Attachments to the message. Unknown usage.
+                  items:
+                    type: string
+            winnerCount:
+              type: number
+              description: Suspected to be the number of persons who have completed this step.
+      progressSteps:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
               type: string
-              description: Body of the in-game mail received for completing the step.
-            senderIcon:
-              type: string
-              description: Path to sender icon string.
-            attachments:
-              type: array
-              description: Attachments to the message. Unknown usage.
-              items:
-                type: string
-        winnerCount:
-          type: number
-          description: Suspected to be the number of persons who have completed this step.
-  progressSteps:
-    type: array
-    items:
-      type: object
-      properties:
-        type:
+              description: Steps in the progress to completion
+            progressAmt:
+              type: number
+              description: Percent progress to completion
+      progressTotal:
+        type: number
+        description: Total of progressSteps values.
+      showTotalAtEndOfMission:
+        type: boolean
+        description: Whether or not to show the total score at the end of the mission
+      isPersonal:
+        type: boolean
+        description: Whether or not the event is personal
+      isCommunity:
+        type: boolean
+        description: Whether or not the event is communal
+      regionDrops:
+        type: array
+        description: Drops in the area around the event node
+        items:
           type: string
-          description: Steps in the progress to completion
-        progressAmt:
+      archwingDrops:
+        type: array
+        description: Archwing Drops in effect while this event is active
+        items:
+          type: string
+      asString:
+        type: string
+        description: Attempt to summarize event in a short string. (Do not use).
+      metadata:
+        type: object
+        description: Miscellaneous metadata in a string provided by Digital Extremes
+      completionBonuses:
+        type: array
+        items:
           type: number
-          description: Percent progress to completion
-  progressTotal:
-    type: number
-    description: Total of progressSteps values.
-  showTotalAtEndOfMission:
-    type: boolean
-    description: Whether or not to show the total score at the end of the mission
-  isPersonal:
-    type: boolean
-    description: Whether or not the event is personal
-  isCommunity:
-    type: boolean
-    description: Whether or not the event is communal
-  regionDrops:
-    type: array
-    description: Drops in the area around the event node
-    items:
-      type: string
-  archwingDrops:
-    type: array
-    description: Archwing Drops in effect while this event is active
-    items:
-      type: string
-  asString:
-    type: string
-    description: Attempt to summarize event in a short string. (Do not use).
-  metadata:
-    type: object
-    description: Miscellaneous metadata in a string provided by Digital Extremes
-  completionBonuses:
-    type: array
-    items:
-      type: number
-    description: Completion bonus amounts per-stage
-  scoreVar:
-    type: string
-    description: Internal string used for unknown purpose
-  altExpiry:
-    type: string
-    format: date-time
-    description: Alternate Expiry. Use unknown.
-  altActivation:
-    type: string
-    format: date-time
-    description: Alternate Activation. Use unknown.
-  nextAlt:
-    type: object
-    properties:
-      expiry:
+        description: Completion bonus amounts per-stage
+      scoreVar:
+        type: string
+        description: Internal string used for unknown purpose
+      altExpiry:
         type: string
         format: date-time
-        description: Next alternate expiry. Use unknown.
-      activation:
+        description: Alternate Expiry. Use unknown.
+      altActivation:
         type: string
         format: date-time
-        description: Next alternate activation. Use unknown.
+        description: Alternate Activation. Use unknown.
+      nextAlt:
+        type: object
+        properties:
+          expiry:
+            type: string
+            format: date-time
+            description: Next alternate expiry. Use unknown.
+          activation:
+            type: string
+            format: date-time
+            description: Next alternate activation. Use unknown.

@@ -1,18 +1,14 @@
-required:
-  - expiry
-  - id
-  - isDay
-  - timeLeft
-type: object
-properties:
-  id:
-    minLength: 1
-    type: string
-  expiry:
-    minLength: 1
-    type: string
-  isDay:
-    type: boolean
-  timeLeft:
-    minLength: 1
-    type: string
+allOf:
+  - $ref: ./worldstateObject.yaml
+  - required:
+      - expiry
+      - id
+      - isDay
+      - timeLeft
+    type: object
+    properties:
+      isDay:
+        type: boolean
+      timeLeft:
+        minLength: 1
+        type: string

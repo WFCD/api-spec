@@ -1,37 +1,29 @@
-minItems: 1
-type: array
-items:
-  required:
-    - discount
-    - eta
-    - expired
-    - expiry
-    - id
-    - isFeatured
-    - isPopular
-    - item
-    - premiumOverride
-  type: object
-  properties:
-    item:
-      minLength: 1
-      type: string
-    expired:
-      type: boolean
-    eta:
-      minLength: 1
-      type: string
-    discount:
-      type: number
-    premiumOverride:
-      type: number
-    isPopular:
-      type: boolean
-    expiry:
-      minLength: 1
-      type: string
-    id:
-      minLength: 1
-      type: string
-    isFeatured:
-      type: boolean
+allOf:
+  - minItems: 1
+    type: array
+    items:
+      required:
+        - discount
+        - eta
+        - isFeatured
+        - isPopular
+        - item
+        - premiumOverride
+      type: object
+      properties:
+        item:
+          minLength: 1
+          type: string
+        expired:
+          type: boolean
+        eta:
+          minLength: 1
+          type: string
+        discount:
+          type: number
+        premiumOverride:
+          type: number
+        isPopular:
+          type: boolean
+        isFeatured:
+          type: boolean

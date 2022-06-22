@@ -1,29 +1,22 @@
-required:
-  - expiry
-  - id
-  - isCetus
-  - isDay
-  - timeLeft
-type: object
-properties:
-  id:
-    minLength: 1
-    type: string
-  expiry:
-    minLength: 1
-    type: string
-  activation:
-    type: string
-  isDay:
-    type: boolean
-  state:
-    type: string
-    description: Describes the current time. e.g. "day" or "night"
-  timeLeft:
-    minLength: 1
-    type: string
-  isCetus:
-    type: boolean
-  shortString:
-    type: string
-    description: A short description of the remaining time until the next day/night change.
+allOf:
+  - $ref: ./worldstateObject.yaml
+  - required:
+      - expiry
+      - isCetus
+      - isDay
+      - timeLeft
+    type: object
+    properties:
+      isDay:
+        type: boolean
+      state:
+        type: string
+        description: Describes the current time. e.g. "day" or "night"
+      timeLeft:
+        minLength: 1
+        type: string
+      isCetus:
+        type: boolean
+      shortString:
+        type: string
+        description: A short description of the remaining time until the next day/night change.

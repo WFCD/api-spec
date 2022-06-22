@@ -36,8 +36,7 @@ allOf:
               minLength: 1
               type: string
             missionType:
-              minLength: 1
-              type: string
+              $ref: ./missionType.yaml
             planet:
               minLength: 1
               type: string
@@ -51,8 +50,13 @@ allOf:
         minLength: 1
         type: string
       faction:
-        minLength: 1
-        type: string
+        allOf:
+          - $ref: ./faction.yaml
+          - description: Faction of the boss controlling the sortie
+      factionKey:
+        allOf:
+          - $ref: ./faction.yaml
+          - description: Unlocalized Faction of the boss controlling the sortie
       expired:
         type: boolean
       eta:

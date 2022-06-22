@@ -1,3 +1,5 @@
 minItems: 1
 items:
-  $ref: ./fissure.yaml
+  allOf:
+    - $ref: ./worldstateObject.yaml
+    - $ref: ./fissure.yaml

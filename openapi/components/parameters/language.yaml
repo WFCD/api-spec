@@ -1,7 +1,8 @@
 name: Accept-Language
 in: header
-description: Language to retrieve
+description: Language to retrieve. Doesn't always work with caching. See Language query string parameter.
 allowEmptyValue: false
+deprecated: true
 required: false
 schema:
   $ref: ../schemas/language.yaml

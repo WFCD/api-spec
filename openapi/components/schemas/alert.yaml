@@ -1,33 +1,18 @@
 type: object
 properties:
   mission:
-    $ref: ./mission.yaml
-  active:
-    type: boolean
+    allOf:
+      - $ref: ./mission.yaml
+      - description: Mission to be completed to earn the reward
   expired:
     type: boolean
   eta:
-    minLength: 1
-    type: string
-  id:
-    minLength: 1
-    type: string
-  expiry:
-    minLength: 1
-    type: string
-    format: date-time
-  activation:
-    minLength: 1
-    type: string
-    format: date-time
+    $ref: ./eta.yaml
   rewardTypes:
     type: array
     items:
       $ref: ./rewardType.yaml
 required:
-  - activation
-  - active
-  - eta
+  - mission
   - expired
-  - expiry
-  - id
+  - rewardTypes

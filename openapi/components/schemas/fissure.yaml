@@ -14,33 +14,37 @@ properties:
   node:
     minLength: 1
     type: string
+    description: Node name with planet
   expired:
     type: boolean
+    description: Whether the fissure is still present
   eta:
-    minLength: 1
-    type: string
+    $ref: ./eta.yaml
   missionType:
-    minLength: 1
-    type: string
+    allOf:
+      - $ref: ./missionType.yaml
+      - description: Localized mission type
+  missionKey:
+    allOf:
+      - $ref: ./missionType.yaml
+      - description: Unlocalized mission type
   tier:
-    minLength: 1
-    type: string
+    allOf:
+      - description: Tier or "era" of mission
+      - $ref: ./fissureTier.yaml
   tierNum:
     type: number
+    description: Numeric tier corresponding to the tier
+    minimum: 1
+    maximum: 5
   enemy:
-    minLength: 1
-    type: string
-  id:
-    minLength: 1
-    type: string
-  expiry:
-    minLength: 1
-    type: string
-    format: date-time
-  activation:
-    minLength: 1
-    type: string
-    format: date-time
+    allOf:
+      - $ref: ./faction.yaml
+      - description: Localized enemy faction name
+  enemyKey:
+    allOf:
+      - $ref: ./faction.yaml
+      - description: Always-English enemy faction name, allows keying for standarized displays
   isStorm:
     type: boolean
     description: Whether or not this fissure is a void storm

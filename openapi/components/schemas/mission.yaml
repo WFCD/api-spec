@@ -16,9 +16,17 @@ properties:
   node:
     minLength: 1
     type: string
-  faction:
-    minLength: 1
+  nodeKey:
     type: string
+    description: Unlocalized node
+  faction:
+    allOf:
+      - $ref: ./faction.yaml
+      - description: Mission opponent (localized)
+  factionKey:
+    allOf:
+      - $ref: ./faction.yaml
+      - description: Mission opponent (unlocalized)
   maxEnemyLevel:
     type: number
   minEnemyLevel:
@@ -26,8 +34,13 @@ properties:
   maxWaveNum:
     type: number
   type:
-    minLength: 1
-    type: string
+    allOf:
+      - $ref: ./missionType.yaml
+      - descriptin: Mission objective type (localized)
+  typeKey:
+    allOf:
+      - $ref: ./missionType.yaml
+      - descriptin: Mission objective type (unlocalized)
   nightmare:
     type: boolean
   archwingRequired:

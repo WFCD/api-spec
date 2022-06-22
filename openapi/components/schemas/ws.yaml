@@ -75,4 +75,4 @@ properties:
     $ref: ./vallisCycle.yaml
   voidTrader:
     $ref: ./voidTrader.yaml
-description: Full Worldstate Object
+description: Full World State Object

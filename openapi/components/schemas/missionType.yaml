@@ -1,0 +1,40 @@
+type: string
+description: A Warframe mision type, the kind of game mode that the mission/node houses.
+enum:
+  - Ancient Retribution
+  - Arena
+  - Assassination
+  - Assault
+  - Capture
+  - Conclave
+  - Dark Sector Defection
+  - Dark Sector Defense
+  - Dark Sector Disruption
+  - Dark Sector Excavation
+  - Dark Sector Sabotage
+  - Dark Sector Survival
+  - Defense
+  - Disruption
+  - Excavation
+  - Extermination (Archwing)
+  - Extermination
+  - Free Roam
+  - Hijack
+  - Hive
+  - Hive Sabotage
+  - Interception
+  - Interception (Archwing)
+  - Mobile Defense
+  - Mobile Defense (Archwing)
+  - Orokin Sabotage
+  - Orphix
+  - Pursuit (Archwing)
+  - Relay
+  - Rescue
+  - Rush (Archwing)
+  - Sabotage
+  - Sabotage (Archwing)
+  - Skirmish
+  - Spy
+  - Survival
+  - Volatile
