@@ -36,11 +36,11 @@ properties:
   type:
     allOf:
       - $ref: ./missionType.yaml
-      - descriptin: Mission objective type (localized)
+      - description: Mission objective type (localized)
   typeKey:
     allOf:
       - $ref: ./missionType.yaml
-      - descriptin: Mission objective type (unlocalized)
+      - description: Mission objective type (unlocalized)
   nightmare:
     type: boolean
   archwingRequired:
