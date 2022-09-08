@@ -1866,6 +1866,7 @@ components:
         - Corpus
         - Grineer
         - Tenno
+        - Narmer
     missionType:
       type: string
       description: >-
