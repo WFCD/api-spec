@@ -10,7 +10,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.1.3
+  version: 1.3.26
   x-logo:
     url: https://warframestat.us/wfcd_logo_color.png
 servers:
@@ -115,6 +115,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/arbitration'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  /{platform}/archonHunt:
+    get:
+      operationId: getArchonHuntByPlatform
+      tags:
+        - Worldstate
+      summary: Current Archon Hunt Data
+      description: Data about the missions for the current archon hunt
+      parameters:
+        - $ref: '#/components/parameters/platform'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/archonHunt'
         '400':
           $ref: '#/components/responses/error'
         '500':
@@ -615,7 +640,7 @@ paths:
                     $ref: '#/components/schemas/mission'
                   active:
                     type: boolean
-                    description: Whether or not the outpost is active
+                    description: Whether the outpost is active
                   id:
                     type: string
                     description: Identifier for the mission node with active indicator
@@ -1932,11 +1957,9 @@ components:
           type: boolean
         archwingRequired:
           type: boolean
-          description: >-
-            Whether or not an Archwing is required for participating in the
-            mision.
+          description: Whether an Archwing is required for participating in the mision.
         isSharkwing:
-          description: Whether or not the mission takes place in a submerssible mission.
+          description: Whether the mission takes place in a submerssible mission.
           type: boolean
         enemySpec:
           type: string
@@ -1956,10 +1979,10 @@ components:
             type: string
         consumeRequiredItems:
           type: boolean
-          description: Whether or not the required items are consumed
+          description: Whether the required items are consumed
         leadersAlwaysAllowed:
           type: boolean
-          description: Whether or not leaders are always allowed
+          description: Whether leaders are always allowed
         levelAuras:
           type: array
           description: Affectors for this mission
@@ -2071,10 +2094,50 @@ components:
                 - $ref: '#/components/schemas/missionType'
             archwing:
               type: boolean
-              description: Whether or not this mission requires archwing
+              description: Whether this mission requires archwing
             sharkwing:
               type: boolean
-              description: Whether or not this mission requires sharkwing
+              description: Whether this mission requires sharkwing
+    archonHunt:
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - required:
+            - activation
+            - boss
+            - eta
+            - expired
+            - expiry
+            - faction
+            - id
+            - rewardPool
+            - missions
+          type: object
+          properties:
+            rewardPool:
+              minLength: 1
+              type: string
+            missions:
+              minItems: 3
+              uniqueItems: true
+              type: array
+              items:
+                $ref: '#/components/schemas/mission'
+            boss:
+              minLength: 1
+              type: string
+            faction:
+              allOf:
+                - $ref: '#/components/schemas/faction'
+                - description: Faction of the boss controlling the archon hunt
+            factionKey:
+              allOf:
+                - $ref: '#/components/schemas/faction'
+                - description: Unlocalized Faction of the boss controlling the archon hunt
+            expired:
+              type: boolean
+            eta:
+              minLength: 1
+              type: string
     cambionCycle:
       required:
         - expiry
@@ -2241,7 +2304,7 @@ components:
           description: Clan or alliance that was defending.
         defenderIsAlliance:
           type: boolean
-          description: Whether or not the defender was an alliance.
+          description: Whether the defender was an alliance.
         attacker:
           type: string
           description: Clan or alliance that was attacking.
@@ -2461,13 +2524,13 @@ components:
               description: Total of progressSteps values.
             showTotalAtEndOfMission:
               type: boolean
-              description: Whether or not to show the total score at the end of the mission
+              description: Whether to show the total score at the end of the mission
             isPersonal:
               type: boolean
-              description: Whether or not the event is personal
+              description: Whether the event is personal
             isCommunity:
               type: boolean
-              description: Whether or not the event is communal
+              description: Whether the event is communal
             regionDrops:
               type: array
               description: Drops in the area around the event node
@@ -2575,7 +2638,10 @@ components:
                 displays
         isStorm:
           type: boolean
-          description: Whether or not this fissure is a void storm
+          description: Whether this fissure is a void storm
+        isHard:
+          type: boolean
+          description: Whether this fissure is on the Steel Path
     fissures:
       minItems: 1
       items:
@@ -2633,7 +2699,7 @@ components:
             description: Value corresponding to performing the operation
             type: number
           expired:
-            description: Whether or not the upgrade has expired
+            description: Whether the upgrade has expired
             type: boolean
           eta:
             description: Formatted short string designating when the upgrade will expire.
@@ -2688,7 +2754,7 @@ components:
               type: string
             completed:
               type: boolean
-              description: Whether or not this invasion is "over"
+              description: Whether this invasion is "over"
             completion:
               type: number
               description: percentage complete as a float value
@@ -2877,15 +2943,15 @@ components:
             description: Node at which the enemy was last discovered
           isDiscovered:
             type: boolean
-            description: Whether or not the enemy is currently discovered
+            description: Whether the enemy is currently discovered
           isUsingTicketing:
             type: boolean
-            description: Whether or not the enemy is using 'ticketing'. Unknown usage.
+            description: Whether the enemy is using 'ticketing'. Unknown usage.
           pid:
             type: string
             description: >-
-              faux-id incorporating the actual description and whether or not
-              the enemy is discovered.
+              faux-id incorporating the actual description and Whether the enemy
+              is discovered.
     simaris:
       required:
         - asString
@@ -2920,7 +2986,7 @@ components:
               minLength: 1
               type: string
             variants:
-              minItems: 1
+              minItems: 3
               uniqueItems: true
               type: array
               items:
@@ -3127,6 +3193,7 @@ components:
         - timestamp
         - vallisCycle
         - voidTrader
+        - archonHunt
       type: object
       properties:
         timestamp:
@@ -3135,6 +3202,8 @@ components:
           $ref: '#/components/schemas/alerts'
         arbitration:
           $ref: '#/components/schemas/arbitration'
+        archonHunt:
+          $ref: '#/components/schemas/archonHunt'
         cambionCycle:
           $ref: '#/components/schemas/cambionCycle'
         cetusCycle:
