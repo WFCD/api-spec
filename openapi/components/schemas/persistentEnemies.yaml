@@ -28,12 +28,12 @@ items:
       description: Node at which the enemy was last discovered
     isDiscovered:
       type: boolean
-      description: Whether or not the enemy is currently discovered
+      description: Whether the enemy is currently discovered
     isUsingTicketing:
       type: boolean
-      description: Whether or not the enemy is using 'ticketing'. Unknown usage.
+      description: Whether the enemy is using 'ticketing'. Unknown usage.
     pid:
       type: string
       description: >-
-        faux-id incorporating the actual description and whether or not the
+        faux-id incorporating the actual description and Whether the
         enemy is discovered.

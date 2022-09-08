@@ -21,6 +21,7 @@ required:
   - timestamp
   - vallisCycle
   - voidTrader
+  - archonHunt
 type: object
 properties:
   timestamp:
@@ -29,6 +30,8 @@ properties:
     $ref: ./alerts.yaml
   arbitration:
     $ref: ./arbitration.yaml
+  archonHunt:
+    $ref: ./archonHunt.yaml
   cambionCycle:
     $ref: ./cambionCycle.yaml
   cetusCycle:

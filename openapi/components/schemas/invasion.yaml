@@ -31,7 +31,7 @@ allOf:
         type: string
       completed:
         type: boolean
-        description: Whether or not this invasion is "over"
+        description: Whether this invasion is "over"
       completion:
         type: number
         description: percentage complete as a float value

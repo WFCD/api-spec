@@ -6,7 +6,7 @@ properties:
     description: Clan or alliance that was defending.
   defenderIsAlliance:
     type: boolean
-    description: Whether or not the defender was an alliance.
+    description: Whether the defender was an alliance.
   attacker:
     type: string
     description: Clan or alliance that was attacking.

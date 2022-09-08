@@ -22,8 +22,8 @@ allOf:
           - $ref: ./missionType.yaml
       archwing:
         type: boolean
-        description: Whether or not this mission requires archwing
+        description: Whether this mission requires archwing
       sharkwing:
         type: boolean
-        description: Whether or not this mission requires sharkwing
+        description: Whether this mission requires sharkwing
 

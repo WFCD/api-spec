@@ -99,13 +99,13 @@ allOf:
         description: Total of progressSteps values.
       showTotalAtEndOfMission:
         type: boolean
-        description: Whether or not to show the total score at the end of the mission
+        description: Whether to show the total score at the end of the mission
       isPersonal:
         type: boolean
-        description: Whether or not the event is personal
+        description: Whether the event is personal
       isCommunity:
         type: boolean
-        description: Whether or not the event is communal
+        description: Whether the event is communal
       regionDrops:
         type: array
         description: Drops in the area around the event node

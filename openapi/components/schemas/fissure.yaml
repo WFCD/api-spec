@@ -47,4 +47,7 @@ properties:
       - description: Always-English enemy faction name, allows keying for standarized displays
   isStorm:
     type: boolean
-    description: Whether or not this fissure is a void storm
+    description: Whether this fissure is a void storm
+  isHard:
+    type: boolean
+    description: Whether this fissure is on the Steel Path

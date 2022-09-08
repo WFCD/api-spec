@@ -1,0 +1,39 @@
+allOf:
+  - $ref: ./worldstateObject.yaml
+  - required:
+      - activation
+      - boss
+      - eta
+      - expired
+      - expiry
+      - faction
+      - id
+      - rewardPool
+      - missions
+    type: object
+    properties:
+      rewardPool:
+        minLength: 1
+        type: string
+      missions:
+        minItems: 3
+        uniqueItems: true
+        type: array
+        items:
+          $ref: ./mission.yaml
+      boss:
+        minLength: 1
+        type: string
+      faction:
+        allOf:
+          - $ref: ./faction.yaml
+          - description: Faction of the boss controlling the archon hunt
+      factionKey:
+        allOf:
+          - $ref: ./faction.yaml
+          - description: Unlocalized Faction of the boss controlling the archon hunt
+      expired:
+        type: boolean
+      eta:
+        minLength: 1
+        type: string

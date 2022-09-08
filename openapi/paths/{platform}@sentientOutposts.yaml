@@ -26,7 +26,7 @@ get:
                 $ref: ../components/schemas/mission.yaml
               active:
                 type: boolean
-                description: Whether or not the outpost is active
+                description: Whether the outpost is active
               id:
                 type: string
                 description: Identifier for the mission node with active indicator
