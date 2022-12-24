@@ -12,7 +12,7 @@ properties:
     $ref: ./timestamp.yaml
   activation:
     $ref: ./timestamp.yaml
-  active:
+  state:
     type: string
     enum:
       - vome
