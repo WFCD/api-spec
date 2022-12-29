@@ -2144,7 +2144,7 @@ components:
         - expiry
         - activation
         - id
-        - active
+        - state
       type: object
       properties:
         id:
@@ -2154,7 +2154,13 @@ components:
           $ref: '#/components/schemas/timestamp'
         activation:
           $ref: '#/components/schemas/timestamp'
+        state:
+          type: string
+          enum:
+            - vome
+            - fass
         active:
+          deprecated: true
           type: string
           enum:
             - vome

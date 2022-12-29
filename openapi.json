@@ -3465,7 +3465,7 @@
           "expiry",
           "activation",
           "id",
-          "active"
+          "state"
         ],
         "type": "object",
         "properties": {
@@ -3479,7 +3479,15 @@
           "activation": {
             "$ref": "#/components/schemas/timestamp"
           },
+          "state": {
+            "type": "string",
+            "enum": [
+              "vome",
+              "fass"
+            ]
+          },
           "active": {
+            "deprecated": true,
             "type": "string",
             "enum": [
               "vome",
