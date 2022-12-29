@@ -1767,6 +1767,7 @@ components:
         - ru
         - zh
         - en
+        - uk
     platform:
       type: string
       enum:
