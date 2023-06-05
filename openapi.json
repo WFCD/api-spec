@@ -3641,6 +3641,7 @@
             "expiry",
             "id",
             "item",
+            "uniqueName",
             "originalPrice",
             "salePrice",
             "sold",
@@ -3652,6 +3653,10 @@
               "type": "number"
             },
             "item": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "uniqueName": {
               "minLength": 1,
               "type": "string"
             },
