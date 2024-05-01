@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@redocly/openapi-cli": "^1.0.0-beta.95",
-    "serve": "^14.2.2"
+    "serve": "^14.2.3"
   },
   "scripts": {
     "bundle:yaml": "openapi bundle -o web/openapi --ext yaml",
