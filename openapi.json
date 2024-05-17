@@ -10,7 +10,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.4.0",
+    "version": "2.0.8",
     "x-logo": {
       "url": "https://warframestat.us/wfcd_logo_color.png"
     }
@@ -1378,6 +1378,50 @@
         }
       }
     },
+    "/{platform}/vaultTrader": {
+      "get": {
+        "operationId": "getVarziaByPlatform",
+        "tags": [
+          "Worldstate"
+        ],
+        "summary": "Get the current Varzia Information",
+        "description": "Information on the current Varzia offerings, or when she will arrive.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/platform"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/headers/Content-Language"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voidTrader"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/{platform}/voidTrader": {
       "get": {
         "operationId": "getBaroByPlatform",
@@ -1409,6 +1453,53 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/voidTrader"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/error"
+          },
+          "500": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/{platform}/voidTraders": {
+      "get": {
+        "operationId": "getVoidTradersByPlatform",
+        "tags": [
+          "Worldstate"
+        ],
+        "summary": "Get the current Void Traders Information",
+        "description": "Information on the current Void Traders offerings, or when they will arrive.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/platform"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          },
+          {
+            "$ref": "#/components/parameters/language-query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/headers/Content-Language"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/voidTrader"
+                  }
                 }
               }
             }
