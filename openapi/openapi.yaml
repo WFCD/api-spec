@@ -99,8 +99,12 @@ paths:
     $ref: paths/{platform}@timestamp.yaml
   /{platform}/vallisCycle:
     $ref: paths/{platform}@vallisCycle.yaml
+  /{platform}/vaultTrader:
+    $ref: paths/{platform}@vaultTrader.yaml
   /{platform}/voidTrader:
     $ref: paths/{platform}@voidTrader.yaml
+  /{platform}/voidTraders:
+    $ref: paths/{platform}@voidTraders.yaml
   /arcanes:
     $ref: paths/arcanes.yaml
   /arcanes/search/{query}:
