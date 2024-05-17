@@ -10,7 +10,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.4.0
+  version: 2.0.8
   x-logo:
     url: https://warframestat.us/wfcd_logo_color.png
 servers:
@@ -99,8 +99,12 @@ paths:
     $ref: paths/{platform}@timestamp.yaml
   /{platform}/vallisCycle:
     $ref: paths/{platform}@vallisCycle.yaml
+  /{platform}/vaultTrader:
+    $ref: paths/{platform}@vaultTrader.yaml
   /{platform}/voidTrader:
     $ref: paths/{platform}@voidTrader.yaml
+  /{platform}/voidTraders:
+    $ref: paths/{platform}@voidTraders.yaml
   /arcanes:
     $ref: paths/arcanes.yaml
   /arcanes/search/{query}:
