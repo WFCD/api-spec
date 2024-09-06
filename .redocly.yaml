@@ -1,11 +1,12 @@
-apiDefinitions:
-  main: ./openapi/openapi.yaml
+api:
+  main:
+    root: ./openapi/openapi.yaml
 lint:
   extends:
     - recommended
   rules:
     no-unused-components: warning
     no-ambiguous-paths: off
-referenceDocs:
+features.openapi:
   htmlTemplate: ./docs/index.html
   showConsole: true

@@ -7,12 +7,15 @@
     "serve": "^14.2.3"
   },
   "scripts": {
-    "bundle:yaml": "openapi bundle -o web/openapi --ext yaml",
-    "bundle:json": "openapi bundle -o web/openapi --ext json",
+    "bundle:yaml": "openapi bundle openapi/openapi.yaml -o web/openapi --ext yaml",
+    "bundle:json": "openapi bundle openapi/openapi.yaml -o web/openapi --ext json",
     "bundle": "npm run bundle:yaml && npm run bundle:json",
     "start": "openapi preview-docs main",
-    "test": "openapi lint",
+    "test": "openapi lint openapi/openapi.yaml",
     "split": "openapi split openapi.yaml --outDir openapi",
-    "serve": "npm run bundle && serve -s web/."
+    "preserve": "npm run bundle",
+    "serve": "serve -s web/.",
+    "prelint:built": "npm run bundle",
+    "lint:built": "openapi lint web/openapi.yaml && openapi lint web/openapi.json"
   }
 }

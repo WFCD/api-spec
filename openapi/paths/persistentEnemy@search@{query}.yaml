@@ -18,6 +18,8 @@ get:
             items:
               anyOf:
                 - type: array
+                  items:
+                    $ref: ../components/schemas/persistentEnemies.yaml
     '400':
       $ref: ../components/responses/error.yaml
     '500':
