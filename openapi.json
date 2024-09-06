@@ -2409,7 +2409,10 @@
                   "items": {
                     "anyOf": [
                       {
-                        "type": "array"
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/persistentEnemies"
+                        }
                       }
                     ]
                   }

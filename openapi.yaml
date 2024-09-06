@@ -1453,6 +1453,8 @@ paths:
                 items:
                   anyOf:
                     - type: array
+                      items:
+                        $ref: '#/components/schemas/persistentEnemies'
         '400':
           $ref: '#/components/responses/error'
         '500':
