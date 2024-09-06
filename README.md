@@ -20,7 +20,7 @@
 #### `npm start`
 Starts the development server on port [`8080`](http://localhost:8080).
 
-#### `npm run build`
+#### `npm run bundle`
 Bundles the spec and prepares web_deploy folder with static assets.
 
 #### `npm test`
