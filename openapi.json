@@ -2405,17 +2405,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "anyOf": [
-                      {
-                        "type": "array",
-                        "items": {
-                          "$ref": "#/components/schemas/persistentEnemies"
-                        }
-                      }
-                    ]
-                  }
+                  "$ref": "#/components/schemas/acolyteI18n"
                 }
               }
             }
