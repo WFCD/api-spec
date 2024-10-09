@@ -225,9 +225,7 @@ paths:
       tags:
         - Worldstate
       summary: Get Construction Progress for Fomorians and Razorbacks
-      description: >-
-        Construction percentages for showing how far constructed the enemy
-        fleets are.
+      description: Construction percentages for showing how far constructed the enemy fleets are.
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
@@ -277,9 +275,7 @@ paths:
       tags:
         - Worldstate
       summary: Dark Sector occupation and history
-      description: >-
-        Dark Sector (Rail Wars) data and history. Digital Extremes has emptied
-        several of these.
+      description: Dark Sector (Rail Wars) data and history. Digital Extremes has emptied several of these.
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
@@ -430,9 +426,7 @@ paths:
       tags:
         - Worldstate
       summary: Invasion Data
-      description: >-
-        Data on invasion missions, such as estimated completion time, rewards,
-        etc.
+      description: Data on invasion missions, such as estimated completion time, rewards, etc.
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
@@ -458,9 +452,7 @@ paths:
         - Worldstate
         - Unstable
       summary: '[Unstable] Current Kuva Mission listing'
-      description: >-
-        Current Kuva Mission listing (provided by
-        [semlar](https://10o.io/kuvalog)).
+      description: Current Kuva Mission listing (provided by [semlar](https://10o.io/kuvalog)).
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
@@ -510,9 +502,7 @@ paths:
       tags:
         - Worldstate
       summary: Get the current Nightwave state.
-      description: >-
-        The Current cycle and challenges of Nightwave, a battle-pass-esque
-        rotation and challenge system
+      description: The Current cycle and challenges of Nightwave, a battle-pass-esque rotation and challenge system
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
@@ -560,9 +550,7 @@ paths:
         - Worldstate
         - Rivens
       summary: Get Riven statistic data
-      description: >-
-        Data about averages, deviations, medians, miniums, and maxes for all
-        rivens for the provided platform
+      description: Data about averages, deviations, medians, miniums, and maxes for all rivens for the provided platform
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
@@ -585,9 +573,7 @@ paths:
         - Worldstate
         - Rivens
       summary: Get Riven statistic data
-      description: >-
-        Data about averages, deviations, medians, miniums, and maxes for rivens
-        whose name match the query for the provided platform
+      description: Data about averages, deviations, medians, miniums, and maxes for rivens whose name match the query for the provided platform
       parameters:
         - $ref: '#/components/parameters/platform'
         - name: query
@@ -617,10 +603,7 @@ paths:
       tags:
         - Worldstate
       summary: Get the current Sentient Outpost, if any
-      description: >-
-        Status data for current Sentient Outpost, if any. Parsed source is
-        combined data from DE\'s worldstate and [semlar\'s
-        data](https://semlar.com/anomaly.json)
+      description: Status data for current Sentient Outpost, if any. Parsed source is combined data from DE\'s worldstate and [semlar\'s data](https://semlar.com/anomaly.json)
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
@@ -653,9 +636,7 @@ paths:
                     format: date-time
                     description: When the mission became or becomes inactive
                   previous:
-                    description: >-
-                      Estimation data for the last mission that was active.
-                      Could also be the current.
+                    description: Estimation data for the last mission that was active. Could also be the current.
                     type: object
                     properties:
                       activation:
@@ -751,9 +732,7 @@ paths:
       tags:
         - Worldstate
       summary: Listing of Syndicate mission nodes
-      description: >-
-        Cycling through different nodes each day, these are a general listing of
-        the nodes that each syndicate will use for the day.
+      description: Cycling through different nodes each day, these are a general listing of the nodes that each syndicate will use for the day.
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
@@ -853,9 +832,7 @@ paths:
       tags:
         - Worldstate
       summary: Get the current Void Trader Information
-      description: >-
-        Information on the current Void Trader offerings, or when he will
-        arrive.
+      description: Information on the current Void Trader offerings, or when he will arrive.
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
@@ -880,9 +857,7 @@ paths:
       tags:
         - Worldstate
       summary: Get the current Void Traders Information
-      description: >-
-        Information on the current Void Traders offerings, or when they will
-        arrive.
+      description: Information on the current Void Traders offerings, or when they will arrive.
       parameters:
         - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
@@ -1200,9 +1175,7 @@ paths:
       tags:
         - Static Processing Data
       summary: Get Language strings for Warframe.
-      description: >-
-        Get language strings to assist translation. (Prefer the
-        /languages/search/:query route)
+      description: Get language strings to assist translation. (Prefer the /languages/search/:query route)
       responses:
         '200':
           description: successful operation
@@ -1376,9 +1349,7 @@ paths:
       tags:
         - Static Processing Data
       summary: Get operation types data.
-      description: >-
-        Operation Types information to aid translating identifiers for global
-        upgrades
+      description: Operation Types information to aid translating identifiers for global upgrades
       responses:
         '200':
           description: successful operation
@@ -1396,9 +1367,7 @@ paths:
       tags:
         - Searchable
       summary: Get operation types data based on the query.
-      description: >-
-        Operation Types information to aid translating identifiers for global
-        upgrades
+      description: Operation Types information to aid translating identifiers for global upgrades
       parameters:
         - $ref: '#/components/parameters/query'
       responses:
@@ -1418,9 +1387,7 @@ paths:
       tags:
         - Static Processing Data
       summary: Get Persistent Enemy translation data.
-      description: >-
-        Persistent Enemy translation information for aiding translation of
-        identifiers.
+      description: Persistent Enemy translation information for aiding translation of identifiers.
       responses:
         '200':
           description: successful operation
@@ -1438,9 +1405,7 @@ paths:
       tags:
         - Searchable
       summary: Get Persistent Enemy translation data based on the query.
-      description: >-
-        Persistent Enemy translation information for aiding translation of
-        identifiers.
+      description: Persistent Enemy translation information for aiding translation of identifiers.
       parameters:
         - $ref: '#/components/parameters/query'
       responses:
@@ -1460,9 +1425,7 @@ paths:
       tags:
         - Static Processing Data
       summary: Get Sol Node information and translation data.
-      description: >-
-        Sol Node translation information for aiding the translation of
-        identifiers.
+      description: Sol Node translation information for aiding the translation of identifiers.
       responses:
         '200':
           description: successful operation
@@ -1480,9 +1443,7 @@ paths:
       tags:
         - Searchable
       summary: Get Sol Node information and translation data based on the query.
-      description: >-
-        Sol Node translation information for aiding the translation of
-        identifiers.
+      description: Sol Node translation information for aiding the translation of identifiers.
       parameters:
         - $ref: '#/components/parameters/query'
       responses:
@@ -1616,9 +1577,7 @@ paths:
       tags:
         - Static Processing Data
       summary: Get upgrade types data for global upgrades.
-      description: >-
-        Upgrade types for what can be changed by global modifiers, such as
-        double credit weekends.
+      description: Upgrade types for what can be changed by global modifiers, such as double credit weekends.
       responses:
         '200':
           description: successful operation
@@ -1636,9 +1595,7 @@ paths:
       tags:
         - Searchable
       summary: Get upgrade types data for global upgrades based on the query.
-      description: >-
-        Upgrade types for what can be changed by global modifiers, such as
-        double credit weekends.
+      description: Upgrade types for what can be changed by global modifiers, such as double credit weekends.
       parameters:
         - $ref: '#/components/parameters/query'
       responses:
@@ -1848,9 +1805,7 @@ components:
           description: ISO-8601 formatted timestamp for when the event is expected to end
         startString:
           type: string
-          description: >-
-            Short-time-formatted duration string representing the start of the
-            event
+          description: Short-time-formatted duration string representing the start of the event
         active:
           type: boolean
           description: Whether the event is currently active
@@ -1921,9 +1876,7 @@ components:
         - Narmer
     missionType:
       type: string
-      description: >-
-        A Warframe mision type, the kind of game mode that the mission/node
-        houses.
+      description: A Warframe mision type, the kind of game mode that the mission/node houses.
       enum:
         - Ancient Retribution
         - Arena
@@ -2047,9 +2000,7 @@ components:
     eta:
       minLength: 1
       type: string
-      description: >-
-        Short-formatted string estimating the time until the event/mission is
-        closed
+      description: Short-formatted string estimating the time until the event/mission is closed
     rewardType:
       type: string
       description: One of the reward types
@@ -2242,9 +2193,7 @@ components:
               type: boolean
             shortString:
               type: string
-              description: >-
-                A short description of the remaining time until the next
-                day/night change.
+              description: A short description of the remaining time until the next day/night change.
     conclaveChallenges:
       minItems: 1
       type: array
@@ -2550,14 +2499,10 @@ components:
                         description: Who commissioned this reward
                       subject:
                         type: string
-                        description: >-
-                          Title of the in-game mail received for completing the
-                          step.
+                        description: Title of the in-game mail received for completing the step.
                       message:
                         type: string
-                        description: >-
-                          Body of the in-game mail received for completing the
-                          step.
+                        description: Body of the in-game mail received for completing the step.
                       senderIcon:
                         type: string
                         description: Path to sender icon string.
@@ -2568,9 +2513,7 @@ components:
                           type: string
                   winnerCount:
                     type: number
-                    description: >-
-                      Suspected to be the number of persons who have completed
-                      this step.
+                    description: Suspected to be the number of persons who have completed this step.
             progressSteps:
               type: array
               items:
@@ -2696,9 +2639,7 @@ components:
         enemyKey:
           allOf:
             - $ref: '#/components/schemas/faction'
-            - description: >-
-                Always-English enemy faction name, allows keying for standarized
-                displays
+            - description: Always-English enemy faction name, allows keying for standarized displays
         isStorm:
           type: boolean
           description: Whether this fissure is a void storm
@@ -2863,9 +2804,7 @@ components:
               description: i18n key for matching node (always english translation)
             requiredRuns:
               type: number
-              description: >-
-                How many runs of this mission are needed to qualify for the
-                reward
+              description: How many runs of this mission are needed to qualify for the reward
             rewardTypes:
               type: array
               items:
@@ -3012,9 +2951,7 @@ components:
             description: Whether the enemy is using 'ticketing'. Unknown usage.
           pid:
             type: string
-            description: >-
-              faux-id incorporating the actual description and Whether the enemy
-              is discovered.
+            description: faux-id incorporating the actual description and Whether the enemy is discovered.
     simaris:
       required:
         - asString
@@ -5097,9 +5034,7 @@ components:
     language:
       name: Accept-Language
       in: header
-      description: >-
-        Language to retrieve. Doesn't always work with caching. See Language
-        query string parameter.
+      description: Language to retrieve. Doesn't always work with caching. See Language query string parameter.
       allowEmptyValue: false
       deprecated: true
       required: false
@@ -5108,9 +5043,7 @@ components:
     language-query:
       name: language
       in: query
-      description: >-
-        Language to retrieve. With Caching, this has become required if you want
-        your reply to always match your request.
+      description: Language to retrieve. With Caching, this has become required if you want your reply to always match your request.
       allowEmptyValue: false
       deprecated: false
       required: true
