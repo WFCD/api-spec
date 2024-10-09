@@ -1,12 +1,14 @@
-api:
+apis:
   main:
     root: ./openapi/openapi.yaml
-lint:
-  extends:
-    - recommended
-  rules:
-    no-unused-components: warning
-    no-ambiguous-paths: off
-features.openapi:
-  htmlTemplate: ./docs/index.html
-  showConsole: true
+extends:
+  - recommended
+rules:
+  security-defined: off
+  no-unused-components: warn
+  no-ambiguous-paths: off
+security: []
+theme:
+  openapi:
+    htmlTemplate: ./docs/index.html
+    showConsole: true
