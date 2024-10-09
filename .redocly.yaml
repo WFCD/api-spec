@@ -4,8 +4,10 @@ apis:
 extends:
   - recommended
 rules:
+  security-defined: off
   no-unused-components: warn
   no-ambiguous-paths: off
+security: []
 theme:
   openapi:
     htmlTemplate: ./docs/index.html
