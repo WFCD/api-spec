@@ -61,6 +61,8 @@ paths:
     $ref: paths/{platform}@dailyDeals.yaml
   /{platform}/darkSectors:
     $ref: paths/{platform}@darkSectors.yaml
+  /{platform}/deepArchimedea:
+    $ref: paths/{platform}@deepArchimedea.yaml
   /{platform}/earthCycle:
     $ref: paths/{platform}@earthCycle.yaml
   /{platform}/events:

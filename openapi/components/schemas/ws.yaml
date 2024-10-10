@@ -44,6 +44,8 @@ properties:
     $ref: ./dailyDeals.yaml
   darkSectors:
     $ref: ./darkSectors.yaml
+  deepArchimedia:
+    $ref: ./deepArchimedea.yaml
   earthCycle:
     $ref: ./earthCycle.yaml
   events:
