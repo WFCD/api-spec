@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: WarframeStat.us API
   description: |
@@ -295,6 +295,31 @@ paths:
         '500':
           $ref: '#/components/responses/error'
       deprecated: true
+  /{platform}/deepArchimedea:
+    get:
+      operationId: getDeepArchimedeaByPlatform
+      tags:
+        - Worldstate
+      summary: Get current Deep Archimedea information
+      description: Data on current Deep Archimedea missions, deviations, risk variables, and personal modifiers
+      parameters:
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/language-query'
+        - $ref: '#/components/parameters/platform'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            Content-Language:
+              $ref: '#/components/headers/Content-Language'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deepArchimedea'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
   /{platform}/earthCycle:
     get:
       operationId: getEarthByPlatform
@@ -1759,6 +1784,46 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
+  /profile/{username}:
+    get:
+      operationId: getProfileData
+      tags:
+        - Profile
+      summary: Get player profile
+      description: Get player profile from available GDPR data.
+      parameters:
+        - $ref: '#/components/parameters/username'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/profile'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
+  /profile/{username}/stats:
+    get:
+      operationId: getProfileStats
+      tags:
+        - Profile
+      summary: Get player stats
+      description: Get player stats from available GDPR data.
+      parameters:
+        - $ref: '#/components/parameters/username'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/stats'
+        '400':
+          $ref: '#/components/responses/error'
+        '500':
+          $ref: '#/components/responses/error'
 components:
   schemas:
     language:
@@ -2366,6 +2431,46 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/darkSectorHistory'
+    deepArchimedeaCondition:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    deepArchimedea:
+      type: object
+      properties:
+        id:
+          type: string
+        activation:
+          type: string
+        expiry:
+          type: string
+        missions:
+          type: array
+          minItems: 3
+          maxItems: 3
+          items:
+            properties:
+              mission:
+                type: string
+              deviation:
+                $ref: '#/components/schemas/deepArchimedeaCondition'
+              riskVariables:
+                type: array
+                minItems: 2
+                maxItems: 2
+                items:
+                  $ref: '#/components/schemas/deepArchimedeaCondition'
+        personalModifiers:
+          type: array
+          minItems: 4
+          maxItems: 4
+          items:
+            $ref: '#/components/schemas/deepArchimedeaCondition'
     earthCycle:
       allOf:
         - $ref: '#/components/schemas/worldstateObject'
@@ -3216,6 +3321,8 @@ components:
           $ref: '#/components/schemas/dailyDeals'
         darkSectors:
           $ref: '#/components/schemas/darkSectors'
+        deepArchimedia:
+          $ref: '#/components/schemas/deepArchimedea'
         earthCycle:
           $ref: '#/components/schemas/earthCycle'
         events:
@@ -5030,6 +5137,549 @@ components:
         oneOf:
           - $ref: '#/components/schemas/rangedWeapon'
           - $ref: '#/components/schemas/meleeWeapon'
+    palette:
+      type: object
+      properties:
+        matches:
+          type: array
+          items:
+            required:
+              - palette
+              - position
+            properties:
+              palette:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+              position:
+                properties:
+                  row:
+                    type: integer
+                  col:
+                    type: integer
+        hex:
+          type: string
+    profileColor:
+      type: object
+      properties:
+        primary:
+          $ref: '#/components/schemas/palette'
+        secondary:
+          $ref: '#/components/schemas/palette'
+        accents:
+          $ref: '#/components/schemas/palette'
+        tertiary:
+          $ref: '#/components/schemas/palette'
+        emisssive:
+          type: array
+          items:
+            $ref: '#/components/schemas/palette'
+        energy:
+          type: array
+          items:
+            $ref: '#/components/schemas/palette'
+    configs:
+      type: array
+      items:
+        properties:
+          skins:
+            type: array
+            items:
+              required:
+                - uniqueName
+              properties:
+                uniqueName:
+                  type: string
+                item:
+                  $ref: '#/components/schemas/shallowItem'
+          primaryColor:
+            type: object
+            $ref: '#/components/schemas/profileColor'
+          syandanaColor:
+            type:
+              - object
+              - 'null'
+            $ref: '#/components/schemas/profileColor'
+    suit:
+      type: array
+      items:
+        properties:
+          itemId:
+            type: string
+          uniqueName:
+            type: string
+          name:
+            type: string
+          item:
+            $ref: '#/components/schemas/warframe'
+            type: object
+          configs:
+            $ref: '#/components/schemas/configs'
+    profileWeapon:
+      type: object
+      properties:
+        itemId:
+          type: string
+        uniqueName:
+          type: string
+        name:
+          type: string
+        nemesis:
+          type:
+            - string
+            - 'null'
+        configs:
+          $ref: '#/components/schemas/configs'
+        upgradeFingerprint:
+          type:
+            - object
+            - 'null'
+          properties:
+            compat:
+              type: string
+            buffs:
+              type: array
+              items:
+                properties:
+                  tag:
+                    type: string
+                  value:
+                    type: string
+        features:
+          type: number
+        upgradeVer:
+          type: integer
+        xp:
+          type: integer
+        polarized:
+          type: integer
+        polarity:
+          type:
+            - array
+            - 'null'
+          items:
+            properties:
+              polarity:
+                type: string
+              slot:
+                type: number
+    loudout:
+      type: object
+      properties:
+        weaponSkins:
+          type: array
+          items:
+            required:
+              - uniqueName
+            properties:
+              uniqueName:
+                type: string
+              item:
+                type:
+                  - object
+                  - 'null'
+                $ref: '#/components/schemas/shallowItem'
+        suits:
+          $ref: '#/components/schemas/suit'
+        secondary:
+          type: array
+          items:
+            allOf:
+              - $ref: '#/components/schemas/profileWeapon'
+              - properties:
+                  item:
+                    type:
+                      - object
+                      - 'null'
+                    $ref: '#/components/schemas/rangedWeapon'
+        primary:
+          type: array
+          items:
+            allOf:
+              - $ref: '#/components/schemas/profileWeapon'
+              - properties:
+                  item:
+                    type:
+                      - object
+                      - 'null'
+                    $ref: '#/components/schemas/rangedWeapon'
+        melee:
+          type: array
+          items:
+            allOf:
+              - $ref: '#/components/schemas/profileWeapon'
+              - properties:
+                  item:
+                    type:
+                      - object
+                      - 'null'
+                    $ref: '#/components/schemas/meleeWeapon'
+        xpInfo:
+          type: array
+          items:
+            properties:
+              uniqueName:
+                type: string
+              xp:
+                type: integer
+              item:
+                type:
+                  - object
+                  - 'null'
+                $ref: '#/components/schemas/weapon'
+    profileMissions:
+      type: object
+      properties:
+        node:
+          type: string
+        nodeKey:
+          type: string
+        missionType:
+          type: string
+        faction:
+          type: string
+    dailyStanding:
+      type: object
+      properties:
+        daily:
+          type: integer
+        conclave:
+          type: integer
+        simaris:
+          type: integer
+        ostrons:
+          type: integer
+        quills:
+          type: integer
+        solaris:
+          type: integer
+        ventKids:
+          type: integer
+        voxSolaris:
+          type: integer
+        entrati:
+          type: integer
+        necraloid:
+          type: integer
+        holdfasts:
+          type: integer
+        kahl:
+          type: integer
+        cavia:
+          type: integer
+    operatorLoadouts:
+      type: array
+      items:
+        properties:
+          skins:
+            type: array
+          operatorAmp:
+            type: string
+          upgrades:
+            type: array
+            items:
+              type: string
+          abilityOverride:
+            type: object
+            properties:
+              ability:
+                type: string
+              index:
+                type: integer
+          primaryColor:
+            $ref: '#/components/schemas/profileColor'
+          sigilColor:
+            $ref: '#/components/schemas/profileColor'
+          eyeColor:
+            $ref: '#/components/schemas/profileColor'
+          facial:
+            $ref: '#/components/schemas/profileColor'
+          cloth:
+            $ref: '#/components/schemas/profileColor'
+    profile:
+      type: object
+      properties:
+        accountId:
+          type: string
+        displayName:
+          type: string
+        masteryRank:
+          type: integer
+        loadout:
+          $ref: '#/components/schemas/loudout'
+        intrinsics:
+          properties:
+            railjack:
+              type: integer
+            engineering:
+              type: integer
+            gunnery:
+              type: integer
+            piloting:
+              type: integer
+            tactical:
+              type: integer
+            command:
+              type: integer
+            drifter:
+              type: integer
+            riding:
+              type: integer
+            combat:
+              type: integer
+            opportunity:
+              type: integer
+            endurance:
+              type: integer
+        challengeProgress:
+          type: array
+          items:
+            properties:
+              name:
+                type: string
+              progress:
+                type: integer
+        guildId:
+          type: string
+        guildName:
+          type: string
+        guildTier:
+          type: integer
+        guildXp:
+          type: integer
+        guildClass:
+          type: integer
+        guildEmblem:
+          type: boolean
+        allianceId:
+          type: string
+        deathMarks:
+          type: array
+        harvestable:
+          type: boolean
+        deathSquadable:
+          type: boolean
+        created:
+          type: string
+        migratedToConsole:
+          type: boolean
+        missions:
+          type: array
+          items:
+            allOf:
+              - $ref: '#/components/schemas/profileMissions'
+              - properties:
+                  completes:
+                    type: string
+                  tier:
+                    type:
+                      - 'null'
+                      - integer
+        syndicate:
+          type: array
+          items:
+            properties:
+              name:
+                type: string
+              standing:
+                type: integer
+              title:
+                type: integer
+        dailyStanding:
+          $ref: '#/components/schemas/dailyStanding'
+        dailyFocus:
+          type: integer
+        unlockedOperator:
+          type: boolean
+        unlockedAlignment:
+          type: boolean
+        operatorLoadouts:
+          $ref: '#/components/schemas/operatorLoadouts'
+        alignment:
+          type: object
+          properties:
+            wisdom:
+              type: integer
+            alignment:
+              type: number
+    stats:
+      type: object
+      properties:
+        guildName:
+          type: string
+        missionsCompleted:
+          type: integer
+        missionsQuit:
+          type: integer
+        missionsInterrupted:
+          type: integer
+        missionsDumped:
+          type: integer
+        pickupCount:
+          type: integer
+        weapons:
+          type: array
+          items:
+            required:
+              - uniqueName
+              - xp
+              - equipTime
+              - assists
+              - kills
+              - fired
+            properties:
+              uniqueName:
+                type: string
+              xp:
+                type: integer
+              equipTime:
+                type: number
+              assists:
+                type: integer
+              kills:
+                type: integer
+              fired:
+                type: integer
+        enemis:
+          type: array
+          items:
+            required:
+              - uniqueName
+              - kills
+              - headshots
+            properties:
+              uniqueName:
+                type: string
+              kills:
+                type: integer
+              headshots:
+                type: integer
+        meleeKills:
+          type: integer
+        abilities:
+          type: array
+          items:
+            required:
+              - uniqueName
+              - used
+            properties:
+              uniqueName:
+                type: string
+              used:
+                type: integer
+        ciphersSolved:
+          type: integer
+        income:
+          type: integer
+        timePlayedSec:
+          type: number
+        cipherTime:
+          type: integer
+        rating:
+          type: integer
+        rank:
+          type: integer
+        deaths:
+          type: integer
+        playerLevel:
+          type: integer
+        missions:
+          type: array
+          items:
+            allOf:
+              - $ref: '#/components/schemas/profileMissions'
+              - properties:
+                  highScore:
+                    type: integer
+        healcount:
+          type: integer
+        breedGrounds:
+          type: object
+        gradivusDilemma:
+          type: object
+        scans:
+          type: array
+          items:
+            properties:
+              uniqueName:
+                type: string
+              scans:
+                type: integer
+        reviveCount:
+          type: integer
+        fomorianEventScore:
+          type: integer
+        pvp:
+          type: array
+          items:
+            properties:
+              uniqueName:
+                type: string
+              suitDeaths:
+                type:
+                  - integer
+                  - 'null'
+              suitKills:
+                type:
+                  - integer
+                  - 'null'
+              weaponKills:
+                type:
+                  - integer
+                  - 'null'
+        lunaro:
+          type: object
+          properties:
+            ties:
+              type: integer
+            checks:
+              type: integer
+            goals:
+              type: integer
+            interceptions:
+              type: integer
+            steals:
+              type: integer
+            points:
+              type: integer
+            losses:
+              type: integer
+        dojoObstacleScore:
+          type: integer
+        pvpGamesPendingMask:
+          type: integer
+        pacifismDefect:
+          type: integer
+        sentinelGameScore:
+          type: integer
+        amalgamEventScoreMax:
+          type: integer
+        scarletSpear:
+          type: object
+          properties:
+            eventScore:
+              type: integer
+            condirxTier2:
+              type: integer
+            murexTier1:
+              type: integer
+            murexTier2:
+              type: integer
+            murexTier3:
+              type: integer
+        orphixVenomSpear:
+          type: integer
+        kDriveRaces:
+          type: array
+          items:
+            properties:
+              uniqueName:
+                type: string
+              highScore:
+                type: integer
   parameters:
     language:
       name: Accept-Language
@@ -5094,6 +5744,15 @@ components:
         type: string
         format: utf8
         default: name
+    username:
+      name: username
+      in: path
+      description: Player's in-game username
+      allowEmptyValue: false
+      required: true
+      schema:
+        type: string
+        format: utf8
   headers:
     Content-Language:
       description: Language of the content
