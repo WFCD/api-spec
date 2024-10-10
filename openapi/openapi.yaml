@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: WarframeStat.us API
   description: |
@@ -189,3 +189,7 @@ paths:
     $ref: paths/weapons@{query}.yaml
   /weapons/search/{query}:
     $ref: paths/weapons@search@{query}.yaml
+  /profile/{username}:
+    $ref: paths/profile@{username}.yaml
+  /profile/{username}/stats:
+    $ref: paths/profile@{username}@stats.yaml
