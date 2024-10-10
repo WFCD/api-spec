@@ -1,0 +1,18 @@
+type: object
+properties:
+  primary:
+    $ref: ./palette.yaml
+  secondary:
+    $ref: ./palette.yaml
+  accents:
+    $ref: ./palette.yaml
+  tertiary:
+    $ref: ./palette.yaml
+  emisssive:
+    type: array
+    items:
+      $ref: ./palette.yaml
+  energy:
+    type: array
+    items:
+      $ref: ./palette.yaml

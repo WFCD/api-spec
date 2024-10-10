@@ -1,0 +1,24 @@
+type: object
+properties:
+  matches:
+    type: array
+    items:
+      required:
+        - palette
+        - position
+      properties:
+        palette:
+          type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+        position:
+          properties:
+            row:
+              type: integer
+            col:
+              type: integer
+  hex:
+    type: string

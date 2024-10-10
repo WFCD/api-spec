@@ -1,0 +1,28 @@
+type: object
+properties:
+  daily:
+    type: integer
+  conclave:
+    type: integer
+  simaris:
+    type: integer
+  ostrons:
+    type: integer
+  quills:
+    type: integer
+  solaris:
+    type: integer
+  ventKids:
+    type: integer
+  voxSolaris:
+    type: integer
+  entrati:
+    type: integer
+  necraloid:
+    type: integer
+  holdfasts:
+    type: integer
+  kahl:
+    type: integer
+  cavia:
+    type: integer

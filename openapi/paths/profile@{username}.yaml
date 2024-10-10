@@ -1,0 +1,19 @@
+get:
+  operationId: getProfileData
+  tags:
+    - Profile
+  summary: Get player profile
+  description: Get player profile from available GDPR data.
+  parameters:
+    - $ref: ../components/parameters/username.yaml
+  responses:
+    "200":
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/profile.yaml
+    "400":
+      $ref: ../components/responses/error.yaml
+    "500":
+      $ref: ../components/responses/error.yaml

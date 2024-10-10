@@ -1,0 +1,28 @@
+type: array
+items:
+  properties:
+    skins:
+      type: array
+    operatorAmp:
+      type: string
+    upgrades:
+      type: array
+      items:
+        type: string
+    abilityOverride:
+      type: object
+      properties:
+        ability:
+          type: string
+        index:
+          type: integer
+    primaryColor:
+      $ref: ./profileColor.yaml
+    sigilColor:
+      $ref: ./profileColor.yaml
+    eyeColor:
+      $ref: ./profileColor.yaml
+    facial:
+      $ref: ./profileColor.yaml
+    cloth:
+      $ref: ./profileColor.yaml

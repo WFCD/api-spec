@@ -1,0 +1,10 @@
+type: object
+properties:
+  node:
+    type: string
+  nodeKey:
+    type: string
+  missionType:
+    type: string
+  faction:
+    type: string

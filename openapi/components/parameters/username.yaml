@@ -1,0 +1,8 @@
+name: username
+in: path
+description: Player's in-game username
+allowEmptyValue: false
+required: true
+schema:
+  type: string
+  format: utf8

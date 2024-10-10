@@ -1,0 +1,47 @@
+type: object
+properties:
+  itemId:
+    type: string
+  uniqueName:
+    type: string
+  name:
+    type: string
+  nemesis:
+    type:
+      - string
+      - "null"
+  configs:
+    $ref: ./configs.yaml
+  upgradeFingerprint:
+    type:
+      - object
+      - "null"
+    properties:
+      compat:
+        type: string
+      buffs:
+        type: array
+        items:
+          properties:
+            tag:
+              type: string
+            value:
+              type: string
+  features:
+    type: number
+  upgradeVer:
+    type: integer
+  xp:
+    type: integer
+  polarized:
+    type: integer
+  polarity:
+    type:
+      - array
+      - "null"
+    items:
+      properties:
+        polarity:
+          type: string
+        slot:
+          type: number

@@ -1,0 +1,174 @@
+type: object
+properties:
+  guildName:
+    type: string
+  missionsCompleted:
+    type: integer
+  missionsQuit:
+    type: integer
+  missionsInterrupted:
+    type: integer
+  missionsDumped:
+    type: integer
+  pickupCount:
+    type: integer
+  weapons:
+    type: array
+    items:
+      required:
+        - uniqueName
+        - xp
+        - equipTime
+        - assists
+        - kills
+        - fired
+      properties:
+        uniqueName:
+          type: string
+        xp:
+          type: integer
+        equipTime:
+          type: number
+        assists:
+          type: integer
+        kills:
+          type: integer
+        fired:
+          type: integer
+  enemis:
+    type: array
+    items:
+      required:
+        - uniqueName
+        - kills
+        - headshots
+      properties:
+        uniqueName:
+          type: string
+        kills:
+          type: integer
+        headshots:
+          type: integer
+  meleeKills:
+    type: integer
+  abilities:
+    type: array
+    items:
+      required:
+        - uniqueName
+        - used
+      properties:
+        uniqueName:
+          type: string
+        used:
+          type: integer
+  ciphersSolved:
+    type: integer
+  income:
+    type: integer
+  timePlayedSec:
+    type: number
+  cipherTime:
+    type: integer
+  rating:
+    type: integer
+  rank:
+    type: integer
+  deaths:
+    type: integer
+  playerLevel:
+    type: integer
+  missions:
+    type: array
+    items:
+      allOf:
+        - $ref: ./profileMissions.yaml
+        - properties:
+            highScore:
+              type: integer
+  healcount:
+    type: integer
+  breedGrounds:
+    type: object
+  gradivusDilemma:
+    type: object
+  scans:
+    type: array
+    items:
+      properties:
+        uniqueName:
+          type: string
+        scans:
+          type: integer
+  reviveCount:
+    type: integer
+  fomorianEventScore:
+    type: integer
+  pvp:
+    type: array
+    items:
+      properties:
+        uniqueName:
+          type: string
+        suitDeaths:
+          type:
+            - integer
+            - "null"
+        suitKills:
+          type:
+            - integer
+            - "null"
+        weaponKills:
+          type:
+            - integer
+            - "null"
+  lunaro:
+    type: object
+    properties:
+      ties:
+        type: integer
+      checks:
+        type: integer
+      goals:
+        type: integer
+      interceptions:
+        type: integer
+      steals:
+        type: integer
+      points:
+        type: integer
+      losses:
+        type: integer
+  dojoObstacleScore:
+    type: integer
+  pvpGamesPendingMask:
+    type: integer
+  pacifismDefect:
+    type: integer
+  sentinelGameScore:
+    type: integer
+  amalgamEventScoreMax:
+    type: integer
+  scarletSpear:
+    type: object
+    properties:
+      eventScore:
+        type: integer
+      condirxTier2:
+        type: integer
+      murexTier1:
+        type: integer
+      murexTier2:
+        type: integer
+      murexTier3:
+        type: integer
+  orphixVenomSpear:
+    type: integer
+  kDriveRaces:
+    type: array
+    items:
+      properties:
+        uniqueName:
+          type: string
+        highScore:
+          type: integer
