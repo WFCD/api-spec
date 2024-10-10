@@ -1,0 +1,105 @@
+type: object
+properties:
+  accountId:
+    type: string
+  displayName:
+    type: string
+  masteryRank:
+    type: integer
+  loadout:
+    $ref: loudout.yaml
+  intrinsics:
+    properties:
+      railjack:
+        type: integer
+      engineering:
+        type: integer
+      gunnery:
+        type: integer
+      piloting:
+        type: integer
+      tactical:
+        type: integer
+      command:
+        type: integer
+      drifter:
+        type: integer
+      riding:
+        type: integer
+      combat:
+        type: integer
+      opportunity:
+        type: integer
+      endurance:
+        type: integer
+  challengeProgress:
+    type: array
+    items:
+      properties:
+        name:
+          type: string
+        progress:
+          type: integer
+  guildId:
+    type: string
+  guildName:
+    type: string
+  guildTier:
+    type: integer
+  guildXp:
+    type: integer
+  guildClass:
+    type: integer
+  guildEmblem:
+    type: boolean
+  allianceId:
+    type: string
+  deathMarks:
+    type: array
+  harvestable:
+    type: boolean
+  deathSquadable:
+    type: boolean
+  created:
+    type: string
+  migratedToConsole:
+    type: boolean
+  missions:
+    type: array
+    items:
+      allOf:
+        - $ref: ./profileMissions.yaml
+        - properties:
+            completes:
+              type: string
+            tier:
+              type:
+                - "null"
+                - integer
+  syndicate:
+    type: array
+    items:
+      properties:
+        name:
+          type: string
+        standing:
+          type: integer
+        title:
+          type: integer
+  dailyStanding:
+    $ref: dailyStanding.yaml
+  dailyFocus:
+    type: integer
+  unlockedOperator:
+    type: boolean
+  unlockedAlignment:
+    type: boolean
+  operatorLoadouts:
+    $ref: operatorLoadouts.yaml
+  alignment:
+    type: object
+    properties:
+      wisdom:
+        type: integer
+      alignment:
+        type: number

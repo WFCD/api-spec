@@ -1,0 +1,21 @@
+type: array
+items:
+  properties:
+    skins:
+      type: array
+      items:
+        required:
+          - uniqueName
+        properties:
+          uniqueName:
+            type: string
+          item:
+            $ref: ./shallowItem.yaml
+    primaryColor:
+      type: object
+      $ref: ./profileColor.yaml
+    syandanaColor:
+      type:
+        - object
+        - "null"
+      $ref: ./profileColor.yaml

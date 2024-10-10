@@ -1,0 +1,63 @@
+type: object
+properties:
+  weaponSkins:
+    type: array
+    items:
+      required:
+        - uniqueName
+      properties:
+        uniqueName:
+          type: string
+        item:
+          type:
+            - object
+            - "null"
+          $ref: ./shallowItem.yaml
+  suits:
+    $ref: suit.yaml
+  secondary:
+    type: array
+    items:
+      allOf:
+        - $ref: profileWeapon.yaml
+        - properties:
+            item:
+              type:
+                - object
+                - "null"
+              $ref: ./rangedWeapon.yaml
+  primary:
+    type: array
+    items:
+      allOf:
+        - $ref: profileWeapon.yaml
+        - properties:
+            item:
+              type:
+                - object
+                - "null"
+              $ref: ./rangedWeapon.yaml
+  melee:
+    type: array
+    items:
+      allOf:
+        - $ref: profileWeapon.yaml
+        - properties:
+            item:
+              type:
+                - object
+                - "null"
+              $ref: ./meleeWeapon.yaml
+  xpInfo:
+    type: array
+    items:
+      properties:
+        uniqueName:
+          type: string
+        xp:
+          type: integer
+        item:
+          type:
+            - object
+            - "null"
+          $ref: weapon.yaml

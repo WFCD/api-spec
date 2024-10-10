@@ -1,0 +1,30 @@
+type: object
+properties:
+  id:
+    type: string
+  activation:
+    type: string
+  expiry:
+    type: string
+  missions:
+    type: array
+    minItems: 3
+    maxItems: 3
+    items:
+      properties:
+        mission:
+          type: string
+        deviation:
+          $ref: ./deepArchimedeaCondition.yaml
+        riskVariables:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            $ref: ./deepArchimedeaCondition.yaml
+  personalModifiers:
+    type: array
+    minItems: 4
+    maxItems: 4
+    items:
+      $ref: ./deepArchimedeaCondition.yaml

@@ -1,0 +1,14 @@
+type: array
+items:
+  properties:
+    itemId:
+      type: string
+    uniqueName:
+      type: string
+    name:
+      type: string
+    item:
+      $ref: ./warframe.yaml
+      type: object
+    configs:
+      $ref: ./configs.yaml
