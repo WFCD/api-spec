@@ -4,7 +4,8 @@ get:
     - Worldstate
   summary: Get current Deep Archimedea information
   description: >-
-    Data on current Deep Archimedea missions, deviations, risk variables, and personal modifiers
+    Data on current Deep Archimedea missions, deviations, risk variables, 
+    and personal modifiers may not be up to date and, in some cases, may be omitted from the world state.
   parameters:
     - $ref: ../components/parameters/language.yaml
     - $ref: ../components/parameters/language-query.yaml
