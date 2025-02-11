@@ -3,7 +3,9 @@ get:
   tags:
     - Profile
   summary: Get player profile
-  description: Get player profile from available GDPR data.
+  description: >-
+    Get the player profile from the available GDPR data. 
+    DE now has the profile endpoint behind authentication, and all requests will timeout.
   parameters:
     - $ref: ../components/parameters/username.yaml
   responses:

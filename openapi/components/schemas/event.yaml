@@ -149,3 +149,6 @@ allOf:
             type: string
             format: date-time
             description: Next alternate activation. Use unknown.
+      tag:
+        type: string
+        description: A unique identifier or category label for the event, used to group or filter related events.
