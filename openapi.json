@@ -516,7 +516,7 @@
           "Worldstate"
         ],
         "summary": "Get current Deep Archimedea information",
-        "description": "Data on current Deep Archimedea missions, deviations, risk variables, and personal modifiers",
+        "description": "Data on current Deep Archimedea missions, deviations, risk variables,  and personal modifiers may not be up to date and, in some cases, may be omitted from the world state.",
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
@@ -3055,7 +3055,7 @@
           "Profile"
         ],
         "summary": "Get player profile",
-        "description": "Get player profile from available GDPR data.",
+        "description": "Get the player profile from the available GDPR data.  DE now has the profile endpoint behind authentication, and all requests will timeout.",
         "parameters": [
           {
             "$ref": "#/components/parameters/username"
@@ -3088,7 +3088,7 @@
           "Profile"
         ],
         "summary": "Get player stats",
-        "description": "Get player stats from available GDPR data.",
+        "description": "Get the player profile from the available GDPR data.  DE now has the profile endpoint behind authentication, and all requests will timeout.",
         "parameters": [
           {
             "$ref": "#/components/parameters/username"
@@ -4316,6 +4316,10 @@
                     "description": "Next alternate activation. Use unknown."
                   }
                 }
+              },
+              "tag": {
+                "type": "string",
+                "description": "A unique identifier or category label for the event, used to group or filter related events."
               }
             }
           }
