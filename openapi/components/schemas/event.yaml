@@ -151,4 +151,4 @@ allOf:
             description: Next alternate activation. Use unknown.
       tag:
         type: string
-        description: Event's tag
+        description: A unique identifier or category label for the event, used to group or filter related events.
