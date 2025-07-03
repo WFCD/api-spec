@@ -1,181 +1,100 @@
 allOf:
   - $ref: ./item.yaml
   - required:
-      - name
-      - uniqueName
-      - description
-      - passiveDescription
-      - type
-      - sex
-      - category
-      - productCategory
-      - tradable
-      - isPrime
-      - masterable
-      - vaulted
-      - conclave
-      - wikiAvailable
-      - masteryReq
-      - releaseDate
-      - estimatedVaultDate
-      - vaultDate
-      - imageName
-      - wikiaThumbnail
-      - wikiaUrl
-      - color
-      - sprint
-      - sprintSpeed
-      - stamina
-      - shield
-      - health
-      - armor
-      - power
-      - aura
-      - polarities
-      - excalted
-      - abilities
-      - pathlogs
-      - components
-      - introduced
-      - bpCost
-      - buildPrice
-      - buildQuantity
-      - consumeOnBuild
-      - buildTime
-      - skipBuildTimePrice
-      - marketCost
+    - armor
+    - health
+    - masterable
+    - power
+    - shield
+    - stamina
+    - tradable
     type: object
     properties:
-      name:
-        minLength: 1
-        type: string
-      uniqueName:
-        minLength: 1
-        type: string
-      description:
-        minLength: 1
-        type: string
-      passiveDescription:
-        minLength: 1
-        type: string
-      type:
-        minLength: 1
-        type: string
-      sex:
-        minLength: 1
-        type: string
-      category:
-        minLength: 1
-        type: string
-      productCategory:
-        minLength: 1
-        type: string
-      tradable:
-        minLength: 1
-        type: boolean
-      isPrime:
-        minLength: 1
-        type: boolean
-      masterable:
-        minLength: 1
-        type: boolean
-      vaulted:
-        minLength: 1
-        type: boolean
-      conclave:
-        minLength: 1
-        type: boolean
-      wikiAvailable:
-        minLength: 1
-        type: boolean
-      masteryReq:
-        minLength: 1
+      abilities:
+        type: array
+        items:
+          $ref: ./ability.yaml
+      armor:
         type: number
-      releaseDate:
+      aura:
         minLength: 1
         type: string
-      estimatedVaultDate:
-        minLength: 1
-        type: string
-      vaultDate:
-        minLength: 1
-        type: string
+      bpCost:
+        type: number
+      buildPrice:
+        type: number
+      buildQuantity:
+        type: number
+      buildTime:
+        type: number
+      color:
+        type: number
+      components:
+        type: array
+        items:
+          $ref: ./component.yaml
+      conclave:
+        type: boolean
+      consumeOnBuild:
+        type: boolean
+      exalted:
+        type: array
+        items:
+          type: string
+      health:
+        type: number
       imageName:
         minLength: 1
         type: string
-      wikiaThumbnail:
-        minLength: 1
-        type: string
-      wikiaUrl:
-        minLength: 1
-        type: string
-      color:
-        minLength: 1
+      isPrime:
+        type: boolean
+      masterable:
+        type: boolean
+      masteryReq:
+        minimum: 0
         type: number
-      sprint:
-        minLength: 1
+      marketCost:
         type: number
-      sprintSpeed:
-        minLength: 1
-        type: number
-      stamina:
-        minLength: 1
-        type: number
-      shield:
-        minLength: 1
-        type: number
-      health:
-        minLength: 1
-        type: number
-      armor:
-        minLength: 1
-        type: number
-      power:
-        minLength: 1
-        type: number
-      aura:
+      passiveDescription:
         minLength: 1
         type: string
       polarities:
         type: array
         items:
           type: string
-      excalted:
-        type: array
-        items:
-          type: string
-      abilities:
-        type: array
-        items:
-          $ref: ./ability.yaml
-      pathlogs:
-        type: array
-        items:
-          $ref: ./patchlog.yaml
-      components:
-        type: array
-        items: 
-          $ref: ./component.yaml
-      introduced:
-        $ref: ./introduced.yaml
-      bpCost:
-        minLength: 1
+      power:
         type: number
-      buildPrice:
+      releaseDate:
         minLength: 1
-        type: number
-      buildQuantity:
+        type: string
+      sex:
         minLength: 1
-        type: number
-      consumeOnBuild:
-        minLength: 1
-        type: boolean
-      buildTime:
-        minLength: 1
+        type: string
+      shield:
         type: number
       skipBuildTimePrice:
-        minLength: 1
         type: number
-      marketCost:
-        minLength: 1
+      sprint:
         type: number
+      sprintSpeed:
+        type: number
+      stamina:
+        type: number
+      tradable:
+        type: boolean
+      type:
+        minLength: 1
+        type: string
+      vaultDate:
+        minLength: 1
+        type: string
+      vaulted:
+        type: boolean
+      wikiAvailable:
+        type: boolean
+      wikiaThumbnail:
+        minLength: 1
+        type: string
+      wikiaUrl:
+        minLength: 1
+        type: string
