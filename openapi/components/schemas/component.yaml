@@ -1,0 +1,42 @@
+required:
+  - name
+  - uniqueName
+  - description
+  - imageName
+  - tradeable
+  - masterable
+  - itemCount
+  - drops
+type: object
+properties:
+  name:
+    minLength: 1
+    type: string
+  uniqueName:
+    minLength: 1
+    type: string
+  description:
+    minLength: 1
+    type: string
+  imageName:
+    minLength: 1
+    type: string
+  tradeable:
+    minLength: 1
+    type: boolean
+  masterable:
+    minLength: 1
+    type: boolean
+  itemCount:
+    minLength: 1
+    type: number
+  primeSellingPrice:
+    minLength: 1
+    type: number
+  ducats:
+    minLength: 1
+    type: number
+  drops:
+    type: array
+    items:
+      $ref: ./drop.yaml
