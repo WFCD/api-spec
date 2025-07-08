@@ -1,0 +1,19 @@
+required:
+  - name
+  - uniqueName
+  - description
+  - imageName
+type: object
+properties:
+  name:
+    minLength: 1
+    type: string
+  uniqueName:
+    minLength: 1
+    type: string
+  description:
+    minLength: 1
+    type: string
+  imageName:
+    minLength: 1
+    type: string

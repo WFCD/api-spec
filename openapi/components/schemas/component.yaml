@@ -1,0 +1,23 @@
+allOf:
+  - $ref: ./shallowItem.yaml
+  - required:
+    - imageName
+    - itemCount
+    - masterable
+    type: object
+    properties:
+      drops:
+        type: array
+        items:
+          $ref: ./drop.yaml
+      ducats:
+        type: number
+      imageName:
+        minLength: 1
+        type: string
+      itemCount:
+        type: number
+      masterable:
+        type: boolean
+      primeSellingPrice:
+        type: number

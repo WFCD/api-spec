@@ -1,101 +1,100 @@
 allOf:
   - $ref: ./item.yaml
   - required:
-      - armor
-      - aura
-      - color
-      - conclave
-      - description
-      - health
-      - info
-      - location
-      - mr
-      - name
-      - polarities
-      - power
-      - regex
-      - shield
-      - speed
-      - thumbnail
-      - url
+    - armor
+    - health
+    - masterable
+    - power
+    - shield
+    - stamina
+    - tradable
     type: object
     properties:
-      shield:
-        minLength: 1
+      abilities:
+        type: array
+        items:
+          $ref: ./ability.yaml
+      armor:
         type: number
+      aura:
+        minLength: 1
+        type: string
+      bpCost:
+        type: number
+      buildPrice:
+        type: number
+      buildQuantity:
+        type: number
+      buildTime:
+        type: number
+      color:
+        type: number
+      components:
+        type: array
+        items:
+          $ref: ./component.yaml
+      conclave:
+        type: boolean
+      consumeOnBuild:
+        type: boolean
+      exalted:
+        type: array
+        items:
+          type: string
+      health:
+        type: number
+      imageName:
+        minLength: 1
+        type: string
+      isPrime:
+        type: boolean
+      masterable:
+        type: boolean
+      masteryReq:
+        minimum: 0
+        type: number
+      marketCost:
+        type: number
+      passiveDescription:
+        minLength: 1
+        type: string
       polarities:
         type: array
         items:
           type: string
-      prime_power:
-        minLength: 1
-        type: string
-      prime_mr:
-        minLength: 1
-        type: string
-      color:
-        type: number
-      prime_polarities:
-        type: array
-        items:
-          type: string
-      conclave:
-        minLength: 1
-        type: boolean
-      description:
-        minLength: 1
-        type: string
-      prime_armor:
-        minLength: 1
-        type: number
-      speed:
-        minLength: 1
-        type: string
-      aura:
-        minLength: 1
-        type: string
-      prime_url:
-        minLength: 1
-        type: string
-      prime_health:
-        type: number
       power:
-        minLength: 1
         type: number
-      prime_aura:
+      releaseDate:
         minLength: 1
         type: string
-      info:
+      sex:
         minLength: 1
         type: string
-      thumbnail:
-        minLength: 1
-        type: string
-      mr:
-        minLength: 1
-        type: string
-      prime_shield:
+      shield:
         type: number
-      health:
-        minLength: 1
+      skipBuildTimePrice:
         type: number
-      prime_speed:
-        minLength: 1
-        type: string
-      url:
-        minLength: 1
-        type: string
-      regex:
-        minLength: 1
-        type: string
-      armor:
-        minLength: 1
+      sprint:
         type: number
-      name:
+      sprintSpeed:
+        type: number
+      stamina:
+        type: number
+      tradable:
+        type: boolean
+      type:
         minLength: 1
         type: string
-      location:
+      vaultDate:
         minLength: 1
         type: string
-      prime_conclave:
+      vaulted:
+        type: boolean
+      wikiAvailable:
+        type: boolean
+      wikiaThumbnail:
+        minLength: 1
+        type: string
+      wikiaUrl:
+        minLength: 1
         type: string
