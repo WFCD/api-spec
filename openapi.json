@@ -21,6 +21,7 @@
       "description": "Production Server"
     }
   ],
+  "security": [],
   "tags": [
     {
       "name": "Warframe",
@@ -64,7 +65,7 @@
     }
   ],
   "paths": {
-    "/{platform}": {
+    "/pc": {
       "get": {
         "operationId": "getWorldstateByPlatform",
         "tags": [
@@ -78,9 +79,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -111,7 +109,7 @@
         }
       }
     },
-    "/{platform}/alerts": {
+    "/pc/alerts": {
       "get": {
         "operationId": "getAlertsByPlatform",
         "tags": [
@@ -125,9 +123,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -155,7 +150,7 @@
         }
       }
     },
-    "/{platform}/arbitration": {
+    "/pc/arbitration": {
       "get": {
         "operationId": "getArbitrationByPlatform",
         "tags": [
@@ -170,9 +165,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -200,7 +192,7 @@
         }
       }
     },
-    "/{platform}/archonHunt": {
+    "/pc/archonHunt": {
       "get": {
         "operationId": "getArchonHuntByPlatform",
         "tags": [
@@ -209,9 +201,6 @@
         "summary": "Current Archon Hunt Data",
         "description": "Data about the missions for the current archon hunt",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "$ref": "#/components/parameters/language"
           },
@@ -244,7 +233,7 @@
         }
       }
     },
-    "/{platform}/cambionCycle": {
+    "/pc/cambionCycle": {
       "get": {
         "operationId": "getCambionByPlatform",
         "tags": [
@@ -258,9 +247,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -288,7 +274,7 @@
         }
       }
     },
-    "/{platform}/cetusCycle": {
+    "/pc/cetusCycle": {
       "get": {
         "operationId": "getCetusByPlatform",
         "tags": [
@@ -302,9 +288,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -332,7 +315,7 @@
         }
       }
     },
-    "/{platform}/conclaveChallenges": {
+    "/pc/conclaveChallenges": {
       "get": {
         "operationId": "getConclaveChallengesByPlatform",
         "tags": [
@@ -346,9 +329,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -376,7 +356,7 @@
         }
       }
     },
-    "/{platform}/constructionProgress": {
+    "/pc/constructionProgress": {
       "get": {
         "operationId": "getConstructionByPlatform",
         "tags": [
@@ -390,9 +370,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -420,7 +397,7 @@
         }
       }
     },
-    "/{platform}/dailyDeals": {
+    "/pc/dailyDeals": {
       "get": {
         "operationId": "getDealsByPlatform",
         "tags": [
@@ -434,9 +411,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -464,7 +438,7 @@
         }
       }
     },
-    "/{platform}/darkSectors": {
+    "/pc/darkSectors": {
       "get": {
         "operationId": "getDarkSectorsByPlatform",
         "tags": [
@@ -478,9 +452,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -509,7 +480,7 @@
         "deprecated": true
       }
     },
-    "/{platform}/deepArchimedea": {
+    "/pc/deepArchimedea": {
       "get": {
         "operationId": "getDeepArchimedeaByPlatform",
         "tags": [
@@ -523,9 +494,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -553,7 +521,7 @@
         }
       }
     },
-    "/{platform}/earthCycle": {
+    "/pc/earthCycle": {
       "get": {
         "operationId": "getEarthByPlatform",
         "tags": [
@@ -567,9 +535,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -597,7 +562,7 @@
         }
       }
     },
-    "/{platform}/events": {
+    "/pc/events": {
       "get": {
         "operationId": "getEventsByPlatform",
         "tags": [
@@ -611,9 +576,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -641,7 +603,7 @@
         }
       }
     },
-    "/{platform}/fissures": {
+    "/pc/fissures": {
       "get": {
         "operationId": "getFissuresByPlatform",
         "tags": [
@@ -655,9 +617,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -685,7 +644,7 @@
         }
       }
     },
-    "/{platform}/flashSales": {
+    "/pc/flashSales": {
       "get": {
         "operationId": "getSalesByPlatform",
         "tags": [
@@ -699,9 +658,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -729,7 +685,7 @@
         }
       }
     },
-    "/{platform}/globalUpgrades": {
+    "/pc/globalUpgrades": {
       "get": {
         "operationId": "getGlobalEffectsByPlatform",
         "tags": [
@@ -743,9 +699,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -773,7 +726,7 @@
         }
       }
     },
-    "/{platform}/invasions": {
+    "/pc/invasions": {
       "get": {
         "operationId": "getInvasionsByPlatform",
         "tags": [
@@ -787,9 +740,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -817,7 +767,7 @@
         }
       }
     },
-    "/{platform}/kuva": {
+    "/pc/kuva": {
       "get": {
         "operationId": "getKuvaByPlatform",
         "tags": [
@@ -832,9 +782,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -865,7 +812,7 @@
         }
       }
     },
-    "/{platform}/news": {
+    "/pc/news": {
       "get": {
         "operationId": "getNewsByPlatform",
         "tags": [
@@ -873,11 +820,6 @@
         ],
         "summary": "Current Listing of News items",
         "description": "Translated News items from the worldstate",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          }
-        ],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -903,7 +845,7 @@
         }
       }
     },
-    "/{platform}/nightwave": {
+    "/pc/nightwave": {
       "get": {
         "operationId": "getNightwaveByPlatform",
         "tags": [
@@ -917,9 +859,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -947,7 +886,7 @@
         }
       }
     },
-    "/{platform}/persistentEnemies": {
+    "/pc/persistentEnemies": {
       "get": {
         "operationId": "getAcolytesByPlatform",
         "tags": [
@@ -961,9 +900,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -986,7 +922,7 @@
         }
       }
     },
-    "/{platform}/rivens": {
+    "/pc/rivens": {
       "get": {
         "operationId": "getRivensByPlatform",
         "tags": [
@@ -1001,9 +937,6 @@
           },
           {
             "$ref": "#/components/parameters/language-query"
-          },
-          {
-            "$ref": "#/components/parameters/platform"
           }
         ],
         "responses": {
@@ -1026,7 +959,7 @@
         }
       }
     },
-    "/{platform}/rivens/search/{query}": {
+    "/pc/rivens/search/{query}": {
       "get": {
         "operationId": "searchRivensByPlatform",
         "tags": [
@@ -1036,9 +969,6 @@
         "summary": "Get Riven statistic data",
         "description": "Data about averages, deviations, medians, miniums, and maxes for rivens whose name match the query for the provided platform",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "name": "query",
             "in": "path",
@@ -1075,7 +1005,7 @@
         }
       }
     },
-    "/{platform}/sentientOutposts": {
+    "/pc/sentientOutposts": {
       "get": {
         "operationId": "getOutpostsByPlatform",
         "tags": [
@@ -1084,9 +1014,6 @@
         "summary": "Get the current Sentient Outpost, if any",
         "description": "Status data for current Sentient Outpost, if any. Parsed source is combined data from DE\\'s worldstate and [semlar\\'s data](https://semlar.com/anomaly.json)",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "$ref": "#/components/parameters/language"
           },
@@ -1105,46 +1032,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "mission": {
-                      "$ref": "#/components/schemas/mission"
-                    },
-                    "active": {
-                      "type": "boolean",
-                      "description": "Whether the outpost is active"
-                    },
-                    "id": {
-                      "type": "string",
-                      "description": "Identifier for the mission node with active indicator"
-                    },
-                    "activation": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "When the mission became or becomes active"
-                    },
-                    "expiry": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "When the mission became or becomes inactive"
-                    },
-                    "previous": {
-                      "description": "Estimation data for the last mission that was active. Could also be the current.",
-                      "type": "object",
-                      "properties": {
-                        "activation": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "When the mission became or becomes active"
-                        },
-                        "expiry": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "When the mission became or becomes inactive"
-                        }
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/sentientOutposts"
                 }
               }
             }
@@ -1158,7 +1046,7 @@
         }
       }
     },
-    "/{platform}/simaris": {
+    "/pc/simaris": {
       "get": {
         "operationId": "getSimarisByPlatform",
         "tags": [
@@ -1167,9 +1055,6 @@
         "summary": "Get the current Sanctuary Status",
         "description": "Status data for Simaris' Sanctuary",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "$ref": "#/components/parameters/language"
           },
@@ -1202,7 +1087,7 @@
         }
       }
     },
-    "/{platform}/sortie": {
+    "/pc/sortie": {
       "get": {
         "operationId": "getSortieByPlatform",
         "tags": [
@@ -1211,9 +1096,6 @@
         "summary": "Current Sortie Data",
         "description": "Data about the missions for the current sortie",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "$ref": "#/components/parameters/language"
           },
@@ -1246,7 +1128,7 @@
         }
       }
     },
-    "/{platform}/steelPath": {
+    "/pc/steelPath": {
       "get": {
         "operationId": "getSteelPathByPlatform",
         "tags": [
@@ -1255,9 +1137,6 @@
         "summary": "Current Steel Path Data",
         "description": "Data about the missions for the current sortie",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "$ref": "#/components/parameters/language"
           },
@@ -1290,7 +1169,7 @@
         }
       }
     },
-    "/{platform}/syndicateMissions": {
+    "/pc/syndicateMissions": {
       "get": {
         "operationId": "getSyndicatesByPlatform",
         "tags": [
@@ -1299,9 +1178,6 @@
         "summary": "Listing of Syndicate mission nodes",
         "description": "Cycling through different nodes each day, these are a general listing of the nodes that each syndicate will use for the day.",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "$ref": "#/components/parameters/language"
           },
@@ -1334,7 +1210,7 @@
         }
       }
     },
-    "/{platform}/timestamp": {
+    "/pc/timestamp": {
       "get": {
         "operationId": "getTimestampByPlatform",
         "tags": [
@@ -1343,9 +1219,6 @@
         "summary": "Get the timestamp that the current worldstate was generated at.",
         "description": "The time that the worldstate was last generated",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "$ref": "#/components/parameters/language"
           },
@@ -1378,7 +1251,7 @@
         }
       }
     },
-    "/{platform}/vallisCycle": {
+    "/pc/vallisCycle": {
       "get": {
         "operationId": "getVallisByPlatform",
         "tags": [
@@ -1387,9 +1260,6 @@
         "summary": "Get the current state of the Orb Vallis",
         "description": "The current cycle of the Orb Vallis warm/cold cycle",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "$ref": "#/components/parameters/language"
           },
@@ -1422,7 +1292,7 @@
         }
       }
     },
-    "/{platform}/vaultTrader": {
+    "/pc/vaultTrader": {
       "get": {
         "operationId": "getVarziaByPlatform",
         "tags": [
@@ -1432,9 +1302,6 @@
         "description": "Information on the current Varzia offerings, or when she will arrive.",
         "parameters": [
           {
-            "$ref": "#/components/parameters/platform"
-          },
-          {
             "$ref": "#/components/parameters/language"
           },
           {
@@ -1466,7 +1333,7 @@
         }
       }
     },
-    "/{platform}/voidTrader": {
+    "/pc/voidTrader": {
       "get": {
         "operationId": "getBaroByPlatform",
         "tags": [
@@ -1476,9 +1343,6 @@
         "description": "Information on the current Void Trader offerings, or when he will arrive.",
         "parameters": [
           {
-            "$ref": "#/components/parameters/platform"
-          },
-          {
             "$ref": "#/components/parameters/language"
           },
           {
@@ -1510,7 +1374,7 @@
         }
       }
     },
-    "/{platform}/voidTraders": {
+    "/pc/voidTraders": {
       "get": {
         "operationId": "getVoidTradersByPlatform",
         "tags": [
@@ -1519,9 +1383,6 @@
         "summary": "Get the current Void Traders Information",
         "description": "Information on the current Void Traders offerings, or when they will arrive.",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/platform"
-          },
           {
             "$ref": "#/components/parameters/language"
           },
@@ -3134,18 +2995,12 @@
           "uk"
         ]
       },
-      "platform": {
-        "type": "string",
-        "enum": [
-          "pc",
-          "ps4",
-          "xb1",
-          "swi"
-        ]
-      },
       "timestamp": {
         "minLength": 1,
-        "type": "string"
+        "type": "string",
+        "format": "date-time",
+        "description": "A timestamp in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ) representing a specific point in time. This format is commonly used in APIs to ensure consistent date and time representation. The timestamp is in UTC (Coordinated Universal Time) and does not include any timezone offset. It is used to represent events, deadlines, or any time-related information in a standardized way. Example: \"2023-10-01T12:00:00Z\" represents October 1, 2023, at 12:00 PM UTC.\n",
+        "example": "2023-10-01T12:00:00Z"
       },
       "worldstateObject": {
         "type": "object",
@@ -3162,18 +3017,7 @@
             "description": "ISO-8601 formatted timestamp for when the event began"
           },
           "expiry": {
-            "type": "string",
-            "minLength": 1,
-            "format": "date-time",
-            "description": "ISO-8601 formatted timestamp for when the event is expected to end"
-          },
-          "startString": {
-            "type": "string",
-            "description": "Short-time-formatted duration string representing the start of the event"
-          },
-          "active": {
-            "type": "boolean",
-            "description": "Whether the event is currently active"
+            "$ref": "#/components/schemas/timestamp"
           }
         }
       },
@@ -3432,11 +3276,6 @@
           }
         }
       },
-      "eta": {
-        "minLength": 1,
-        "type": "string",
-        "description": "Short-formatted string estimating the time until the event/mission is closed"
-      },
       "rewardType": {
         "type": "string",
         "description": "One of the reward types",
@@ -3498,12 +3337,6 @@
                 "description": "Mission to be completed to earn the reward"
               }
             ]
-          },
-          "expired": {
-            "type": "boolean"
-          },
-          "eta": {
-            "$ref": "#/components/schemas/eta"
           },
           "rewardTypes": {
             "type": "array",
@@ -3596,13 +3429,8 @@
           },
           {
             "required": [
-              "activation",
               "boss",
-              "eta",
-              "expired",
-              "expiry",
               "faction",
-              "id",
               "rewardPool",
               "missions"
             ],
@@ -3643,13 +3471,6 @@
                     "description": "Unlocalized Faction of the boss controlling the archon hunt"
                   }
                 ]
-              },
-              "expired": {
-                "type": "boolean"
-              },
-              "eta": {
-                "minLength": 1,
-                "type": "string"
               }
             }
           }
@@ -3688,10 +3509,6 @@
               "vome",
               "fass"
             ]
-          },
-          "timeLeft": {
-            "minLength": 1,
-            "type": "string"
           }
         }
       },
@@ -3702,7 +3519,6 @@
           },
           {
             "required": [
-              "expiry",
               "isCetus",
               "isDay",
               "timeLeft"
@@ -3737,13 +3553,9 @@
         "items": {
           "required": [
             "amount",
-            "asString",
             "category",
             "daily",
             "description",
-            "endString",
-            "eta",
-            "expired",
             "expiry",
             "id",
             "mode",
@@ -3758,17 +3570,6 @@
             "amount": {
               "type": "number"
             },
-            "eta": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "expired": {
-              "type": "boolean"
-            },
-            "endString": {
-              "minLength": 1,
-              "type": "string"
-            },
             "daily": {
               "type": "boolean"
             },
@@ -3781,10 +3582,6 @@
               "type": "string"
             },
             "expiry": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "asString": {
               "minLength": 1,
               "type": "string"
             },
@@ -3916,7 +3713,7 @@
         "type": "array",
         "items": {
           "required": [
-            "defenderDeployemntActivation",
+            "defenderDeploymentActivation",
             "defenderMOTD",
             "defenderName",
             "deployerClan",
@@ -4027,8 +3824,6 @@
           },
           {
             "required": [
-              "expiry",
-              "id",
               "isDay",
               "timeLeft"
             ],
@@ -4344,12 +4139,7 @@
       "fissure": {
         "type": "object",
         "required": [
-          "activation",
           "enemy",
-          "eta",
-          "expired",
-          "expiry",
-          "id",
           "missionType",
           "node",
           "tier",
@@ -4360,13 +4150,6 @@
             "minLength": 1,
             "type": "string",
             "description": "Node name with planet"
-          },
-          "expired": {
-            "type": "boolean",
-            "description": "Whether the fissure is still present"
-          },
-          "eta": {
-            "$ref": "#/components/schemas/eta"
           },
           "missionType": {
             "allOf": [
@@ -4455,7 +4238,6 @@
             "items": {
               "required": [
                 "discount",
-                "eta",
                 "isFeatured",
                 "isPopular",
                 "item",
@@ -4464,13 +4246,6 @@
               "type": "object",
               "properties": {
                 "item": {
-                  "minLength": 1,
-                  "type": "string"
-                },
-                "expired": {
-                  "type": "boolean"
-                },
-                "eta": {
                   "minLength": 1,
                   "type": "string"
                 },
@@ -4516,10 +4291,6 @@
             "upgradeOperationValue": {
               "description": "Value corresponding to performing the operation",
               "type": "number"
-            },
-            "expired": {
-              "description": "Whether the upgrade has expired",
-              "type": "boolean"
             },
             "eta": {
               "description": "Formatted short string designating when the upgrade will expire.",
@@ -4567,15 +4338,12 @@
           },
           {
             "required": [
-              "activation",
               "attackingFaction",
               "completed",
               "completion",
               "count",
               "defendingFaction",
               "desc",
-              "eta",
-              "id",
               "node",
               "requiredRuns",
               "vsInfestation"
@@ -4899,6 +4667,56 @@
           }
         }
       },
+      "sentientOutposts": {
+        "type": "object",
+        "required": [
+          "node",
+          "id",
+          "activation",
+          "expiry",
+          "mission",
+          "active"
+        ],
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "node": {
+            "type": "number",
+            "format": "integer"
+          },
+          "activation": {
+            "$ref": "#/components/schemas/timestamp"
+          },
+          "expiry": {
+            "$ref": "#/components/schemas/timestamp"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "mission": {
+            "type": "object",
+            "required": [
+              "node",
+              "type",
+              "faction"
+            ],
+            "properties": {
+              "node": {
+                "type": "string",
+                "description": "Localized node name"
+              },
+              "type": {
+                "$ref": "#/components/schemas/missionType"
+              },
+              "faction": {
+                "$ref": "#/components/schemas/faction"
+              }
+            }
+          }
+        }
+      },
       "simaris": {
         "required": [
           "asString",
@@ -4927,13 +4745,8 @@
           },
           {
             "required": [
-              "activation",
               "boss",
-              "eta",
-              "expired",
-              "expiry",
               "faction",
-              "id",
               "rewardPool",
               "variants"
             ],
@@ -5007,13 +4820,6 @@
                     "description": "Unlocalized Faction of the boss controlling the sortie"
                   }
                 ]
-              },
-              "expired": {
-                "type": "boolean"
-              },
-              "eta": {
-                "minLength": 1,
-                "type": "string"
               }
             }
           }
@@ -5107,14 +4913,10 @@
             "type": "string"
           },
           "expiry": {
-            "minLength": 1,
-            "type": "string",
-            "format": "date-time"
+            "$ref": "#/components/schemas/timestamp"
           },
           "activation": {
-            "format": "date-time",
-            "minLength": 1,
-            "type": "string"
+            "$ref": "#/components/schemas/timestamp"
           }
         }
       },
@@ -5308,6 +5110,9 @@
           },
           "persistentEnemies": {
             "$ref": "#/components/schemas/persistentEnemies"
+          },
+          "sentientOutposts": {
+            "$ref": "#/components/schemas/sentientOutposts"
           },
           "simaris": {
             "$ref": "#/components/schemas/simaris"
@@ -8734,16 +8539,6 @@
         "required": true,
         "schema": {
           "$ref": "#/components/schemas/language"
-        }
-      },
-      "platform": {
-        "name": "platform",
-        "in": "path",
-        "description": "Platform to provide data for",
-        "allowEmptyValue": false,
-        "required": true,
-        "schema": {
-          "$ref": "#/components/schemas/platform"
         }
       },
       "query": {

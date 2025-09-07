@@ -16,6 +16,7 @@ info:
 servers:
   - url: https://api.warframestat.us
     description: Production Server
+security: []
 tags:
   - name: Warframe
     description: Everything about Warframe
@@ -41,7 +42,7 @@ tags:
   - name: Static Processing Data
     description: Direct access via API to the data we use to parse the worldstate
 paths:
-  /{platform}:
+  /pc:
     get:
       operationId: getWorldstateByPlatform
       tags:
@@ -51,7 +52,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -68,7 +68,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/alerts:
+  /pc/alerts:
     get:
       operationId: getAlertsByPlatform
       tags:
@@ -78,7 +78,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -93,7 +92,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/arbitration:
+  /pc/arbitration:
     get:
       operationId: getArbitrationByPlatform
       tags:
@@ -104,7 +103,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -119,7 +117,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/archonHunt:
+  /pc/archonHunt:
     get:
       operationId: getArchonHuntByPlatform
       tags:
@@ -127,7 +125,6 @@ paths:
       summary: Current Archon Hunt Data
       description: Data about the missions for the current archon hunt
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -144,7 +141,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/cambionCycle:
+  /pc/cambionCycle:
     get:
       operationId: getCambionByPlatform
       tags:
@@ -154,7 +151,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -169,7 +165,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/cetusCycle:
+  /pc/cetusCycle:
     get:
       operationId: getCetusByPlatform
       tags:
@@ -179,7 +175,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -194,7 +189,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/conclaveChallenges:
+  /pc/conclaveChallenges:
     get:
       operationId: getConclaveChallengesByPlatform
       tags:
@@ -204,7 +199,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -219,7 +213,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/constructionProgress:
+  /pc/constructionProgress:
     get:
       operationId: getConstructionByPlatform
       tags:
@@ -229,7 +223,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -244,7 +237,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/dailyDeals:
+  /pc/dailyDeals:
     get:
       operationId: getDealsByPlatform
       tags:
@@ -254,7 +247,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -269,7 +261,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/darkSectors:
+  /pc/darkSectors:
     get:
       operationId: getDarkSectorsByPlatform
       tags:
@@ -279,7 +271,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -295,7 +286,7 @@ paths:
         '500':
           $ref: '#/components/responses/error'
       deprecated: true
-  /{platform}/deepArchimedea:
+  /pc/deepArchimedea:
     get:
       operationId: getDeepArchimedeaByPlatform
       tags:
@@ -305,7 +296,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -320,7 +310,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/earthCycle:
+  /pc/earthCycle:
     get:
       operationId: getEarthByPlatform
       tags:
@@ -330,7 +320,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -345,7 +334,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/events:
+  /pc/events:
     get:
       operationId: getEventsByPlatform
       tags:
@@ -355,7 +344,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -370,7 +358,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/fissures:
+  /pc/fissures:
     get:
       operationId: getFissuresByPlatform
       tags:
@@ -380,7 +368,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -395,7 +382,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/flashSales:
+  /pc/flashSales:
     get:
       operationId: getSalesByPlatform
       tags:
@@ -405,7 +392,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -420,7 +406,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/globalUpgrades:
+  /pc/globalUpgrades:
     get:
       operationId: getGlobalEffectsByPlatform
       tags:
@@ -430,7 +416,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -445,7 +430,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/invasions:
+  /pc/invasions:
     get:
       operationId: getInvasionsByPlatform
       tags:
@@ -455,7 +440,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -470,7 +454,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/kuva:
+  /pc/kuva:
     get:
       operationId: getKuvaByPlatform
       tags:
@@ -481,7 +465,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -498,15 +481,13 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/news:
+  /pc/news:
     get:
       operationId: getNewsByPlatform
       tags:
         - Worldstate
       summary: Current Listing of News items
       description: Translated News items from the worldstate
-      parameters:
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -521,7 +502,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/nightwave:
+  /pc/nightwave:
     get:
       operationId: getNightwaveByPlatform
       tags:
@@ -531,7 +512,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -546,7 +526,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/persistentEnemies:
+  /pc/persistentEnemies:
     get:
       operationId: getAcolytesByPlatform
       tags:
@@ -556,7 +536,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -568,7 +547,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/rivens:
+  /pc/rivens:
     get:
       operationId: getRivensByPlatform
       tags:
@@ -579,7 +558,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
-        - $ref: '#/components/parameters/platform'
       responses:
         '200':
           description: successful operation
@@ -591,7 +569,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/rivens/search/{query}:
+  /pc/rivens/search/{query}:
     get:
       operationId: searchRivensByPlatform
       tags:
@@ -600,7 +578,6 @@ paths:
       summary: Get Riven statistic data
       description: Data about averages, deviations, medians, miniums, and maxes for rivens whose name match the query for the provided platform
       parameters:
-        - $ref: '#/components/parameters/platform'
         - name: query
           in: path
           description: Riven name to search for
@@ -622,7 +599,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/sentientOutposts:
+  /pc/sentientOutposts:
     get:
       operationId: getOutpostsByPlatform
       tags:
@@ -630,7 +607,6 @@ paths:
       summary: Get the current Sentient Outpost, if any
       description: Status data for current Sentient Outpost, if any. Parsed source is combined data from DE\'s worldstate and [semlar\'s data](https://semlar.com/anomaly.json)
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -642,41 +618,12 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  mission:
-                    $ref: '#/components/schemas/mission'
-                  active:
-                    type: boolean
-                    description: Whether the outpost is active
-                  id:
-                    type: string
-                    description: Identifier for the mission node with active indicator
-                  activation:
-                    type: string
-                    format: date-time
-                    description: When the mission became or becomes active
-                  expiry:
-                    type: string
-                    format: date-time
-                    description: When the mission became or becomes inactive
-                  previous:
-                    description: Estimation data for the last mission that was active. Could also be the current.
-                    type: object
-                    properties:
-                      activation:
-                        type: string
-                        format: date-time
-                        description: When the mission became or becomes active
-                      expiry:
-                        type: string
-                        format: date-time
-                        description: When the mission became or becomes inactive
+                $ref: '#/components/schemas/sentientOutposts'
         '400':
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/simaris:
+  /pc/simaris:
     get:
       operationId: getSimarisByPlatform
       tags:
@@ -684,7 +631,6 @@ paths:
       summary: Get the current Sanctuary Status
       description: Status data for Simaris' Sanctuary
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -701,7 +647,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/sortie:
+  /pc/sortie:
     get:
       operationId: getSortieByPlatform
       tags:
@@ -709,7 +655,6 @@ paths:
       summary: Current Sortie Data
       description: Data about the missions for the current sortie
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -726,7 +671,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/steelPath:
+  /pc/steelPath:
     get:
       operationId: getSteelPathByPlatform
       tags:
@@ -734,7 +679,6 @@ paths:
       summary: Current Steel Path Data
       description: Data about the missions for the current sortie
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -751,7 +695,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/syndicateMissions:
+  /pc/syndicateMissions:
     get:
       operationId: getSyndicatesByPlatform
       tags:
@@ -759,7 +703,6 @@ paths:
       summary: Listing of Syndicate mission nodes
       description: Cycling through different nodes each day, these are a general listing of the nodes that each syndicate will use for the day.
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -776,7 +719,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/timestamp:
+  /pc/timestamp:
     get:
       operationId: getTimestampByPlatform
       tags:
@@ -784,7 +727,6 @@ paths:
       summary: Get the timestamp that the current worldstate was generated at.
       description: The time that the worldstate was last generated
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -801,7 +743,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/vallisCycle:
+  /pc/vallisCycle:
     get:
       operationId: getVallisByPlatform
       tags:
@@ -809,7 +751,6 @@ paths:
       summary: Get the current state of the Orb Vallis
       description: The current cycle of the Orb Vallis warm/cold cycle
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -826,7 +767,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/vaultTrader:
+  /pc/vaultTrader:
     get:
       operationId: getVarziaByPlatform
       tags:
@@ -834,7 +775,6 @@ paths:
       summary: Get the current Varzia Information
       description: Information on the current Varzia offerings, or when she will arrive.
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -851,7 +791,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/voidTrader:
+  /pc/voidTrader:
     get:
       operationId: getBaroByPlatform
       tags:
@@ -859,7 +799,6 @@ paths:
       summary: Get the current Void Trader Information
       description: Information on the current Void Trader offerings, or when he will arrive.
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -876,7 +815,7 @@ paths:
           $ref: '#/components/responses/error'
         '500':
           $ref: '#/components/responses/error'
-  /{platform}/voidTraders:
+  /pc/voidTraders:
     get:
       operationId: getVoidTradersByPlatform
       tags:
@@ -884,7 +823,6 @@ paths:
       summary: Get the current Void Traders Information
       description: Information on the current Void Traders offerings, or when they will arrive.
       parameters:
-        - $ref: '#/components/parameters/platform'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/language-query'
       responses:
@@ -1841,16 +1779,13 @@ components:
         - zh
         - en
         - uk
-    platform:
-      type: string
-      enum:
-        - pc
-        - ps4
-        - xb1
-        - swi
     timestamp:
       minLength: 1
       type: string
+      format: date-time
+      description: |
+        A timestamp in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ) representing a specific point in time. This format is commonly used in APIs to ensure consistent date and time representation. The timestamp is in UTC (Coordinated Universal Time) and does not include any timezone offset. It is used to represent events, deadlines, or any time-related information in a standardized way. Example: "2023-10-01T12:00:00Z" represents October 1, 2023, at 12:00 PM UTC.
+      example: '2023-10-01T12:00:00Z'
     worldstateObject:
       type: object
       properties:
@@ -1864,16 +1799,7 @@ components:
           format: date-time
           description: ISO-8601 formatted timestamp for when the event began
         expiry:
-          type: string
-          minLength: 1
-          format: date-time
-          description: ISO-8601 formatted timestamp for when the event is expected to end
-        startString:
-          type: string
-          description: Short-time-formatted duration string representing the start of the event
-        active:
-          type: boolean
-          description: Whether the event is currently active
+          $ref: '#/components/schemas/timestamp'
     reward:
       type: object
       required:
@@ -2062,10 +1988,6 @@ components:
         description:
           type: string
           description: Description of the mission
-    eta:
-      minLength: 1
-      type: string
-      description: Short-formatted string estimating the time until the event/mission is closed
     rewardType:
       type: string
       description: One of the reward types
@@ -2120,10 +2042,6 @@ components:
           allOf:
             - $ref: '#/components/schemas/mission'
             - description: Mission to be completed to earn the reward
-        expired:
-          type: boolean
-        eta:
-          $ref: '#/components/schemas/eta'
         rewardTypes:
           type: array
           items:
@@ -2171,13 +2089,8 @@ components:
       allOf:
         - $ref: '#/components/schemas/worldstateObject'
         - required:
-            - activation
             - boss
-            - eta
-            - expired
-            - expiry
             - faction
-            - id
             - rewardPool
             - missions
           type: object
@@ -2202,11 +2115,6 @@ components:
               allOf:
                 - $ref: '#/components/schemas/faction'
                 - description: Unlocalized Faction of the boss controlling the archon hunt
-            expired:
-              type: boolean
-            eta:
-              minLength: 1
-              type: string
     cambionCycle:
       required:
         - expiry
@@ -2233,14 +2141,10 @@ components:
           enum:
             - vome
             - fass
-        timeLeft:
-          minLength: 1
-          type: string
     cetusCycle:
       allOf:
         - $ref: '#/components/schemas/worldstateObject'
         - required:
-            - expiry
             - isCetus
             - isDay
             - timeLeft
@@ -2265,13 +2169,9 @@ components:
       items:
         required:
           - amount
-          - asString
           - category
           - daily
           - description
-          - endString
-          - eta
-          - expired
           - expiry
           - id
           - mode
@@ -2283,14 +2183,6 @@ components:
             type: string
           amount:
             type: number
-          eta:
-            minLength: 1
-            type: string
-          expired:
-            type: boolean
-          endString:
-            minLength: 1
-            type: string
           daily:
             type: boolean
           description:
@@ -2300,9 +2192,6 @@ components:
             minLength: 1
             type: string
           expiry:
-            minLength: 1
-            type: string
-          asString:
             minLength: 1
             type: string
           category:
@@ -2399,7 +2288,7 @@ components:
       type: array
       items:
         required:
-          - defenderDeployemntActivation
+          - defenderDeploymentActivation
           - defenderMOTD
           - defenderName
           - deployerClan
@@ -2475,8 +2364,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/worldstateObject'
         - required:
-            - expiry
-            - id
             - isDay
             - timeLeft
           type: object
@@ -2703,12 +2590,7 @@ components:
     fissure:
       type: object
       required:
-        - activation
         - enemy
-        - eta
-        - expired
-        - expiry
-        - id
         - missionType
         - node
         - tier
@@ -2718,11 +2600,6 @@ components:
           minLength: 1
           type: string
           description: Node name with planet
-        expired:
-          type: boolean
-          description: Whether the fissure is still present
-        eta:
-          $ref: '#/components/schemas/eta'
         missionType:
           allOf:
             - $ref: '#/components/schemas/missionType'
@@ -2767,7 +2644,6 @@ components:
           items:
             required:
               - discount
-              - eta
               - isFeatured
               - isPopular
               - item
@@ -2775,11 +2651,6 @@ components:
             type: object
             properties:
               item:
-                minLength: 1
-                type: string
-              expired:
-                type: boolean
-              eta:
                 minLength: 1
                 type: string
               discount:
@@ -2810,9 +2681,6 @@ components:
           upgradeOperationValue:
             description: Value corresponding to performing the operation
             type: number
-          expired:
-            description: Whether the upgrade has expired
-            type: boolean
           eta:
             description: Formatted short string designating when the upgrade will expire.
             type: string
@@ -2836,15 +2704,12 @@ components:
       allOf:
         - $ref: '#/components/schemas/worldstateObject'
         - required:
-            - activation
             - attackingFaction
             - completed
             - completion
             - count
             - defendingFaction
             - desc
-            - eta
-            - id
             - node
             - requiredRuns
             - vsInfestation
@@ -3060,6 +2925,42 @@ components:
           pid:
             type: string
             description: faux-id incorporating the actual description and Whether the enemy is discovered.
+    sentientOutposts:
+      type: object
+      required:
+        - node
+        - id
+        - activation
+        - expiry
+        - mission
+        - active
+      properties:
+        id:
+          minLength: 1
+          type: string
+        node:
+          type: number
+          format: integer
+        activation:
+          $ref: '#/components/schemas/timestamp'
+        expiry:
+          $ref: '#/components/schemas/timestamp'
+        active:
+          type: boolean
+        mission:
+          type: object
+          required:
+            - node
+            - type
+            - faction
+          properties:
+            node:
+              type: string
+              description: Localized node name
+            type:
+              $ref: '#/components/schemas/missionType'
+            faction:
+              $ref: '#/components/schemas/faction'
     simaris:
       required:
         - asString
@@ -3079,13 +2980,8 @@ components:
       allOf:
         - $ref: '#/components/schemas/worldstateObject'
         - required:
-            - activation
             - boss
-            - eta
-            - expired
-            - expiry
             - faction
-            - id
             - rewardPool
             - variants
           type: object
@@ -3135,11 +3031,6 @@ components:
               allOf:
                 - $ref: '#/components/schemas/faction'
                 - description: Unlocalized Faction of the boss controlling the sortie
-            expired:
-              type: boolean
-            eta:
-              minLength: 1
-              type: string
     simpleReward:
       type: object
       properties:
@@ -3202,13 +3093,9 @@ components:
           minLength: 1
           type: string
         expiry:
-          minLength: 1
-          type: string
-          format: date-time
+          $ref: '#/components/schemas/timestamp'
         activation:
-          format: date-time
-          minLength: 1
-          type: string
+          $ref: '#/components/schemas/timestamp'
     syndicateMissions:
       minItems: 1
       type: array
@@ -3348,6 +3235,8 @@ components:
           $ref: '#/components/schemas/nightwave'
         persistentEnemies:
           $ref: '#/components/schemas/persistentEnemies'
+        sentientOutposts:
+          $ref: '#/components/schemas/sentientOutposts'
         simaris:
           $ref: '#/components/schemas/simaris'
         sortie:
@@ -5702,14 +5591,6 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/language'
-    platform:
-      name: platform
-      in: path
-      description: Platform to provide data for
-      allowEmptyValue: false
-      required: true
-      schema:
-        $ref: '#/components/schemas/platform'
     query:
       name: query
       in: path
