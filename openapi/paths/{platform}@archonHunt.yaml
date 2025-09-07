@@ -5,7 +5,6 @@ get:
   summary: Current Archon Hunt Data
   description: Data about the missions for the current archon hunt
   parameters:
-    - $ref: ../components/parameters/platform.yaml
     - $ref: ../components/parameters/language.yaml
     - $ref: ../components/parameters/language-query.yaml
   responses:

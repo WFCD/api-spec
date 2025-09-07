@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@redocly/cli": "^1.34.5",
+    "@redocly/cli": "^2.0.8",
     "serve": "^14.2.5"
   },
   "scripts": {
     "bundle:yaml": "openapi bundle openapi/openapi.yaml -o web/openapi --ext yaml",
     "bundle:json": "openapi bundle openapi/openapi.yaml -o web/openapi --ext json",
     "bundle": "npm run bundle:yaml && npm run bundle:json",
-    "start": "openapi preview-docs main",
+    "start": "openapi preview",
     "test": "openapi lint openapi/openapi.yaml",
     "split": "openapi split openapi.yaml --outDir openapi",
     "preserve": "npm run bundle",

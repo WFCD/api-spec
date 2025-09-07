@@ -4,10 +4,6 @@ properties:
     allOf:
       - $ref: ./mission.yaml
       - description: Mission to be completed to earn the reward
-  expired:
-    type: boolean
-  eta:
-    $ref: ./eta.yaml
   rewardTypes:
     type: array
     items:

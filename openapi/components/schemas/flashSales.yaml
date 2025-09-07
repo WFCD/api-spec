@@ -4,7 +4,6 @@ allOf:
     items:
       required:
         - discount
-        - eta
         - isFeatured
         - isPopular
         - item
@@ -12,11 +11,6 @@ allOf:
       type: object
       properties:
         item:
-          minLength: 1
-          type: string
-        expired:
-          type: boolean
-        eta:
           minLength: 1
           type: string
         discount:

@@ -5,7 +5,6 @@ get:
   summary: Get the current Void Traders Information
   description: Information on the current Void Traders offerings, or when they will arrive.
   parameters:
-    - $ref: ../components/parameters/platform.yaml
     - $ref: ../components/parameters/language.yaml
     - $ref: ../components/parameters/language-query.yaml
   responses:

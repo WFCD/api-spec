@@ -23,6 +23,3 @@ properties:
     enum:
       - vome
       - fass
-  timeLeft:
-    minLength: 1
-    type: string

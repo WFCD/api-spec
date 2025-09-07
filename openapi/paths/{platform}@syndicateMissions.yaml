@@ -7,7 +7,6 @@ get:
     Cycling through different nodes each day, these are a general listing of the
     nodes that each syndicate will use for the day.
   parameters:
-    - $ref: ../components/parameters/platform.yaml
     - $ref: ../components/parameters/language.yaml
     - $ref: ../components/parameters/language-query.yaml
   responses:

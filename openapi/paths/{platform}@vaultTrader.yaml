@@ -5,7 +5,6 @@ get:
   summary: Get the current Varzia Information
   description: Information on the current Varzia offerings, or when she will arrive.
   parameters:
-    - $ref: ../components/parameters/platform.yaml
     - $ref: ../components/parameters/language.yaml
     - $ref: ../components/parameters/language-query.yaml
   responses:

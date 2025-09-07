@@ -5,7 +5,6 @@ get:
   summary: Get the current Sanctuary Status
   description: Status data for Simaris' Sanctuary
   parameters:
-    - $ref: ../components/parameters/platform.yaml
     - $ref: ../components/parameters/language.yaml
     - $ref: ../components/parameters/language-query.yaml
   responses:

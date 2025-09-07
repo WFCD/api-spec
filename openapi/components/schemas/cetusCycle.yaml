@@ -1,7 +1,6 @@
 allOf:
   - $ref: ./worldstateObject.yaml
   - required:
-      - expiry
       - isCetus
       - isDay
       - timeLeft
