@@ -23,10 +23,6 @@ properties:
     minLength: 1
     type: string
   expiry:
-    minLength: 1
-    type: string
-    format: date-time
+    $ref: ./timestamp.yaml
   activation:
-    format: date-time
-    minLength: 1
-    type: string
+    $ref: ./timestamp.yaml

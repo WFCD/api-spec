@@ -1,15 +1,12 @@
 allOf:
   - $ref: ./worldstateObject.yaml
   - required:
-      - activation
       - attackingFaction
       - completed
       - completion
       - count
       - defendingFaction
       - desc
-      - eta
-      - id
       - node
       - requiredRuns
       - vsInfestation

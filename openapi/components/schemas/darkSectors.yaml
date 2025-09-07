@@ -2,7 +2,7 @@ minItems: 1
 type: array
 items:
   required:
-    - defenderDeployemntActivation
+    - defenderDeploymentActivation
     - defenderMOTD
     - defenderName
     - deployerClan

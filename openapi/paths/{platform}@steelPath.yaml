@@ -5,7 +5,6 @@ get:
   summary: Current Steel Path Data
   description: Data about the missions for the current sortie
   parameters:
-    - $ref: ../components/parameters/platform.yaml
     - $ref: ../components/parameters/language.yaml
     - $ref: ../components/parameters/language-query.yaml
   responses:

@@ -10,13 +10,4 @@ properties:
     format: date-time
     description: ISO-8601 formatted timestamp for when the event began
   expiry:
-    type: string
-    minLength: 1
-    format: date-time
-    description: ISO-8601 formatted timestamp for when the event is expected to end
-  startString:
-    type: string
-    description: Short-time-formatted duration string representing the start of the event
-  active:
-    type: boolean
-    description: Whether the event is currently active
+    $ref: ./timestamp.yaml

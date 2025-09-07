@@ -68,6 +68,8 @@ properties:
     $ref: ./nightwave.yaml
   persistentEnemies:
     $ref: ./persistentEnemies.yaml
+  sentientOutposts:
+    $ref: ./sentientOutposts.yaml
   simaris:
     $ref: ./simaris.yaml
   sortie:

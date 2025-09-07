@@ -1,8 +1,6 @@
 allOf:
   - $ref: ./worldstateObject.yaml
   - required:
-      - expiry
-      - id
       - isDay
       - timeLeft
     type: object

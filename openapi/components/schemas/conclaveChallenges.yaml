@@ -3,13 +3,9 @@ type: array
 items:
   required:
     - amount
-    - asString
     - category
     - daily
     - description
-    - endString
-    - eta
-    - expired
     - expiry
     - id
     - mode
@@ -21,14 +17,6 @@ items:
       type: string
     amount:
       type: number
-    eta:
-      minLength: 1
-      type: string
-    expired:
-      type: boolean
-    endString:
-      minLength: 1
-      type: string
     daily:
       type: boolean
     description:
@@ -38,9 +26,6 @@ items:
       minLength: 1
       type: string
     expiry:
-      minLength: 1
-      type: string
-    asString:
       minLength: 1
       type: string
     category:

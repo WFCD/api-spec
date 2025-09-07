@@ -1,11 +1,6 @@
 type: object
 required:
-  - activation
   - enemy
-  - eta
-  - expired
-  - expiry
-  - id
   - missionType
   - node
   - tier
@@ -15,11 +10,6 @@ properties:
     minLength: 1
     type: string
     description: Node name with planet
-  expired:
-    type: boolean
-    description: Whether the fissure is still present
-  eta:
-    $ref: ./eta.yaml
   missionType:
     allOf:
       - $ref: ./missionType.yaml

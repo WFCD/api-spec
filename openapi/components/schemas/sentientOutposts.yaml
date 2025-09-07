@@ -1,0 +1,36 @@
+type: object
+# derive type from https://api.warframestat.us/pc/sentientOutposts/?language=en
+required:
+  - node
+  - id
+  - activation
+  - expiry
+  - mission
+  - active
+properties:
+  id:
+    minLength: 1
+    type: string
+  node:
+    type: number
+    format: integer
+  activation:
+    $ref: ./timestamp.yaml
+  expiry:
+    $ref: ./timestamp.yaml
+  active:
+    type: boolean
+  mission:
+    type: object
+    required:
+      - node
+      - type
+      - faction
+    properties:
+      node:
+        type: string
+        description: Localized node name
+      type:
+        $ref: ./missionType.yaml
+      faction:
+        $ref: ./faction.yaml

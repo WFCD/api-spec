@@ -17,9 +17,6 @@ items:
     upgradeOperationValue:
       description: Value corresponding to performing the operation
       type: number
-    expired:
-      description: Whether the upgrade has expired
-      type: boolean
     eta:
       description: Formatted short string designating when the upgrade will expire.
       type: string

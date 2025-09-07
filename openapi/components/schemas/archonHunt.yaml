@@ -1,13 +1,8 @@
 allOf:
   - $ref: ./worldstateObject.yaml
   - required:
-      - activation
       - boss
-      - eta
-      - expired
-      - expiry
       - faction
-      - id
       - rewardPool
       - missions
     type: object
@@ -32,8 +27,3 @@ allOf:
         allOf:
           - $ref: ./faction.yaml
           - description: Unlocalized Faction of the boss controlling the archon hunt
-      expired:
-        type: boolean
-      eta:
-        minLength: 1
-        type: string

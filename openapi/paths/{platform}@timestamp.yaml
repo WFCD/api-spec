@@ -5,7 +5,6 @@ get:
   summary: Get the timestamp that the current worldstate was generated at.
   description: The time that the worldstate was last generated
   parameters:
-    - $ref: ../components/parameters/platform.yaml
     - $ref: ../components/parameters/language.yaml
     - $ref: ../components/parameters/language-query.yaml
   responses:

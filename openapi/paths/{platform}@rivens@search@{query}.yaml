@@ -8,7 +8,6 @@ get:
     Data about averages, deviations, medians, miniums, and maxes for rivens
     whose name match the query for the provided platform
   parameters:
-    - $ref: ../components/parameters/platform.yaml
     - name: query
       in: path
       description: Riven name to search for
