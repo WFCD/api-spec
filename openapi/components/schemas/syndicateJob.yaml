@@ -14,6 +14,11 @@ properties:
     items:
       type: string
     description: Reward Pool for the job
+  rewardPoolDrops:
+    type: array
+    items:
+      $ref: ./drops.yaml
+    description: Reward Pool items as drops for jobs
   type:
     type: string
     description: What type of Job (Bounty) it is
