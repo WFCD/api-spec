@@ -2387,6 +2387,30 @@ components:
         - Steel Meridian
         - Red Veil
         - New Loka
+    drops:
+      minItems: 1
+      type: array
+      description: ''
+      items:
+        required:
+          - chance
+          - item
+          - place
+          - rarity
+        type: object
+        properties:
+          item:
+            minLength: 1
+            type: string
+          chance:
+            type: number
+            format: float
+          place:
+            minLength: 1
+            type: string
+          rarity:
+            minLength: 1
+            type: string
     syndicateJob:
       type: object
       description: A Job for a syndicate. Often called a bounty.
@@ -2404,6 +2428,11 @@ components:
           items:
             type: string
           description: Reward Pool for the job
+        rewardPoolDrops:
+          type: array
+          items:
+            $ref: '#/components/schemas/drops'
+          description: Reward Pool items as drops for jobs
         type:
           type: string
           description: What type of Job (Bounty) it is
@@ -3477,30 +3506,6 @@ components:
                 value:
                   minLength: 1
                   type: string
-    drops:
-      minItems: 1
-      type: array
-      description: ''
-      items:
-        required:
-          - chance
-          - item
-          - place
-          - rarity
-        type: object
-        properties:
-          item:
-            minLength: 1
-            type: string
-          chance:
-            type: number
-            format: float
-          place:
-            minLength: 1
-            type: string
-          rarity:
-            minLength: 1
-            type: string
     factions:
       required:
         - FC_CORPUS

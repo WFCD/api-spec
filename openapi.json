@@ -3856,6 +3856,38 @@
           "New Loka"
         ]
       },
+      "drops": {
+        "minItems": 1,
+        "type": "array",
+        "description": "",
+        "items": {
+          "required": [
+            "chance",
+            "item",
+            "place",
+            "rarity"
+          ],
+          "type": "object",
+          "properties": {
+            "item": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "chance": {
+              "type": "number",
+              "format": "float"
+            },
+            "place": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "rarity": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        }
+      },
       "syndicateJob": {
         "type": "object",
         "description": "A Job for a syndicate. Often called a bounty.",
@@ -3876,6 +3908,13 @@
               "type": "string"
             },
             "description": "Reward Pool for the job"
+          },
+          "rewardPoolDrops": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/drops"
+            },
+            "description": "Reward Pool items as drops for jobs"
           },
           "type": {
             "type": "string",
@@ -5450,38 +5489,6 @@
                   }
                 }
               }
-            }
-          }
-        }
-      },
-      "drops": {
-        "minItems": 1,
-        "type": "array",
-        "description": "",
-        "items": {
-          "required": [
-            "chance",
-            "item",
-            "place",
-            "rarity"
-          ],
-          "type": "object",
-          "properties": {
-            "item": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "chance": {
-              "type": "number",
-              "format": "float"
-            },
-            "place": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "rarity": {
-              "minLength": 1,
-              "type": "string"
             }
           }
         }
