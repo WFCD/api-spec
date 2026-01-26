@@ -3011,10 +3011,7 @@
             "description": "unique identifier for this object/event/thing"
           },
           "activation": {
-            "type": "string",
-            "minLength": 1,
-            "format": "date-time",
-            "description": "ISO-8601 formatted timestamp for when the event began"
+            "$ref": "#/components/schemas/timestamp"
           },
           "expiry": {
             "$ref": "#/components/schemas/timestamp"
@@ -3144,6 +3141,7 @@
           "Skirmish",
           "Spy",
           "Survival",
+          "Void Flood",
           "Volatile"
         ]
       },
@@ -3326,38 +3324,41 @@
         ]
       },
       "alert": {
-        "type": "object",
-        "properties": {
-          "mission": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/mission"
-              },
-              {
-                "description": "Mission to be completed to earn the reward"
-              }
-            ]
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/worldstateObject"
           },
-          "rewardTypes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/rewardType"
-            }
+          {
+            "type": "object",
+            "properties": {
+              "mission": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/mission"
+                  },
+                  {
+                    "description": "Mission to be completed to earn the reward"
+                  }
+                ]
+              },
+              "rewardTypes": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/rewardType"
+                }
+              }
+            },
+            "required": [
+              "mission",
+              "rewardTypes"
+            ]
           }
-        },
-        "required": [
-          "mission",
-          "expired",
-          "rewardTypes"
         ]
       },
       "alerts": {
         "type": "array",
         "items": {
           "allOf": [
-            {
-              "$ref": "#/components/schemas/worldstateObject"
-            },
             {
               "$ref": "#/components/schemas/alert"
             }
@@ -3501,14 +3502,6 @@
               "vome",
               "fass"
             ]
-          },
-          "active": {
-            "deprecated": true,
-            "type": "string",
-            "enum": [
-              "vome",
-              "fass"
-            ]
           }
         }
       },
@@ -3538,10 +3531,6 @@
               },
               "isCetus": {
                 "type": "boolean"
-              },
-              "shortString": {
-                "type": "string",
-                "description": "A short description of the remaining time until the next day/night change."
               }
             }
           }
@@ -3626,56 +3615,48 @@
         "minItems": 1,
         "type": "array",
         "items": {
-          "required": [
-            "discount",
-            "eta",
-            "expiry",
-            "id",
-            "item",
-            "uniqueName",
-            "originalPrice",
-            "salePrice",
-            "sold",
-            "total"
-          ],
-          "type": "object",
-          "properties": {
-            "sold": {
-              "type": "number"
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/worldstateObject"
             },
-            "item": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "uniqueName": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "total": {
-              "type": "number"
-            },
-            "eta": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "originalPrice": {
-              "type": "number"
-            },
-            "salePrice": {
-              "type": "number"
-            },
-            "discount": {
-              "type": "number"
-            },
-            "expiry": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "id": {
-              "minLength": 1,
-              "type": "string"
+            {
+              "required": [
+                "discount",
+                "item",
+                "uniqueName",
+                "originalPrice",
+                "salePrice",
+                "sold",
+                "total"
+              ],
+              "type": "object",
+              "properties": {
+                "sold": {
+                  "type": "number"
+                },
+                "item": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "uniqueName": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "total": {
+                  "type": "number"
+                },
+                "originalPrice": {
+                  "type": "number"
+                },
+                "salePrice": {
+                  "type": "number"
+                },
+                "discount": {
+                  "type": "number"
+                }
+              }
             }
-          }
+          ]
         }
       },
       "darkSectorHistory": {
@@ -3824,8 +3805,7 @@
           },
           {
             "required": [
-              "isDay",
-              "timeLeft"
+              "isDay"
             ],
             "type": "object",
             "properties": {
@@ -4331,10 +4311,6 @@
               "description": "Value corresponding to performing the operation",
               "type": "number"
             },
-            "eta": {
-              "description": "Formatted short string designating when the upgrade will expire.",
-              "type": "string"
-            },
             "desc": {
               "description": "Plain text description of the global upgrade.",
               "type": "string"
@@ -4425,7 +4401,7 @@
                 "description": "percentage complete as a float value",
                 "minimum": 0,
                 "maximum": 100,
-                "example": [
+                "examples": [
                   100,
                   50,
                   36.36
@@ -4468,11 +4444,6 @@
                 "type": "string",
                 "description": "description of invasion"
               },
-              "eta": {
-                "minLength": 1,
-                "type": "string",
-                "description": "time string showing approximate time to the end of the invasion"
-              },
               "node": {
                 "minLength": 1,
                 "type": "string",
@@ -4493,9 +4464,6 @@
                   "$ref": "#/components/schemas/rewardType"
                 }
               },
-              "startString": {
-                "type": "string"
-              },
               "vsInfestation": {
                 "type": "boolean"
               }
@@ -4515,9 +4483,7 @@
         "type": "array",
         "items": {
           "required": [
-            "asString",
             "date",
-            "eta",
             "id",
             "imageLink",
             "link",
@@ -4534,10 +4500,6 @@
               "type": "string"
             },
             "imageLink": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "eta": {
               "minLength": 1,
               "type": "string"
             },
@@ -4567,10 +4529,6 @@
               "type": "boolean"
             },
             "id": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "asString": {
               "minLength": 1,
               "type": "string"
             },
@@ -4919,45 +4877,34 @@
         ]
       },
       "syndicateMission": {
-        "required": [
-          "activation",
-          "eta",
-          "expiry",
-          "id",
-          "syndicate"
-        ],
-        "type": "object",
-        "properties": {
-          "nodes": {
-            "type": "array",
-            "items": {
-              "type": "string"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/worldstateObject"
+          },
+          {
+            "required": [
+              "syndicate"
+            ],
+            "type": "object",
+            "properties": {
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "jobs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/syndicateJob"
+                }
+              },
+              "syndicate": {
+                "$ref": "#/components/schemas/syndicate"
+              }
             }
-          },
-          "eta": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "jobs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/syndicateJob"
-            }
-          },
-          "syndicate": {
-            "$ref": "#/components/schemas/syndicate"
-          },
-          "id": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "expiry": {
-            "$ref": "#/components/schemas/timestamp"
-          },
-          "activation": {
-            "$ref": "#/components/schemas/timestamp"
           }
-        }
+        ]
       },
       "syndicateMissions": {
         "minItems": 1,
@@ -4970,8 +4917,7 @@
         "required": [
           "expiry",
           "id",
-          "isWarm",
-          "timeLeft"
+          "isWarm"
         ],
         "type": "object",
         "properties": {
@@ -4980,10 +4926,6 @@
             "type": "string"
           },
           "expiry": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "timeLeft": {
             "minLength": 1,
             "type": "string"
           },
@@ -4999,13 +4941,10 @@
           },
           {
             "required": [
-              "active",
               "character",
-              "endString",
               "inventory",
               "location",
-              "psId",
-              "startString"
+              "psId"
             ],
             "type": "object",
             "properties": {
@@ -5038,17 +4977,6 @@
                 }
               },
               "psId": {
-                "minLength": 1,
-                "type": "string"
-              },
-              "active": {
-                "type": "boolean"
-              },
-              "startString": {
-                "minLength": 1,
-                "type": "string"
-              },
-              "endString": {
                 "minLength": 1,
                 "type": "string"
               }
@@ -5175,13 +5103,13 @@
         "description": "Full World State Object"
       },
       "rivenStatistic": {
-        "description": "A colleciton of rivens about a specific weapon's riven sales",
+        "description": "A collection of Rivens about a specific weapon's riven sales",
         "type": "object",
         "properties": {
           "itemType": {
             "type": "string"
           },
-          "compatability": {
+          "compatibility": {
             "type": "string"
           },
           "rerolled": {
@@ -5240,6 +5168,9 @@
                 },
                 "unrolled": {
                   "$ref": "#/components/schemas/rivenStatistic"
+                },
+                "rerolled": {
+                  "$ref": "#/components/schemas/rivenStatistic"
                 }
               }
             },
@@ -5266,23 +5197,6 @@
         "description": "The type of riven that the child rivens belong to",
         "additionalProperties": {
           "$ref": "#/components/schemas/riven"
-        },
-        "example": {
-          "Archgun Riven Mod": {
-            "Corvas": {
-              "rerolled": {
-                "itemType": "Archgun Riven Mod",
-                "compatibility": "Corvas",
-                "rerolled": true,
-                "avg": 291.94,
-                "stddev": 346.96,
-                "min": 25,
-                "max": 1500,
-                "pop": 0.0536,
-                "median": 150
-              }
-            }
-          }
         }
       },
       "arcane": {
@@ -6267,6 +6181,7 @@
           "MT_ASSASSINATION",
           "MT_ASSAULT",
           "MT_CAPTURE",
+          "MT_CORRUPTION",
           "MT_DEFENSE",
           "MT_EVACUATION",
           "MT_EXCAVATE",
@@ -6465,6 +6380,18 @@
             }
           },
           "MT_RETRIEVAL": {
+            "required": [
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "value": {
+                "minLength": 1,
+                "type": "string"
+              }
+            }
+          },
+          "MT_CORRUPTION": {
             "required": [
               "value"
             ],

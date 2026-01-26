@@ -1794,10 +1794,7 @@ components:
           minLength: 1
           description: unique identifier for this object/event/thing
         activation:
-          type: string
-          minLength: 1
-          format: date-time
-          description: ISO-8601 formatted timestamp for when the event began
+          $ref: '#/components/schemas/timestamp'
         expiry:
           $ref: '#/components/schemas/timestamp'
     reward:
@@ -1905,6 +1902,7 @@ components:
         - Skirmish
         - Spy
         - Survival
+        - Void Flood
         - Volatile
     mission:
       type: object
@@ -2036,25 +2034,25 @@ components:
         - other
         - credits
     alert:
-      type: object
-      properties:
-        mission:
-          allOf:
-            - $ref: '#/components/schemas/mission'
-            - description: Mission to be completed to earn the reward
-        rewardTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/rewardType'
-      required:
-        - mission
-        - expired
-        - rewardTypes
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - type: object
+          properties:
+            mission:
+              allOf:
+                - $ref: '#/components/schemas/mission'
+                - description: Mission to be completed to earn the reward
+            rewardTypes:
+              type: array
+              items:
+                $ref: '#/components/schemas/rewardType'
+          required:
+            - mission
+            - rewardTypes
     alerts:
       type: array
       items:
         allOf:
-          - $ref: '#/components/schemas/worldstateObject'
           - $ref: '#/components/schemas/alert'
     arbitration:
       allOf:
@@ -2135,12 +2133,6 @@ components:
           enum:
             - vome
             - fass
-        active:
-          deprecated: true
-          type: string
-          enum:
-            - vome
-            - fass
     cetusCycle:
       allOf:
         - $ref: '#/components/schemas/worldstateObject'
@@ -2160,9 +2152,6 @@ components:
               type: string
             isCetus:
               type: boolean
-            shortString:
-              type: string
-              description: A short description of the remaining time until the next day/night change.
     conclaveChallenges:
       minItems: 1
       type: array
@@ -2223,44 +2212,34 @@ components:
       minItems: 1
       type: array
       items:
-        required:
-          - discount
-          - eta
-          - expiry
-          - id
-          - item
-          - uniqueName
-          - originalPrice
-          - salePrice
-          - sold
-          - total
-        type: object
-        properties:
-          sold:
-            type: number
-          item:
-            minLength: 1
-            type: string
-          uniqueName:
-            minLength: 1
-            type: string
-          total:
-            type: number
-          eta:
-            minLength: 1
-            type: string
-          originalPrice:
-            type: number
-          salePrice:
-            type: number
-          discount:
-            type: number
-          expiry:
-            minLength: 1
-            type: string
-          id:
-            minLength: 1
-            type: string
+        allOf:
+          - $ref: '#/components/schemas/worldstateObject'
+          - required:
+              - discount
+              - item
+              - uniqueName
+              - originalPrice
+              - salePrice
+              - sold
+              - total
+            type: object
+            properties:
+              sold:
+                type: number
+              item:
+                minLength: 1
+                type: string
+              uniqueName:
+                minLength: 1
+                type: string
+              total:
+                type: number
+              originalPrice:
+                type: number
+              salePrice:
+                type: number
+              discount:
+                type: number
     darkSectorHistory:
       type: object
       description: Describes a Dark Sector Historical Battle.
@@ -2365,7 +2344,6 @@ components:
         - $ref: '#/components/schemas/worldstateObject'
         - required:
             - isDay
-            - timeLeft
           type: object
           properties:
             isDay:
@@ -2710,9 +2688,6 @@ components:
           upgradeOperationValue:
             description: Value corresponding to performing the operation
             type: number
-          eta:
-            description: Formatted short string designating when the upgrade will expire.
-            type: string
           desc:
             description: Plain text description of the global upgrade.
             type: string
@@ -2766,7 +2741,7 @@ components:
               description: percentage complete as a float value
               minimum: 0
               maximum: 100
-              example:
+              examples:
                 - 100
                 - 50
                 - 36.36
@@ -2792,10 +2767,6 @@ components:
               minLength: 1
               type: string
               description: description of invasion
-            eta:
-              minLength: 1
-              type: string
-              description: time string showing approximate time to the end of the invasion
             node:
               minLength: 1
               type: string
@@ -2811,8 +2782,6 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/rewardType'
-            startString:
-              type: string
             vsInfestation:
               type: boolean
     invasions:
@@ -2825,9 +2794,7 @@ components:
       type: array
       items:
         required:
-          - asString
           - date
-          - eta
           - id
           - imageLink
           - link
@@ -2842,9 +2809,6 @@ components:
             minLength: 1
             type: string
           imageLink:
-            minLength: 1
-            type: string
-          eta:
             minLength: 1
             type: string
           primeAccess:
@@ -2865,9 +2829,6 @@ components:
           update:
             type: boolean
           id:
-            minLength: 1
-            type: string
-          asString:
             minLength: 1
             type: string
           message:
@@ -3097,34 +3058,22 @@ components:
             incursions:
               $ref: '#/components/schemas/worldstateObject'
     syndicateMission:
-      required:
-        - activation
-        - eta
-        - expiry
-        - id
-        - syndicate
-      type: object
-      properties:
-        nodes:
-          type: array
-          items:
-            type: string
-        eta:
-          minLength: 1
-          type: string
-        jobs:
-          type: array
-          items:
-            $ref: '#/components/schemas/syndicateJob'
-        syndicate:
-          $ref: '#/components/schemas/syndicate'
-        id:
-          minLength: 1
-          type: string
-        expiry:
-          $ref: '#/components/schemas/timestamp'
-        activation:
-          $ref: '#/components/schemas/timestamp'
+      allOf:
+        - $ref: '#/components/schemas/worldstateObject'
+        - required:
+            - syndicate
+          type: object
+          properties:
+            nodes:
+              type: array
+              items:
+                type: string
+            jobs:
+              type: array
+              items:
+                $ref: '#/components/schemas/syndicateJob'
+            syndicate:
+              $ref: '#/components/schemas/syndicate'
     syndicateMissions:
       minItems: 1
       type: array
@@ -3135,7 +3084,6 @@ components:
         - expiry
         - id
         - isWarm
-        - timeLeft
       type: object
       properties:
         id:
@@ -3144,22 +3092,16 @@ components:
         expiry:
           minLength: 1
           type: string
-        timeLeft:
-          minLength: 1
-          type: string
         isWarm:
           type: boolean
     voidTrader:
       allOf:
         - $ref: '#/components/schemas/worldstateObject'
         - required:
-            - active
             - character
-            - endString
             - inventory
             - location
             - psId
-            - startString
           type: object
           properties:
             character:
@@ -3183,14 +3125,6 @@ components:
                     type: number
                     description: Amount of credits required to purchase item
             psId:
-              minLength: 1
-              type: string
-            active:
-              type: boolean
-            startString:
-              minLength: 1
-              type: string
-            endString:
               minLength: 1
               type: string
     ws:
@@ -3280,12 +3214,12 @@ components:
           $ref: '#/components/schemas/voidTrader'
       description: Full World State Object
     rivenStatistic:
-      description: A colleciton of rivens about a specific weapon's riven sales
+      description: A collection of Rivens about a specific weapon's riven sales
       type: object
       properties:
         itemType:
           type: string
-        compatability:
+        compatibility:
           type: string
         rerolled:
           type: boolean
@@ -3331,6 +3265,8 @@ components:
                 $ref: '#/components/schemas/rivenStatistic'
               unrolled:
                 $ref: '#/components/schemas/rivenStatistic'
+              rerolled:
+                $ref: '#/components/schemas/rivenStatistic'
           example:
             Corvas:
               rerolled:
@@ -3348,19 +3284,6 @@ components:
       description: The type of riven that the child rivens belong to
       additionalProperties:
         $ref: '#/components/schemas/riven'
-      example:
-        Archgun Riven Mod:
-          Corvas:
-            rerolled:
-              itemType: Archgun Riven Mod
-              compatibility: Corvas
-              rerolled: true
-              avg: 291.94
-              stddev: 346.96
-              min: 25
-              max: 1500
-              pop: 0.0536
-              median: 150
     arcane:
       required:
         - effect
@@ -4022,6 +3945,7 @@ components:
         - MT_ASSASSINATION
         - MT_ASSAULT
         - MT_CAPTURE
+        - MT_CORRUPTION
         - MT_DEFENSE
         - MT_EVACUATION
         - MT_EXCAVATE
@@ -4159,6 +4083,14 @@ components:
               minLength: 1
               type: string
         MT_RETRIEVAL:
+          required:
+            - value
+          type: object
+          properties:
+            value:
+              minLength: 1
+              type: string
+        MT_CORRUPTION:
           required:
             - value
           type: object
