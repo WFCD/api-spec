@@ -3,6 +3,7 @@ required:
   - MT_ASSASSINATION
   - MT_ASSAULT
   - MT_CAPTURE
+  - MT_CORRUPTION
   - MT_DEFENSE
   - MT_EVACUATION
   - MT_EXCAVATE
@@ -140,6 +141,14 @@ properties:
         minLength: 1
         type: string
   MT_RETRIEVAL:
+    required:
+      - value
+    type: object
+    properties:
+      value:
+        minLength: 1
+        type: string
+  MT_CORRUPTION:
     required:
       - value
     type: object

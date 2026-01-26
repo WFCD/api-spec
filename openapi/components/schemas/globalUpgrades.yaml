@@ -17,9 +17,6 @@ items:
     upgradeOperationValue:
       description: Value corresponding to performing the operation
       type: number
-    eta:
-      description: Formatted short string designating when the upgrade will expire.
-      type: string
     desc:
       description: Plain text description of the global upgrade.
       type: string

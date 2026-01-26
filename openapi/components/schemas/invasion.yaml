@@ -34,7 +34,7 @@ allOf:
         description: percentage complete as a float value
         minimum: 0
         maximum: 100
-        example:
+        examples:
           - 100
           - 50
           - 36.36
@@ -60,10 +60,6 @@ allOf:
         minLength: 1
         type: string
         description: description of invasion
-      eta:
-        minLength: 1
-        type: string
-        description: time string showing approximate time to the end of the invasion
       node:
         minLength: 1
         type: string
@@ -79,7 +75,5 @@ allOf:
         type: array
         items:
           $ref: ./rewardType.yaml
-      startString:
-        type: string
       vsInfestation:
         type: boolean

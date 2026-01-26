@@ -1,13 +1,10 @@
 allOf:
   - $ref: ./worldstateObject.yaml
   - required:
-      - active
       - character
-      - endString
       - inventory
       - location
       - psId
-      - startString
     type: object
     properties:
       character:
@@ -31,13 +28,5 @@ allOf:
               type: number
               description: Amount of credits required to purchase item
       psId:
-        minLength: 1
-        type: string
-      active:
-        type: boolean
-      startString:
-        minLength: 1
-        type: string
-      endString:
         minLength: 1
         type: string

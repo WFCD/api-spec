@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@redocly/cli": "^2.14.5",
+    "@redocly/cli": "^2.14.9",
     "serve": "^14.2.5"
   },
   "scripts": {
@@ -17,5 +17,9 @@
     "serve": "serve -s web/.",
     "prelint:built": "npm run bundle",
     "lint:built": "openapi lint web/openapi.yaml && openapi lint web/openapi.json"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7"
   }
 }

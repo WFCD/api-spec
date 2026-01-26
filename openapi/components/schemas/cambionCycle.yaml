@@ -17,9 +17,3 @@ properties:
     enum:
       - vome
       - fass
-  active:
-    deprecated: true
-    type: string
-    enum:
-      - vome
-      - fass

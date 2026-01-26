@@ -1,28 +1,16 @@
-required:
-  - activation
-  - eta
-  - expiry
-  - id
-  - syndicate
-type: object
-properties:
-  nodes:
-    type: array
-    items:
-      type: string
-  eta:
-    minLength: 1
-    type: string
-  jobs:
-    type: array
-    items:
-      $ref: ./syndicateJob.yaml
-  syndicate:
-    $ref: ./syndicate.yaml
-  id:
-    minLength: 1
-    type: string
-  expiry:
-    $ref: ./timestamp.yaml
-  activation:
-    $ref: ./timestamp.yaml
+allOf:
+  - $ref: ./worldstateObject.yaml
+  - required:
+      - syndicate
+    type: object
+    properties:
+      nodes:
+        type: array
+        items:
+          type: string
+      jobs:
+        type: array
+        items:
+          $ref: ./syndicateJob.yaml
+      syndicate:
+        $ref: ./syndicate.yaml
