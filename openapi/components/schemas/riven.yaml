@@ -10,6 +10,8 @@ properties:
           $ref: ./rivenStatistic.yaml
         unrolled:
           $ref: ./rivenStatistic.yaml
+        rerolled:
+          $ref: ./rivenStatistic.yaml
     example:
       Corvas:
         rerolled:

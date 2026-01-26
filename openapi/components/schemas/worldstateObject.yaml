@@ -5,9 +5,6 @@ properties:
     minLength: 1
     description: unique identifier for this object/event/thing
   activation:
-    type: string
-    minLength: 1
-    format: date-time
-    description: ISO-8601 formatted timestamp for when the event began
+    $ref: ./timestamp.yaml
   expiry:
     $ref: ./timestamp.yaml

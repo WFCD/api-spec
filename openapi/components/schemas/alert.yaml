@@ -1,14 +1,15 @@
-type: object
-properties:
-  mission:
-    allOf:
-      - $ref: ./mission.yaml
-      - description: Mission to be completed to earn the reward
-  rewardTypes:
-    type: array
-    items:
-      $ref: ./rewardType.yaml
-required:
-  - mission
-  - expired
-  - rewardTypes
+allOf:
+  - $ref: ./worldstateObject.yaml
+  - type: object
+    properties:
+      mission:
+        allOf:
+          - $ref: ./mission.yaml
+          - description: Mission to be completed to earn the reward
+      rewardTypes:
+        type: array
+        items:
+          $ref: ./rewardType.yaml
+    required:
+      - mission
+      - rewardTypes

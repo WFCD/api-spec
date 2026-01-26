@@ -1,41 +1,32 @@
 minItems: 1
 type: array
 items:
-  required:
-    - discount
-    - eta
-    - expiry
-    - id
-    - item
-    - uniqueName
-    - originalPrice
-    - salePrice
-    - sold
-    - total
-  type: object
-  properties:
-    sold:
-      type: number
-    item:
-      minLength: 1
-      type: string
-    uniqueName:
-      minLength: 1
-      type: string
-    total:
-      type: number
-    eta:
-      minLength: 1
-      type: string
-    originalPrice:
-      type: number
-    salePrice:
-      type: number
-    discount:
-      type: number
-    expiry:
-      minLength: 1
-      type: string
-    id:
-      minLength: 1
-      type: string
+  allOf:
+    - $ref: './worldstateObject.yaml'
+    - required:
+        - discount
+        - item
+        - uniqueName
+        - originalPrice
+        - salePrice
+        - sold
+        - total
+      type: object
+      properties:
+        sold:
+          type: number
+        item:
+          minLength: 1
+          type: string
+        uniqueName:
+          minLength: 1
+          type: string
+        total:
+          type: number
+        originalPrice:
+          type: number
+        salePrice:
+          type: number
+        discount:
+          type: number
+

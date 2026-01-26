@@ -2,9 +2,7 @@ minItems: 1
 type: array
 items:
   required:
-    - asString
     - date
-    - eta
     - id
     - imageLink
     - link
@@ -19,9 +17,6 @@ items:
       minLength: 1
       type: string
     imageLink:
-      minLength: 1
-      type: string
-    eta:
       minLength: 1
       type: string
     primeAccess:
@@ -42,9 +37,6 @@ items:
     update:
       type: boolean
     id:
-      minLength: 1
-      type: string
-    asString:
       minLength: 1
       type: string
     message:

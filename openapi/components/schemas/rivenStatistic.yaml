@@ -1,9 +1,9 @@
-description: A colleciton of rivens about a specific weapon's riven sales
+description: A collection of Rivens about a specific weapon's riven sales
 type: object
 properties:
   itemType:
     type: string
-  compatability:
+  compatibility:
     type: string
   rerolled:
     type: boolean
