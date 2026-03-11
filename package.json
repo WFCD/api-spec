@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@redocly/cli": "^2.20.3",
+    "@redocly/cli": "^2.20.4",
     "serve": "^14.2.6"
   },
   "scripts": {
