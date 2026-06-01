@@ -12,7 +12,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: 2.0.8
   x-logo:
-    url: https://warframestat.us/wfcd_logo_color.png
+    url: https://docs.warframestat.us/wfcd_logo_color.png
 servers:
   - url: https://api.warframestat.us
     description: Production Server
