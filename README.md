@@ -1,6 +1,10 @@
 # WarframeStat.us OpenAPI Specification
 [![GitHub pages](https://github.com/WFCD/api-spec/actions/workflows/docs.yaml/badge.svg)](https://github.com/WFCD/api-spec/actions/workflows/docs.yaml)
 
+> [!WARNING]
+>
+> EOL notice: the API docs generation has moved to the API repo: https://github.com/wfcd/warframe-status
+
 ## Links
 
 - [Reference Documentation (ReDoc)](https://docs.warframestat.us)
